@@ -1,0 +1,19 @@
+export var SessionStorageKeys;
+(function (SessionStorageKeys) {
+    SessionStorageKeys["MASTER_KEY"] = "MASTER_KEY";
+    SessionStorageKeys["ORG_KEY"] = "ORG_KEY";
+    SessionStorageKeys["SESSION_AES_KEY"] = "SESSION_AES_KEY";
+    SessionStorageKeys["LAST_ACTIVE"] = "LAST_ACTIVE";
+    SessionStorageKeys["IN_PROGRESS_RESETS"] = "IN_PROGRESS_RESETS";
+    SessionStorageKeys["LAST_BASIC_AUTH_EVENT"] = "LAST_BASIC_AUTH_EVENT";
+    SessionStorageKeys["TAB_CREATOR_PREFIX"] = "TAB_CREATOR_";
+    SessionStorageKeys["ACCOUNT_CHECK_VALID_UPTO"] = "ACCOUNT_CHECK_VALID_UPTO";
+    SessionStorageKeys["SIDE_PANEL_OPENED_FROM"] = "SIDE_PANEL_OPENED_FROM";
+    SessionStorageKeys["ZMAPS_INITIALIZED"] = "ZMAPS_INITIALIZED";
+    SessionStorageKeys["POST_UNLOCK_TASK"] = "POST_UNLOCK_TASK";
+    SessionStorageKeys["OAUTH_IN_PROGRESS"] = "OAUTH_IN_PROGRESS";
+    SessionStorageKeys["OAUTH_CHALLENGE"] = "OAUTH_CHALLENGE";
+    SessionStorageKeys["ONEAUTH_UNLOCK_STARTED"] = "ONEAUTH_UNLOCK_STARTED";
+    SessionStorageKeys["POPUP_UNLOCK_ERROR"] = "POPUP_UNLOCK_ERROR";
+    SessionStorageKeys["EXT_CRYPTO_AES_KEY"] = "EXT_CRYPTO_AES_KEY";
+})(SessionStorageKeys || (SessionStorageKeys = {}));

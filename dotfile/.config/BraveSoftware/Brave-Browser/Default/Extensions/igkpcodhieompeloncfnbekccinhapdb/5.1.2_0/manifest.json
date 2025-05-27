@@ -1,0 +1,85 @@
+{
+   "action": {
+      "default_icon": {
+         "1024": "/images/logo/locked/vault-1024.png",
+         "128": "/images/logo/locked/vault-128.png",
+         "16": "/images/logo/locked/vault-16.png",
+         "256": "/images/logo/locked/vault-256.png",
+         "32": "/images/logo/locked/vault-32.png",
+         "48": "/images/logo/locked/vault-48.png",
+         "512": "/images/logo/locked/vault-512.png",
+         "64": "/images/logo/locked/vault-64.png"
+      },
+      "default_popup": "/html/popup.html",
+      "default_title": "Zoho Vault"
+   },
+   "author": "Zoho Vault",
+   "background": {
+      "service_worker": "worker.js",
+      "type": "module"
+   },
+   "commands": {
+      "_execute_action": {
+         "suggested_key": {
+            "default": "Ctrl+Shift+E"
+         }
+      }
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "exclude_matches": [ "https://vault.zoho.com/*", "https://vault.zoho.eu/*", "https://vault.zoho.in/*", "https://vault.zoho.com.au/*", "https://vault.zoho.com.cn/*", "https://vault.zoho.jp/*", "https://vault.zohocloud.ca/*", "https://vault.zoho.sa/*" ],
+      "js": [ "/lib/jquery-3.3.1.min.js", "/js/content_scripts/cs_main.out.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_idle"
+   }, {
+      "all_frames": true,
+      "js": [ "/js/content_scripts/vault_web.out.js" ],
+      "matches": [ "https://vault.zoho.com/app", "https://vault.zoho.eu/app", "https://vault.zoho.in/app", "https://vault.zoho.com.au/app", "https://vault.zoho.com.cn/app", "https://vault.zoho.jp/app", "https://vault.zohocloud.ca/app", "https://vault.zoho.sa/app", "https://vault.zoho.com/app?*", "https://vault.zoho.eu/app?*", "https://vault.zoho.in/app?*", "https://vault.zoho.com.au/app?*", "https://vault.zoho.com.cn/app?*", "https://vault.zoho.jp/app?*", "https://vault.zohocloud.ca/app?*", "https://vault.zoho.sa/app?*" ],
+      "run_at": "document_start"
+   }, {
+      "all_frames": false,
+      "js": [ "/js/content_scripts/unlock.out.js" ],
+      "matches": [ "https://vault.zoho.com/extension/unlock", "https://vault.zoho.eu/extension/unlock", "https://vault.zoho.in/extension/unlock", "https://vault.zoho.com.au/extension/unlock", "https://vault.zoho.com.cn/extension/unlock", "https://vault.zoho.jp/extension/unlock", "https://vault.zohocloud.ca/extension/unlock", "https://vault.zoho.sa/extension/unlock" ],
+      "run_at": "document_idle"
+   } ],
+   "content_security_policy": {
+      "extension_pages": "default-src 'self'; style-src 'self' 'unsafe-inline'; img-src * data: blob:; connect-src https://accounts.zoho.com https://contacts.zoho.com https://vault.zoho.com https://maps.zoho.com https://accounts.zoho.eu https://contacts.zoho.eu https://vault.zoho.eu https://maps.zoho.eu https://accounts.zoho.in https://contacts.zoho.in https://vault.zoho.in https://maps.zoho.in https://accounts.zoho.com.au https://contacts.zoho.com.au https://vault.zoho.com.au https://maps.zoho.com.au https://accounts.zoho.com.cn https://contacts.zoho.com.cn https://vault.zoho.com.cn https://maps.zoho.com.cn https://accounts.zoho.jp https://contacts.zoho.jp https://vault.zoho.jp https://maps.zoho.jp https://accounts.zohocloud.ca https://contacts.zohocloud.ca https://vault.zohocloud.ca https://maps.zohocloud.ca https://accounts.zoho.sa https://contacts.zoho.sa https://vault.zoho.sa https://maps.zoho.sa https://accounts.zoho.ae https://contacts.zoho.ae https://vault.zoho.ae https://maps.zoho.ae https://static.zohocdn.com",
+      "sandbox": "sandbox allow-scripts; script-src 'self'; "
+   },
+   "default_locale": "en",
+   "description": "__MSG_extDescription__",
+   "devtools_page": "/html/tab/devtools.html",
+   "homepage_url": "https://vault.zoho.com/app",
+   "host_permissions": [ "http://*/*", "https://*/*" ],
+   "icons": {
+      "1024": "/images/logo/vault-1024.png",
+      "128": "/images/logo/vault-128.png",
+      "16": "/images/logo/vault-16.png",
+      "256": "/images/logo/vault-256.png",
+      "32": "/images/logo/vault-32.png",
+      "48": "/images/logo/vault-48.png",
+      "512": "/images/logo/vault-512.png",
+      "64": "/images/logo/vault-64.png"
+   },
+   "incognito": "spanning",
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAgA3MfIYc7SS4DyF93hcaEuc9YFOGUonLn4YRlLNd0UZHt18fSQwNuUj7aVLv5P7Y14IWwoLZOArfnAfpg0T5+xOzUzN6vmf6yZSGfcJU86UKDPrLqaZqLWjKAF+lTm66txmVgNZn9UawuQeeGfM+WA16mwLPXK+YxCzYPsFMYtaceaQQoB9BoM0CeI7wqGB8y2MPb/Qfg5Qfp/BHENp15DZVxCHJV5S228MdD2umTVKNFHlo/rjm0ras8Q1r8r0AuxFKlTWin7zP5Hj4KrEWOkL6FRgstHHFhN+DFY76z5kmwEREn0bQTtd8HPYp+I7+JRTs3N8xQwIhk59XPlWCKwIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_extName__",
+   "omnibox": {
+      "keyword": "zv"
+   },
+   "optional_permissions": [  ],
+   "permissions": [ "alarms", "clipboardWrite", "contextMenus", "cookies", "notifications", "privacy", "storage", "tabs", "unlimitedStorage", "idle", "webRequest", "webRequestAuthProvider", "offscreen", "sidePanel", "webNavigation" ],
+   "side_panel": {
+      "default_path": "/html/sidePanel.html"
+   },
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "5.1.2",
+   "web_accessible_resources": [ {
+      "matches": [ "https://vault.zoho.com/*", "https://*.csez.zohocorpin.com/*", "https://vault.localzoho.com/*" ],
+      "resources": [ "/html/ZVaultGetPP.html" ]
+   }, {
+      "matches": [ "http://*/*", "https://*/*" ],
+      "resources": [ "/images/web_access/*", "/html/tab/*" ]
+   } ]
+}

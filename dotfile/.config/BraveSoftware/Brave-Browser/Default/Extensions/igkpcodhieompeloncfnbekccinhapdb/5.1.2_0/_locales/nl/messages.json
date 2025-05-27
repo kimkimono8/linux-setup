@@ -1,0 +1,1319 @@
+{
+   "access_checkout_description": {
+      "message": "Uw aanvraag voor toegang is goedgekeurd. Check het wachtwoord uit om hiertoe toegang te krijgen."
+   },
+   "access_control": {
+      "message": "Toegangsbeheer"
+   },
+   "access_control_admin_tooltip": {
+      "message": "Selecteer een of meer beheerders die aanvragen voor toegang kunnen goedkeuren"
+   },
+   "access_control_altlest_two_grant_access": {
+      "message": "Er moeten minstens twee goedkeurders toegang verlenen"
+   },
+   "access_control_auto_approve_with_help_desk": {
+      "message": "Met validatie van helpdesk-ticket"
+   },
+   "access_control_description": {
+      "message": "Gebruikers hebben toegang tot dit wachtwoord na geldige goedkeuringen van geselecteerde goedkeurders"
+   },
+   "access_control_disabled_success": {
+      "message": "Toegangsbeheer is uitgeschakeld"
+   },
+   "access_control_enabled": {
+      "message": "Toegangsbeheer ingeschakeld"
+   },
+   "access_control_exclude_users_tooltip": {
+      "message": "Geselecteerde gebruikers worden van toegangsbeheer uitgesloten"
+   },
+   "access_control_invalid_time": {
+      "message": "Ongeldige tijd opgegeven voor automatische goedkeuring"
+   },
+   "access_control_provide_access_for": {
+      "message": "Toegang verlenen voor"
+   },
+   "access_control_saved_success": {
+      "message": "Configuratie van toegangsbeheer is opgeslagen"
+   },
+   "access_control_select_another_approver": {
+      "message": "Selecteer een andere goedkeurder en probeer het opnieuw"
+   },
+   "access_control_unapproved_request_void_after": {
+      "message": "Niet-goedgekeurd aanvragen zijn ongeldig na"
+   },
+   "access_privilege": {
+      "message": "Toegangsbevoegdheid"
+   },
+   "access_request_created_success": {
+      "message": "Aanvraag voor toegang is gemaakt"
+   },
+   "access_request_pending_description": {
+      "message": "Uw aanvraag voor toegang is in afwachting van goedkeuring. Zodra dit is goedgekeurd of afgewezen, wordt u via e-mail op de hoogte gesteld."
+   },
+   "access_required_on": {
+      "message": "Toegang vereist voor"
+   },
+   "access_revoked_success": {
+      "message": "Wachtwoordtoegang met succes ingetrokken"
+   },
+   "access_revoked_user_success": {
+      "message": "Wachtwoordtoegang met succes ingetrokken van $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "actions": {
+      "message": "Acties"
+   },
+   "activity": {
+      "message": "Activiteit"
+   },
+   "add": {
+      "message": "Toevoegen"
+   },
+   "add_authenticator": {
+      "message": "Authenticator toevoegen"
+   },
+   "add_card": {
+      "message": "Betaalpas toevoegen"
+   },
+   "add_field": {
+      "message": "Veld toevoegen"
+   },
+   "add_folder": {
+      "message": "Map toevoegen"
+   },
+   "add_password": {
+      "message": "Wachtwoord toevoegen"
+   },
+   "add_password_restricted": {
+      "message": "Toevoegen van nieuwe wachtwoorden is uitgeschakeld door de beheerder van uw organisatie."
+   },
+   "add_url": {
+      "message": "URL toevoegen"
+   },
+   "added_successfully": {
+      "message": "met succes toegevoegd"
+   },
+   "additional_fields": {
+      "message": "Extra velden"
+   },
+   "admin": {
+      "message": "Beheerder"
+   },
+   "advance_request_approved_description": {
+      "message": "Uw aanvraag voor toegang vooraf is goedgekeurd. Het wachtwoord uitchecken op de aangevraagde tijd voor toegang."
+   },
+   "advanced_settings": {
+      "message": "Geavanceerde instellingen"
+   },
+   "alert_http_fill": {
+      "message": "Melding bij automatisch invullen op onbeveiligde pagina’s"
+   },
+   "algorithm": {
+      "message": "Algoritme"
+   },
+   "all_folders": {
+      "message": "Alle mappen"
+   },
+   "all_passwords": {
+      "message": "Alle wachtwoorden"
+   },
+   "all_rights_reserved": {
+      "message": "Alle rechten voorbehouden."
+   },
+   "all_users": {
+      "message": "Alle gebruikers"
+   },
+   "all_weekdays": {
+      "message": "Alle weekdagen"
+   },
+   "all_weekends": {
+      "message": "Alle weekends"
+   },
+   "allow": {
+      "message": "Toestaan"
+   },
+   "allow_permanent": {
+      "message": "Permanent toestaan"
+   },
+   "and": {
+      "message": "en"
+   },
+   "approved": {
+      "message": "Goedgekeurd"
+   },
+   "ask_clear_history": {
+      "message": "Geschiedenis wissen?"
+   },
+   "authenticators": {
+      "message": "Authenticators"
+   },
+   "autofill_card_sub_domains": {
+      "message": "Betaalpassen automatisch invullen als domeinen niet overeenkomen"
+   },
+   "autofill_sub_domains": {
+      "message": "Wachtwoorden automatisch invullen op subdomeinen"
+   },
+   "autologin_disable_success": {
+      "message": "Automatisch aanmelden is uitgeschakeld"
+   },
+   "autologin_enable_success": {
+      "message": "Automatisch aanmelden is ingeschakeld"
+   },
+   "automatically_approve_access_request": {
+      "message": "Aanvragen voor toegang automatisch goedkeuren"
+   },
+   "back_to_folders": {
+      "message": "Terug naar mappen"
+   },
+   "between": {
+      "message": "Tussen"
+   },
+   "cancel": {
+      "message": "Annuleren"
+   },
+   "cancel_access_request_success": {
+      "message": "Aanvraag is geannuleerd"
+   },
+   "cancel_request": {
+      "message": "Aanvraag annuleren"
+   },
+   "card_added_successfully": {
+      "message": "Betaalpas met succes toegevoegd"
+   },
+   "card_card_no": {
+      "message": "Pasnummer"
+   },
+   "card_edited_successfully": {
+      "message": "Betaalpas met succes bijgewerkt"
+   },
+   "card_move_to_trash_success": {
+      "message": "Betaalpas met succes naar prullenbak verplaatst"
+   },
+   "card_name_on_card": {
+      "message": "Naam op betaalpas "
+   },
+   "card_security_code": {
+      "message": "Veiligheidscode"
+   },
+   "card_valid_thru": {
+      "message": "Geldig tot en met"
+   },
+   "category": {
+      "message": "Categorie"
+   },
+   "changes_updated": {
+      "message": "Wijzigingen zijn bijgewerkt"
+   },
+   "check_in_confirm_description": {
+      "message": "Zodra u het wachtwoord heeft ingecheckt, heeft u hiertoe geen toegang meer"
+   },
+   "check_in_confirm_title": {
+      "message": "Wachtwoord inchecken?"
+   },
+   "check_in_success": {
+      "message": "Wachtwoord is ingecheckt"
+   },
+   "checkin": {
+      "message": "Inchecken"
+   },
+   "checkout": {
+      "message": "Uitchecken"
+   },
+   "checkout_success": {
+      "message": "Wachtwoord is uitgecheckt"
+   },
+   "clear": {
+      "message": "Wissen"
+   },
+   "clear_all": {
+      "message": "Alles wissen"
+   },
+   "clear_clipboard_after": {
+      "message": "Klembord wissen na"
+   },
+   "clear_filters": {
+      "message": "Filters wissen"
+   },
+   "close": {
+      "message": "Afsluiten"
+   },
+   "close_dev_tools_one_click_login": {
+      "message": "Hulpmiddelen voor ontwikkelaars voor automatisch aanmelden."
+   },
+   "close_profile_panel": {
+      "message": "Profielpaneel sluiten"
+   },
+   "comment": {
+      "message": "Opmerking"
+   },
+   "confirm_access_control_disable": {
+      "message": "Toegangsbeheer uitschakelen?"
+   },
+   "confirm_checkout_description": {
+      "message": "Zodra u het wachtwoord uitcheckt, heeft u er nog maar 30 minuten toegang toe"
+   },
+   "confirm_insecure_fill": {
+      "message": "U staat op het punt uw wachtwoord in te vullen op een onveilige pagina. Zoho Vault raadt u ten zeerste af dit te doen, tenzij u deze website vertrouwt. Toch doorgaan met het invullen van uw wachtwoord?"
+   },
+   "context_menu_show_all_passwords": {
+      "message": "Alle wachtwoorden weergeven"
+   },
+   "copied": {
+      "message": "Gekopieerd"
+   },
+   "copy": {
+      "message": "Kopiëren"
+   },
+   "copy_to_clipboard": {
+      "message": "Kopiëren naar klembord"
+   },
+   "create_folder": {
+      "message": "Map maken"
+   },
+   "create_new": {
+      "message": "Nieuw(e) maken"
+   },
+   "created_on": {
+      "message": "Gemaakt op"
+   },
+   "current_domain": {
+      "message": "Onderliggend domein"
+   },
+   "current_totp": {
+      "message": "Huidige TOTP"
+   },
+   "custom": {
+      "message": "Aangepast"
+   },
+   "custom_fields": {
+      "message": "Aangepaste velden"
+   },
+   "dark_mode": {
+      "message": "Nachtmodus"
+   },
+   "data_sync": {
+      "message": "Gegevenssynchronisatie"
+   },
+   "date": {
+      "message": "Datum"
+   },
+   "day": {
+      "message": "Dag"
+   },
+   "days": {
+      "message": "Dagen"
+   },
+   "default_view": {
+      "message": "Standaard weergave"
+   },
+   "delete": {
+      "message": "Verwijderen"
+   },
+   "delete_domain_from_list": {
+      "message": "$1$ uit deze lijst verwijderen?",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "delete_domain_from_list_description": {
+      "message": "U ontvangt prompts om uw wachtwoorden op te slaan en bij te werken voor $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "delete_password": {
+      "message": "Wachtwoord verwijderen"
+   },
+   "delete_password_confirm_message": {
+      "message": "Als u een wachtwoord permanent verwijdert, wordt het verwijderd uit uw account en alle bijbehorende mappen."
+   },
+   "delete_password_confirm_title": {
+      "message": "Wachtwoord verwijderen?"
+   },
+   "delete_password_success_message": {
+      "message": "Wachtwoord “$1$” met succes verwijderd.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "deny": {
+      "message": "Afwijzen"
+   },
+   "description": {
+      "message": "Beschrijving"
+   },
+   "detailed_view": {
+      "message": "Gedetailleerde weergave"
+   },
+   "digits": {
+      "message": "Cijfers"
+   },
+   "disable": {
+      "message": "Uitschakelen"
+   },
+   "disable_access_control": {
+      "message": "Toegangsbeheer uitschakelen"
+   },
+   "disable_auto_login": {
+      "message": "Automatisch aanmelden uitschakelen"
+   },
+   "displaying": {
+      "message": "Weergeven"
+   },
+   "domain": {
+      "message": "Domein"
+   },
+   "domain_matching": {
+      "message": "Domein afstemmen"
+   },
+   "domain_mismatch_alert": {
+      "message": "Melding voor niet overeenkomend domein"
+   },
+   "download": {
+      "message": "Downloaden"
+   },
+   "edit": {
+      "message": "Bewerken"
+   },
+   "edit_card": {
+      "message": "Betaalpas bewerken"
+   },
+   "edit_password": {
+      "message": "Wachtwoord bewerken"
+   },
+   "email": {
+      "message": "E-mail"
+   },
+   "empty_trash": {
+      "message": "Prullenbak leegmaken"
+   },
+   "empty_trash_confirm_message": {
+      "message": "Door deze actie worden alle wachtwoorden definitief uit de prullenbak verwijderd. U zult deze wachtwoorden in de toekomst niet meer kunnen herstellen."
+   },
+   "empty_trash_confirm_title": {
+      "message": "Prullenbak leegmaken?"
+   },
+   "empty_trash_success_message": {
+      "message": "Alle wachtwoorden uit de prullenbak zijn met succes verwijderd."
+   },
+   "enable_access_control": {
+      "message": "Toegangsbeheer inschakelen"
+   },
+   "enable_auto_login": {
+      "message": "Automatisch aanmelden inschakelen"
+   },
+   "encryption_key": {
+      "message": "Code voor codering"
+   },
+   "enter_passphrase": {
+      "message": "Voer uw hoofdwachtwoord in voor toegang tot uw kluis"
+   },
+   "enterprise_passwords": {
+      "message": "Bedrijfswachtwoorden"
+   },
+   "error_getting_oneauth_totp": {
+      "message": "Fout bij ophalen OneAuth TOTP"
+   },
+   "exclude_character": {
+      "message": "Teken uitzonderen"
+   },
+   "exclude_users": {
+      "message": "Gebruikers uitsluiten"
+   },
+   "extDescription": {
+      "message": "Online password manager for teams to securely store, share and manage passwords and other sensitive data."
+   },
+   "extName": {
+      "message": "Zoho Vault"
+   },
+   "extension": {
+      "message": "Extensie"
+   },
+   "extension_locked": {
+      "message": "Extensie vergrendeld"
+   },
+   "extension_logged_out": {
+      "message": "Extensie afgemeld"
+   },
+   "favourites": {
+      "message": "Favorieten"
+   },
+   "field_holds_personal_data": {
+      "message": "Dit veld bevat persoonsgegevens"
+   },
+   "field_name": {
+      "message": "Veldnaam"
+   },
+   "file": {
+      "message": "Bestand"
+   },
+   "file_only_n_per_password": {
+      "message": "U kon maximaal $1$ bestanden per wachtwoord toevoegen",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_cannot_exceed": {
+      "message": "Bestandsgrootte mag niet groter zijn dan $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_per_password_cannot_exceed": {
+      "message": "Max. bestandsgrootte per wachtwoord mag niet groter zijn dan $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_within_max": {
+      "message": "bestanden mogen max. 2 MB zijn"
+   },
+   "fill": {
+      "message": "Opvullen"
+   },
+   "filter": {
+      "message": "Filter"
+   },
+   "folder": {
+      "message": "Map"
+   },
+   "folder_name": {
+      "message": "Mapnaam"
+   },
+   "folders": {
+      "message": "Mappen"
+   },
+   "font": {
+      "message": "Lettertype"
+   },
+   "generate": {
+      "message": "Genereren"
+   },
+   "generator": {
+      "message": "Generator"
+   },
+   "generator_history_description": {
+      "message": "De laatste $1$ wachtwoorden die uit de generator zijn gekopieerd, worden hier weergegeven",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "generator_password_length": {
+      "message": "Wachtwoordlengte"
+   },
+   "get_oneauth_totp": {
+      "message": "OneAuth TOTP verkrijgen"
+   },
+   "grant": {
+      "message": "Verlenen"
+   },
+   "help": {
+      "message": "Help"
+   },
+   "help_resources": {
+      "message": "Hulpbronnen"
+   },
+   "hide": {
+      "message": "Verbergen"
+   },
+   "history": {
+      "message": "Geschiedenis"
+   },
+   "hour": {
+      "message": "Uur"
+   },
+   "hours": {
+      "message": "Uur"
+   },
+   "insecure_card_fill_description": {
+      "message": "U staat op het punt uw betaalpas in te vullen op een onveilige pagina"
+   },
+   "insecure_page_alert": {
+      "message": "Melding onveilige pagina"
+   },
+   "invalid_date_error": {
+      "message": "Geef een geldige datum op"
+   },
+   "invalid_email_address": {
+      "message": "Ongeldig e-mailadres"
+   },
+   "invalid_field": {
+      "message": "Ongeldig(e) $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "invalid_master_passphrase": {
+      "message": "Ongeldig hoofdwachtwoord"
+   },
+   "list_view": {
+      "message": "Lijstweergave"
+   },
+   "lock": {
+      "message": "Vergrendelen"
+   },
+   "lock_after": {
+      "message": "Extensie vergrendelen na"
+   },
+   "lock_on_system_lock": {
+      "message": "Extensie vergrendelen wanneer het scherm wordt vergrendeld"
+   },
+   "login": {
+      "message": "Aanmelden"
+   },
+   "login_incognito": {
+      "message": "Privé-sessie lanceren"
+   },
+   "lower_case": {
+      "message": "Kleine letters"
+   },
+   "manage": {
+      "message": "Beheren"
+   },
+   "manage_access_control": {
+      "message": "Toegangsbeheer beheren"
+   },
+   "manage_authenticator": {
+      "message": "Authenticator beheren"
+   },
+   "manage_authenticators": {
+      "message": "Authenticators beheren"
+   },
+   "manage_custom_fields": {
+      "message": "Aangepaste velden beheren"
+   },
+   "manage_prompts": {
+      "message": "Prompts beheren"
+   },
+   "mark_as_personal": {
+      "message": "Markeren als persoonlijk"
+   },
+   "mark_favourite": {
+      "message": "Markeren als favoriet"
+   },
+   "master_password": {
+      "message": "Hoofdwachtwoord"
+   },
+   "max_file_size_popup": {
+      "message": "Max. bestandsgrootte per wachtwoord mag niet groter zijn dan 2 MB"
+   },
+   "message": {
+      "message": "Bericht"
+   },
+   "minute": {
+      "message": "Minuut"
+   },
+   "minutes": {
+      "message": "Minuten"
+   },
+   "modified_time": {
+      "message": "Tijd van wijziging"
+   },
+   "modify": {
+      "message": "Wijzigen"
+   },
+   "more": {
+      "message": "Meer"
+   },
+   "move_password_name_to_trash": {
+      "message": "‘$1$’ verplaatsen naar prullenbak",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "move_to_trash": {
+      "message": "Naar prullenbak verplaatsen"
+   },
+   "move_to_trash_success": {
+      "message": "Wachtwoord met succes verplaatst naar prullenbak"
+   },
+   "must_not_be_empty": {
+      "message": "mag niet leeg zijn"
+   },
+   "must_not_contain": {
+      "message": "mag niet bevatten"
+   },
+   "n_user_groups_selected": {
+      "message": "$1$ gebruikersgroep(en) geselecteerd",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "n_users_selected": {
+      "message": "$1$ gebruiker(s) geselecteerd",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "name": {
+      "message": "Naam"
+   },
+   "never_save": {
+      "message": "Nooit opslaan"
+   },
+   "night_mode": {
+      "message": "Nachtmodus"
+   },
+   "no_cards_found": {
+      "message": "Geen betaalpassen gevonden"
+   },
+   "no_cards_matching_found": {
+      "message": "Geen overeenkomende betaalpassen gevonden"
+   },
+   "no_copy_permission": {
+      "message": "Geen machtiging voor kopiëren"
+   },
+   "no_edit_permission": {
+      "message": "Geen machtiging voor bewerken"
+   },
+   "no_folders_found": {
+      "message": "Geen mappen gevonden"
+   },
+   "no_folders_matching_found": {
+      "message": "Geen mappen die overeenkomen met ‘$1$’ gevonden",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_history_available": {
+      "message": "Historische gegevens zijn niet beschikbaar."
+   },
+   "no_matching_folders_found": {
+      "message": "Geen overeenkomende mappen gevonden"
+   },
+   "no_matching_passwords_found": {
+      "message": "Geen overeenkomende wachtwoorden gevonden"
+   },
+   "no_passwords_folder": {
+      "message": "Geen wachtwoorden in deze map gevonden"
+   },
+   "no_passwords_found": {
+      "message": "Geen wachtwoorden gevonden"
+   },
+   "no_passwords_matching_found_folder": {
+      "message": "Geen overeenkomende wachtwoorden in deze map gevonden"
+   },
+   "no_passwords_yet": {
+      "message": "Nog geen wachtwoorden"
+   },
+   "no_share_permission": {
+      "message": "Geen machtiging voor delen"
+   },
+   "no_trashed_passwords": {
+      "message": "Uw prullenbak is leeg"
+   },
+   "no_user_groups_found": {
+      "message": "Geen gebruikersgroepen gevonden"
+   },
+   "no_user_groups_matching_found": {
+      "message": "Geen gebruikersgroepen die overeenkomen met ‘$1$’ gevonden",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_users_found": {
+      "message": "Geen gebruikers gevonden"
+   },
+   "no_users_matching_found": {
+      "message": "Geen gebruikers die overeenkomen met ‘$1$’ gevonden",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_view_permission": {
+      "message": "Geen machtiging voor weergave"
+   },
+   "not_selected_users": {
+      "message": "Niet geselecteerde gebruikers"
+   },
+   "notes": {
+      "message": "Notities"
+   },
+   "numbers": {
+      "message": "Cijfers"
+   },
+   "of": {
+      "message": "van"
+   },
+   "ok": {
+      "message": "OK"
+   },
+   "one_click_password_change_prevented_popup": {
+      "message": "Wachtwoordwijziging is niet toegestaan voor wachtwoord gedeeld met machtiging voor aanmelden met één klik"
+   },
+   "oneauth_approve_message": {
+      "message": "Keur de melding a.u.b. goed die naar uw telefoon is verzonden om de TOTP te ontvangen"
+   },
+   "oneauth_install_description": {
+      "message": "Een uitgebreide authenticator-app die al uw behoeften op het gebied van meervoudige verificatie vereenvoudigt en uw bedrijfsbeveiliging verbetert"
+   },
+   "oneauth_notification_pushed": {
+      "message": "OneAuth-melding verzonden"
+   },
+   "oneauth_secrets": {
+      "message": "OneAuth-geheimen"
+   },
+   "oneauth_unlock_failed": {
+      "message": "Er is iets fout gegaan. Voer uw hoofdwachtwoord in om te ontgrendelen."
+   },
+   "open_profile_panel": {
+      "message": "Profielpaneel openen"
+   },
+   "open_web_app": {
+      "message": "Webapp openen"
+   },
+   "open_zoho_vault": {
+      "message": "Zoho Vault openen"
+   },
+   "or": {
+      "message": "of"
+   },
+   "others": {
+      "message": "Overige"
+   },
+   "parent_domain": {
+      "message": "Bovenliggend domein"
+   },
+   "passphrase_cleared": {
+      "message": "Uw hoofdwachtwoord is gewist"
+   },
+   "password": {
+      "message": "Wachtwoord"
+   },
+   "password_added_successfully": {
+      "message": "Wachtwoord is toegevoegd"
+   },
+   "password_edited_successfully": {
+      "message": "Wachtwoord is bijgewerkt"
+   },
+   "password_must_have_lowercase": {
+      "message": "Wachtwoord moet tenminste één kleine letter bevatten."
+   },
+   "password_must_have_minimum_chars": {
+      "message": "Wachtwoord moet minimaal $1$ tekens bevatten.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_have_number": {
+      "message": "Wachtwoord moet tenminste één cijfer bevatten."
+   },
+   "password_must_have_spl_char": {
+      "message": "Wachtwoord moet minstens $1$ speciale tekens bevatten.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_have_uppercase": {
+      "message": "Wachtwoord moet tenminste één hoofdletter bevatten."
+   },
+   "password_must_not_have_chars": {
+      "message": "Tekens $1$ zijn niet toegestaan in wachtwoord.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_start_with_alphabet": {
+      "message": "Wachtwoord moet met een alfabetisch teken beginnen."
+   },
+   "password_policy": {
+      "message": "Wachtwoordbeleid"
+   },
+   "passwords": {
+      "message": "Wachtwoorden"
+   },
+   "path": {
+      "message": "Pad"
+   },
+   "personal_password_cannot_be_shared": {
+      "message": "Persoonlijk wachtwoord kan niet worden gedeeld"
+   },
+   "personal_password_restricted": {
+      "message": "Het toevoegen van persoonlijke wachtwoorden is beperkt door beheerder"
+   },
+   "personal_passwords": {
+      "message": "Persoonlijke wachtwoorden"
+   },
+   "personalization": {
+      "message": "Personalisatie"
+   },
+   "please_enter": {
+      "message": "A.u.b. invoeren"
+   },
+   "please_enter_a": {
+      "message": "Voer a.u.b. een vermelding in voor"
+   },
+   "please_enter_an_email": {
+      "message": "Voer een e-mailadres in"
+   },
+   "please_enter_your": {
+      "message": "Voer a.u.b. uw $1$ in",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "please_upload_your": {
+      "message": "A.u.b. uw $1$ uploaden",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "port": {
+      "message": "Poort"
+   },
+   "proceed": {
+      "message": "Doorgaan"
+   },
+   "product_videos": {
+      "message": "Productvideo’s"
+   },
+   "prompt_auto_save_update": {
+      "message": "Vraag om wachtwoorden op te slaan en bij te werken"
+   },
+   "prompt_card_auto_save_update": {
+      "message": "Vraag om betaalpassen op te slaan en bij te werken"
+   },
+   "push_sent_success": {
+      "message": "Pushbericht met succes verzonden"
+   },
+   "reason": {
+      "message": "Reden"
+   },
+   "recently_added": {
+      "message": "Onlangs toegevoegd"
+   },
+   "recently_copied_passwords": {
+      "message": "Recent gekopieerde wachtwoorden"
+   },
+   "recently_used": {
+      "message": "Onlangs gebruikt"
+   },
+   "remove_field": {
+      "message": "Veld verwijderen"
+   },
+   "remove_logo": {
+      "message": "Logo verwijderen"
+   },
+   "remove_url": {
+      "message": "URL verwijderen"
+   },
+   "request": {
+      "message": "Aanvraag"
+   },
+   "request_access": {
+      "message": "Toegang aanvragen"
+   },
+   "request_access_description": {
+      "message": "Aanvraag voor toegang tot dit wachtwoord. U krijgt een e-mail als uw aanvraag is goedgekeurd of afgewezen door de eigenaar van het wachtwoord."
+   },
+   "request_advance_approval": {
+      "message": "Vooraf goedkeuring aanvragen"
+   },
+   "request_approved": {
+      "message": "Aanvraag goedgekeurd"
+   },
+   "request_details": {
+      "message": "Gegevens van aanvraag"
+   },
+   "request_immediate_access": {
+      "message": "Aanvraag voor onmiddellijke toegang"
+   },
+   "request_time": {
+      "message": "Tijd van aanvraag"
+   },
+   "resend_push": {
+      "message": "Pushbericht opnieuw verzenden"
+   },
+   "reset_password": {
+      "message": "Wachtwoord opnieuw instellen"
+   },
+   "resource_removed_successfully": {
+      "message": "$1$ met succes verwijderd",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "restore_password": {
+      "message": "Wachtwoord herstellen"
+   },
+   "restore_password_confirm_message": {
+      "message": "Deze actie verplaatst het wachtwoord terug naar uw account en de bijbehorende mappen, terwijl ook de machtigingen voor delen worden hersteld."
+   },
+   "restore_password_confirm_title": {
+      "message": "Wachtwoord herstellen?"
+   },
+   "restore_password_success_message": {
+      "message": "Wachtwoord “$1$” met succes hersteld.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "retry": {
+      "message": "Opnieuw proberen"
+   },
+   "revoke": {
+      "message": "Intrekken"
+   },
+   "same_name_password_exists": {
+      "message": "Er bestaat al een wachtwoord met dezelfde naam"
+   },
+   "save": {
+      "message": "Opslaan"
+   },
+   "save_and_enable": {
+      "message": "Opslaan en inschakelen"
+   },
+   "save_as_new": {
+      "message": "Opslaan als nieuw"
+   },
+   "save_prompt_disabled_description": {
+      "message": "Prompts automatisch bijwerken is uitgeschakeld voor de volgende websites"
+   },
+   "save_to_zoho_vault_question": {
+      "message": "Opslaan in Zoho Vault?"
+   },
+   "scheme": {
+      "message": "Schema"
+   },
+   "search": {
+      "message": "Zoeken"
+   },
+   "searching": {
+      "message": "Bezig met zoeken"
+   },
+   "seconds": {
+      "message": "Seconden"
+   },
+   "select_admins": {
+      "message": "Beheerders selecteren"
+   },
+   "select_all": {
+      "message": "Alles selecteren"
+   },
+   "select_create_folder": {
+      "message": "Map selecteren of maken"
+   },
+   "select_oneauth_secrets": {
+      "message": "OneAuth-geheim selecteren"
+   },
+   "selected_users": {
+      "message": "Geselecteerde gebruikers"
+   },
+   "seperate_session": {
+      "message": "Aangemeld blijven"
+   },
+   "setting_enforced_by_amdin": {
+      "message": "Afgedwongen door superbeheerder"
+   },
+   "settings": {
+      "message": "Instellingen"
+   },
+   "share": {
+      "message": "Delen"
+   },
+   "share_feedback": {
+      "message": "Feedback delen"
+   },
+   "share_one_click_login": {
+      "message": "Aanmelden met één klik"
+   },
+   "share_password": {
+      "message": "Wachtwoord delen"
+   },
+   "share_success": {
+      "message": "Wachtwoord is gedeeld"
+   },
+   "share_user_success": {
+      "message": "Wachtwoord met succes gedeeld met $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "shared_by_me": {
+      "message": "Door mij gedeeld"
+   },
+   "shared_with_me": {
+      "message": "Met mij gedeeld"
+   },
+   "sharing_restricted": {
+      "message": "Het delen is beperkt door beheerder"
+   },
+   "show_domain_matching": {
+      "message": "Domein afstemmen weergeven"
+   },
+   "show_more_fields": {
+      "message": "Meer velden tonen"
+   },
+   "shows": {
+      "message": "Toont"
+   },
+   "sign_out": {
+      "message": "Afmelden"
+   },
+   "sign_out_confirm": {
+      "message": "Afmelden bij Zoho Vault?"
+   },
+   "special_character": {
+      "message": "Speciaal teken"
+   },
+   "status": {
+      "message": "Status"
+   },
+   "sub_domain": {
+      "message": "Subdomein"
+   },
+   "sync": {
+      "message": "Synchroniseren"
+   },
+   "sync_changes": {
+      "message": "Alle wijzigingen gemaakt op het web synchroniseren"
+   },
+   "sync_completed": {
+      "message": "Synchronisatie voltooid"
+   },
+   "sync_description": {
+      "message": "Houd uw extensie gesynchroniseerd met de wijzigingen die in uw webtoepassing zijn aangebracht"
+   },
+   "sync_started": {
+      "message": "Synchronisatie gestart"
+   },
+   "syncing": {
+      "message": "Bezig met synchroniseren"
+   },
+   "tags": {
+      "message": "Tags"
+   },
+   "text": {
+      "message": "Tekst"
+   },
+   "theme": {
+      "message": "Thema"
+   },
+   "third_parties": {
+      "message": "Derden"
+   },
+   "third_party_revoke_link_after": {
+      "message": "Toegang tot koppeling intrekken na"
+   },
+   "third_party_shared_output": {
+      "message": "Er is een e-mail verzonden naar $1$. Deel de volgende coderingssleutel om hen toegang te verlenen tot dit wachtwoord voor $2$. Deze sleutel zal ook beschikbaar zijn in de geschiedenis van de wachtwoordgenerator.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "third_party_sharing_restricted": {
+      "message": "Het delen van wachtwoorden met derden is beperkt door beheerder"
+   },
+   "tile_view": {
+      "message": "Tegelweergave"
+   },
+   "time": {
+      "message": "Tijd"
+   },
+   "totp": {
+      "message": "TOTP"
+   },
+   "totp_key": {
+      "message": "TOTP-sleutel"
+   },
+   "totp_key_must_contain_atleast_n_chars": {
+      "message": "TOTP-sleutel moet tenminste $1$ tekens bevatten.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "trash": {
+      "message": "Prullenbak"
+   },
+   "turn_off_dark_mode": {
+      "message": "Nachtmodus uitschakelen"
+   },
+   "turn_on_dark_mode": {
+      "message": "Nachtmodus inschakelen"
+   },
+   "unlock": {
+      "message": "Ontgrendelen"
+   },
+   "unlock_vault": {
+      "message": "Vault ontgrendelen"
+   },
+   "unlock_vault_with_authenticators_min": {
+      "message": "Vault ontgrendelen met authenticators"
+   },
+   "unlock_vault_with_oneauth": {
+      "message": "Zoho Vault ontgrendelen met mobiele Zoho OneAuth-app"
+   },
+   "unlock_vault_with_oneauth_min": {
+      "message": "Vault ontgrendelen met Zoho OneAuth"
+   },
+   "unlock_vault_with_webauthn": {
+      "message": "Zoho Vault ontgrendelen met authenticators"
+   },
+   "unlock_with": {
+      "message": "Ontgrendelen met"
+   },
+   "unlock_zoho_vault": {
+      "message": "Zoho Vault ontgrendelen"
+   },
+   "unlocking": {
+      "message": "Bezig met ontgrendelen"
+   },
+   "unmark_favourite": {
+      "message": "Verwijderen uit favorieten"
+   },
+   "unshared_folders": {
+      "message": "Niet gedeelde mappen"
+   },
+   "unshared_passwords": {
+      "message": "Niet-gedeelde wachtwoorden"
+   },
+   "update": {
+      "message": "Bijwerken"
+   },
+   "update_card": {
+      "message": "Betaalpas bijwerken?"
+   },
+   "update_password_question": {
+      "message": "Wachtwoord bijwerken?"
+   },
+   "upload": {
+      "message": "Uploaden"
+   },
+   "upload_logo": {
+      "message": "Logo uploaden"
+   },
+   "upper_case": {
+      "message": "Hoofdletters"
+   },
+   "url": {
+      "message": "URL"
+   },
+   "url_invalid": {
+      "message": "Opgegeven URL is ongeldig"
+   },
+   "urls_max_n": {
+      "message": "U kunt maximaal $1$ URL’s toevoegen.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "usage_confirmation": {
+      "message": "Bevestiging van gebruik"
+   },
+   "use": {
+      "message": "Gebruiken"
+   },
+   "use_xs_password_on_y": {
+      "message": "Wachtwoord van $1$ gebruiken bij $2$?",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "user": {
+      "message": "Gebruiker"
+   },
+   "user_group": {
+      "message": "Gebruikersgroep"
+   },
+   "user_groups": {
+      "message": "Gebruikersgroepen"
+   },
+   "user_name_label": {
+      "message": "Gebruikersnaam"
+   },
+   "users": {
+      "message": "Gebruikers"
+   },
+   "validity": {
+      "message": "Geldigheid"
+   },
+   "value": {
+      "message": "Waarde"
+   },
+   "view": {
+      "message": "Weergeven"
+   },
+   "view_filters": {
+      "message": "Filters weergeven"
+   },
+   "view_more": {
+      "message": "Meer weergeven"
+   },
+   "week": {
+      "message": "Week"
+   },
+   "weeks": {
+      "message": "Weken"
+   },
+   "welcome_to_vault": {
+      "message": "Welkom bij Zoho Vault"
+   },
+   "zoho_oneauth": {
+      "message": "Zoho OneAuth"
+   },
+   "zoho_vault_extension_locked": {
+      "message": "Zoho Vault: extensie vergrendeld"
+   }
+}

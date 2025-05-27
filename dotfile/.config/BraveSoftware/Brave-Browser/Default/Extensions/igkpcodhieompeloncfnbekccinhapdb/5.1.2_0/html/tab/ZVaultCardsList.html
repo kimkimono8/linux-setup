@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="/images/logo/vault-logo-blue.svg">
+    <title>Site Frame</title>
+    <script type="text/javascript" src="/lib/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/lib/sweetalert.min.js"></script>
+    <script type="text/javascript" src="/lib/jquery.slimscroll.js"></script>
+    
+
+    <link rel="stylesheet" type="text/css" href="/style/vault-ext.css">
+    <link rel="stylesheet" type="text/css" href="/style/vault-ext-themes.css">
+    <link rel="stylesheet" type="text/css" href="/style/styles.css">
+    <link rel="stylesheet" type="text/css" href="/style/vault-ext-nightmode.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault_dstyle.css">
+
+    <script type="module" src="/js/frames/card_frame/cardList.js"></script>
+</head>
+
+<body style="cursor:default;user-select: none;" class="zvd-body">
+    <div id="tooltip_arrow" class="tooltip_arrow" style="display: none;transition: opacity 0.6s linear;"></div>
+	<div id="tooltip_elem" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+	<div id="elem_msg_action" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+
+    <!--notification start-->
+
+	<div id="notification" class="notify notify-success clearfix" style="display: none;max-width: 90%;width: max-content;transition: opacity 0.5s linear;">
+		<div class="notify-inner" data-close="">
+			<span class="notify-symbol pointer"></span>
+			<div class="notify-content pointer" data-content="">
+				notification content</div>
+		</div>
+	</div>
+
+	<!--notification end-->
+
+    <div class="zvd-panel">
+        <div class="zvd-search-panel clearfix">
+            <span class="zvd-panel-arrow-top-left" id="arrow"></span>
+            <div class="zvd-nav pull-left" id="mainHeader">
+                <ul>
+                    <li class="zvd-nav-selected" id="show_password_page"><img src="/images/logo/vault-logo.svg" /></li>
+                    <!-- <li id="show_generator_page"><i class="icon-pwd-generate"></i></li> -->
+                </ul>
+            </div>
+            <div class="zvd-nav pull-right" id="searchIcon">
+                <ul>
+                    <li><i class="icon-magnifier icon-md"></i></li>
+                </ul>
+            </div>
+            <div class="zvd-search-panel-inner dis-hide" id="searchField" style="z-index: 1; position: absolute; width: 350px;">
+                <span class="zvd-search-panel-search-icon" style="top: 2px;">
+                    <i class="icon-search-close pointer" id="hideSearch"></i>
+                </span>
+                <input type="text" placeholder="Search" class="zvd-search-panel-input" autocomplete="off" id="search" style="padding-right:30px; min-height: 30px !important;" spellcheck="false">
+                <span class="zvd-password-search-close" id="clear_search">
+                    <i class="icon-close"></i>
+                </span>
+            </div>
+        </div>
+
+        <!-- Passphrase cleared error -->
+        <div class="zvd-content-panel" id="loginError" style="display: block;">
+            <div class="no-data-panel">
+                <div class="no-data-panel-inner">
+                    <img src="/images/svg/passphrase-cleared.svg" />
+
+                    <p class="text-default"><i-span>passphrase_cleared</i-span></p>
+                    <button type="button" class="btn btn-primary btn-md" data-name="unlock" data-i18n_key="unlock">Unlock</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Password list -->
+        <div class="zvd-content-panel" id="cardList">
+            
+        </div>
+
+        <!-- No Passwords found -->
+        <div class="zvd-content-panel" style="display: none;" id="noCards">
+
+            <div class="no-data-panel">
+                <div class="no-data-panel-inner">
+                    <img src="/images/svg/add-password-image.svg" />
+                    <p class="text-default"><i-span>no_cards_found</i-span></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <template id="card_list_template">
+        <div class="password-list-panel pointer " data-cardId>
+            <div class="password-list-left">
+                
+            <span class="card-view-list-no-image" id="image"></span></div>
+
+            <div class="password-list-right">
+                <h6 class="password-list-name" id="heading"></h6>
+                <p class="password-list-description text-default" style="letter-spacing: 3px;" id="cardNumber"></p>
+            </div>
+        </div>
+    </template>
+</body>
+
+</html>

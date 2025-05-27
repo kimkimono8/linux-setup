@@ -1,0 +1,92 @@
+
+[data-on_copy] {
+  cursor: text !important;
+}
+
+.animate-opacity-0-5 {
+  animation: opacityAnimation ease 0.5s;
+}
+
+@keyframes opacityAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.no_animate * {
+  animation-duration: 0s !important;
+}
+
+.vhcenter {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.vhcenterCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+
+.colflex {
+  display: flex;
+  flex-direction: column;
+}
+
+.colflexcenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.zvgenerator input[type='textarea'] {
+  text-align: center;
+}
+
+.zv-new-generator-panel-textarea:focus-visible {
+  outline-color: var(--themeBgColor);
+}
+
+.zv-generator-used-pass span {
+  color: var(--text-color-light);
+}
+
+.pre-render {
+  visibility: hidden;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+#generator_history_div {
+  right: -450px;
+}
+
+.zv-new-generator-panel-textarea {
+  width: 100%;
+}
+
+[data-out="history_list"] {
+  height: 100%;
+}
+
+#generator_history_div > div {
+  height: 100%;
+}
+
+.password-list-panel.history-password-list-panel {
+  min-height: 50px;
+}
+
+.zv_ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

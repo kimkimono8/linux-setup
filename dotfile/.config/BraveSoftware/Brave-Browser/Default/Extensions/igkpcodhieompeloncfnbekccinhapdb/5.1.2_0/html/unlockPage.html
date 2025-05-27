@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Zoho Vault Extension</title>
+	<meta charset="utf-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="/images/logo/vault-logo-blue.svg">
+
+	<link rel="stylesheet" type="text/css" href="/style/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-themes.css">
+	<link rel="stylesheet" type="text/css" href="/style/styles.css">
+	<link rel="stylesheet" type="text/css" href="/style/ZVaultPopup.css">
+	<link rel="stylesheet" type="text/css" href="/style/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-nightmode.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault_dstyle.css">
+
+	<script src="/lib/jquery-3.3.1.min.js"></script>
+	<script src="/lib/jquery-ui.min.js"></script>
+	<script src="/lib/select2.min.js"></script>
+	<script src="/lib/jquery.slimscroll.js"></script>
+	<script src="/lib/sweetalert.min.js"></script>
+	<script src="/lib/FileSaver.js"></script>
+
+	<script type="module" src="/js/src/popup/unlockPageMain.js"></script>
+	<style>
+		html {
+			width: 100%;
+			height: 100%;
+		}
+
+		body {
+			width: 100%;
+			height: 100%;
+		}
+
+		.vault-wrapper {
+			width: 450px;
+			height: 450px;
+			display: flex;
+			margin: 0 auto;
+			box-shadow: 0px 2px 5px var(--box-shadow-color-lightest);
+			position: relative;
+		}
+
+		.apps-login-panel {
+			height: auto;
+		}
+
+		.appsLogin__body {
+			min-height: 300px;
+		}
+	</style>
+</head>
+
+<body class="zvf-opensans">
+	<div id="tooltip_arrow" class="tooltip_arrow" style="display: none;transition: opacity 0.6s linear;"></div>
+	<div id="tooltip_elem" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+	<div id="elem_msg_action" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+
+	<!--notification start-->
+
+	<div id="notification" class="notify notify-success clearfix" style="display: none;max-width: 90%;width: max-content;transition: opacity 0.5s linear;">
+		<div class="notify-inner" data-close="">
+			<span class="notify-symbol pointer"></span>
+			<div class="notify-content pointer" data-content="">
+				notification content</div>
+		</div>
+	</div>
+
+	<!--notification end-->
+
+	<div id="output" style="height: 100%;">
+		<div class="login-main-panel">
+			<div class="overlay-bg" id="loading_main" style="display: block;position: relative;" data-light_overlay="">
+				<vault-loading></vault-loading>
+			</div>
+		</div>
+	</div>
+
+	<!--before appending element to actual position , rendered here to add third party listeners - select2-->
+	<div id="pre_render_0" class="pre-render">
+	</div>
+
+	<template id="vault_loading_template">
+		<div data-loading="">
+			<div class="component-loader" style="display: block;">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</template>
+
+	<template id="accounts_error">
+		<div class="content-panel clearfix">
+			<div class=" no-data-panel" style="padding-top: 50px;padding-bottom: 10px;">
+				<div style=" position: absolute; top: 25px; right: 25px;">
+					<a href="#" data-sign_out="">
+						<i class="icon-signout-1 icon-md m-r-5"></i>
+						<span><i-span>sign_out</i-span></span>
+					</a>
+				</div>
+				<div class="no-data-panel-inner">
+					<img src="/images/svg/auth_error.svg" style="height: 150px;" />
+					<p class="text-default" style="padding: 10px;font-size: 0.95rem;" data-error_msg>Error Message
+					</p>
+					<button type="button" data-retry_get_login="" class="btn btn-md btn-primary" style="padding-left:20px;padding-right:20px;"><i-span>retry</i-span></button>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="passphrase_page">
+		<div class="login-main-panel">
+			<div class="vault-wrapper">
+				<div class="apps-login-panel clearfix">
+					<!-- header part start -->
+					<div class="appsLogin__header panel-row m-b-10">
+						<div class="pull-left col-8">
+							<span class="table-profile-image">
+								<img data-dp src="/images/user/profile.svg" />
+							</span>
+							<span data-name class="login-profile-user-name">User Name</span>
+						</div>
+						<div class="pull-right m-t-5 col-4 text-right">
+							<a href="#" data-sign_out="" data-name="signout_button">
+								<i class="icon-signout-1 icon-md m-r-5"></i>
+								<span><i-span>sign_out</i-span></span>
+							</a>
+						</div>
+					</div>
+					<!-- header part end -->
+					<!-- body part start -->
+					<div class="appsLogin__body">
+						<div class="apps-login-logo">
+							<img src="/images/logo/vault-logo-blue.svg" />
+						</div>
+						<h4 class="m-t-10 text-center zfw-600"><i-span>welcome_to_vault</i-span></h4>
+						<div id="unlock_out"></div>
+						<div id="unlock_or_out"></div>
+					</div>
+					<!-- body part end -->
+					<!-- footer part start -->
+					<div class="appsLogin__footer">
+						<p class="text-default text-center m-t-10 m-b-5"><no-i-span>© 2025, </no-i-span><a class="copyrights-text" href="https://www.zohocorp.com/" target="_blank"><no-i-span> Zoho Corporation</no-i-span></a> <span><i-span>all_rights_reserved</i-span></span></p>
+					</div>
+					<!-- footer part start -->
+				</div>
+
+				<div class="overlay-bg" style="display: none;" data-light_overlay="" data-open_vault_loading="">
+					<vault-loading></vault-loading>
+				</div>
+
+			</div>
+
+		</div>
+	</template>
+
+	<template id="master_unlock_template">
+		<section>
+			<div class="clearfix">
+				<div class="m-t-5">
+					<p class="no-margin text-center"><i-span>enter_passphrase</i-span></p>
+				</div>
+				<div class="add-password-one-col">
+					<div class="form-group">
+						<label class="label-control">
+							<span class="label-text"><i-span>master_password</i-span></span>
+						</label>
+						<input id="input_passphrase" type="password" style="padding-right:35px !important;" class="form-control" spellcheck="false" autofocus>
+						<span class="password-show-hide" style="top:14px;">
+							<ul class="add-password-plus-minus">
+								<li>
+									<a style="width:30px; height: 30px; padding-top: 3px;" data-show_hide_passphrase="" id="icon_view_hide_passphrase" data-eye_for="#input_passphrase">
+										<i class="icon-view" data-tooltip_content="i18n:view" data-icon_tooltip="true"></i>
+									</a>
+								</li>
+							</ul>
+						</span>
+						<div id="error_passphrase" class="errormsg-text text-danger" style="display: none;"><i-span>invalid_master_passphrase</i-span></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="text-center clearfix m-t-20">
+				<button type="button" class="btn btn-lg btn-primary full-width" data-name="open_vault_button">
+					<span><i-span>open_zoho_vault</i-span></span>
+					<div id="open_vault_loading" class="btn-spinner" style="margin-top: 9px;display: none;"></div>
+				</button>
+			</div>
+
+			<div data-or_container="" style="display: none;" class="m-t-10">
+				<div class="unlock-login-or-panel"">
+				<div class=" unlock-login-or-panel-line"></div>
+				<div class="unlock-login-or-panel-inner"><i-span>or</i-span></div>
+			</div>
+			<div class="unlock-option-section-bottom">
+				<a class="unlock-link-button" data-oneauth_unlock="">
+					<img src="/images/svg/oneauth.svg" />
+					<i-span>zoho_oneauth</i-span>
+				</a>
+				<a class="unlock-link-button" data-oneauth_unlock="">
+					<img src="/images/svg/webauthn.svg" />
+					<i-span>authenticators</i-span>
+				</a>
+			</div>
+			</div>
+
+		</section>
+	</template>
+
+	<template id="oneauth_unlock_template">
+		<section>
+			<div class="m-t-5">
+				<p class="no-margin text-center"><i-span>unlock_with</i-span><no-i-span>:</no-i-span></p>
+			</div>
+			<div class="unlock-login-option-card-panel">
+				<div class="unlock-login-option-card" data-unlock_oneauth="">
+					<div class="unlock-login-option-card-inner">
+						<div class="unlock-login-option-card-image">
+							<img src="/images/svg/oneauth.svg" />
+						</div>
+						<div> <span class="unlock-login-option-card-text m-t-5"><i-span>zoho_oneauth</i-span></span> </div>
+					</div>
+				</div>
+				<div class="unlock-login-option-card dis-hide" data-loading_container="" data-resend_push_container="" style="min-height: 91px;" data-display_css="flex">
+					<div class="unlock-login-option-card-inner" style="min-width: 80px">
+						<div class="unlock-login-loader-section">
+							<vault-loading></vault-loading>
+						</div>
+						<a class="unlock-login-resend-push dis-hide" data-resend_push=""><i-span>resend_push</i-span></a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</template>
+
+	<template id="webauthn_unlock_template">
+		<section>
+			<div class="m-t-5">
+				<p class="no-margin text-center"><i-span>unlock_with</i-span><no-i-span>:</no-i-span></p>
+			</div>
+			<div class="unlock-login-option-card-panel">
+				<div class="unlock-login-option-card" data-unlock="">
+					<div class="unlock-login-option-card-inner">
+						<div class="unlock-login-option-card-image">
+							<img src="/images/svg/webauthn.svg" />
+						</div>
+						<div> <i-span class="unlock-login-option-card-text m-t-5">authenticators</i-span> </div>
+					</div>
+				</div>
+				<div class="unlock-login-option-card dis-hide" data-loading_container="" style="min-height: 91px;" data-display_css="flex">
+					<div class="unlock-login-option-card-inner" style="min-width: 80px; text-align: center;">
+						<div class="unlock-login-loader-section">
+							<vault-loading></vault-loading>
+						</div>
+						<span class="webauth-login-resend-push"><i-span>unlocking</i-span><no-i-span>...</no-i-span></span>
+					</div>
+				</div>
+			</div>
+		</section>
+	</template>
+
+	<template id="unlock_or_template">
+		<div>
+			<div class="unlock-login-or-panel">
+				<div class=" unlock-login-or-panel-line"></div>
+				<div class="unlock-login-or-panel-inner"><i-span>or</i-span></div>
+			</div>
+			<div class="unlock-option-section-bottom">
+				<a class="unlock-link-button dis-hide" data-unlock_master="">
+					<img src="/images/logo/vault-logo-blue.svg" />
+					<span><i-span>master_password</i-span></span>
+				</a>
+				<a class="unlock-link-button dis-hide" data-oneauth_unlock="">
+					<img src="/images/svg/oneauth.svg" />
+					<span><i-span>zoho_oneauth</i-span></span>
+				</a>
+				<a class="unlock-link-button dis-hide" data-webauthn_unlock="">
+					<img src="/images/svg/webauthn.svg" />
+					<span><i-span>authenticators</i-span></span>
+				</a>
+			</div>
+		</div>
+	</template>
+
+
+</body>
+
+</html>

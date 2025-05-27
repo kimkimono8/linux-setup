@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Zoho Vault Extension</title>
+
+	<meta charset="utf-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="/images/logo/vault-logo-blue.svg">
+
+
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-themes.css">
+	<link rel="stylesheet" type="text/css" href="/style/styles.css">
+	<link rel="stylesheet" type="text/css" href="/style/ZVaultGetPP.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-nightmode.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault_dstyle.css">
+
+	<script src="/js/src/page/loadingMain.js" type="module"></script>
+</head>
+
+<body style="height: 95vh;">
+	<div id="tooltip_arrow" class="tooltip_arrow" style="display: none;transition: opacity 0.6s linear;"></div>
+	<div id="tooltip_elem" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+	<div id="elem_msg_action" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+
+	<!--notification start-->
+
+	<div id="notification" class="notify notify-success clearfix" style="display: none;max-width: 90%;width: max-content;transition: opacity 0.5s linear;">
+		<div class="notify-inner" data-close="">
+			<span class="notify-symbol pointer"></span>
+			<div class="notify-content pointer" data-content="">
+				notification content</div>
+		</div>
+	</div>
+
+	<!--notification end-->
+	
+	<div class="login-main-panel" style="height: 100%;">
+		<div style="text-align: center; position: relative;">
+			<vault-loading></vault-loading>
+		</div>
+	</div>
+
+	<template id="vault_loading_template">
+		<div data-loading="">
+			<div class="component-loader" style="display: block;">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</template>
+</body>
+
+</html>

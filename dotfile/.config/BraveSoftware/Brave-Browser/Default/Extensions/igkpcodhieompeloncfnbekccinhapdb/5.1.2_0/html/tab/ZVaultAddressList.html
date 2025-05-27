@@ -1,0 +1,169 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Site Frame</title>
+	<script type="text/javascript" src="/lib/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="/lib/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="/lib/select2.min.js"></script>
+	<script src="/lib/jquery.slimscroll.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/style/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext.css" />
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-themes.css" />
+	<link rel="stylesheet" type="text/css" href="/style/styles.css" />
+	<link rel="stylesheet" type="text/css" href="/style/select2.min.css" />
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-nightmode.css" />
+	<link rel="stylesheet" type="text/css" href="/style/ZVaultMSFrame.css" />
+
+	<script type="module" src="/js/frames/address_frame/addressList.js"></script>
+</head>
+
+<body style="cursor:default;user-select: none;" class="zvd-body zvf-opensans">
+	<div id="tooltip_arrow" class="tooltip_arrow" style="display: none;transition: opacity 0.6s linear;"></div>
+	<div id="tooltip_elem" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+	<div id="elem_msg_action" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+
+	<!--notification start-->
+
+	<div id="notification" class="notify notify-success clearfix" style="display: none; top: 30px;">
+		<div class="notify-inner" data-close="">
+			<span class="notify-symbol pointer"></span>
+			<div class="notify-content pointer" data-content="">
+				notification content</div>
+		</div>
+	</div>
+
+	<!--notification end-->
+
+	<!--before appending element to actual position , rendered here to add third party listeners - select2-->
+	<div id="pre_render_0" class="pre-render">
+	</div>
+
+	<template id="main_ui_template">
+		<div class="zvd-panel" data-name="mainUI">
+			<div class="zvd-search-panel clearfix">
+				<span class="zvd-panel-arrow-top-left" id="arrow"></span>
+				<div class="zvd-nav pull-left" id="mainHeader">
+					<ul>
+						<li class="zvd-nav-selected" data-tabIcon="ADDRESSES" data-name="showPasswordsTab" data-i18n_key="addresses">Addresses</li>
+						<li id="addAddress" class="zvd-nav-add-icon" data-tooltip_content="i18n:add_address" data-icon_tooltip="true"><i class="icon-plus1"></i></li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="uiLoading" class="uiLoading" style="display: none; z-index: 2;">
+				<div class="component-loader" style="display: block;">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+
+			<div id="main_out"></div>
+		</div>
+	</template>
+
+	<template id="passwords_ui_template">
+		<div class="zvd-content-panel">
+			<div class="zvd-search-panel-inner" style="z-index: 1;">
+				<span class="zvd-search-panel-search-icon"><i class="icon-magnifier"></i></span>
+				<input data-name="searchPasswords" type="text" placeholder="i18n:search" class="zvd-search-panel-input" autocomplete="off" id="search" spellcheck="false" />
+				<span data-name="searchClear" class="zvd-password-search-close m-t-5" style="display: none;"><i class="icon-close"></i></span>
+			</div>
+
+			<div id="password_out" style="cursor: pointer; width: 100%; height: 280px; overflow-y: scroll;"></div>
+
+			<div class="overlay-bg-blank" id="more_options_overlay" style="display: none;z-index: 1060;">
+			</div>
+
+			<div data-name="noMatchingPasswords" class="no-data-panel" style="display: none;">
+				<div class="no-data-panel-inner">
+					<img src="/images/svg/no-data-found.svg" />
+					<p class="text-default" data-text="" data-i18n_key="no_matching_addresses_found">No matching addresses found</p>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="secret_template">
+		<div class="password-list-panel" data-secret_id="">
+			<div class="password-list-left">
+				<span class="card-view-list-no-image" data-no_logo=""></span>
+				<span class="password-list-left-img image-center img-contain" data-logo=""></span>
+				<span class="password-list-access-control-icon"><i class="icon-access-control-configured-1 text-danger"></i></span>
+			</div>
+
+			<div class="password-list-right">
+				<h6 class="password-list-name" data-name=""></h6>
+				<p class="password-list-description text-default" data-description=""></p>
+			</div>
+
+			<div data-name="iconList"	class="password-list-icons zvd-action-icons">
+				<ul class="action-icon-list">
+					<li data-fill_icon="">
+						<a href="#" style="padding-top:8px !important;"><i class="icon-fill" data-tooltip_content="i18n:fill" data-icon_tooltip="true"></i></a>
+					</li>
+					<!-- <li data-login_icon="">
+						<a href="#" style="padding-top:8px !important;"><i class="icon-login" data-tooltip_content="i18n:login" data-icon_tooltip="true"></i></a>
+					</li> -->
+					<li data-show_more_options="">
+						<a href="#" style="padding-top:8px !important;"><i class="icon-more" data-tooltip_content="i18n:more" data-icon_tooltip="true"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_more_actions_template">
+		<div id="password_more_actions" class="zv-dropdown-popup" style="width: max-content;height: max-content; display: block;z-index: 1100;">
+			<ul class="vault-common-list" style="white-space: nowrap;">
+			</ul>
+		</div>
+	</template>
+
+	<template id="passwore_more_actions_item_template">
+		<div>
+			<li><a href="#" style="padding-right: 20px; padding-left: 15px;text-overflow: ellipsis;overflow-x: hidden;" data-text=""></a></li>
+		</div>
+	</template>
+
+	<template id="no_passwords_template">
+		<div class="zvd-content-panel">
+			<div class="no-data-panel">
+				<div class="no-data-panel-inner">
+					<img src="/images/svg/add-password-image.svg" />
+					<p class="text-default" data-text="" data-i18n_key="no_addresses_found">No addresses found</p>
+					<!-- <button type="button" class="btn btn-primary btn-md" data-name="unlock" data-i18n_key="add_password">Add Password</button> -->
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="vault_locked_template">
+		<div class="zvd-content-panel">
+			<div class="no-data-panel">
+				<div class="overlay-bg" id="unlock_loading" style="display: none;position: absolute; background-color: rgb(0, 0, 0, 0.1);z-index: 1100;">
+					<div class="component-loader" style="display: block">
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				</div>
+
+				<div class="no-data-panel-inner">
+					<img src="/images/svg/passphrase-cleared.svg" />
+
+					<p class="text-default" data-i18n_key="passphrase_cleared">Your master password has been cleared</p>
+					<button type="button" class="btn btn-primary btn-md" data-name="unlock" data-i18n_key="unlock">Unlock</button>
+				</div>
+			</div>
+		</div>
+	</template>
+
+</body>
+
+</html>

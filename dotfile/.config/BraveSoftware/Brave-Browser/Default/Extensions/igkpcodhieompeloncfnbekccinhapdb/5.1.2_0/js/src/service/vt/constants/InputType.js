@@ -1,0 +1,25 @@
+export var InputType;
+(function (InputType) {
+    InputType["BUTTON"] = "button";
+    InputType["CHECKBOX"] = "checkbox";
+    InputType["COLOR"] = "color";
+    InputType["DATE"] = "date";
+    InputType["DATE_TIME"] = "datetime-local";
+    InputType["EMAIL"] = "email";
+    InputType["FILE"] = "file";
+    InputType["HIDDEN"] = "hidden";
+    InputType["IMAGE"] = "image";
+    InputType["MONTH"] = "month";
+    InputType["NUMBER"] = "number";
+    InputType["PASSWORD"] = "password";
+    InputType["RADIO"] = "radio";
+    InputType["RANGE"] = "range";
+    InputType["RESET"] = "reset";
+    InputType["SEARCH"] = "search";
+    InputType["SUBMIT"] = "submit";
+    InputType["TEL"] = "tel";
+    InputType["TEXT"] = "text";
+    InputType["TIME"] = "time";
+    InputType["URL"] = "url";
+    InputType["WEEK"] = "week";
+})(InputType || (InputType = {}));

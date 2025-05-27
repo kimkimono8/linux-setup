@@ -1,0 +1,1526 @@
+{
+   "access_checkout_description": {
+      "message": "您的訪問請求已獲批准。請查看訪問所需的密碼。"
+   },
+   "access_control": {
+      "message": "存取控制"
+   },
+   "access_control_admin_tooltip": {
+      "message": "選擇一名或多名可以批准訪問請求的管理員"
+   },
+   "access_control_altlest_two_grant_access": {
+      "message": "必須至少有2名審批人授予存取權限"
+   },
+   "access_control_auto_approve_with_help_desk": {
+      "message": "通過幫助台工單驗證"
+   },
+   "access_control_description": {
+      "message": "在獲得選定審批人的有效批准後，使用者可以訪問該密碼"
+   },
+   "access_control_disabled_success": {
+      "message": "存取控制已成功禁用"
+   },
+   "access_control_enabled": {
+      "message": "存取控制已啟用"
+   },
+   "access_control_exclude_users_tooltip": {
+      "message": "選定的用戶將被排除在存取控制之外"
+   },
+   "access_control_invalid_time": {
+      "message": "自動審批時間無效"
+   },
+   "access_control_provide_access_for": {
+      "message": "提供存取權限"
+   },
+   "access_control_saved_success": {
+      "message": "存取控制配置已成功保存"
+   },
+   "access_control_select_another_approver": {
+      "message": "請選擇另一名審批人，然後重試"
+   },
+   "access_control_unapproved_request_void_after": {
+      "message": "未經批准的請求在下列情況下無效"
+   },
+   "access_privilege": {
+      "message": "存取權限"
+   },
+   "access_request_created_success": {
+      "message": "訪問請求創建成功"
+   },
+   "access_request_pending_description": {
+      "message": "您的訪問請求正在等待審批。無論何時批准或拒絕，您都會收到電子郵件通知。"
+   },
+   "access_required_on": {
+      "message": "請求存取時間"
+   },
+   "access_revoked_success": {
+      "message": "密碼存取權限已成功撤銷"
+   },
+   "access_revoked_user_success": {
+      "message": "從$1$撤銷密碼存取權限",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "actions": {
+      "message": "操作"
+   },
+   "activity": {
+      "message": "活動"
+   },
+   "add": {
+      "message": "添加"
+   },
+   "add_address": {
+      "message": "添加地址"
+   },
+   "add_authenticator": {
+      "message": "添加身份認證器"
+   },
+   "add_card": {
+      "message": "添加付款卡"
+   },
+   "add_field": {
+      "message": "添加欄位"
+   },
+   "add_folder": {
+      "message": "添加資料夾"
+   },
+   "add_password": {
+      "message": "添加密碼"
+   },
+   "add_password_restricted": {
+      "message": "您機構的管理員已禁用添加新密碼。"
+   },
+   "add_personal_enterprise_password_restricted": {
+      "message": "添加個人密碼和企業密碼的操作受到管理員的限制。"
+   },
+   "add_url": {
+      "message": "添加URL"
+   },
+   "added_successfully": {
+      "message": "添加成功"
+   },
+   "additional_fields": {
+      "message": "附加欄位"
+   },
+   "address": {
+      "message": "地址"
+   },
+   "address_added_successfully": {
+      "message": "地址添加成功"
+   },
+   "address_edited_successfully": {
+      "message": "位址更新成功"
+   },
+   "addresses": {
+      "message": "地址"
+   },
+   "admin": {
+      "message": "管理"
+   },
+   "adv_setting_disable_badge_count_content": {
+      "message": "啟用後，工具列上該擴展程式的標識將不會顯示與功能變數名稱匹配的密碼計數。"
+   },
+   "adv_setting_disable_badge_count_heading": {
+      "message": "禁用標識計數"
+   },
+   "adv_setting_disable_click_to_login": {
+      "message": "禁用一鍵登錄"
+   },
+   "adv_setting_disable_click_to_login_content": {
+      "message": "啟用後，點擊密碼條目將顯示密碼詳情，而不是自動登錄。"
+   },
+   "adv_setting_disable_shadow_root": {
+      "message": "禁用影子根（Shadow Root）"
+   },
+   "adv_setting_disable_shadow_root_content": {
+      "message": "網站的影子根（Shadow Root）檢測將被禁用。"
+   },
+   "adv_setting_disable_vault_icon_content": {
+      "message": "啟用後，密碼保險庫的圖示不會出現在密碼欄位中，但您仍然可以通過按右鍵上下文功能表訪問密碼。"
+   },
+   "adv_setting_disable_vault_icon_heading": {
+      "message": "禁用網站密碼保險庫的圖示"
+   },
+   "adv_setting_disable_website_keyboard_shortcut_content": {
+      "message": "禁用“Ctrl+空格”快速鍵，將不會在帶有密碼保險庫圖示的輸入欄位中打開密碼清單。"
+   },
+   "adv_setting_disable_website_keyboard_shortcut_heading": {
+      "message": "禁用“Ctrl+空格”快速鍵"
+   },
+   "advance_request_approved_description": {
+      "message": "您的提前訪問請求已獲得批准。在請求的時間查看密碼以訪問它。"
+   },
+   "advanced_settings": {
+      "message": "高級設置"
+   },
+   "alert_http_fill": {
+      "message": "在不安全的頁面上自動填充時發出告警"
+   },
+   "algorithm": {
+      "message": "演算法"
+   },
+   "all": {
+      "message": "所有"
+   },
+   "all_folders": {
+      "message": "所有資料夾"
+   },
+   "all_passwords": {
+      "message": "所有密碼"
+   },
+   "all_rights_reserved": {
+      "message": "保留所有權利。"
+   },
+   "all_users": {
+      "message": "所有用戶"
+   },
+   "all_weekdays": {
+      "message": "所有工作日"
+   },
+   "all_weekends": {
+      "message": "所有週末"
+   },
+   "allow": {
+      "message": "允許"
+   },
+   "allow_permanent": {
+      "message": "永久允許"
+   },
+   "and": {
+      "message": "和"
+   },
+   "any": {
+      "message": "任何"
+   },
+   "approved": {
+      "message": "已批准"
+   },
+   "ask_clear_history": {
+      "message": "清除歷史記錄？"
+   },
+   "authenticators": {
+      "message": "身份認證器"
+   },
+   "autofill_card_sub_domains": {
+      "message": "功能變數名稱不匹配時自動填充付款卡"
+   },
+   "autofill_sub_domains": {
+      "message": "在子域上自動填充密碼"
+   },
+   "autologin_disable_success": {
+      "message": "自動登錄已成功禁用           "
+   },
+   "autologin_enable_success": {
+      "message": "自動登錄已成功啟用                         "
+   },
+   "automatically_approve_access_request": {
+      "message": "自動批准訪問請求"
+   },
+   "back_to_folders": {
+      "message": "返回資料夾"
+   },
+   "between": {
+      "message": "介於"
+   },
+   "cancel": {
+      "message": "取消"
+   },
+   "cancel_access_request_success": {
+      "message": "請求已成功取消"
+   },
+   "cancel_request": {
+      "message": "取消請求"
+   },
+   "capitalize": {
+      "message": "將其大寫"
+   },
+   "card_added_successfully": {
+      "message": "付款卡添加成功"
+   },
+   "card_card_no": {
+      "message": "卡號"
+   },
+   "card_edited_successfully": {
+      "message": "付款卡更新成功"
+   },
+   "card_move_to_trash_success": {
+      "message": "付款卡已成功移至回收站"
+   },
+   "card_name_on_card": {
+      "message": "卡片上的姓名"
+   },
+   "card_security_code": {
+      "message": "安全碼"
+   },
+   "card_valid_thru": {
+      "message": "有效期"
+   },
+   "category": {
+      "message": "類別"
+   },
+   "changes_updated": {
+      "message": "更改已成功更新"
+   },
+   "check_in_confirm_description": {
+      "message": "一旦您檢入密碼，您將無法再訪問它"
+   },
+   "check_in_confirm_title": {
+      "message": "登記密碼？"
+   },
+   "check_in_success": {
+      "message": "密碼已成功檢入"
+   },
+   "checkin": {
+      "message": "檢入"
+   },
+   "checkout": {
+      "message": "檢出"
+   },
+   "checkout_success": {
+      "message": "密碼已成功檢出"
+   },
+   "classification": {
+      "message": "分類"
+   },
+   "clear": {
+      "message": "清除"
+   },
+   "clear_all": {
+      "message": "清除全部"
+   },
+   "clear_clipboard_after": {
+      "message": "清除剪貼板後"
+   },
+   "clear_filters": {
+      "message": "清除篩檢程式"
+   },
+   "close": {
+      "message": "關閉"
+   },
+   "close_dev_tools_one_click_card": {
+      "message": "關閉開發者工具以自動填充付款卡資訊。"
+   },
+   "close_dev_tools_one_click_login": {
+      "message": "關閉開發人員工具以自動登錄。"
+   },
+   "close_profile_panel": {
+      "message": "關閉簡檔面板"
+   },
+   "comment": {
+      "message": "評論"
+   },
+   "confirm_access_control_disable": {
+      "message": "禁用存取控制？"
+   },
+   "confirm_checkout_description": {
+      "message": "一旦您檢出密碼，您只能訪問30分鐘。"
+   },
+   "confirm_insecure_fill": {
+      "message": "您將在不安全的頁面中填寫密碼。Zoho Vault強烈建議您不要這樣做，除非您信任本網站。還是繼續填寫密碼？"
+   },
+   "context_menu_show_all_cards": {
+      "message": "顯示所有卡片"
+   },
+   "context_menu_show_all_passwords": {
+      "message": "顯示所有密碼"
+   },
+   "copied": {
+      "message": "已複製"
+   },
+   "copy": {
+      "message": "複製"
+   },
+   "copy_to_clipboard": {
+      "message": "複製到剪貼板"
+   },
+   "create_folder": {
+      "message": "創建資料夾"
+   },
+   "create_new": {
+      "message": "新建"
+   },
+   "created_on": {
+      "message": "創建時間"
+   },
+   "current_domain": {
+      "message": "子功能變數名稱"
+   },
+   "current_totp": {
+      "message": "當前動態驗證碼"
+   },
+   "custom": {
+      "message": "自訂"
+   },
+   "custom_fields": {
+      "message": "自訂欄位"
+   },
+   "dark_mode": {
+      "message": "夜間模式"
+   },
+   "data_sync": {
+      "message": "資料同步"
+   },
+   "date": {
+      "message": "日期"
+   },
+   "day": {
+      "message": "天"
+   },
+   "days": {
+      "message": "天"
+   },
+   "default_view": {
+      "message": "默認視圖"
+   },
+   "delete": {
+      "message": "刪除"
+   },
+   "delete_domain_from_list": {
+      "message": "從列表中刪除$1$？",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "delete_domain_from_list_description": {
+      "message": "您將開始收到保存和更新$1$密碼的提示。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "delete_password": {
+      "message": "刪除密碼"
+   },
+   "delete_password_confirm_message": {
+      "message": "刪除密碼會將其從您的帳戶和所有相關資料夾中永久刪除。"
+   },
+   "delete_password_confirm_title": {
+      "message": "刪除密碼？"
+   },
+   "delete_password_success_message": {
+      "message": "密碼“$1$”已成功刪除。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "deny": {
+      "message": "拒絕"
+   },
+   "description": {
+      "message": "描述"
+   },
+   "detailed_view": {
+      "message": "詳細視圖"
+   },
+   "devtools_newtab_login": {
+      "message": "檢測到開發者工具。為增強安全性，請通過新頁簽登錄。"
+   },
+   "devtools_tab_closed": {
+      "message": "檢測到開發者工具。為保護您的賬戶安全，此頁簽已被關閉。"
+   },
+   "digits": {
+      "message": "數字"
+   },
+   "disable": {
+      "message": "禁用"
+   },
+   "disable_access_control": {
+      "message": "禁用存取控制"
+   },
+   "disable_auto_login": {
+      "message": "禁用自動登錄"
+   },
+   "displaying": {
+      "message": "顯示中"
+   },
+   "domain": {
+      "message": "功能變數名稱"
+   },
+   "domain_matching": {
+      "message": "功能變數名稱匹配中"
+   },
+   "domain_mismatch_alert": {
+      "message": "功能變數名稱不匹配告警"
+   },
+   "domain_mismatch_detected": {
+      "message": "檢測到功能變數名稱不匹配。允許自動填充可能會帶來安全風險。"
+   },
+   "download": {
+      "message": "下載"
+   },
+   "edit": {
+      "message": "編輯"
+   },
+   "edit_address": {
+      "message": "編輯地址"
+   },
+   "edit_card": {
+      "message": "編輯付款卡"
+   },
+   "edit_password": {
+      "message": "編輯密碼"
+   },
+   "email": {
+      "message": "電子郵件"
+   },
+   "empty_trash": {
+      "message": "清空回收站"
+   },
+   "empty_trash_confirm_message": {
+      "message": "此操作將徹底刪除回收站中的所有密碼。您將來將無法恢復這些密碼。"
+   },
+   "empty_trash_confirm_title": {
+      "message": "清空回收站？"
+   },
+   "empty_trash_success_message": {
+      "message": "回收站中的所有密碼均已成功刪除。"
+   },
+   "enable_access_control": {
+      "message": "啟用存取控制"
+   },
+   "enable_auto_login": {
+      "message": "啟用自動登錄"
+   },
+   "encryption_key": {
+      "message": "加密金鑰"
+   },
+   "enter_passphrase": {
+      "message": "輸入您的主密碼以訪問您的密碼保險庫"
+   },
+   "enterprise": {
+      "message": "企業版"
+   },
+   "enterprise_password_restricted": {
+      "message": "添加的企業密碼受到管理員的限制。"
+   },
+   "enterprise_passwords": {
+      "message": "企業密碼"
+   },
+   "error_getting_oneauth_totp": {
+      "message": "獲取OneAuth動態驗證碼時出錯"
+   },
+   "exclude_character": {
+      "message": "排除字元"
+   },
+   "exclude_users": {
+      "message": "排除用戶"
+   },
+   "extDescription": {
+      "message": "團隊線上密碼管理器，用於安全地存儲、共用及管理密碼和其他敏感性資料。"
+   },
+   "extName": {
+      "message": "Zoho Vault"
+   },
+   "extension": {
+      "message": "擴展程式"
+   },
+   "extension_locked": {
+      "message": "擴展程式已鎖定"
+   },
+   "extension_logged_out": {
+      "message": "擴展程式已取消"
+   },
+   "favourites": {
+      "message": "收藏夾"
+   },
+   "field_holds_personal_data": {
+      "message": "此欄位保存個人資料"
+   },
+   "field_name": {
+      "message": "欄位名稱"
+   },
+   "file": {
+      "message": "文件"
+   },
+   "file_only_n_per_password": {
+      "message": "每個密碼只能添加 $1$ 個檔",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_cannot_exceed": {
+      "message": "檔大小不能超過 $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_per_password_cannot_exceed": {
+      "message": "每個密碼的最大檔大小不應超過 $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_within_max": {
+      "message": "文件最大不得超過 2MB"
+   },
+   "fill": {
+      "message": "填充"
+   },
+   "filter": {
+      "message": "篩檢程式"
+   },
+   "folder": {
+      "message": "資料夾"
+   },
+   "folder_name": {
+      "message": "資料夾名稱"
+   },
+   "folders": {
+      "message": "資料夾"
+   },
+   "font": {
+      "message": "字體"
+   },
+   "general": {
+      "message": "通用"
+   },
+   "generate": {
+      "message": "生成"
+   },
+   "generator": {
+      "message": "生成器"
+   },
+   "generator_history_common_description": {
+      "message": "從生成器中複製的最近$1$個值將顯示在此處。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "generator_history_description": {
+      "message": "從生成器中複製的最後$1$個密碼將顯示在此處",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "generator_password_length": {
+      "message": "密碼長度"
+   },
+   "generator_policy_defaults_used": {
+      "message": "配置無效或為空，正在重置為預設策略選項。"
+   },
+   "get_oneauth_totp": {
+      "message": "獲取OneAuth動態驗證碼"
+   },
+   "grant": {
+      "message": "授權"
+   },
+   "help": {
+      "message": "幫助"
+   },
+   "help_resources": {
+      "message": "幫助資源"
+   },
+   "helpdesk_error_message": {
+      "message": "説明台錯誤消息"
+   },
+   "helpdesk_status": {
+      "message": "説明台狀態"
+   },
+   "hide": {
+      "message": "隱藏"
+   },
+   "history": {
+      "message": "歷史"
+   },
+   "hour": {
+      "message": "小時"
+   },
+   "hours": {
+      "message": "小時"
+   },
+   "insecure_card_fill_description": {
+      "message": "您即將在一個不安全的頁面填寫您的付款卡資訊"
+   },
+   "insecure_page_alert": {
+      "message": "不安全頁面告警"
+   },
+   "invalid_date_error": {
+      "message": "請指定有效的日期"
+   },
+   "invalid_email_address": {
+      "message": "無效的電子郵寄地址"
+   },
+   "invalid_field": {
+      "message": "無效的$1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "invalid_master_passphrase": {
+      "message": "無效的主密碼"
+   },
+   "invalid_master_passphrase_n_remaining": {
+      "message": "無效的主密碼，剩餘$1$次嘗試。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "list_view": {
+      "message": "列表視圖"
+   },
+   "lock": {
+      "message": "鎖定"
+   },
+   "lock_after": {
+      "message": "鎖定擴展程式"
+   },
+   "lock_on_system_lock": {
+      "message": "螢幕鎖定時鎖定擴展程式"
+   },
+   "login": {
+      "message": "登錄"
+   },
+   "login_incognito": {
+      "message": "啟動私有會話"
+   },
+   "lower_case": {
+      "message": "小寫"
+   },
+   "lower_case_letters": {
+      "message": "小寫字母"
+   },
+   "manage": {
+      "message": "管理"
+   },
+   "manage_access_control": {
+      "message": "管理存取控制"
+   },
+   "manage_authenticator": {
+      "message": "管理身份認證器"
+   },
+   "manage_authenticators": {
+      "message": "管理身份認證器"
+   },
+   "manage_custom_fields": {
+      "message": "管理自訂欄位"
+   },
+   "manage_prompts": {
+      "message": "管理提示資訊"
+   },
+   "mark_as_personal": {
+      "message": "標記為私有"
+   },
+   "mark_favourite": {
+      "message": "標記為收藏夾"
+   },
+   "master_password": {
+      "message": "主密碼"
+   },
+   "max_file_size_popup": {
+      "message": "每個密碼的最大檔大小不應超過2MB"
+   },
+   "message": {
+      "message": "消息"
+   },
+   "minute": {
+      "message": "分鐘"
+   },
+   "minutes": {
+      "message": "分鐘"
+   },
+   "modified_time": {
+      "message": "修改時間"
+   },
+   "modify": {
+      "message": "修改"
+   },
+   "more": {
+      "message": "更多"
+   },
+   "move_password_name_to_trash": {
+      "message": "將“$1$”移動到回收站",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "move_to_trash": {
+      "message": "移動到回收站"
+   },
+   "move_to_trash_success": {
+      "message": "密碼已成功移到回收站"
+   },
+   "must_not_be_empty": {
+      "message": "不能為空"
+   },
+   "must_not_contain": {
+      "message": "不能包含"
+   },
+   "n_user_groups_selected": {
+      "message": "已選擇$1$個用戶組",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "n_users_selected": {
+      "message": "已選擇$1$個用戶",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "name": {
+      "message": "名稱"
+   },
+   "never_save": {
+      "message": "永不保存"
+   },
+   "night_mode": {
+      "message": "夜間模式"
+   },
+   "no_addresses_found": {
+      "message": "沒有找到地址"
+   },
+   "no_cards_found": {
+      "message": "沒有找到付款卡"
+   },
+   "no_cards_matching_found": {
+      "message": "沒有找到匹配的付款卡"
+   },
+   "no_copied_values_yet": {
+      "message": "尚未複製值"
+   },
+   "no_copy_permission": {
+      "message": "沒有複製許可權"
+   },
+   "no_edit_permission": {
+      "message": "沒有編輯許可權"
+   },
+   "no_folders_found": {
+      "message": "沒有找到資料夾"
+   },
+   "no_folders_matching_found": {
+      "message": "沒有找到匹配的“$1$”資料夾",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_history_available": {
+      "message": "歷史資料不可用。"
+   },
+   "no_match_found": {
+      "message": "沒有找到匹配項"
+   },
+   "no_matching_addresses_found": {
+      "message": "沒有找到匹配的地址"
+   },
+   "no_matching_folders_found": {
+      "message": "沒有找到匹配的資料夾"
+   },
+   "no_matching_passwords_found": {
+      "message": "沒有找到匹配的密碼"
+   },
+   "no_of_words": {
+      "message": "字數"
+   },
+   "no_passwords_folder": {
+      "message": "該資料夾中沒有找到密碼"
+   },
+   "no_passwords_found": {
+      "message": "沒有找到密碼"
+   },
+   "no_passwords_matching_found_folder": {
+      "message": "在此資料夾中沒有找到匹配的密碼"
+   },
+   "no_passwords_yet": {
+      "message": "還沒有密碼"
+   },
+   "no_share_permission": {
+      "message": "沒有共用許可權"
+   },
+   "no_trashed_passwords": {
+      "message": "回收站為空"
+   },
+   "no_user_groups_found": {
+      "message": "沒有找到用戶組"
+   },
+   "no_user_groups_matching_found": {
+      "message": "沒有找到匹配的“$1$”用戶組",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_users_found": {
+      "message": "沒有找到用戶"
+   },
+   "no_users_matching_found": {
+      "message": "沒有找到匹配的“$1$”用戶",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_view_permission": {
+      "message": "沒有查看許可權"
+   },
+   "not_selected_users": {
+      "message": "未選擇用戶"
+   },
+   "notes": {
+      "message": "備註"
+   },
+   "numbers": {
+      "message": "數字"
+   },
+   "of": {
+      "message": "/"
+   },
+   "ok": {
+      "message": "好的"
+   },
+   "one_click_password_change_prevented_popup": {
+      "message": "使用一鍵登錄許可權共用密碼時不允許更改密碼"
+   },
+   "oneauth_approve_message": {
+      "message": "請批准發送到您手機的通知以獲取動態驗證碼"
+   },
+   "oneauth_install_description": {
+      "message": "一款功能全面的身份認證應用程式，它可簡化您所有的多因素身份認證需求，並提升企業安全性。"
+   },
+   "oneauth_notification_pushed": {
+      "message": "OneAuth通知已發送"
+   },
+   "oneauth_secrets": {
+      "message": "OneAuth機密資訊"
+   },
+   "oneauth_unlock_failed": {
+      "message": "出了錯誤，輸入您的主密碼以解鎖。"
+   },
+   "open_profile_panel": {
+      "message": "打開簡檔面板"
+   },
+   "open_web_app": {
+      "message": "打開Web應用"
+   },
+   "open_zoho_vault": {
+      "message": "打開Zoho Vault"
+   },
+   "or": {
+      "message": "或"
+   },
+   "others": {
+      "message": "其他"
+   },
+   "owned_by_me": {
+      "message": "由我所有"
+   },
+   "parent_domain": {
+      "message": "父系網域名"
+   },
+   "passphrase": {
+      "message": "加密口令"
+   },
+   "passphrase_cleared": {
+      "message": "您的主密碼已被清除"
+   },
+   "password": {
+      "message": "密碼"
+   },
+   "password_added_successfully": {
+      "message": "密碼添加成功"
+   },
+   "password_edited_successfully": {
+      "message": "密碼更新成功"
+   },
+   "password_must_have_lowercase": {
+      "message": "密碼必須至少包含一個小寫字母。"
+   },
+   "password_must_have_minimum_chars": {
+      "message": "密碼必須至少包含$1$個字元。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_have_number": {
+      "message": "密碼必須至少包含1個數位。"
+   },
+   "password_must_have_spl_char": {
+      "message": "密碼必須至少包含$1$個特殊字元。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_have_uppercase": {
+      "message": "密碼必須至少包含1個大寫字母。"
+   },
+   "password_must_not_have_chars": {
+      "message": "密碼中不允許使用字元$1$。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_start_with_alphabet": {
+      "message": "密碼必須以字母開頭。"
+   },
+   "password_policy": {
+      "message": "密碼策略"
+   },
+   "passwords": {
+      "message": "密碼"
+   },
+   "path": {
+      "message": "路徑"
+   },
+   "personal": {
+      "message": "個人版"
+   },
+   "personal_password_cannot_be_shared": {
+      "message": "個人密碼不可共用"
+   },
+   "personal_password_restricted": {
+      "message": "添加管理員限制的個人密碼"
+   },
+   "personal_passwords": {
+      "message": "個人密碼"
+   },
+   "personalization": {
+      "message": "個性化"
+   },
+   "please_enter": {
+      "message": "請輸入"
+   },
+   "please_enter_a": {
+      "message": "請輸入"
+   },
+   "please_enter_an_email": {
+      "message": "請輸入電子郵寄地址"
+   },
+   "please_enter_your": {
+      "message": "請輸入您的$1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "please_upload_your": {
+      "message": "請上傳您的$1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "port": {
+      "message": "埠"
+   },
+   "proceed": {
+      "message": "繼續"
+   },
+   "product_videos": {
+      "message": "產品視頻"
+   },
+   "prompt_auto_save_update": {
+      "message": "提示保存和更新密碼"
+   },
+   "prompt_card_auto_save_update": {
+      "message": "提示保存和更新付款卡"
+   },
+   "push_sent_success": {
+      "message": "推送通知發送成功"
+   },
+   "reason": {
+      "message": "原因"
+   },
+   "recent": {
+      "message": "最近"
+   },
+   "recently_added": {
+      "message": "最近添加"
+   },
+   "recently_copied_passwords": {
+      "message": "最近複製的密碼"
+   },
+   "recently_copied_values": {
+      "message": "最近複製的值"
+   },
+   "recently_used": {
+      "message": "最近使用"
+   },
+   "remove_field": {
+      "message": "移除欄位"
+   },
+   "remove_logo": {
+      "message": "移除徽標"
+   },
+   "remove_url": {
+      "message": "移除URL"
+   },
+   "request": {
+      "message": "請求"
+   },
+   "request_access": {
+      "message": "請求存取權限"
+   },
+   "request_access_description": {
+      "message": "請求訪問此密碼。如果密碼所有者批准或拒絕您的請求，您將收到電子郵件通知。"
+   },
+   "request_advance_approval": {
+      "message": "請求提前審批"
+   },
+   "request_approved": {
+      "message": "請求已批准"
+   },
+   "request_details": {
+      "message": "請求詳情"
+   },
+   "request_immediate_access": {
+      "message": "請求立即訪問"
+   },
+   "request_time": {
+      "message": "請求時間"
+   },
+   "resend_push": {
+      "message": "重新推送"
+   },
+   "reset_password": {
+      "message": "重置密碼"
+   },
+   "resource_removed_successfully": {
+      "message": "$1$移除成功",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "restore_password": {
+      "message": "恢復密碼"
+   },
+   "restore_password_confirm_message": {
+      "message": "此操作將把密碼移回您的賬戶及其相應的資料夾，同時恢復其共用許可權。"
+   },
+   "restore_password_confirm_title": {
+      "message": "恢復密碼？"
+   },
+   "restore_password_success_message": {
+      "message": "密碼“$1$”已成功恢復。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "retry": {
+      "message": "重試"
+   },
+   "revoke": {
+      "message": "撤銷"
+   },
+   "same_name_password_exists": {
+      "message": "同名密碼已存在"
+   },
+   "save": {
+      "message": "保存"
+   },
+   "save_and_enable": {
+      "message": "保存並啟用"
+   },
+   "save_as_new": {
+      "message": "保存為新內容"
+   },
+   "save_prompt_disabled_description": {
+      "message": "以下網站的自動更新提示已被禁用"
+   },
+   "save_to_zoho_vault_question": {
+      "message": "保存到Zoho Vault？"
+   },
+   "scheme": {
+      "message": "方案"
+   },
+   "search": {
+      "message": "搜索"
+   },
+   "searching": {
+      "message": "搜索中"
+   },
+   "seconds": {
+      "message": "秒"
+   },
+   "select": {
+      "message": "選擇"
+   },
+   "select_admins": {
+      "message": "選擇管理員"
+   },
+   "select_all": {
+      "message": "全選"
+   },
+   "select_city": {
+      "message": "選擇城市"
+   },
+   "select_country": {
+      "message": "選擇國家/地區"
+   },
+   "select_create_folder": {
+      "message": "選擇或創建資料夾"
+   },
+   "select_oneauth_secrets": {
+      "message": "選擇Oneauth機密資訊"
+   },
+   "select_state": {
+      "message": "選擇省/市"
+   },
+   "selected_users": {
+      "message": "選定的用戶"
+   },
+   "seperate_session": {
+      "message": "保持登錄狀態"
+   },
+   "setting_enforced_by_amdin": {
+      "message": "由超級管理員強制執行"
+   },
+   "settings": {
+      "message": "設置"
+   },
+   "share": {
+      "message": "共用"
+   },
+   "share_feedback": {
+      "message": "共用回饋"
+   },
+   "share_one_click_login": {
+      "message": "一鍵登錄"
+   },
+   "share_password": {
+      "message": "共用密碼"
+   },
+   "share_success": {
+      "message": "密碼共用成功"
+   },
+   "share_user_success": {
+      "message": "將密碼與$1$共用成功",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "shared_by_me": {
+      "message": "由我共用"
+   },
+   "shared_with_me": {
+      "message": "共用給我"
+   },
+   "sharing": {
+      "message": "共用中"
+   },
+   "sharing_restricted": {
+      "message": "管理員已限制共用"
+   },
+   "show_details": {
+      "message": "顯示詳情"
+   },
+   "show_domain_matching": {
+      "message": "顯示功能變數名稱匹配"
+   },
+   "show_more_fields": {
+      "message": "顯示更多欄位"
+   },
+   "shows": {
+      "message": "顯示"
+   },
+   "sign_out": {
+      "message": "退出"
+   },
+   "sign_out_confirm": {
+      "message": "退出Zoho Vault？"
+   },
+   "sign_up": {
+      "message": "註冊"
+   },
+   "signup_for_vault": {
+      "message": "註冊以訪問Zoho Vault"
+   },
+   "special_character": {
+      "message": "特殊字元"
+   },
+   "special_characters": {
+      "message": "特殊字元"
+   },
+   "status": {
+      "message": "狀態"
+   },
+   "stay_signed_in_info": {
+      "message": "即使您已從Web賬戶中退出登錄，也可保持您的擴展程式處於登錄狀態。"
+   },
+   "sub_domain": {
+      "message": "子功能變數名稱"
+   },
+   "sync": {
+      "message": "同步"
+   },
+   "sync_changes": {
+      "message": "同步Web上的所有更改"
+   },
+   "sync_completed": {
+      "message": "同步已完成"
+   },
+   "sync_description": {
+      "message": "使您的擴展程式與Web應用中所做的更改保持同步"
+   },
+   "sync_started": {
+      "message": "同步已開始"
+   },
+   "syncing": {
+      "message": "同步中"
+   },
+   "tag": {
+      "message": "標籤"
+   },
+   "tags": {
+      "message": "標籤"
+   },
+   "text": {
+      "message": "文本"
+   },
+   "theme": {
+      "message": "主題"
+   },
+   "third_parties": {
+      "message": "協力廠商"
+   },
+   "third_party_revoke_link_after": {
+      "message": "在以下情況下撤銷對連結的訪問"
+   },
+   "third_party_shared_output": {
+      "message": "一封電子郵件已發送至$1$。請共用下面的加密金鑰，以便他們能夠訪問$2$的密碼。該金鑰也將出現在密碼生成器的歷史記錄中。 ",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "third_party_sharing_restricted": {
+      "message": "管理員限制與協力廠商共用密碼"
+   },
+   "ticket_id": {
+      "message": "工單ID"
+   },
+   "ticket_id_can_be_specified": {
+      "message": "您可以指定工單編號以實現自動審批。"
+   },
+   "tile_view": {
+      "message": "平鋪視圖"
+   },
+   "time": {
+      "message": "時間"
+   },
+   "totp": {
+      "message": "動態驗證碼"
+   },
+   "totp_key": {
+      "message": "動態驗證碼金鑰"
+   },
+   "totp_key_must_contain_atleast_n_chars": {
+      "message": "動態驗證碼金鑰必須至少包含$1$個字元。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "trash": {
+      "message": "回收站"
+   },
+   "turn_off_dark_mode": {
+      "message": "關閉夜間模式"
+   },
+   "turn_on_dark_mode": {
+      "message": "打開夜間模式"
+   },
+   "unlock": {
+      "message": "解鎖"
+   },
+   "unlock_vault": {
+      "message": "解鎖密碼保險庫"
+   },
+   "unlock_vault_with_authenticators_min": {
+      "message": "使用身份認證器解鎖密碼保險庫"
+   },
+   "unlock_vault_with_oneauth": {
+      "message": "使用Zoho OneAuth移動應用程式解鎖Zoho Vault"
+   },
+   "unlock_vault_with_oneauth_min": {
+      "message": "使用Zoho OneAuth解鎖密碼保險庫"
+   },
+   "unlock_vault_with_webauthn": {
+      "message": "使用身份認證器解鎖Zoho Vault"
+   },
+   "unlock_with": {
+      "message": "使用以下方式解鎖"
+   },
+   "unlock_zoho_vault": {
+      "message": "解鎖Zoho Vault"
+   },
+   "unlocking": {
+      "message": "解鎖中"
+   },
+   "unmark_favourite": {
+      "message": "從收藏夾中移除"
+   },
+   "unselect_all": {
+      "message": "取消全選"
+   },
+   "unshared": {
+      "message": "未共用"
+   },
+   "unshared_folders": {
+      "message": "未共用的資料夾"
+   },
+   "unshared_passwords": {
+      "message": "未共用的密碼"
+   },
+   "update": {
+      "message": "更新"
+   },
+   "update_card": {
+      "message": "更新付款卡？"
+   },
+   "update_password_question": {
+      "message": "更新密碼？"
+   },
+   "upload": {
+      "message": "上傳"
+   },
+   "upload_logo": {
+      "message": "上傳徽標"
+   },
+   "upper_case": {
+      "message": "大寫字母"
+   },
+   "upper_case_letters": {
+      "message": "大寫字母"
+   },
+   "url": {
+      "message": "URL"
+   },
+   "url_invalid": {
+      "message": "提供的URL無效"
+   },
+   "urls_max_n": {
+      "message": "最多只能添加$1$個URL。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "usage_confirmation": {
+      "message": "使用情況確認"
+   },
+   "use": {
+      "message": "使用"
+   },
+   "use_xs_password_on_y": {
+      "message": "在$2$中使用$1$的密碼？",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "user": {
+      "message": "用戶"
+   },
+   "user_group": {
+      "message": "用戶組"
+   },
+   "user_groups": {
+      "message": "用戶組"
+   },
+   "user_name_label": {
+      "message": "用戶名"
+   },
+   "users": {
+      "message": "用戶"
+   },
+   "validity": {
+      "message": "有效性"
+   },
+   "value": {
+      "message": "值"
+   },
+   "view": {
+      "message": "查看"
+   },
+   "view_filters": {
+      "message": "查看篩檢程式"
+   },
+   "view_more": {
+      "message": "查看更多"
+   },
+   "week": {
+      "message": "周"
+   },
+   "weeks": {
+      "message": "周"
+   },
+   "welcome_to_vault": {
+      "message": "歡迎使用Zoho Vault"
+   },
+   "word_separator": {
+      "message": "分隔符號"
+   },
+   "x_must_be_less_than_y_chars": {
+      "message": "$1$必須少於$2$個字元。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "zoho_oneauth": {
+      "message": "Zoho OneAuth"
+   },
+   "zoho_vault_extension_locked": {
+      "message": "Zoho Vault - 擴展程式已鎖定"
+   }
+}

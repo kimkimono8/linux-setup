@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/kimono/.config/touchpad-fix/fix-touchpad.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Touchpad Fix
+Comment=Enable tap-to-click, natural scroll, and adjust scroll speed

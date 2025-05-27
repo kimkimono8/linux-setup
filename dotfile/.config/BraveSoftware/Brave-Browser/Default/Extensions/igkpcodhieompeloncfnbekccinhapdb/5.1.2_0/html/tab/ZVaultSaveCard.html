@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html style="width: 350px;">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="/images/logo/vault-logo-blue.svg">
+    <title>Save</title>
+    <link rel="stylesheet" type="text/css" href="/style/vault-ext.css">
+    <link rel="stylesheet" type="text/css" href="/style/vault-ext-themes.css">
+    <link rel="stylesheet" type="text/css" href="/style/styles.css">
+    <link rel="stylesheet" type="text/css" href="/style/vault-ext-nightmode.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault_dstyle.css">
+    <link rel="stylesheet" type="text/css" href="/style/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="/style/ZVaultSSFrame.css">
+
+    <script type="text/javascript" src="/lib/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/lib/zohovault.js"></script>
+    <script type="text/javascript" src="/lib/jquery.slimscroll.js"></script>
+    <script src="/lib/select2.min.js"></script>
+
+    <script type="module" src="/js/frames/card_frame/cardFrame.js"></script>
+
+</head>
+
+<body style="width:350px;user-select: none;height:400px">
+    <div class="su-wrapper clearfix" style="height: 100%;">
+        <div id="tooltip_arrow" class="tooltip_arrow" style="display: none;transition: opacity 0.6s linear;"></div>
+        <div id="tooltip_elem" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+        <div id="elem_msg_action" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+        <!--loading start-------------------------------------------------------------------------------------------------->
+        <div class="overlay-bg" id="loading" style="display: none;">
+            <div class="component-loader">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!--loading end---------------------------------------------------------------------------------------------------->
+
+        <!--notification start-->
+
+        <div id="notification" class="notify notify-success clearfix" style="display: none;">
+            <div class="notify-inner" data-close="">
+                <span class="notify-symbol pointer"></span>
+                <div class="notify-content pointer" data-content="">
+                    notification content</div>
+            </div>
+        </div>
+
+        <!--notification end-->
+
+        <div class="add-password-panel password-detail-page" style="right: 0;">
+
+            <!--header start--------------------------------------------------------------------------------------------------->
+            <div class="add-password-row-group">
+                <div class="add-password-one-col">
+                    <div class="add-password-col-left">
+                        <span class="view-password-popup-logo pull-left"
+                            style="background-image: url(/images/logo/vault-logo-blue.svg);cursor:default;"></span>
+                    </div>
+                    <div class="add-password-col-right">
+                        <h5 class="modal-panel-title pull-left m-t-10" id="title"><i-span>save_to_zoho_vault_question</i-span></h5>
+                    </div>
+                    <span class="password-list-view-details-close">
+                        <ul class="vault-list">
+                            <li><a id="edit_a"><i class="icon-edit" data-tooltip_content="i18n:edit_card"
+                                        data-icon_tooltip="true"></i></a></li>
+                            <li><a id="close_a"><i class="icon-close icon-xs" data-tooltip_content="i18n:close"
+                                        data-icon_tooltip="true"></i></a></li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            <!--header end ---------------------------------------------------------------------------------------------------->
+
+
+            <!--fields start--------------------------------------------------------------------------------------------------->
+            <div class="m-t-10" id="secretFields">
+
+                <!--Name-->
+                <div class="add-password-row-group dis-block" style="z-index: 1;">
+                    <div class="add-password-one-col">
+                        <div class="form-group active">
+                            <label class="label-control">
+                                <span class="label-text"><i-span>name</i-span> <span class="mandatory"><no-i-span>*</no-i-span></span></span>
+                            </label>
+                            <input type="text" spellcheck="false" class="form-control" value="" id="name" autocomplete="off"
+                                style="padding: 20px 0 9px 0 !important;" spellcheck="false" placeholder="Enter a unique name for this Payment Card">
+                        </div>
+                    </div>
+                </div>
+        
+
+                <!--folder start-->
+                <div class="add-password-row-group dis-block selectDropdownBorderBottomOnly" data-field_row="folder">
+                    <div class="add-password-one-col">
+                        <div class="form-group active">
+                            <label class="label-control no-label-border">
+                                <span class="label-text"><i-span>folder</i-span> </span>
+                            </label>
+                            <select class="form-control" data-folder_select="">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <!--folder end-->
+
+                <!--Card Number-->
+                <div class="add-password-row-group dis-block">
+                    <div class="add-password-one-col">
+                        <div class="form-group active dis-block">
+                            <label class="label-control"><span class="label-text"><i-span>card_card_no</i-span></span></label>
+                            <div class="form-control">
+                                <div class="text-ellipsis" id="card_number"></div>
+                            </div>
+                        </div>
+                        <div class="password-right-actions password-right-actions-save-frame">
+                            <ul class="action-icon-list">
+                                <li><a id="cardNumberView" data-type="card_number"><i class="icon-view"
+                                            data-tooltip_content="i18n:view" data-icon_tooltip="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Card Name-->
+                <div class="add-password-row-group dis-block">
+                    <div class="add-password-one-col">
+                        <div class="form-group active dis-block">
+                            <label class="label-control"><span class="label-text"><i-span>card_name_on_card</i-span></span></label>
+                            <div class="form-control">
+                                <div class="text-ellipsis" id="card_holder_name"></div>
+                            </div>
+                        </div>
+                        <div class="password-right-actions password-right-actions-save-frame">
+                            <!-- <ul class="action-icon-list" style="margin-top: 15px;"><li><a id="password_a"><i class="icon-view"></i></a></li></ul> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!--Card Expiry-->
+                <div class="add-password-row-group pull-left" style="width:45%">
+                    <div class="add-password-one-col">
+                        <div class="form-group active dis-block">
+                            <label class="label-control"><span class="label-text"><i-span>card_valid_thru</i-span></span></label>
+                            <div class="form-control">
+                                <div class="text-ellipsis" id="valid_thru"></div>
+                            </div>
+                        </div>
+                        <div class="password-right-actions password-right-actions-save-frame">
+                            <!-- <ul class="action-icon-list" style="margin-top: 15px;"><li><a id="password_a"><i class="icon-view"></i></a></li></ul> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!--Card CVV-->
+                <div class="add-password-row-group pull-right" style="width:45%">
+                    <div class="add-password-one-col">
+                        <div class="form-group active dis-block">
+                            <label class="label-control"><span class="label-text"><i-span>card_security_code</i-span></span></label>
+                            <div class="form-control">
+                                <div class="text-ellipsis" id="cvv"></div>
+                            </div>
+                        </div>
+                        <div class="password-right-actions password-right-actions-save-frame">
+                            <ul class="action-icon-list">
+                                <li><a id="cardCvvView" data-type="cvv"><i class="icon-view"
+                                            data-tooltip_content="i18n:view" data-icon_tooltip="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--fields end----------------------------------------------------------------------------------------------------->
+
+
+            <!--footer start--------------------------------------------------------------------------------------------------->
+            <div class="full-width clearfix" style="margin-top:13px;">
+                <button type="button" class="btn btn-md btn-primary zv_ellipsis" id="save_button" style="padding-left: 15px;padding-right: 15px; max-width: 65px;"><i-span>save</i-span></button>
+                <button type="button" class="btn btn-md btn-default-line m-l-5 zv_ellipsis" id="not_now_button" style="max-width: 70px;" data-i18n_key="passwords"><i-span>cancel</i-span></button>
+                <div class="pull-right" id="classificationField">
+					<label class="personal-enterprise-switch" data-classification_label="" data-icon_tooltip="true">
+						<input type="checkbox" name="classification" data-classification="" checked>
+						<span class="personal-enterprise-slider"></span>
+						<span class="personal-enterprise-label">
+							<span class="personal">Personal</span>
+							<span class="enterprise">Enterprise</span>
+						</span>
+					</label>
+                </div>
+            </div>        
+            <!--footer end----------------------------------------------------------------------------------------------------->
+        </div>
+    </div>
+
+    <template id="folder_select2_dropdown">
+        <div class="select2-results_repository clearfix">
+            <div class="m-l-10">
+                <p class="table-text-title" data-folder_name=""></p>
+            </div>
+            <span class="folder-path m-l-10" data-folder_path=""></span>
+        </div>
+    </template>
+
+    <template id="folder_select2_arrow">
+        <i class="icon-arrow-right icon-xs"></i>
+    </template>
+</body>
+
+</html>

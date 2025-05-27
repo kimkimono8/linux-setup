@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "campaigns": [],
+  "campaigns2": [
+    {
+      "campaignId": "42ce5502-614c-452c-ae8b-6e3a15ea8e25",
+      "logo": {
+        "imageUrl": "28ea0836-e786-4e6f-9733-758fe9132fb4/36263c8a-95e5-4616-a310-00a34b1f57ff.png",
+        "destinationUrl": "https://brave.com/whats-new/desktop/",
+        "alt": "Brave - You unlocked new features!",
+        "companyName": "Brave"
+      },
+      "wallpapers": [
+        {
+          "imageUrl": "28ea0836-e786-4e6f-9733-758fe9132fb4/0b6ad412-6b3a-42a7-9c87-43640e8fc306.jpg",
+          "creativeInstanceId": "49ca2fec-cc6b-41b4-bfbb-351577d39184",
+          "focalPoint": {
+            "x": 1280,
+            "y": 720
+          },
+          "conditionMatchers": [
+            {
+              "prefPath": "[virtual]:browser|version",
+              "condition": "^\\d+\\.\\d+\\.(?:7[8-9]|[89]\\d|\\d{3,})\\.\\d+$"
+            },
+            {
+              "prefPath": "brave.brave_ads.p3a.ntp_event_count_constellation|49ca2fec-cc6b-41b4-bfbb-351577d39184|views",
+              "condition": "[R≤]:5"
+            },
+            {
+              "prefPath": "brave.brave_ads.p3a.ntp_event_count_constellation|49ca2fec-cc6b-41b4-bfbb-351577d39184|clicks",
+              "condition": "[R≤]:2"
+            }
+          ]
+        },
+        {
+          "imageUrl": "a652dbf4-d148-4ad4-b78f-a156c0c63448/12d2dffe-587b-457e-bc22-345c164d1aae.jpg",
+          "creativeInstanceId": "d1d04b9d-831e-4afa-b8e1-a2337b17e30d",
+          "focalPoint": {
+            "x": 1280,
+            "y": 720
+          },
+          "logo": {
+            "imageUrl": "a652dbf4-d148-4ad4-b78f-a156c0c63448/c4b0fae1-7c7b-4566-846e-8cabcefeee9b.png",
+            "destinationUrl": "https://brave.com/whats-new/desktop/",
+            "alt": "Brave - You unlocked new features!",
+            "companyName": "Brave"
+          },
+          "conditionMatchers": [
+            {
+              "prefPath": "[virtual]:browser|version",
+              "condition": "^\\d+\\.\\d+\\.(?:7[8-9]|[89]\\d|\\d{3,})\\.\\d+$"
+            },
+            {
+              "prefPath": "brave.brave_ads.p3a.ntp_event_count_constellation|d1d04b9d-831e-4afa-b8e1-a2337b17e30d|views",
+              "condition": "[R≤]:5"
+            },
+            {
+              "prefPath": "brave.brave_ads.p3a.ntp_event_count_constellation|d1d04b9d-831e-4afa-b8e1-a2337b17e30d|clicks",
+              "condition": "[R≤]:2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "campaignId": "f0d99c99-9f29-496b-a9fe-0ac9fa1ef1f6",
+      "logo": {
+        "imageUrl": "7e1aedd0-18a1-45f3-b679-23203d287556/f8662e69-ccfb-40ed-8c39-cf9541621c2e.png",
+        "destinationUrl": "https://brave.com/whats-new/desktop/",
+        "alt": "Brave - Update Brave to unlock new features",
+        "companyName": "Brave"
+      },
+      "wallpapers": [
+        {
+          "imageUrl": "7e1aedd0-18a1-45f3-b679-23203d287556/0b6ad412-6b3a-42a7-9c87-43640e8fc306.jpg",
+          "creativeInstanceId": "7b097eb7-1f5a-4ff0-ba6a-b1799626da20",
+          "focalPoint": {
+            "x": 1280,
+            "y": 720
+          },
+          "conditionMatchers": [
+            {
+              "prefPath": "[virtual]:browser|version",
+              "condition": "^\\d+\\.\\d+\\.(?:[0-6]?\\d|7[0-7])\\.\\d+$"
+            },
+            {
+              "prefPath": "brave.brave_ads.p3a.ntp_event_count_constellation|7b097eb7-1f5a-4ff0-ba6a-b1799626da20|views",
+              "condition": "[R≤]:5"
+            },
+            {
+              "prefPath": "brave.brave_ads.p3a.ntp_event_count_constellation|7b097eb7-1f5a-4ff0-ba6a-b1799626da20|clicks",
+              "condition": "[R≤]:2"
+            }
+          ]
+        },
+        {
+          "imageUrl": "deffd507-dcff-4d8e-b398-326ae7432e0a/12d2dffe-587b-457e-bc22-345c164d1aae.jpg",
+          "creativeInstanceId": "7177e386-b326-4cbf-b94d-f8cbddc7aebf",
+          "focalPoint": {
+            "x": 1280,
+            "y": 720
+          },
+          "logo": {
+            "imageUrl": "deffd507-dcff-4d8e-b398-326ae7432e0a/2f9a7917-869a-4904-b144-947b53094b7a.png",
+            "destinationUrl": "https://brave.com/whats-new/desktop/",
+            "alt": "Brave - Update Brave to unlock new features",
+            "companyName": "Brave"
+          },
+          "conditionMatchers": [
+            {
+              "prefPath": "[virtual]:browser|version",
+              "condition": "^\\d+\\.\\d+\\.(?:[0-6]?\\d|7[0-7])\\.\\d+$"
+            },
+            {
+              "prefPath": "brave.brave_ads.p3a.ntp_event_count_constellation|7177e386-b326-4cbf-b94d-f8cbddc7aebf|views",
+              "condition": "[R≤]:5"
+            },
+            {
+              "prefPath": "brave.brave_ads.p3a.ntp_event_count_constellation|7177e386-b326-4cbf-b94d-f8cbddc7aebf|clicks",
+              "condition": "[R≤]:2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+export var KeyboardKeys;
+(function (KeyboardKeys) {
+    KeyboardKeys["ARROW_UP"] = "ArrowUp";
+    KeyboardKeys["ARROW_DOWN"] = "ArrowDown";
+    KeyboardKeys["ARROW_LEFT"] = "ArrowLeft";
+    KeyboardKeys["ARROW_RIGHT"] = "ArrowRight";
+    KeyboardKeys["SPACE"] = " ";
+    KeyboardKeys["ENTER"] = "Enter";
+    KeyboardKeys["ESCAPE"] = "Escape";
+    KeyboardKeys["META"] = "Meta";
+    KeyboardKeys["CONTROL"] = "Control";
+    KeyboardKeys["SHIFT"] = "Shift";
+    KeyboardKeys["/"] = "/";
+    KeyboardKeys["c"] = "c";
+    KeyboardKeys["u"] = "u";
+    KeyboardKeys["p"] = "p";
+    KeyboardKeys["l"] = "l";
+    KeyboardKeys["t"] = "t";
+    KeyboardKeys["o"] = "o";
+    KeyboardKeys["d"] = "d";
+})(KeyboardKeys || (KeyboardKeys = {}));

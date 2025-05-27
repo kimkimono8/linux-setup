@@ -1,0 +1,576 @@
+/*
+-- ==============================================================================
+-- Author:  Prakash.Shanmugam
+-- Create Date: 10/02/2022
+-- Description: Dark Theme Zoho Extension UI
+
+-- Dependency:
+-- ********************
+-- Type             Responsible By              Called By
+-- Page             Prakash.Shanmugam           Database History
+
+-- Modification History:
+-- ********************
+-- Date             Modified By                 Change Description
+   10/02/2022		Prakash.S					Created night mode css
+-- ==============================================================================
+*/
+
+:root {
+   --nightmode-bg-1:#1e1f25;
+   --nightmode-bg-2:#2e2f36;
+   --nightmode-bg-3:#34363c;
+   --nightmode-bg-4:#3d3e43;
+   --nightmode-bg-5:#45464b;
+   --nightmode-bg-6:#525358;
+   --nightmode-bg-none:none;
+   --nightmode-bg-btn-danger:#f16262;
+   --nightmodeTextRed:#ea838d;
+   --nightmodeTextGreen:#90b895;
+   --nightmodeTextOrange:#d79f7f;
+   --nightmodeTextPurple:#b194e6;
+   --nightmodeTextBlue:#86aeea;
+}
+:root {
+   --nightmode-border-1:#45464b;
+   --nightmode-border-2:#525358;
+   --nightmode-border-3:#525358;
+   --nightmode-border-4:#1e1f24;  
+}
+:root {
+   --nightmode-text-1:#a1a1a1;
+   --nightmode-text-2:#dedede;
+   --nightmode-text-3:#ffffff; 
+   --nightmode-text-4:#555555;
+}
+:root {
+   --nightmode-shadow-1:#525358;
+   --nightmode-shadow-none:none;
+}
+
+.skin-blue-nightmode, .skin-green-nightmode, .skin-red-nightmode, .skin-orange-nightmode, .skin-purple-nightmode {
+   --skinThemeNightmodeBgColor:var(--themeBgColor);
+   --skinThemeNightmodeBorderColor:var(--themeBorderColor);
+   --skinThemeNightmodeTextColorLight:var(--themeTextColorLight);
+   --skinThemeNightmodeTextColorWhite:#ffffff;
+}
+
+.nightmode .content-panel { height: 503px; }
+/*** First bg color ***/
+.nightmode .navLHSPanel { background: #030915; }
+.nightmode .left-nav-panel,
+.nightmode .modal-panel { background: var(--nightmode-bg-1); /*border-right: 1px solid #1d1d1d;*/ } 
+
+.nightmode .zvd-panel-arrow-top-left,
+.nightmode .zvd-panel-arrow-top-right  { background: var(--nightmode-bg-3) !important; }
+
+/*** Second bg color ***/
+.nightmode .content-panel,
+.nightmode .add-password-panel,
+.nightmode .select2-container--default .select2-results__option[aria-selected=true],
+.nightmode .app-settings-panel,
+.nightmode .card-view-password-icons,
+.nightmode ul.neversave-list li:hover,
+.nightmode .password-right-slider,
+.nightmode .zv-password-custom-field,
+.nightmode .right-side-panel,
+.nightmode .su-wrapper,
+.nightmode .change-password-panel,
+.nightmode .left-nav-menu-active,
+.nightmode .alertPanelDeveloperTool__inner,
+.nightmode .page-header,
+.nightmode .unlock-login-option-card,
+.nightmode .apps-login-panel,
+.nightmode ul.left-nav-menu li a:hover { background: var(--nightmode-bg-2); }  
+
+/*** Third bg color ***/
+.nightmode .settings-card-view-panel,
+.nightmode #passwordsFilter,
+.nightmode .card-view-password-list-inner,
+.nightmode .app-settings-panel-inner,
+.nightmode .page-container,
+.nightmode .zvd-panel,
+.nightmode .folder-list-panel,
+.nightmode .password-list-panel,
+.nightmode .passwords-filter-panel,
+.nightmode .app-profile-panel,
+.nightmode .app-profile-header,
+.nightmode .passwords-additional-fields-panel, 
+.nightmode .zv-dropdown-popup-arrow-top-left:before,
+.nightmode .unlock-login-or-panel-inner,
+.nightmode .zvd-search-panel,
+.nightmode .neverSave__dropdown__slider ul li a,
+.nightmode .neverSave__dropdown__slider,
+.nightmode .generator-tabs li a { background: var(--nightmode-bg-3); }
+
+.nightmode .zv-new-generator-panel-bottom,
+.nightmode .zv-new-generator-panel,
+.nightmode #access_control_form .select2-container--default .select2-selection--multiple .select2-selection__choice,
+.nightmode .change-password-panel,
+.nightmode .select2-selection:focus, 
+.nightmode .select2:focus  { background: var(--nightmode-bg-3) !important; }
+
+/*** Fourth bg color ***/
+.nightmode .password-list-panel:hover, 
+.nightmode .folder-list-panel:hover, 
+.nightmode .folders-page-table-row:hover, 
+.nightmode .zv-new-generator-panel-textarea,
+.nightmode .password-details-slider,
+.nightmode .password-list-view-details-panel,
+.nightmode .add-password-slider ,
+.nightmode .apps-footer,
+.nightmode .vault-table tbody tr,
+.nightmode .select2-container--default .select2-search--dropdown .select2-search__field,
+.nightmode .unlock-login-or-panel-line,
+.nightmode .neversave--dropdown:hover,
+.nightmode .passkey-credentials-section,
+.nightmode .domain-matching-list ul li .domain-matching-url-text,
+.nightmode .filter__list--favorites:hover, 
+.nightmode .filter__list--domainmatching:hover,
+.nightmode .filter__list--ownedbyme:hover,
+.nightmode .personal-enterprise-switch { background: var(--nightmode-bg-4); }
+
+.nightmode .vault-common-list-selected,
+.nightmode .list-view-passwords-list .card-view-password-list-inner:hover,
+.nightmode .list-view-passwords-list .password-list-view-selected .card-view-password-list-inner,
+.nightmode .list-view-passwords-list .password-list-view-selected,
+.nightmode .modal-panel-header,
+.nightmode .zv-modal-footer,
+.nightmode .domain-matching-list-selected .domain-matching-url-text,
+.nightmode .generator-tabs-selected { background: var(--nightmode-bg-4) !important; }
+
+.nightmode .slimScrollBar {
+   background: var(--nightmode-text-4) !important;
+}
+
+/*** Fifth bg color ***/
+.nightmode .btn-default-line, 
+.nightmode .bg-default-none,
+.nightmode input, 
+.nightmode select,
+.nightmode textarea,
+.nightmode .select2-container--default .select2-selection--single,
+.nightmode .select2-dropdown,
+.nightmode .view-change-panel ul li,
+.nightmode .table-search-panel,
+.nightmode .btn-default-line:hover,
+.nightmode .filtered-text-close,
+.nightmode .zv-dropdown-popup,
+.nightmode .vault-expand,
+.nightmode .inner-bottom,
+.nightmode .swal-modal,
+.nightmode #grantMenu,
+.nightmode .vault-table tbody tr:hover,
+.nightmode .vault-table thead tr,
+.nightmode ul.vault-common-list li a:hover,
+.nightmode .notify-inner,
+.nightmode .notify-content,
+.nightmode .checkmark,
+.nightmode .zv-notes-panel,
+.nightmode ul.password-filter-dropdown-list li:hover,
+.nightmode .folders-page-table-content .bg-gray,
+.nightmode .app-profile-footer,
+.nightmode .divider,
+.nightmode .zv-dropdown-popup-arrow-top:before,
+.nightmode .zv-dropdown-popup-arrow-bottom:before,
+.nightmode .neversave--dropdown,
+.nightmode .passkey-list-panel:hover,
+.nightmode .domain-matching-list ul li .domain-matching-url-separator-line,
+.nightmode .domain-matching-list ul li .domain-matching-url-separator-line:after,
+.nightmode .domain-matching-list ul li .domain-matching-url-text:hover,
+.nightmode .password-details-icon-section:hover,
+.nightmode .filterInner__header,
+.nightmode .filter-action-icon-list-selected:before { background: var(--nightmode-bg-5); }
+
+/*** Sixth bg color ***/
+.nightmode ul.action-icon-list li a:hover,
+.nightmode .vault-common-list-selected:hover,
+.nightmode ul.add-password-plus-minus li a:hover, 
+.nightmode ul.add-password-plus-minus li abbr:hover, 
+.nightmode ul.vault-list li a:hover, 
+.nightmode ul.action-icon-list li a:hover, 
+.nightmode .folder-icon-left:hover, 
+.nightmode .card-view-password-icons li a:hover, 
+.nightmode .modal-panel-close a:hover, 
+.nightmode .search-text-close:hover,
+.nightmode .view-change-panel-selected,
+.nightmode .action-icon-list-selected,
+.nightmode div.tags .select2-container--default .select2-selection--multiple .select2-selection__choice,
+.nightmode .cbx:checked ~ label,
+.nightmode .lbl,
+.nightmode .sliderGrayBar,
+.nightmode .swal-button--cancel,
+.nightmode .zvd-password-search-close,
+.nightmode .filter-selected-indicator,
+.nightmode .filter-action-icon-list-selected,
+.nightmode .neverSave__iconsPanel ul li:hover,
+.nightmode .copy-username:hover { background: var(--nightmode-bg-6) !important; }
+
+/*** Bg transparent ***/
+.nightmode .list-view-passwords-list .card-view-password-list-inner:hover .card-view-password-icons,
+.nightmode .list-view-passwords-list .card-view-password-icons,
+.nightmode .field-control input[type=text], 
+.nightmode .field-control input[type=password], 
+.nightmode .field-control textarea,
+.nightmode .field-control select,
+.nightmode .select2-container--default.select2-container--disabled .select2-selection--single,
+.nightmode .select2-container--default .select2-selection--multiple,
+.nightmode #editPasswordForm .select2-container--default .select2-selection--single,
+.nightmode ul.filter-result-list li a, 
+.nightmode ul.filter-result-list li abbr,
+.nightmode input.form-control,
+.nightmode select.form-control  { background: var(--nightmode-bg-none); }
+.nightmode .password-list-panel:hover .password-list-icons,
+.nightmode .apps-login-panel input,
+.nightmode .nav-menu-active,
+.nightmode .field-control .select2-container--default .select2-selection--single,
+.nightmode .password-list-icons,
+.nightmode .btn-primary-line,
+.nightmode .btn-danger-line,
+.nightmode .vault-table thead tr th,
+.nightmode .selectDropdownBorderBottomOnly .select2-selection:focus,
+.nightmode .selectDropdownBorderBottomOnly .select2:focus { background: var(--nightmode-bg-none) !important; }
+
+.nightmode .btn-danger-line:hover { background: var(--nightmode-bg-btn-danger) !important; }
+.nightmode .btn-primary-line,
+.nightmode .btn-danger-line,
+.nightmode .vault-table thead tr th { background: var(--nightmode-bg-none) !important; }
+
+.nightmode .btn-danger-line:hover { background: var(--nightmode-bg-btn-danger) !important; }
+.nightmode .overlay-bg { background: rgba(0,0,0,0.6); }
+
+/*========= BORDER COLOR ==========*/
+/*** First border color ***/
+.nightmode .page-title-panel,
+.nightmode .password-list-container,
+.nightmode .password-list-view-details-panel,
+.nightmode .zv-custom-field-title,
+.nightmode .card-view-password-list-inner,
+.nightmode .password-list-panel,
+.nightmode .page-header,
+.nightmode .folder-list-panel,
+.nightmode .zv-new-generator-panel-bottom,
+.nightmode .vault-table tbody tr td,
+.nightmode .app-settings-field-title,
+.nightmode .unlock-login-option-card,
+.nightmode .passkey-list-panel { border-color: var(--nightmode-border-1); }
+.nightmode .folders-page-table-row { border-top: 1px solid var(--nightmode-border-1); border-bottom: 1px solid var(--nightmode-border-1); }
+.nightmode .list-view-passwords-list .card-view-password-list-inner,
+.nightmode .list-view-passwords-list .card-view-password-list-inner:hover { border-color: var(--nightmode-border-1) !important;}
+
+/*** Second border color ***/
+.nightmode .view-change-panel ul li,
+.nightmode .btn-default-line, 
+.nightmode .bg-default-none,
+.nightmode .field-control input[type=text], 
+.nightmode .field-control input[type=password], 
+.nightmode .field-control textarea,
+.nightmode .table-search-panel,
+.nightmode #passwordsFilter,
+.nightmode .filtered-text-close,
+.nightmode .modal-panel-header,
+.nightmode .add-password-slider,
+.nightmode .password-right-slider,
+.nightmode .add-password-upload-doc-panel,
+.nightmode .vault-table thead tr th,
+.nightmode ul.vault-tabs-horizontal,
+.nightmode .password-details-slider,
+.nightmode .form-group .label-control:before,
+.nightmode .vault-expand,
+.nightmode input,
+.nightmode .time_div,
+.nightmode #grantMenu,
+.nightmode .app-profile-panel,
+.nightmode .passwords-additional-fields-panel,
+.nightmode .modal-panel,
+.nightmode .neversave-list li,
+.nightmode .neverSave__dropdown__slider,
+.nightmode .neverSave__dropdown__slider ul li a,
+.nightmode .neversave--dropdown,
+.nightmode .password-details-icon-section:hover,
+.nightmode .advanced-settings-field,
+.nightmode .tagsDropdown__content,
+.nightmode .filterDropdown__selected,
+.nightmode .generator-tabs li a,
+.nightmode .left-nav-panel,
+.nightmode .personal-enterprise-switch  { border-color: var(--nightmode-border-2); }
+
+.nightmode .select2-container--default .select2-selection--single,
+.nightmode #add_password_container .select2-container--default .select2-selection--single, 
+.nightmode .policiedDiv .select2-container--default .select2-selection--single,
+.nightmode div.tags span.select2-selection,
+.nightmode #totp_settings .select2-container--default .select2-selection--single,
+.nightmode #editPasswordForm .select2-container--default .select2-selection--single,
+.nightmode #access_control_form .select2-container--default .select2-selection--multiple .select2-selection__choice,
+.nightmode #access_control_form .select2-container--default .select2-selection--multiple,
+.nightmode .zvd-search-panel-input,
+.nightmode #addPasswordForm .select2-container--default .select2-selection--single, 
+.nightmode .policiedDiv .select2-container--default .select2-selection--single,
+.nightmode .passwords-filter-panel { border-color: var(--nightmode-border-2) !important; }
+
+/*** Third border color ***/
+.nightmode .select2-dropdown, 
+.nightmode .pass-gen-input,
+.nightmode .btn-default-line:hover ,
+.nightmode .zv-dropdown-popup,
+.nightmode .vault-table,
+.nightmode .inner-bottom,
+.nightmode .select2-container--default .select2-search--dropdown .select2-search__field,
+.nightmode .checkmark,
+.nightmode .zv-notes-panel,
+.nightmode .app-profile-header-pic,
+.nightmode .neverSave__input input:focus,
+.nightmode .domain-matching-list ul li .domain-matching-url-text,
+.nightmode .filter__applied li a,
+.nightmode textarea,
+.nightmode .generator-tabs-selected,
+.nightmode .zv-new-generator-panel-textarea { border-color: var(--nightmode-border-3); }
+
+.nightmode .select2-container--default .select2-selection--single:hover,
+.nightmode .funnel-dropdown-selected,
+.nightmode .zv-label-group:hover input[type=text], 
+.nightmode .zv-label-group:hover input[type=password], 
+.nightmode .zv-label-group:hover textarea, 
+.nightmode .field-control:hover input[type=text], 
+.nightmode .field-control:hover input[type=password], 
+.nightmode .field-control:hover textarea, 
+.nightmode .zv-label-group:hover .add-password-custom-dropdown, 
+.nightmode .zv-label-group:hover .select2-container--default .select2-selection--single, 
+.nightmode .zv-label-group:hover .select2-container--default .select2-selection--multiple,
+.nightmode #add_password_container .select2-container--default .select2-selection--single:hover,
+.nightmode #totp_settings .select2-container--default .select2-selection--single:hover,
+.nightmode #editPasswordForm .select2-container--default .select2-selection--single:hover,
+.nightmode div.tags .select2-container--default .select2-selection--multiple .select2-selection__choice,
+.nightmode .swal-button--cancel,
+.nightmode #addPasswordForm .select2-container--default .select2-selection--single:hover, 
+.nightmode .policiedDiv .select2-container--default .select2-selection--single:hover,
+.nightmode .filterInner__search--input  { border-color: var(--nightmode-border-3) !important; }
+
+/*** Fourth border color ***/
+
+/*========= BOX SHADOW COLOR ==========*/
+.nightmode .zv-dropdown-popup-arrow-top:before,
+.nightmode .zv-dropdown-popup-arrow-bottom:before,
+.nightmode .filter-action-icon-list-selected:before { box-shadow: -1px -1px 0 0 var(--nightmode-shadow-1);  }
+.nightmode .swal-button:focus,
+.nightmode .passwords-filter-panel { box-shadow: var(--nightmode-shadow-none);}
+.nightmode .zv-dropdown-popup-arrow-top-left:before { box-shadow:  -1px 0 0 var(--nightmode-border-2); }
+
+.nightmode .generator-tabs-selected { box-shadow: 0px 2px 0px var(--nightmode-bg-4); }
+
+/*========= TEXT COLOR ==========*/
+/*** First text color ***/
+.nightmode .text-default,
+.nightmode .table-text-sub-title, 
+.nightmode ul.add-password-plus-minus li a, 
+.nightmode ul.add-password-plus-minus li abbr, 
+.nightmode .file-attached-label, 
+.nightmode .view-change-panel ul li a, 
+.nightmode ul.pagination-link li a, 
+.nightmode .card-view-password-icons li a, 
+.nightmode .navigation>ul>li>a, .navigation ul ul a, 
+.nightmode ul.vault-common-list li a, 
+.nightmode .text-time, 
+.nightmode ul.vault-tabs-horizontal li a, 
+.nightmode .folder-icon-left,
+.nightmode .checkbox-container,
+.nightmode .select2-results__option,
+.nightmode .apps-page-folder-arrow,
+.nightmode .table-search-panel-dropdown,
+.nightmode .app-settings-field-left p,
+.nightmode .count-div,
+.nightmode .app-settings-field-right label,
+.nightmode .zvleft-label,
+.nightmode sub,
+.nightmode .vault-table tbody tr td,
+.nightmode .password-list-icons li a, 
+.nightmode ul.action-icon-list li a, 
+.nightmode ul.vault-list li a,
+.nightmode .filtered-text-close i,
+.nightmode .inner-top-right span,
+.nightmode ul.left-nav-menu li a ,
+.nightmode .left-nav-account-panel p,
+.nightmode .zv-copyicon,
+body.nightmode,
+.nightmode ul.app-profile-links li a,
+.nightmode .neverSave__dropdown__slider ul li a,
+.nightmode .folder-path,
+.nightmode .filter__applied li a,
+.nightmode .generator-tabs li a,
+.nightmode .personal-enterprise-label span  { color: var(--nightmode-text-1); }
+.nightmode .password-detail-page .active .label-control .label-text,
+.nightmode .btn-default-line, 
+.nightmode .bg-default-none,
+.nightmode .modal-panel-close a,
+.nightmode .swal-button--cancel,
+.nightmode .neverSave__iconsPanel ul li,
+.nightmode .folder-path i { color: var(--nightmode-text-1) !important; }
+
+/*** Second text color ***/
+.nightmode .page-header h4,
+.nightmode .table-text-title, 
+.nightmode .password-list-name, 
+.nightmode .password-list-name, 
+.nightmode .folder-list-title,
+.nightmode p,
+/* .nightmode span, */
+.nightmode .h1, 
+.nightmode .h2, 
+.nightmode .h3, 
+.nightmode .h4, 
+.nightmode .h5, 
+.nightmode .h6, 
+.nightmode h1, 
+.nightmode h2, 
+.nightmode h3, 
+.nightmode h4, 
+.nightmode h5, 
+.nightmode h6,
+.nightmode .zv-new-generator-panel-textarea,
+.nightmode .form-control,
+.nightmode ul.vault-common-list li a:hover,
+.nightmode .list-view-passwords-list .card-view-password-name,
+.nightmode .folders-page-table-col,
+.nightmode ul.neversave-list li,
+.nightmode .zv-custom-field-title,
+.nightmode .vault-table thead tr th,
+.nightmode ul.vault-tabs-horizontal li a:hover,
+.nightmode .page-header i.icon-arrow-left,
+.nightmode .page-title-panel i.icon-arrow-left,
+.nightmode .inner-top-right p,
+.nightmode .swal-text,
+.nightmode .left-nav-account-panel h6,
+.nightmode .zv-field-detail-textbox,
+.nightmode .inner-bottom-right ul li a,
+.nightmode .zv-copyicon:hover,
+.nightmode .select2-container--default .select2-selection--single .select2-selection__rendered,
+.nightmode input, 
+.nightmode select,
+.nightmode textarea,
+.nightmode .swal-title,
+.nightmode .notify-content,
+.nightmode .zv-notes-panel,
+.nightmode ul.app-profile-links li a:hover,
+.nightmode .top-nav-menu ul li a:hover,
+.nightmode .alertPanelDeveloperTool--title,
+.nightmode .alertPanelDeveloperTool--description,
+.nightmode .neverSave__dropdown__slider ul li a:hover,
+.nightmode .copyrights-text,
+.nightmode .domain-matching-list-selected .domain-matching-url-text  { color: var(--nightmode-text-2); }
+
+.nightmode ul.add-password-plus-minus li a:hover, 
+.nightmode ul.add-password-plus-minus li abbr:hover, 
+.nightmode ul.vault-list li a:hover, 
+.nightmode ul.action-icon-list li a:hover, 
+.nightmode .folder-icon-left:hover, 
+.nightmode .card-view-password-icons li a:hover, 
+.nightmode .modal-panel-close a:hover, 
+.nightmode .search-text-close:hover, 
+.nightmode .cbx:checked ~ label, 
+.nightmode .zv-new-generator-panel, 
+.nightmode .zv-new-generator-panel-bottom,
+.nightmode .vault-common-list-selected:hover, 
+.nightmode .search-text-close:hover, 
+.nightmode .filtered-icon-selected,
+.nightmode .left-nav-menu-active,
+.nightmode ul.left-nav-menu li a:hover,
+.nightmode .action-icon-list-selected,
+.nightmode .zvd-password-search-close,
+.nightmode .neverSave__iconsPanel ul li:hover,
+.nightmode .filterheader--title,
+.nightmode .filter__list--favorites:hover, 
+.nightmode .filter__list--domainmatching:hover,
+.nightmode .filter__list--ownedbyme:hover,
+.nightmode .sub-lhs-menu-title a  { color: var(--nightmode-text-2) !important; }
+
+/*** Third text color ***/
+.nightmode .top-nav-menu ul li a:hover,
+.nightmode .page-title-panel h3,
+.nightmode .top-nav-menu ul li a { color: var(--nightmode-text-3); }
+.nightmode .view-change-panel-selected a,
+.nightmode .select2-container--default .select2-results__option--highlighted[aria-selected], 
+.nightmode ul.password-filter-dropdown-list li:hover,
+.nightmode ul.password-filter-dropdown-list li:hover .checkbox-container,
+.nightmode a.filter-action-icon-list-selected,
+.nightmode .checkbox-container input:checked ~ span,
+.nightmode .select2-results__option--highlighted .folder-path,
+.nightmode .select2-results__option--highlighted .folder-path i,
+.nightmode .generator-tabs-selected { color: var(--nightmode-text-3) !important; }
+.nightmode .text-danger { color: #ff7885 !important; }
+.nightmode .text-purple { color: #ac8bea; }
+
+/*** Fourth text color ***/
+.nightmode .search-panel-inner input::placeholder,
+.nightmode input::placeholder { color: var(--nightmode-text-1); }
+
+.nightmode .password-list-access-control-icon,
+.nightmode .card-view-access-control-icon { background: var(--nightmode-border-3); border: 1px solid var(--nightmode-shadow-1)}
+/*========= THEME SKIN NIGHTMODE COLOR ==========*/
+:is(.skin-blue-nightmode,.skin-green-nightmode,.skin-red-nightmode,.skin-orange-nightmode,.skin-purple-nightmode) :is(
+   .btn-primary-line:hover .dropdown-toggle,
+   .btn-primary
+   ) { 
+      color: var(--skinThemeNightmodeTextColorWhite) !important; 
+}
+:is(.skin-blue-nightmode,.skin-green-nightmode,.skin-red-nightmode,.skin-orange-nightmode,.skin-purple-nightmode) :is(
+   .action-icon-list-selected,
+   .btn-primary-line:hover,
+   .select2-container--default .select2-results__option--highlighted[aria-selected],
+   .nightmode .domain-matching-list-selected .domain-matching-url-separator-line,
+   .nightmode .domain-matching-list-selected .domain-matching-url-separator-line:after
+   ) { 
+      background: var(--skinThemeNightmodeBgColor) !important; 
+}
+:is(.skin-blue-nightmode,.skin-green-nightmode,.skin-red-nightmode,.skin-orange-nightmode,.skin-purple-nightmode) :is(
+  
+   .btn-primary-line,
+   .zvd-nav-selected:after 
+   ) { border-color: var(--skinThemeNightmodeBorderColor) !important; 
+}
+:is(.skin-blue-nightmode,.skin-green-nightmode,.skin-red-nightmode,.skin-orange-nightmode,.skin-purple-nightmode) :is(
+   ul.filter-result-list li a, 
+   ul.filter-result-list li abbr,
+   .btn-primary-line,
+   .dropdown-toggle,
+   .vault-common-list-selected,
+   .active .label-control .label-text,
+   .errormsg-text,
+   .left-nav-account-panel a,
+   ul.vault-tabs-horizontal li a.selected,
+   .inner-bottom-left,
+   .sync-loading-cloud,
+   .btn-primary-line,
+   .search-text-close:hover,
+   .filtered-text,
+   ul.add-password-plus-minus li a:hover, 
+   ul.add-password-plus-minus li abbr:hover, 
+   ul.vault-list li a:hover, 
+   ul.action-icon-list li a:hover, 
+   .folder-icon-left:hover,
+   .card-view-password-icons li a:hover,
+   .modal-panel-close a:hover,
+   .search-text-close:hover,
+   .left-nav-logout-panel a,
+   .vault-common-list-selected,
+   .vault-common-list-selected:hover,
+   .search-text-close:hover,
+   .filtered-icon-selected,
+   .password-details-icon-section:hover,
+   .nightmode .domain-matching-list-selected .domain-matching-url-text,
+   .copy-username:hover,
+   .zv-field-detail-ellipsis a,
+   .zv-field-detail a
+   ) { color: var(--skinThemeNightmodeTextColorLight) ; 
+}
+
+.nightmode .page-title-panel { background: var(--themeBgColor); }
+
+.nightmode .sharebyme { color: var(--nightmodeTextPurple) !important; }
+.nightmode .sharetome { color: var(--nightmodeTextGreen) !important; }
+
+
+.nightmode #generator_container .content-panel { height: auto;}
+
+
+/****==== FOCUS STYLE CSS ====****/
+.nightmode .card-view-password-list:focus { background:var(--nightmode-bg-5) }

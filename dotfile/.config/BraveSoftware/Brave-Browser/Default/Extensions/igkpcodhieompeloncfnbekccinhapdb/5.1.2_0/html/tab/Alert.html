@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="/images/logo/vault-logo-blue.svg">
+	<title>Alert</title>
+	<link rel="stylesheet" type="text/css" href="/style/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext.css" />
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-themes.css" />
+	<link rel="stylesheet" type="text/css" href="/style/styles.css" />
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-nightmode.css" />
+
+
+	<script type="module" src="/js/frames/alert_frame/alert_frame_main.js"></script>
+</head>
+
+<body class=" skin-blue zvf-zohopuvi ">
+	<div id="tooltip_arrow" class="tooltip_arrow" style="display: none;transition: opacity 0.6s linear;"></div>
+	<div id="tooltip_elem" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+	<div id="elem_msg_action" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+
+	<!--notification start-->
+
+	<div id="notification" class="notify notify-success clearfix" style="display: none;max-width: 90%;width: max-content;transition: opacity 0.5s linear;">
+		<div class="notify-inner" data-close="">
+			<span class="notify-symbol pointer"></span>
+			<div class="notify-content pointer" data-content="">
+				notification content</div>
+		</div>
+	</div>
+
+	<!--notification end-->
+
+	<div id="dot_loading">
+		<vault-loading></vault-loading>
+	</div>
+	<div class="alertOverlayBg"></div>
+	<div class="alertPanelDeveloperTool">
+		<div class="alertPanelDeveloperTool__inner text-center dis-hide" data-content_div="">
+			<span class="modal-panel-close alertPanelDeveloperTool--close">
+				<a data-close_icon=""><i class="icon-close"></i></a>
+			</span>
+			<img src="/images/logo/vault-1024.png" class="alertPanelDeveloperTool--logo" />
+			<h4 class="alertPanelDeveloperTool--title" data-msg_title="">Zoho Vault</h4>
+			<p class="alertPanelDeveloperTool--description" data-msg_content="">Message Content</p>
+			<button type="button" class="btn btn-md btn-primary" data-ok_button=""><i-span>ok</i-span></button>
+		</div>
+	</div>
+
+	<template id="vault_loading_template">
+		<div data-loading="">
+			<div class="component-loader" style="display: block;">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</template>
+
+</body>
+
+</html>

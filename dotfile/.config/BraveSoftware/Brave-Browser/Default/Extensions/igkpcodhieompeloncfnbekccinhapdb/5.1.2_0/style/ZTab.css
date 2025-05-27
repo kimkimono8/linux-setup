@@ -1,0 +1,9 @@
+ztab-main {
+  display: block;
+  background-color: red;
+}
+
+ztab-main .mainContainerPanel {
+  height: calc(100% - 20px);
+  background-color: pink;
+}

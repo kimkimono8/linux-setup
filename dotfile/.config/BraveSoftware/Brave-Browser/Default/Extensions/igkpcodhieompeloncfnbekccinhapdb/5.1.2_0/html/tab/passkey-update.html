@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html style="width: 350px;">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo/vault-logo-blue.svg">
+    <title>Save To Zoho Vault</title>
+    <link rel="stylesheet" type="text/css" href="/style/vault-ext.css">
+    <link rel="stylesheet" type="text/css" href="/style/vault-ext-themes.css">
+    <link rel="stylesheet" type="text/css" href="/style/styles.css">
+    <link rel="stylesheet" type="text/css" href="/style/vault-ext-nightmode.css">
+    <link rel="stylesheet" type="text/css" href="/style/vault_dstyle.css">
+    <link rel="stylesheet" type="text/css" href="/style/ZVaultSSFrame.css">
+    <link rel="stylesheet" type="text/css" href="/style/select2.min.css">
+
+    <script src="/lib/jquery-3.3.1.min.js"></script>
+    <script src="/lib/jquery-ui.min.js"></script>
+    <script src="/lib/select2.min.js"></script>
+
+    <script type="module" src="/js/frames/save_frame/save_frame_main.js"></script>
+</head>
+
+<body class="zvf-opensans" style="width:380px;user-select: none;">
+    <div id="tooltip_arrow" class="tooltip_arrow" style="display: none;transition: opacity 0.6s linear;"></div>
+	<div id="tooltip_elem" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+	<div id="elem_msg_action" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+
+	<!--notification start-->
+
+	<div id="notification" class="notify notify-success clearfix" style="display: none;max-width: 90%;width: max-content;transition: opacity 0.5s linear;">
+		<div class="notify-inner" data-close="">
+			<span class="notify-symbol pointer"></span>
+			<div class="notify-content pointer" data-content="">
+				notification content</div>
+		</div>
+	</div>
+
+	<!--notification end-->
+    
+    <div class="su-wrapper clearfix" style="height: 400px;">
+
+
+        <!--loading start-------------------------------------------------------------------------------------------------->
+        <div class="overlay-bg" id="loading" style="display: none;">
+            <div class="component-loader">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!--loading end---------------------------------------------------------------------------------------------------->
+
+        <div class="add-password-panel password-detail-page" style="right: 0;">
+
+            <!--header start--------------------------------------------------------------------------------------------------->
+            <div class="add-password-row-group">
+                <div class="add-password-one-col">
+                    <div class="add-password-col-left">
+                        <span class="view-password-popup-logo pull-left" style="background-image: url(/images/logo/vault-logo-blue.svg);cursor:default;"></span>
+                    </div>
+                    <div class="add-password-col-right">
+                        <h5 class="modal-panel-title pull-left m-t-10">Update Passkey</h5>
+                    </div>
+                    <span class="password-list-view-details-close">
+                        <ul class="vault-list">
+                            <li><a id="close_a" data-on_click="sf.clickedClose"><i class="icon-close icon-xs" data-icon_tooltip="true" data-tooltip_content="i18n:close"></i></a>
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            <!--header end ---------------------------------------------------------------------------------------------------->
+
+
+            <!--fields start--------------------------------------------------------------------------------------------------->
+            <div class="m-t-10 clearfix">
+                <div class="add-password-row-group">
+                    <div class="add-password-one-col">
+                        <div class="form-group">
+                            <label class="label-control no-label-border">
+                                <span class="label-text">Folder </span>
+                            </label>
+                            <select class="form-control" data-folder_select="">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="passkey-update-dropdown-panel m-t-20">
+                    <div class="passkey-list-panel">
+                        <div class="passkey-list-left">
+                            <span class="passkey-list-left-img image-center img-contain" style="background-image: url(https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-1024.png);"></span>
+                        </div>
+                        <div class="passkey-list-right">
+                            <h6 class="passkey-list-name">Shopify</h6>
+                            <p class="passkey-list-description text-default">jeffery.amherst@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="passkey-list-panel">
+                        <div class="passkey-list-left">
+                            <span class="passkey-list-left-img image-center img-contain" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfDFsmv5yLSzrGTslmiEhOoh4uTVaZpOAzoRV8zCjYePxNEMA8dwrwJUPfmEW_Q6k9isg&usqp=CAU);"></span>
+                        </div>
+                        <div class="passkey-list-right">
+                            <h6 class="passkey-list-name">Authgear</h6>
+                            <p class="passkey-list-description text-default">williams.smidth@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="passkey-list-panel">
+                        <div class="passkey-list-left">
+                            <span class="passkey-list-left-img image-center img-contain" style="background-image: url(https://cdn.freelogovectors.net/wp-content/uploads/2023/05/adobe-logo-01-freelogovectors.net_.png);"></span>
+                        </div>
+                        <div class="passkey-list-right">
+                            <h6 class="passkey-list-name">Adobe</h6>
+                            <p class="passkey-list-description text-default">jeffery.amherst@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="passkey-list-panel">
+                        <div class="passkey-list-left">
+                            <span class="passkey-list-left-img image-center img-contain" style="background-image: url(https://cdn3.iconfinder.com/data/icons/social-media-2068/64/_shopping-1024.png);"></span>
+                        </div>
+                        <div class="passkey-list-right">
+                            <h6 class="passkey-list-name">Shopify</h6>
+                            <p class="passkey-list-description text-default">jeffery.amherst@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="passkey-list-panel">
+                        <div class="passkey-list-left">
+                            <span class="passkey-list-left-img image-center img-contain" style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfDFsmv5yLSzrGTslmiEhOoh4uTVaZpOAzoRV8zCjYePxNEMA8dwrwJUPfmEW_Q6k9isg&usqp=CAU);"></span>
+                        </div>
+                        <div class="passkey-list-right">
+                            <h6 class="passkey-list-name">Authgear</h6>
+                            <p class="passkey-list-description text-default">williams.smidth@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="passkey-list-panel">
+                        <div class="passkey-list-left">
+                            <span class="passkey-list-left-img image-center img-contain" style="background-image: url(https://cdn.freelogovectors.net/wp-content/uploads/2023/05/adobe-logo-01-freelogovectors.net_.png);"></span>
+                        </div>
+                        <div class="passkey-list-right">
+                            <h6 class="passkey-list-name">Adobe</h6>
+                            <p class="passkey-list-description text-default">jeffery.amherst@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!--fields end----------------------------------------------------------------------------------------------------->
+
+
+        <!--footer start--------------------------------------------------------------------------------------------------->
+        <div class="full-width clearfix m-t-10">
+            <button type="button" class="btn btn-sm btn-primary">Update Passkey</button>
+        </div>
+        <!--footer end----------------------------------------------------------------------------------------------------->
+    </div>
+    </div>
+
+</body>
+
+</html>

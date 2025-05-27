@@ -1,0 +1,1319 @@
+{
+   "access_checkout_description": {
+      "message": "La tua richiesta di accesso è stata approvata. Estrai la password per accedere."
+   },
+   "access_control": {
+      "message": "Controllo di accesso"
+   },
+   "access_control_admin_tooltip": {
+      "message": "Seleziona uno o più amministratori che possono approvare le richieste di accesso"
+   },
+   "access_control_altlest_two_grant_access": {
+      "message": "È necessario che almeno due approvatori concedano l’accesso"
+   },
+   "access_control_auto_approve_with_help_desk": {
+      "message": "Con la convalida del ticket dell’help desk"
+   },
+   "access_control_description": {
+      "message": "Gli utenti possono accedere alla password dopo valide approvazioni da parte di approvatori selezionati"
+   },
+   "access_control_disabled_success": {
+      "message": "Controllo di accesso disabilitato correttamente"
+   },
+   "access_control_enabled": {
+      "message": "Controllo di accesso abilitato"
+   },
+   "access_control_exclude_users_tooltip": {
+      "message": "Gli utenti selezionati saranno esclusi dal controllo di accesso"
+   },
+   "access_control_invalid_time": {
+      "message": "Ora invalida indicata per l’approvazione automatica"
+   },
+   "access_control_provide_access_for": {
+      "message": "Fornisci accesso per"
+   },
+   "access_control_saved_success": {
+      "message": "Configurazione del controllo di accesso salvata correttamente"
+   },
+   "access_control_select_another_approver": {
+      "message": "Selezionare un altro approvatore e riprovare"
+   },
+   "access_control_unapproved_request_void_after": {
+      "message": "Le richieste non approvate sono nulle dopo"
+   },
+   "access_privilege": {
+      "message": "Privilegio di accesso"
+   },
+   "access_request_created_success": {
+      "message": "Richiesta di accesso creata correttamente"
+   },
+   "access_request_pending_description": {
+      "message": "La tua richiesta di accesso è in attesa di approvazione. Riceverai notifica tramite e-mail qualora venga approvata o rifiutata."
+   },
+   "access_required_on": {
+      "message": "Accesso richiesto il"
+   },
+   "access_revoked_success": {
+      "message": "L’accesso alla password è stato revocato correttamente"
+   },
+   "access_revoked_user_success": {
+      "message": "Accesso alla password revocato correttamente da $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "actions": {
+      "message": "Azioni"
+   },
+   "activity": {
+      "message": "Attività"
+   },
+   "add": {
+      "message": "Aggiungi"
+   },
+   "add_authenticator": {
+      "message": "Aggiungi uno strumento di autenticazione"
+   },
+   "add_card": {
+      "message": "Aggiungi una carta di pagamento"
+   },
+   "add_field": {
+      "message": "Aggiungi campo"
+   },
+   "add_folder": {
+      "message": "Aggiungi cartella"
+   },
+   "add_password": {
+      "message": "Aggiungi password"
+   },
+   "add_password_restricted": {
+      "message": "L’aggiunta di nuove password è stata disabilitata dall’amministratore della tua organizzazione."
+   },
+   "add_url": {
+      "message": "Aggiungi URL"
+   },
+   "added_successfully": {
+      "message": "aggiunta effettuata correttamente"
+   },
+   "additional_fields": {
+      "message": "Campi aggiuntivi"
+   },
+   "admin": {
+      "message": "Amministratore"
+   },
+   "advance_request_approved_description": {
+      "message": "La tua richiesta di accesso anticipata è stata approvata. Estrai la password all’ora richiesta per accedervi."
+   },
+   "advanced_settings": {
+      "message": "Impostazioni avanzate"
+   },
+   "alert_http_fill": {
+      "message": "Avvisa in caso di riempimento automatico in pagine non sicure"
+   },
+   "algorithm": {
+      "message": "Algoritmo"
+   },
+   "all_folders": {
+      "message": "Tutte le cartelle"
+   },
+   "all_passwords": {
+      "message": "Tutte le password"
+   },
+   "all_rights_reserved": {
+      "message": "Tutti i diritti riservati."
+   },
+   "all_users": {
+      "message": "Tutti gli utenti"
+   },
+   "all_weekdays": {
+      "message": "Tutti i giorni feriali"
+   },
+   "all_weekends": {
+      "message": "Tutti i fine settimana"
+   },
+   "allow": {
+      "message": "Consenti"
+   },
+   "allow_permanent": {
+      "message": "Consentiti in maniera permanente"
+   },
+   "and": {
+      "message": "e"
+   },
+   "approved": {
+      "message": "Approvato"
+   },
+   "ask_clear_history": {
+      "message": "Vuoi cancellare la cronologia?"
+   },
+   "authenticators": {
+      "message": "Strumenti di autenticazione"
+   },
+   "autofill_card_sub_domains": {
+      "message": "Riempimento automatico delle carte di pagamento"
+   },
+   "autofill_sub_domains": {
+      "message": "Riempimento automatico di password nei domini secondari"
+   },
+   "autologin_disable_success": {
+      "message": "Accesso automatico disabilitato correttamente"
+   },
+   "autologin_enable_success": {
+      "message": "Accesso automatico abilitato correttamente"
+   },
+   "automatically_approve_access_request": {
+      "message": "Approva automaticamente le richieste di accesso"
+   },
+   "back_to_folders": {
+      "message": "Torna alle cartelle"
+   },
+   "between": {
+      "message": "Compreso tra"
+   },
+   "cancel": {
+      "message": "Annulla"
+   },
+   "cancel_access_request_success": {
+      "message": "Richiesta annullata correttamente"
+   },
+   "cancel_request": {
+      "message": "Annulla richiesta"
+   },
+   "card_added_successfully": {
+      "message": "Carta di pagamento aggiunta correttamente"
+   },
+   "card_card_no": {
+      "message": "Numero di carta"
+   },
+   "card_edited_successfully": {
+      "message": "Carta di pagamento aggiornata correttamente"
+   },
+   "card_move_to_trash_success": {
+      "message": "Carta di pagamento spostata correttamente nel cestino"
+   },
+   "card_name_on_card": {
+      "message": "Nome sulla carta "
+   },
+   "card_security_code": {
+      "message": "Codice di sicurezza"
+   },
+   "card_valid_thru": {
+      "message": "Valido"
+   },
+   "category": {
+      "message": "Categoria"
+   },
+   "changes_updated": {
+      "message": "Modifiche aggiornate correttamente"
+   },
+   "check_in_confirm_description": {
+      "message": "Una volta archiviata la password, non sarai più in grado di accedervi"
+   },
+   "check_in_confirm_title": {
+      "message": "Vuoi inserire la password?"
+   },
+   "check_in_success": {
+      "message": "Password archiviata correttamente"
+   },
+   "checkin": {
+      "message": "Inserisci"
+   },
+   "checkout": {
+      "message": "Estrai"
+   },
+   "checkout_success": {
+      "message": "Password estratta correttamente"
+   },
+   "clear": {
+      "message": "Cancella"
+   },
+   "clear_all": {
+      "message": "Cancella tutto"
+   },
+   "clear_clipboard_after": {
+      "message": "Cancella gli appunti dopo"
+   },
+   "clear_filters": {
+      "message": "Rimuovi i filtri"
+   },
+   "close": {
+      "message": "Chiudi"
+   },
+   "close_dev_tools_one_click_login": {
+      "message": "Chiudi gli strumenti da sviluppatore per effettuare l’accesso automatico."
+   },
+   "close_profile_panel": {
+      "message": "Chiudi il pannello del profilo"
+   },
+   "comment": {
+      "message": "Commento"
+   },
+   "confirm_access_control_disable": {
+      "message": "Vuoi disabilitare il controllo degli accessi?"
+   },
+   "confirm_checkout_description": {
+      "message": "Una volta estratta la password, avrai accesso solo per 30 minuti"
+   },
+   "confirm_insecure_fill": {
+      "message": "Stai per inserire la tua password in una pagina non sicura. Zoho Vault ti consiglia caldamente di non farlo, a meno che tu non consideri attendibile questo sito web. Vuoi proseguire e inserire lo stesso la tua password?"
+   },
+   "context_menu_show_all_passwords": {
+      "message": "Visualizza tutte le password"
+   },
+   "copied": {
+      "message": "Copiato"
+   },
+   "copy": {
+      "message": "Copia"
+   },
+   "copy_to_clipboard": {
+      "message": "Copia negli appunti"
+   },
+   "create_folder": {
+      "message": "Crea cartella"
+   },
+   "create_new": {
+      "message": "Creane una nuova"
+   },
+   "created_on": {
+      "message": "Data di creazione"
+   },
+   "current_domain": {
+      "message": "Dominio secondario"
+   },
+   "current_totp": {
+      "message": "TOTP corrente"
+   },
+   "custom": {
+      "message": "Personalizzato"
+   },
+   "custom_fields": {
+      "message": "Campi personalizzati"
+   },
+   "dark_mode": {
+      "message": "Modalità notturna"
+   },
+   "data_sync": {
+      "message": "Sincronizzazione dei dati"
+   },
+   "date": {
+      "message": "Data"
+   },
+   "day": {
+      "message": "Giorno"
+   },
+   "days": {
+      "message": "Giorni"
+   },
+   "default_view": {
+      "message": "Visualizzazione predefinita"
+   },
+   "delete": {
+      "message": "Elimina"
+   },
+   "delete_domain_from_list": {
+      "message": "Vuoi eliminare $1$ da questo elenco?",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "delete_domain_from_list_description": {
+      "message": "Inizierai a ricevere istruzioni per salvare e aggiornare le tue password per $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "delete_password": {
+      "message": "Elimina password"
+   },
+   "delete_password_confirm_message": {
+      "message": "L’eliminazione definitiva di una password la rimuove dal tuo account e da tutte le cartelle associate."
+   },
+   "delete_password_confirm_title": {
+      "message": "Vuoi eliminare la password?"
+   },
+   "delete_password_success_message": {
+      "message": "Password “$1$” eliminata correttamente.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "deny": {
+      "message": "Rifiuta"
+   },
+   "description": {
+      "message": "Descrizione"
+   },
+   "detailed_view": {
+      "message": "Visualizzazione dettagliata"
+   },
+   "digits": {
+      "message": "Cifre"
+   },
+   "disable": {
+      "message": "Disabilita"
+   },
+   "disable_access_control": {
+      "message": "Disabilita controllo di accesso"
+   },
+   "disable_auto_login": {
+      "message": "Disabilita accesso automatico"
+   },
+   "displaying": {
+      "message": "Visualizzazione"
+   },
+   "domain": {
+      "message": "Dominio"
+   },
+   "domain_matching": {
+      "message": "Corrispondenza del dominio"
+   },
+   "domain_mismatch_alert": {
+      "message": "Avviso di non corrispondenza del dominio"
+   },
+   "download": {
+      "message": "Scarica"
+   },
+   "edit": {
+      "message": "Modifica"
+   },
+   "edit_card": {
+      "message": "Modifica la carta di pagamento"
+   },
+   "edit_password": {
+      "message": "Modifica password"
+   },
+   "email": {
+      "message": "E-mail"
+   },
+   "empty_trash": {
+      "message": "Svuota Cestino"
+   },
+   "empty_trash_confirm_message": {
+      "message": "Questa azione eliminerà definitivamente tutte le password dal Cestino. Non sarà possibile ripristinarle in futuro."
+   },
+   "empty_trash_confirm_title": {
+      "message": "Vuoi svuotare il cestino?"
+   },
+   "empty_trash_success_message": {
+      "message": "Tutte le password sono state eliminate correttamente dal Cestino."
+   },
+   "enable_access_control": {
+      "message": "Abilita controllo di accesso"
+   },
+   "enable_auto_login": {
+      "message": "Abilita accesso automatico"
+   },
+   "encryption_key": {
+      "message": "Chiave di crittografia"
+   },
+   "enter_passphrase": {
+      "message": "Inserisci la password master per accedere all’archivio vault"
+   },
+   "enterprise_passwords": {
+      "message": "Password aziendali"
+   },
+   "error_getting_oneauth_totp": {
+      "message": "Errore durante la ricezione della TOTP di OneAuth"
+   },
+   "exclude_character": {
+      "message": "Escludi il carattere"
+   },
+   "exclude_users": {
+      "message": "Escludi utenti"
+   },
+   "extDescription": {
+      "message": "Online password manager for teams to securely store, share and manage passwords and other sensitive data."
+   },
+   "extName": {
+      "message": "Zoho Vault"
+   },
+   "extension": {
+      "message": "Estensione"
+   },
+   "extension_locked": {
+      "message": "Estensione bloccata"
+   },
+   "extension_logged_out": {
+      "message": "Estensione disconnessa"
+   },
+   "favourites": {
+      "message": "Preferiti"
+   },
+   "field_holds_personal_data": {
+      "message": "Il campo contiene dati personali"
+   },
+   "field_name": {
+      "message": "Nome campo"
+   },
+   "file": {
+      "message": "File"
+   },
+   "file_only_n_per_password": {
+      "message": "Puoi aggiungere solo $1$ file per password",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_cannot_exceed": {
+      "message": "La dimensione dei file non può superare $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_per_password_cannot_exceed": {
+      "message": "La dimensione massima dei file per password non può superare $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_within_max": {
+      "message": "i file possono essere al massimo di 2 MB"
+   },
+   "fill": {
+      "message": "Inserisci"
+   },
+   "filter": {
+      "message": "Filtra"
+   },
+   "folder": {
+      "message": "Cartella"
+   },
+   "folder_name": {
+      "message": "Nome cartella"
+   },
+   "folders": {
+      "message": "Cartelle"
+   },
+   "font": {
+      "message": "Carattere"
+   },
+   "generate": {
+      "message": "Genera"
+   },
+   "generator": {
+      "message": "Generatore"
+   },
+   "generator_history_description": {
+      "message": "Le ultime $1$ password copiate dal generatore verranno visualizzate qui",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "generator_password_length": {
+      "message": "Lunghezza password"
+   },
+   "get_oneauth_totp": {
+      "message": "Ottieni la TOTP di OneAuth"
+   },
+   "grant": {
+      "message": "Concedi"
+   },
+   "help": {
+      "message": "Guida"
+   },
+   "help_resources": {
+      "message": "Risorse della guida"
+   },
+   "hide": {
+      "message": "Nascondi"
+   },
+   "history": {
+      "message": "Cronologia"
+   },
+   "hour": {
+      "message": "Ora"
+   },
+   "hours": {
+      "message": "Ore"
+   },
+   "insecure_card_fill_description": {
+      "message": "Stai per inserire la tua carta di pagamento in una pagina non sicura"
+   },
+   "insecure_page_alert": {
+      "message": "Avviso di pagina non sicura"
+   },
+   "invalid_date_error": {
+      "message": "Specificare una data valida"
+   },
+   "invalid_email_address": {
+      "message": "Indirizzo e-mail non valido"
+   },
+   "invalid_field": {
+      "message": "$1$ non valido",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "invalid_master_passphrase": {
+      "message": "Password master non valida"
+   },
+   "list_view": {
+      "message": "Visualizzazione elenco"
+   },
+   "lock": {
+      "message": "Blocca"
+   },
+   "lock_after": {
+      "message": "Blocca l’estensione dopo"
+   },
+   "lock_on_system_lock": {
+      "message": "Blocca l’estensione quando si blocca lo schermo"
+   },
+   "login": {
+      "message": "Accedi"
+   },
+   "login_incognito": {
+      "message": "Lancia una sessione privata"
+   },
+   "lower_case": {
+      "message": "Minuscolo"
+   },
+   "manage": {
+      "message": "Gestisci"
+   },
+   "manage_access_control": {
+      "message": "Gestisci controllo di accesso"
+   },
+   "manage_authenticator": {
+      "message": "Gestisci lo strumento di autenticazione"
+   },
+   "manage_authenticators": {
+      "message": "Gestisci gli strumenti di autenticazione"
+   },
+   "manage_custom_fields": {
+      "message": "Gestisci campi personalizzati"
+   },
+   "manage_prompts": {
+      "message": "Gestisci le istruzioni"
+   },
+   "mark_as_personal": {
+      "message": "Contrassegna come personale"
+   },
+   "mark_favourite": {
+      "message": "Contrassegna come preferito"
+   },
+   "master_password": {
+      "message": "Master password"
+   },
+   "max_file_size_popup": {
+      "message": "La dimensione massima del file per le password non può superare 2 MB"
+   },
+   "message": {
+      "message": "Messaggio"
+   },
+   "minute": {
+      "message": "Minuto"
+   },
+   "minutes": {
+      "message": "Minuti"
+   },
+   "modified_time": {
+      "message": "Ora di modifica"
+   },
+   "modify": {
+      "message": "Modifica"
+   },
+   "more": {
+      "message": "Altro"
+   },
+   "move_password_name_to_trash": {
+      "message": "Sposta “$1$” nel cestino",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "move_to_trash": {
+      "message": "Sposta nel Cestino"
+   },
+   "move_to_trash_success": {
+      "message": "Password spostata correttamente nel cestino"
+   },
+   "must_not_be_empty": {
+      "message": "non può essere vuoto"
+   },
+   "must_not_contain": {
+      "message": "non può contenere"
+   },
+   "n_user_groups_selected": {
+      "message": "$1$ gruppi di utenti selezionato",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "n_users_selected": {
+      "message": "$1$ utenti selezionati",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "name": {
+      "message": "Nome"
+   },
+   "never_save": {
+      "message": "Non salvare mai"
+   },
+   "night_mode": {
+      "message": "Modalità notturna"
+   },
+   "no_cards_found": {
+      "message": "Nessuna carta di pagamento trovata"
+   },
+   "no_cards_matching_found": {
+      "message": "Nessuna carta pagamento corrispondente trovata"
+   },
+   "no_copy_permission": {
+      "message": "Nessuna autorizzazione di copia"
+   },
+   "no_edit_permission": {
+      "message": "Nessuna autorizzazione di modifica"
+   },
+   "no_folders_found": {
+      "message": "Nessuna cartella trovata"
+   },
+   "no_folders_matching_found": {
+      "message": "Nessuna cartella “$1$” corrispondente trovata",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_history_available": {
+      "message": "Dati cronologia non disponibili."
+   },
+   "no_matching_folders_found": {
+      "message": "Nessuna cartella corrispondente trovata"
+   },
+   "no_matching_passwords_found": {
+      "message": "Nessuna password corrispondente trovata"
+   },
+   "no_passwords_folder": {
+      "message": "Nessuna password trovata in questa cartella"
+   },
+   "no_passwords_found": {
+      "message": "Nessuna password trovata"
+   },
+   "no_passwords_matching_found_folder": {
+      "message": "Nessuna password corrispondente trovata in questa cartella"
+   },
+   "no_passwords_yet": {
+      "message": "Ancora nessuna password"
+   },
+   "no_share_permission": {
+      "message": "Nessuna autorizzazione di condivisione"
+   },
+   "no_trashed_passwords": {
+      "message": "Il tuo cestino è vuoto"
+   },
+   "no_user_groups_found": {
+      "message": "Nessun gruppo utenti trovato"
+   },
+   "no_user_groups_matching_found": {
+      "message": "Nessun gruppo di utenti corrispondente “$1$” trovato",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_users_found": {
+      "message": "Nessun utente trovato"
+   },
+   "no_users_matching_found": {
+      "message": "Nessun utente “$1$” corrispondente trovata",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_view_permission": {
+      "message": "Nessuna autorizzazione di visualizzazione"
+   },
+   "not_selected_users": {
+      "message": "Utenti non selezionati"
+   },
+   "notes": {
+      "message": "Note"
+   },
+   "numbers": {
+      "message": "Numeri"
+   },
+   "of": {
+      "message": "di"
+   },
+   "ok": {
+      "message": "OK"
+   },
+   "one_click_password_change_prevented_popup": {
+      "message": "La modifica della password non è consentita per le password condivise con autorizzazione di accesso con un clic"
+   },
+   "oneauth_approve_message": {
+      "message": "Approva la notifica inviata al tu telefono per ottenere la TOTP"
+   },
+   "oneauth_install_description": {
+      "message": "Un’app di autenticazione completa che semplifica tutte le tue necessità di autenticazione a più fattori e migliora la sicurezza della tua attività"
+   },
+   "oneauth_notification_pushed": {
+      "message": "Notifica di OneAuth inviata"
+   },
+   "oneauth_secrets": {
+      "message": "Chiavi segrete OneAuth"
+   },
+   "oneauth_unlock_failed": {
+      "message": "Si è verificato un errore. Inserisci la tua password master per sbloccare."
+   },
+   "open_profile_panel": {
+      "message": "Apri il pannello del profilo"
+   },
+   "open_web_app": {
+      "message": "Apri la web app"
+   },
+   "open_zoho_vault": {
+      "message": "Apri Zoho Vault"
+   },
+   "or": {
+      "message": "o"
+   },
+   "others": {
+      "message": "Altri"
+   },
+   "parent_domain": {
+      "message": "Dominio principale"
+   },
+   "passphrase_cleared": {
+      "message": "La tua password master è stata rimossa"
+   },
+   "password": {
+      "message": "Password"
+   },
+   "password_added_successfully": {
+      "message": "Password aggiunta correttamente"
+   },
+   "password_edited_successfully": {
+      "message": "Password aggiornata correttamente"
+   },
+   "password_must_have_lowercase": {
+      "message": "La password deve contenere almeno una lettera minuscola."
+   },
+   "password_must_have_minimum_chars": {
+      "message": "La password deve contenere un minimo di $1$ caratteri.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_have_number": {
+      "message": "La password deve contenere almeno un numero."
+   },
+   "password_must_have_spl_char": {
+      "message": "La password deve contenere almeno $1$ caratteri speciali.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_have_uppercase": {
+      "message": "La password deve contenere almeno una lettera Maiuscola."
+   },
+   "password_must_not_have_chars": {
+      "message": "I caratteri $1$ non sono consentiti nelle password.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_start_with_alphabet": {
+      "message": "La password deve iniziare con una lettera dell’alfabeto."
+   },
+   "password_policy": {
+      "message": "Criteri password"
+   },
+   "passwords": {
+      "message": "Password"
+   },
+   "path": {
+      "message": "Percorso"
+   },
+   "personal_password_cannot_be_shared": {
+      "message": "Impossibile condividere la password personale"
+   },
+   "personal_password_restricted": {
+      "message": "Aggiunta password personali limitata dall’amministratore"
+   },
+   "personal_passwords": {
+      "message": "Password personali"
+   },
+   "personalization": {
+      "message": "Personalizzazione"
+   },
+   "please_enter": {
+      "message": "Inserisci"
+   },
+   "please_enter_a": {
+      "message": "Inserisci un"
+   },
+   "please_enter_an_email": {
+      "message": "Inserire un indirizzo e-mail"
+   },
+   "please_enter_your": {
+      "message": "Inserisci $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "please_upload_your": {
+      "message": "Carica il tuo $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "port": {
+      "message": "Porta"
+   },
+   "proceed": {
+      "message": "Procedi"
+   },
+   "product_videos": {
+      "message": "Video del prodotto"
+   },
+   "prompt_auto_save_update": {
+      "message": "Istruzione per salvare e aggiornare le password"
+   },
+   "prompt_card_auto_save_update": {
+      "message": "Istruzione per salvare e aggiornare le carte di pagamento"
+   },
+   "push_sent_success": {
+      "message": "Notifica push inviata correttamente"
+   },
+   "reason": {
+      "message": "Motivo"
+   },
+   "recently_added": {
+      "message": "Aggiunto di recente"
+   },
+   "recently_copied_passwords": {
+      "message": "Password copiate recentemente"
+   },
+   "recently_used": {
+      "message": "Recentemente utilizzato"
+   },
+   "remove_field": {
+      "message": "Rimuovi campo"
+   },
+   "remove_logo": {
+      "message": "Rimuovi il logo"
+   },
+   "remove_url": {
+      "message": "Rimuovi URL"
+   },
+   "request": {
+      "message": "Richiedi"
+   },
+   "request_access": {
+      "message": "Richiedi accesso"
+   },
+   "request_access_description": {
+      "message": "Richiedi l’accesso a questa password. Riceverai notifica tramite e-mail qualora la tua richiesta venga approvata o rifiutata dal proprietario delle password."
+   },
+   "request_advance_approval": {
+      "message": "Richiedi approvazione in anticipo"
+   },
+   "request_approved": {
+      "message": "Richiesta approvata"
+   },
+   "request_details": {
+      "message": "Dettagli della richiesta"
+   },
+   "request_immediate_access": {
+      "message": "Richiedi accesso immediato"
+   },
+   "request_time": {
+      "message": "Ora richiesta"
+   },
+   "resend_push": {
+      "message": "Invia di nuovo"
+   },
+   "reset_password": {
+      "message": "Reimposta la password"
+   },
+   "resource_removed_successfully": {
+      "message": "$1$ eliminata correttamente",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "restore_password": {
+      "message": "Ripristina password"
+   },
+   "restore_password_confirm_message": {
+      "message": "Questa azione sposterà la password nuovamente al tuo account e alle relative cartelle, oltre a ripristinarne i privilegi di condivisione."
+   },
+   "restore_password_confirm_title": {
+      "message": "Vuoi ripristinare la password?"
+   },
+   "restore_password_success_message": {
+      "message": "Password “$1$” ripristinata correttamente.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "retry": {
+      "message": "Prova di nuovo"
+   },
+   "revoke": {
+      "message": "Revoca"
+   },
+   "same_name_password_exists": {
+      "message": "Esiste già una password con lo stesso nome"
+   },
+   "save": {
+      "message": "Salva"
+   },
+   "save_and_enable": {
+      "message": "Salva e abilita"
+   },
+   "save_as_new": {
+      "message": "Salva come nuovo"
+   },
+   "save_prompt_disabled_description": {
+      "message": "Le istruzioni di aggiornamento automatico sono state disabilitate per i seguenti siti web"
+   },
+   "save_to_zoho_vault_question": {
+      "message": "Vuoi salvare in Zoho Vault?"
+   },
+   "scheme": {
+      "message": "Schema"
+   },
+   "search": {
+      "message": "Cerca"
+   },
+   "searching": {
+      "message": "Ricerca in corso"
+   },
+   "seconds": {
+      "message": "Secondi"
+   },
+   "select_admins": {
+      "message": "Seleziona amministratori"
+   },
+   "select_all": {
+      "message": "Seleziona tutto"
+   },
+   "select_create_folder": {
+      "message": "Seleziona o crea una cartella"
+   },
+   "select_oneauth_secrets": {
+      "message": "Seleziona una chiave segreta OneAuth"
+   },
+   "selected_users": {
+      "message": "Utenti selezionati"
+   },
+   "seperate_session": {
+      "message": "Resta connesso a"
+   },
+   "setting_enforced_by_amdin": {
+      "message": "Applicato dall’amministratore con privilegi elevati"
+   },
+   "settings": {
+      "message": "Impostazioni"
+   },
+   "share": {
+      "message": "Condividi"
+   },
+   "share_feedback": {
+      "message": "Condividi feedback"
+   },
+   "share_one_click_login": {
+      "message": "Accesso con un clic"
+   },
+   "share_password": {
+      "message": "Condividi password"
+   },
+   "share_success": {
+      "message": "Password condivisa correttamente"
+   },
+   "share_user_success": {
+      "message": "Password condivisa correttamente con $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "shared_by_me": {
+      "message": "Condivisi da te"
+   },
+   "shared_with_me": {
+      "message": "Condivise con me"
+   },
+   "sharing_restricted": {
+      "message": "Condivisione limitata dall’amministratore"
+   },
+   "show_domain_matching": {
+      "message": "Mostra la corrispondenza del dominio"
+   },
+   "show_more_fields": {
+      "message": "Visualizza altri campi"
+   },
+   "shows": {
+      "message": "Mostra"
+   },
+   "sign_out": {
+      "message": "Esci"
+   },
+   "sign_out_confirm": {
+      "message": "Vuoi uscire da Zoho Vault?"
+   },
+   "special_character": {
+      "message": "Carattere speciale"
+   },
+   "status": {
+      "message": "Stato"
+   },
+   "sub_domain": {
+      "message": "Sottodominio"
+   },
+   "sync": {
+      "message": "Sincronizza"
+   },
+   "sync_changes": {
+      "message": "Sincronizza tutte le modifiche effettuate nel web"
+   },
+   "sync_completed": {
+      "message": "Sincronizzazione completata"
+   },
+   "sync_description": {
+      "message": "Mantieni la tua estensione sincronizzata con le modifiche applicate alla tua applicazione web"
+   },
+   "sync_started": {
+      "message": "Sincronizzazione avviata"
+   },
+   "syncing": {
+      "message": "Sincronizzazione in corso"
+   },
+   "tags": {
+      "message": "Tag"
+   },
+   "text": {
+      "message": "Testo"
+   },
+   "theme": {
+      "message": "Tema"
+   },
+   "third_parties": {
+      "message": "Terze parti"
+   },
+   "third_party_revoke_link_after": {
+      "message": "Revoca l’accesso al link dopo"
+   },
+   "third_party_shared_output": {
+      "message": "È stata inviata un’e-mail a $1$. Condividi la seguente chiave di crittografia per fornire l’accesso a questa password per $2$. Questa chiave sarà disponibile anche nella cronologia del generatore di password.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "third_party_sharing_restricted": {
+      "message": "Condivisione password con parti terze limitata dall’amministratore"
+   },
+   "tile_view": {
+      "message": "Visualizzazione affiancata"
+   },
+   "time": {
+      "message": "Ora"
+   },
+   "totp": {
+      "message": "TOTP"
+   },
+   "totp_key": {
+      "message": "Chiave TOTP"
+   },
+   "totp_key_must_contain_atleast_n_chars": {
+      "message": "La chiave TOTP deve contenere almeno $1$ caratteri.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "trash": {
+      "message": "Cestino"
+   },
+   "turn_off_dark_mode": {
+      "message": "Disabilita la modalità notturna"
+   },
+   "turn_on_dark_mode": {
+      "message": "Abilita la modalità notturna"
+   },
+   "unlock": {
+      "message": "Sblocca"
+   },
+   "unlock_vault": {
+      "message": "Sblocca Vault"
+   },
+   "unlock_vault_with_authenticators_min": {
+      "message": "Sblocca Vault con gli strumenti di autenticazione"
+   },
+   "unlock_vault_with_oneauth": {
+      "message": "Sblocca Zoho Vault con l’app Zoho OneAuth per dispositivi mobili"
+   },
+   "unlock_vault_with_oneauth_min": {
+      "message": "Sblocca Vault con Zoho OneAuth"
+   },
+   "unlock_vault_with_webauthn": {
+      "message": "Sblocca Zoho Vault con gli strumenti di autenticazione"
+   },
+   "unlock_with": {
+      "message": "Sblocca con"
+   },
+   "unlock_zoho_vault": {
+      "message": "Sblocca Zoho Vault"
+   },
+   "unlocking": {
+      "message": "Sblocco"
+   },
+   "unmark_favourite": {
+      "message": "Rimuovi dai preferiti"
+   },
+   "unshared_folders": {
+      "message": "Cartelle non condivise"
+   },
+   "unshared_passwords": {
+      "message": "Password non condivise"
+   },
+   "update": {
+      "message": "Aggiorna"
+   },
+   "update_card": {
+      "message": "Vuoi aggiornare la carta di pagamento?"
+   },
+   "update_password_question": {
+      "message": "Vuoi aggiornare la password?"
+   },
+   "upload": {
+      "message": "Carica"
+   },
+   "upload_logo": {
+      "message": "Carica il logo"
+   },
+   "upper_case": {
+      "message": "Maiuscolo"
+   },
+   "url": {
+      "message": "URL"
+   },
+   "url_invalid": {
+      "message": "L’URL fornito non è valido"
+   },
+   "urls_max_n": {
+      "message": "Puoi aggiungere solo un massimo di $1$ URL.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "usage_confirmation": {
+      "message": "Conferma di utilizzo"
+   },
+   "use": {
+      "message": "Utilizza"
+   },
+   "use_xs_password_on_y": {
+      "message": "Vuoi usare la password di $1$ su $2$?",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "user": {
+      "message": "Utente"
+   },
+   "user_group": {
+      "message": "Gruppo utenti"
+   },
+   "user_groups": {
+      "message": "Gruppi utenti"
+   },
+   "user_name_label": {
+      "message": "Nome utente"
+   },
+   "users": {
+      "message": "Utenti"
+   },
+   "validity": {
+      "message": "Validità"
+   },
+   "value": {
+      "message": "Valore"
+   },
+   "view": {
+      "message": "Visualizza"
+   },
+   "view_filters": {
+      "message": "Visualizza i filtri"
+   },
+   "view_more": {
+      "message": "Visualizza di più"
+   },
+   "week": {
+      "message": "Settimana"
+   },
+   "weeks": {
+      "message": "Settimane"
+   },
+   "welcome_to_vault": {
+      "message": "Benvenuto a Zoho Vault"
+   },
+   "zoho_oneauth": {
+      "message": "Zoho OneAuth"
+   },
+   "zoho_vault_extension_locked": {
+      "message": "Zoho Vault - Estensione bloccata"
+   }
+}

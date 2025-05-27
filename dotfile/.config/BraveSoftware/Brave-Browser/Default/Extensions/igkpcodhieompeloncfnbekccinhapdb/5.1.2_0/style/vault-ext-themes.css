@@ -1,0 +1,142 @@
+.skin-blue {
+    --themeBgColor:#2c66dd;
+    --themeBgColorLight:#e8f0fe;
+    --themeBgColorLighter:#f9f9fd;
+    --themeBorderColor:#2c66dd;
+    --themeTextColor:#2c66dd; 
+    --themeTextColorLight:#6B94E7; 
+}
+.skin-red {
+    --themeBgColor:#d23040;
+    --themeBgColorLight:#ffecee; 
+    --themeBgColorLighter:#fef9f9;
+    --themeBorderColor:#d23040;
+    --themeTextColor:#d23040;
+    --themeTextColorLight:#ff7885;
+}
+.skin-green {
+    --themeBgColor:#58bc66;
+    --themeBgColorLight:#eaf9e0; 
+    --themeBgColorLighter:#f9fbf7; 
+    --themeBorderColor:#58bc66;
+    --themeTextColor:#58bc66;
+    --themeTextColorLight:#81c68a;
+}
+.skin-orange {
+    --themeBgColor:#db7942;
+    --themeBgColorLight:#fff2e7; 
+    --themeBgColorLighter:#fdf9f6; 
+    --themeBorderColor:#db7942;
+    --themeTextColor:#db7942;
+    --themeTextColorLight:#dfa07d;
+}
+.skin-purple {
+    --themeBgColor:#6847a5;
+    --themeBgColorLight:#f0e8ff;  
+    --themeBgColorLighter:#f7f6fa;
+    --themeBorderColor:#6847a5;
+    --themeTextColor:#6847a5;
+    --themeTextColorLight:#ac8bea;
+}
+
+/**** Theme CSS ****/
+.btn-primary,
+.form-group .label-control:after,
+.form-group .label-control:after,
+.card-view-password-list-inner:hover,
+.password-list-inner-selected:hover,
+ul.vault-tabs-horizontal li a.selected,
+.checkbox-container input:checked ~ .checkmark,
+.radio input[type="radio"]:focus + .radio-label:before,
+.generate-password-panel-inner,
+.btn-primary-line,
+.btn-primary-line:hover,
+ul.filter-result-list li a, 
+ul.filter-result-list li abbr  { border-color: var(--themeBorderColor); }
+.errormsg .label-control:after,
+.errormsg .label-control:before,
+.errormsg .lyteInput .lyteField,
+.errormsg .select2-container--default .select2-selection--single, 
+.errormsg .select2-container--default .select2-selection--multiple,
+.funnel-dropdown-selected { border-color: var(--themeBorderColor) !important; }
+
+.btn-primary,
+.search-panel,
+.header,
+.cbx:checked ~ label:after,
+.nav-menu-active,
+ul.vault-tabs-horizontal li a:after,
+.checkbox-container input:checked ~ .checkmark,
+.cbx:checked ~ label:after,
+.radio input[type="radio"]:checked + .radio-label:before,
+.swal-button,
+.swal-button:hover,
+.swal-button:not([disabled]):hover,
+.ui-widget-header,
+.ui-state-active, .ui-widget-content .ui-state-active,
+.navigation>ul>li a:hover,
+.navigation ul ul li:hover>a,
+.btn-primary-line:hover,
+.underline-animation,
+.list-view-passwords-list .password-list-view-selected:before,
+.contentual-menu li a:hover,
+.zvd-search-panel,
+.zvd-panel-arrow,
+.zvd-panel-arrow-top-left,
+.zvd-panel-arrow-top-right,
+.zvd-menu-password-selected, 
+.zvd-menu-generator-selected { background: var(--themeBgColor); }
+
+
+.folder-list-panel:hover,
+ul.vault-common-list li a:hover,
+.list-view-passwords-list .card-view-password-list-inner:hover,
+.folders-page-table-row:hover,
+.vault-table tbody tr:hover,
+ul.password-filter-dropdown-list li:hover,
+.password-list-panel:hover,
+ul.filter-result-list li abbr { background: var(--themeBgColorLighter); }  /** bg light color **/
+
+ul.add-password-plus-minus li a:hover, 
+ul.add-password-plus-minus li abbr:hover, 
+ul.vault-list li a:hover, 
+ul.action-icon-list li a:hover, 
+.folder-icon-left:hover,
+.card-view-password-icons li a:hover,
+.modal-panel-close a:hover,
+.search-text-close:hover,
+.cbx:checked ~ label,
+.vault-common-list-selected,
+.zv-new-generator-panel,
+.zv-new-generator-panel-bottom,
+.select2-container--default .select2-results__option--highlighted[aria-selected],
+.top-nav-open-web-button,
+.domain-matching-list ul li .domain-matching-url-text:hover  {  background: var(--themeBgColorLight); } /** bg color for icons hover **/
+
+
+
+a,
+.active .label-control .label-text,
+.errormsg-text,
+.left-nav-account-panel a,
+ul.vault-tabs-horizontal li a.selected,
+.inner-bottom-left,
+.sync-loading-cloud,
+.btn-primary-line,
+.search-text-close:hover,
+.filtered-text,
+ul.add-password-plus-minus li a:hover, 
+ul.add-password-plus-minus li abbr:hover, 
+ul.vault-list li a:hover, 
+ul.action-icon-list li a:hover, 
+.folder-icon-left:hover,
+.card-view-password-icons li a:hover,
+.modal-panel-close a:hover,
+.search-text-close:hover,
+ul.app-profile-links li a:hover,
+.password-details-icon-section:hover { color: var(--themeTextColor); }
+.vault-common-list-selected,
+.vault-common-list-selected:hover,
+.search-text-close:hover,
+.filtered-icon-selected,
+a.top-nav-open-web-button { color: var(--themeTextColor) !important; }

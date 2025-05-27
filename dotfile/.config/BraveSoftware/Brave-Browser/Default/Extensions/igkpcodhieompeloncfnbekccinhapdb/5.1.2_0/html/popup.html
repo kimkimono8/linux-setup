@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Popup</title>
+	<meta charset="utf-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="/images/logo/vault-logo-blue.svg">
+
+	<link rel="stylesheet" type="text/css" href="/style/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-themes.css">
+	<link rel="stylesheet" type="text/css" href="/style/styles.css">
+	<link rel="stylesheet" type="text/css" href="/style/ZVaultPopup.css">
+	<link rel="stylesheet" type="text/css" href="/style/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-nightmode.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault_dstyle.css">
+
+	<script src="/lib/jquery-3.3.1.min.js"></script>
+	<script src="/lib/jquery-ui.min.js"></script>
+	<script src="/lib/select2.min.js"></script>
+	<script src="/lib/jquery.slimscroll.js"></script>
+	<script src="/lib/sweetalert.min.js"></script>
+	<script src="/lib/FileSaver.js"></script>
+
+	<script type="module" src="/js/src/popup/ppMain.js"></script>
+</head>
+
+<body class="zvf-opensans">
+	<div id="tooltip_arrow" class="tooltip_arrow" style="display: none;transition: opacity 0.6s linear;"></div>
+	<div id="tooltip_elem" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+	<div id="elem_msg_action" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+
+	<!--notification start-->
+
+	<div id="notification" class="notify notify-success clearfix" style="display: none;max-width: 90%;width: max-content;transition: opacity 0.5s linear;">
+		<div class="notify-inner" data-close="">
+			<span class="notify-symbol pointer"></span>
+			<div class="notify-content pointer" data-content="">
+				notification content</div>
+		</div>
+	</div>
+
+	<!--notification end-->
+
+	<div id="output" style="height: 100%;">
+		<div class="overlay-bg" id="loading_main" data-checking_accounts="false">
+			<div class="component-loader">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</div>
+
+	<!--before appending element to actual position , rendered here to add third party listeners - select2-->
+	<div id="pre_render_0" class="pre-render">
+	</div>
+
+	<template id="vault_loading_template">
+		<div data-loading="">
+			<div class="component-loader" style="display: block;">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</template>
+
+	<template id="accounts_error">
+		<div class="accounts-error colflexcenter">
+			<div class="top-row">
+				<div class="first">
+					<span class="table-profile-image">
+						<img id="dp" src="/images/user/profile.svg" />
+					</span>
+				</div>
+
+				<div class="second colflex m-r-10">
+					<p id="username" class="etext table-user-name">Name</p>
+					<span id="email" class="etext table-user-email text-default">Email</span>
+				</div>
+
+				<a class="last" href="#" data-sign_out="" data-name="signout_button">
+					<i class="icon-signout-1 icon-md m-r-5"></i>
+					<i-span>sign_out</i-span>
+				</a>
+			</div>
+
+			<img class="m-t-20" src="/images/svg/auth_error.svg" style="height: 150px;" />
+			<p id="errorMsg" class="text-default" style="padding: 10px;font-size: 0.95rem;" data-error_msg>Error Message</p>
+			<button id="actionBtn" type="button" class="btn btn-md btn-primary m-t-b-10" style="padding-left:20px;padding-right:20px;"><i-span>retry</i-span></button>
+		</div>
+	</template>
+
+	<template id="passphrase_page">
+		<div class="vault-wrapper">
+			<div class="apps-login-panel clearfix">
+				<!-- header part start -->
+				<div class="appsLogin__header panel-row m-b-10">
+					<div class="pull-left col-8">
+						<span class="table-profile-image">
+							<img data-dp src="/images/user/profile.svg" />
+						</span>
+						<span data-name class="login-profile-user-name">User Name</span>
+					</div>
+					<div class="pull-right m-t-5 col-4 text-right">
+						<a href="#" data-sign_out="" data-name="signout_button">
+							<i class="icon-signout-1 icon-md m-r-5"></i>
+							<i-span>sign_out</i-span>
+						</a>
+					</div>
+				</div>
+				<!-- header part end -->
+				<!-- body part start -->
+				<div class="appsLogin__body">
+					<div class="apps-login-logo">
+						<img src="/images/logo/vault-logo-blue.svg" />
+					</div>
+					<h4 class="m-t-5 text-center zfw-600"><i-span>welcome_to_vault</i-span></h4>
+					<div id="unlock_out"></div>
+					<div id="unlock_or_out"></div>
+				</div>
+				<!-- body part end -->
+				<!-- footer part start -->
+				<div class="appsLogin__footer">
+					<p class="text-default text-center m-t-10 m-b-5"><no-i-span>© 2025, </no-i-span><a class="copyrights-text" href="https://www.zohocorp.com/" target="_blank"><no-i-span> Zoho Corporation</no-i-span></a> <span><i-span>all_rights_reserved</i-span></span></p>
+				</div>
+				<!-- footer part start -->
+			</div>
+
+			<div class="overlay-bg" style="display: none;" data-light_overlay="" data-open_vault_loading="">
+				<div class="component-loader">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+
+		</div>
+	</template>
+
+	<template id="main_page">
+		<div>
+			<div data-header="">
+				<div class="vault-wrapper">
+					<div class="search-panel">
+						<div class="vault-logo pointer" data-open_web_app="" data-on_click="main_ui.clicked_open_web_app" data-name="openWebUI">
+							<img src="/images/logo/vault-logo.svg" data-tooltip_content="i18n:open_web_app" data-icon_tooltip="true" data-name="logo" />
+						</div>
+
+						<div class="search-panel-inner">
+							<span class="search-panel-search-icon">
+								<i class="icon-magnifier"></i>
+							</span>
+							<input type="text" id="search" data-clear_id="clear_search" placeholder="Syncing..." autocomplete="off" spellcheck="false">
+							<span class="password-search-close" data-clear_input="#search" id="clear_search" style="display: none;" data-on_click="main_ui.clicked_clear_search">
+								<i class="icon-close"></i>
+							</span>
+						</div>
+
+						<div id="show_domain_matching_icon" data-on_click="main_ui.clicked_show_domain_matching_icon" class="domain-matching-panel pointer" data-show_domain_matching="" style="cursor: pointer !important;">
+							<i class="icon-domain-matching" data-tooltip_content="i18n:show_domain_matching" data-icon_tooltip="true"></i>
+							<no-i-span class="domain-matching-counter" data-domain_matching_count>0</no-i-span>
+						</div>
+
+						<div class="profile-panel clearfix" style="z-index: 121;">
+							<div class="profile-panel-inner" id="profile">
+								<div class="net-status online"></div>
+								<div class="inner-top clearfix" style="padding-bottom: 7px;">
+									<div class="inner-top-left">
+										<img src="/images/user/profile.svg" id="dp" data-toggle_profile_panel="" data-icon_tooltip="true" data-tooltip_content="i18n:open_profile_panel" data-on_click="main_ui.clicked_toggle_profile_panel" />
+									</div>
+									<div class="inner-top-right">
+										<p id="username"></p>
+										<span id="email"></span>
+									</div>
+								</div>
+								<div class="inner-bottom clearfix">
+									<div class="inner-bottom-left" data-open_detailed_view="" data-on_click="main_ui.clicked_open_tab_view"><i-span>detailed_view</i-span></div>
+									<div class="inner-bottom-right">
+										<ul>
+											<li data-toggle_dark_mode="" data-on_click="main_ui.clicked_toggle_dark_mode"><a><i id="dark_mode_icon" class="icon-dark-theme" data-icon_tooltip="true" data-tooltip_content="i18n:turn_on_dark_mode"></i></a></li>
+											<li class="text-danger"><no-i-span>|</no-i-span></li>
+											<li><a class="text-danger" data-lock="" data-on_click="main_ui.clicked_lock"><i-span>lock</i-span></a>
+											</li>
+											<li class="text-danger"><no-i-span>|</no-i-span></li>
+											<li><a class="text-danger" data-on_click="main_ui.clicked_sign_out" data-sign_out=""><i-span>sign_out</i-span></a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<header class="header clearfix">
+					<nav class="nav-menu">
+						<ul>
+							<li data-on_click="main_ui.clicked_show_tab" data-tab_name="passwords">
+								<a href="#" class="nav-menu-active" id="passwords_tab_header" data-show_passwords_tab="" tabindex="-1">
+									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 30 30" style="enable-background:new 0 0 30 30;" xml:space="preserve">
+										<g>
+											<g>
+												<path class="svg-line-color" d="M12,13l-10,10l0,6l4,0l0-4l3,0l0-3l3,0l5-5c0.1,0.1,0.4,0.2,0.5,0.3c1,0.4,1.9,0.7,3,0.8
+				                                           c4.6,0.1,8.3-3.5,8.4-8.1c0.1-4.6-3.5-8.3-8.1-8.4C16.2,1.5,10.4,4.8,12,12.9 M21.9,10.5c-1.3,0-2.4-1.1-2.3-2.4
+				                                           c0-1.3,1.1-2.4,2.4-2.3c1.3,0,2.4,1.1,2.3,2.4C24.4,9.5,23.3,10.6,21.9,10.5z"></path>
+											</g>
+											<path class="svg-line-color" d="M13.4,1H3C1.9,1,1,2,1,3.1V15c0,2.3,1.9,2,3,2"></path>
+											<line class="svg-line-color" x1="5" y1="7" x2="7.9" y2="7"></line>
+											<line class="svg-line-color" x1="5.1" y1="11" x2="7.8" y2="11"></line>
+										</g>
+									</svg>
+									<span><i-span>passwords</i-span></span>
+								</a>
+							</li>
+							<li data-on_click="main_ui.clicked_show_tab" data-tab_name="folders">
+								<a href="#" id="folders_tab_header" data-show_folders_tab="" tabindex="-1">
+									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 30 30" style="enable-background:new 0 0 30 30;" xml:space="preserve">
+										<g>
+											<path class="svg-line-color" d="M7,7H1V29C0.8,29,23,29,23,29l6-16H5.9L1.2,28.7"></path>
+											<line class="svg-line-color" x1="13" y1="21" x2="19.1" y2="21"></line>
+											<path class="svg-line-color" d="M10,7.2l5-4.5c0,0,2.2-2.6,5.1,0l8,6.4">
+											</path>
+											<line class="svg-line-color" x1="18.1" y1="4.9" x2="15.1" y2="7.8"></line>
+											<line class="svg-line-color" x1="21" y1="7" x2="19.2" y2="8.9"></line>
+										</g>
+									</svg>
+									<span><i-span>folders</i-span></span>
+								</a>
+							</li>
+							<li data-on_click="main_ui.clicked_show_tab" data-tab_name="generator">
+								<a href="#" id="generator_tab_header" data-show_generator_tab="" tabindex="-1">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 40 40" style="enable-background:new 0 0 40 40;" xml:space="preserve">
+										<g id="Layer_65">
+											<g>
+												<path class="svg-fill-color" d="M19.5,0c-5.3,0-10.3,2.1-14,5.8L3.3,4l-1.5,8.5l8.1-3L7.9,7.8c3.1-3.1,7.2-4.7,11.6-4.7    c9.2,0,16.7,7.5,16.7,16.7v1.5h3.1v-1.5C39.3,8.9,30.4,0,19.5,0z" />
+												<path class="svg-fill-color" d="M31.7,32.2c-3.1,3.1-7.2,4.7-11.6,4.7c-9.2,0-16.7-7.5-16.7-16.7v-1.5H0.3v1.5C0.3,31.1,9.2,40,20.1,40    c5.3,0,10.3-2.1,14-5.8l2.2,1.8l1.5-8.5l-8.1,3L31.7,32.2z" />
+												<path class="svg-fill-color" d="M19.4,11.8c-2.1,0-3.8,1.7-3.8,3.8v3.8h-1.9c-0.6,0-1,0.5-1,1v6.8c0,0.6,0.5,1,1,1h11.4c0.6,0,1-0.5,1-1v-6.8    c0-0.6-0.5-1-1-1h-1.9v-3.8C23.2,13.5,21.5,11.8,19.4,11.8z M16.5,15.6c0-1.6,1.3-2.9,2.9-2.9c1.6,0,2.9,1.3,2.9,2.9v3.8h-5.9    V15.6z" />
+											</g>
+										</g>
+									</svg>
+									<span><i-span>generator</i-span></span>
+								</a>
+							</li>
+							<li data-on_click="main_ui.clicked_show_tab" data-tab_name="settings">
+								<a href="#" id="settings_tab_header" data-show_settings_tab="" tabindex="-1">
+									<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 40 40" style="enable-background:new 0 0 40 40;" xml:space="preserve">
+										<g id="Layer_26_1_">
+											<g>
+												<path class="svg-fill-color" d="M20.6,10.1c2.8,0,5.1-2.3,5.1-5.1S23.4,0,20.6,0c-2.8,0-5.1,2.3-5.1,5.1S17.8,10.1,20.6,10.1z M20.6,2.9    c1.2,0,2.2,1,2.2,2.2s-1,2.2-2.2,2.2c-1.2,0-2.2-1-2.2-2.2S19.4,2.9,20.6,2.9z" />
+												<path class="svg-fill-color" d="M19.8,14.6c-2.8,0.5-4.6,3.1-4.2,5.8c0.2,1.3,0.9,2.5,2,3.3c0.9,0.6,1.9,1,2.9,1c0.3,0,0.6,0,0.8-0.1    c2.8-0.5,4.6-3.1,4.2-5.8C25.1,16,22.5,14.1,19.8,14.6z M20.9,21.8c-0.6,0.1-1.2,0-1.6-0.4c-0.5-0.3-0.8-0.9-0.9-1.4    c-0.2-1.2,0.6-2.3,1.8-2.5c0.1,0,0.2,0,0.4,0c1.1,0,2,0.8,2.2,1.8C22.9,20.4,22.1,21.6,20.9,21.8z" />
+												<path class="svg-fill-color" d="M19.8,29.9c-2.8,0.5-4.6,3.1-4.2,5.8c0.2,1.3,0.9,2.5,2,3.3c0.9,0.6,1.9,1,2.9,1c0.3,0,0.6,0,0.8-0.1    c2.8-0.5,4.6-3.1,4.2-5.8C25.1,31.3,22.5,29.5,19.8,29.9z M20.9,37.1c-0.6,0.1-1.2,0-1.6-0.4c-0.5-0.3-0.8-0.9-0.9-1.4    c-0.2-1.2,0.6-2.3,1.8-2.5c0.1,0,0.2,0,0.4,0c1.1,0,2,0.8,2.2,1.8C22.9,35.8,22.1,36.9,20.9,37.1z" />
+											</g>
+										</g>
+									</svg>
+									<span><i-span>settings</i-span></span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</header>
+			</div>
+
+			<div id="content_tab"></div>
+
+			<div class="overlay-bg-blank" id="more_options_overlay" data-on_click="passwords_ui.clicked_hide_more_actions" style="display: none;position: fixed;height: 800px;">
+			</div>
+
+			<div class="overlay-bg dis-hide" id="password_filter_overlay" data-on_click="passwords_ui.clicked_hide_password_filter" style="position: absolute;height: 400px;margin-top: 50px;background: transparent;"></div>
+			<div class="overlay-bg dis-hide" id="folder_filter_overlay" data-on_click="folders_ui.clicked_hide_folders_filter" style="position: absolute;height: 400px;margin-top: 50px;background: transparent;"></div>
+
+			<div class="overlay-bg" id="complete_loading" style="display: none;background-color: rgb(0, 0, 0, 0.1);">
+				<div class="component-loader" style="display: block">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+
+			<div id="dot_loading" style="display: none;">
+				<vault-loading></vault-loading>
+			</div>
+		</div>
+	</template>
+
+	<template id="page_passwords">
+		<div class="content-panel clearfix" id="passwords_tab">
+			<div id="password_details_container"></div>
+
+			<div class="page-header clearfix">
+				<i class="icon-arrow-left icon-sm m-t-10 m-r-10 pointer pull-left" id="back_to_folders" style="display: none;" data-on_click="passwords_ui.clicked_back_to_folders" data-icon_tooltip="true" data-tooltip_content="i18n:back_to_folders"></i>
+				<h4 class="pull-left">
+					<div class="page-header-title-trim">
+						<span id="password_heading"><i-span>all_passwords</i-span></span>
+						<a id="clear_password_filters" style="z-index: 100;" data-on_click="passwords_ui.clicked_clear_password_filters" class="filtered-text" data-display_css="inline"><i-span>clear_filters</i-span></span></a>
+					</div>
+				</h4>
+				<ul class="action-icon-list pull-right">
+					<li data-on_click="passwords_ui.clicked_sync">
+						<a data-sync_icon="" href="#" data-tooltip_content="i18n:sync" data-icon_tooltip="true" tabindex="-1">
+							<i class="icon-sync icon-lg"></i>
+						</a>
+					</li>
+					<li data-on_click="passwords_ui.clicked_add_password">
+						<a href="#" id="add_password" data-tooltip_content="i18n:add_password" data-icon_tooltip="true" tabindex="-1">
+							<i class="icon-plus1"></i>
+						</a>
+					</li>
+					<li id="show_password_filter" data-on_click="passwords_ui.clicked_show_password_filter" class="pointer" style="cursor: pointer !important;">
+						<a href="#" data-tooltip_content="i18n:filter" data-icon_tooltip="true" tabindex="-1">
+							<i class="icon-filter"></i>
+							<span data-filter_counter="" class="filter-counter" style="display: none;"><no-i-span>0</no-i-span></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div id="passwords_filter_container" class="dis-hide passwords-filter-panel zv-dropdown-popup-arrow-top" style="top: 45px;">
+			</div>
+
+
+			<div class="content-panel clearfix" id="no_passwords_div" style="display: none;">
+				<div class="no-data-panel">
+					<div class="no-data-panel-inner">
+						<img src="/images/svg/add-password-image.svg" />
+						<p class="text-default" data-text=""><i-span>no_passwords_found</i-span></p>
+					</div>
+				</div>
+			</div>
+
+			<div class="content-panel clearfix" id="no_matching_passwords_div" style="width: 100%;display: none;">
+				<div class="no-data-panel">
+					<div class="no-data-panel-inner">
+						<img src="/images/svg/no-data-found.svg" />
+						<p class="text-default" data-text=""><i-span>no_matching_passwords_found</i-span></p>
+
+					</div>
+				</div>
+				<div data-applied_filters_container=""></div>
+			</div>
+
+			<div id="secrets_list"></div>
+
+			<div class="overlay-bg dis-hide" id="password_filter_overlay_color_bg" data-on_click="passwords_ui.clicked_hide_password_filter" style="position: absolute; height: 800px; margin-top: 45px;"></div>
+		</div>
+	</template>
+
+	<template id="page_folders">
+		<div class="content-panel clearfix">
+			<div class="page-header clearfix">
+				<h4 class="pull-left">
+					<div class="page-header-title-trim">
+						<span><i-span>all_folders</i-span></span>
+						<a id="clear_folder_filters" class="filtered-text dis-hide" data-on_click="folders_ui.clicked_clear_folder_filters" style="z-index: 100;display: inline;"><i-span>clear_filters</i-span></span></a>
+					</div>
+				</h4>
+				<ul class="action-icon-list pull-right">
+					<li data-add_folder="" data-on_click="folders_ui.clicked_add_folder">
+						<a href="#" data-tooltip_content="i18n:add_folder" data-icon_tooltip="true">
+							<i class="icon-plus1"></i>
+						</a>
+					</li>
+					<li id="show_folders_filter" data-on_click="folders_ui.clicked_show_folders_filter" class="pointer" style="position:relative; cursor: pointer !important;">
+						<a href="#" data-tooltip_content="i18n:filter" data-icon_tooltip="true">
+							<i class="icon-filter"></i>
+							<span data-filter_counter="" class="filter-counter dis-hide"><no-i-span>0</no-i-span></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div id="folders_filter_container" class="dis-hide passwords-filter-panel zv-dropdown-popup-arrow-top" style="top: 45px;">
+				<div class="password-filter-inner-container">
+					<!-- filter inner group start -->
+
+					<div class="filterInnerGroup"">
+						<div class=" filterInner__header">
+						<h4 class="filterheader--title"><i-span>sharing</i-span></h4>
+					</div>
+					<div class="filterInner__body">
+						<div class="flex--column m-t-b-10">
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="folder_sharing" value="ALL" checked />
+								<i-span>all</i-span>
+							</label>
+
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="folder_sharing" value="SHARED_BY_ME" />
+								<i-span>shared_by_me</i-span>
+							</label>
+
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="folder_sharing" value="SHARED_TO_ME" />
+								<i-span>shared_with_me</i-span>
+							</label>
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="folder_sharing" value="NONE" />
+								<i-span>unshared_folders</i-span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<!-- filter inner group end -->
+			</div>
+		</div>
+
+		<div class="content-panel clearfix" id="no_folders_div" style="position: absolute;width: 100%;display: none;">
+			<div class="no-data-panel">
+				<div class="no-data-panel-inner">
+					<img src="/images/folder/add-folder-image.svg" />
+					<p class="text-default" data-text=""><i-span>no_folders_found</i-span></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="content-panel clearfix" id="no_matching_folders_div" style="position: absolute;width: 100%;display: none;">
+			<div class="no-data-panel">
+				<div class="no-data-panel-inner">
+					<img src="/images/svg/no-data-found.svg" />
+					<p class="text-default" data-text=""><i-span>no_matching_folders_found</i-span></p>
+					<a data-view_filters="" data-on_click="folders_ui.clicked_show_folders_filter" class="pointer"><i-span>view_filters</i-span></a>
+				</div>
+			</div>
+		</div>
+
+		<div id="folders_list" class="clearfix"></div>
+		<div class="overlay-bg dis-hide" id="folder_filter_overlay_color_bg" data-on_click="folders_ui.clicked_hide_folders_filter" style="position: absolute; height: 800px; margin-top: 45px;"></div>
+		</div>
+	</template>
+
+	<template id="page_generator">
+		<div class="content-panel clearfix zvgenerator">
+
+			<!--history generator start-->
+			<div id="generator_history_div" class="add-password-panel password-detail-page" style="padding: 0;">
+			</div>
+			<!--history generator end-->
+
+			<div data-part="generatedPassword" class="zv-new-generator-panel">
+				<div class="full-width clearfix">
+					<ul class="generator-tabs">
+						<li><a id="generatorPasswordTab" href="#" class="generator-tabs-selected"><i-span>password</i-span></a></li>
+						<li><a id="generatorPassphraseTab" href="#"><i-span>passphrase</i-span></a></li>
+
+					</ul>
+					<span class="generator-history-icon">
+						<ul class="action-icon-list pull-right">
+							<li>
+								<a data-action="showGeneratorHistory" href="#" data-tooltip_content="i18n:history" data-icon_tooltip="true"><i class="icon-history"></i></a>
+							</li>
+						</ul>
+					</span>
+				</div>
+				<div contenteditable="true" spellcheck="false" data-name="generatedPassword" class="zv-new-generator-panel-textarea zvf-monospace" id="password_generated"></div>
+				<div data-name="strength_bar" style="position: relative;width: 100%;top: 8px;">
+					<div class="color-bar-empty" style="position: absolute;bottom:0px;"></div>
+					<div id="strength_generated" data-name="passwordStrength" class="color-bar" style="left:0;background: rgb(247, 93, 86);width: 10%;bottom:0px;">&nbsp;</div>
+				</div>
+			</div>
+
+			<div id="generatorActionList" class="zv-new-generator-panel-bottom clearfix" style="user-select: none;">
+				<div class="pull-left clearfix m-t-7">
+					<button id="saveGeneratedValue" type="button" class="zv-new-generator-button btn btn-primary"><i-span>save</i-span></button>
+				</div>
+				<div class="pull-right clearfix">
+					<ul class="action-icon-list pull-right">
+						<li data-name="copyGeneratedPassword"><a id="copyGeneratedValue" href="#" data-tooltip_content="i18n:copy" data-icon_tooltip="true"><i class="icon-copy"></i></a></li>
+						<li data-name="generateNewPassword"><a id="generateValue" href="#" data-tooltip_content="i18n:generate" data-icon_tooltip="true"><i class="icon-pwd-generate"></i></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div id="generator_mode_options"></div>
+
+		</div>
+	</template>
+
+	<template id="page_settings">
+		<div class="content-panel clearfix" id="settingsTabContent">
+
+			<div class="page-header clearfix">
+				<h4 class="pull-left"><i-span>settings</i-span></h4>
+				<ul class="action-icon-list pull-right">
+					<li>
+						<a id="sync_icon" data-sync_icon="" href="#" data-tooltip_content="i18n:sync" data-icon_tooltip="true">
+							<i class="icon-sync icon-lg"></i>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="page-container clearfix">
+				<div class="panel-row">
+					<div class="col-6">
+						<p class="m-b-5"><i-span>lock_after</i-span></p>
+						<select style="width:100%;" id="inactivity_select"></select>
+					</div>
+					<div class="col-6">
+						<p class="m-b-5"><i-span>clear_clipboard_after</i-span></p>
+						<select style="width:100%;" id="select_clear_clipboard"></select>
+					</div>
+				</div>
+
+				<div class="clearfix m-t-10">
+					<p class="m-b-5"><i-span>default_view</i-span></p>
+					<select style="width:100%;" id="select_filter">
+						<option value="all" data-i18n_key="all_passwords">All Passwords</option>
+						<option value="domain_matching" data-i18n_key="domain_matching">Domain Matching</option>
+						<option value="favourite" data-i18n_key="favourites">Favorites</option>
+						<option value="owned_by_me" data-i18n_key="owned_by_me">Owned by Me</option>
+						<option value="recently_used" data-i18n_key="recently_used">Recently Used</option>
+						<option value="recently_added" data-i18n_key="recently_added">Recently Added</option>
+						<option data-enterprise="" value="personal" data-i18n_key="personal_passwords">Personal Passwords</option>
+						<option data-enterprise="" value="enterprise" data-i18n_key="enterprise_passwords">Enterprise Passwords</option>
+						<option data-enterprise="" value="shared_by_me" data-i18n_key="shared_by_me">Shared ByMe</option>
+						<option data-enterprise="" value="shared_to_me" data-i18n_key="shared_with_me">SharedWith Me</option>
+						<option data-enterprise="" value="unshared" data-i18n_key="unshared_passwords">Unshared Passwords</option>
+					</select>
+				</div>
+
+				<div class="panel-row m-t-10">
+					<div class="col-10">
+						<p class="no-margin"><i-span class="label-with-toggle" data-checkbox_label="">prompt_auto_save_update</i-span></p>
+					</div>
+					<div class="col-2 m-t-5">
+						<input type="checkbox" id="prompt_save" class="cbx hidden" />
+						<label for="prompt_save" class="lbl"></label>
+					</div>
+				</div>
+
+				<div class="panel-row m-t-10">
+					<div class="col-10">
+						<p class="no-margin">
+							<i-span class="label-with-toggle" data-checkbox_label="">seperate_session</i-span>
+							<a class="m-l-5" style="color: initial;">
+								<i class="icon-info" data-tooltip_content="i18n:stay_signed_in_info" data-icon_tooltip="true"></i>
+							</a>
+						</p>
+					</div>
+					<div class="col-2 m-t-5">
+						<input type="checkbox" id="stay_signed_in" class="cbx hidden">
+						<label for="stay_signed_in" class="lbl"></label>
+					</div>
+				</div>
+				<div class="panel-row m-t-10" id="oneauth_unlock_container">
+					<div class="col-10">
+						<p class="no-margin"><i-span class="label-with-toggle" data-checkbox_label="">unlock_vault_with_oneauth_min</i-span></p>
+					</div>
+					<div class="col-2 m-t-5">
+						<input id="oneauth_unlock" type="checkbox" class="cbx hidden" />
+						<label for="oneauth_unlock" class="lbl"></label>
+					</div>
+				</div>
+				<div class="panel-row m-t-10" id="webauthn_unlock_container">
+					<div class="col-10">
+						<p class="no-margin"><i-span class="label-with-toggle" data-checkbox_label="">unlock_vault_with_authenticators_min</i-span></p>
+					</div>
+					<div class="col-2 m-t-5">
+						<input id="webauthn_unlock" type="checkbox" class="cbx hidden" />
+						<label for="webauthn_unlock" class="lbl"></label>
+					</div>
+				</div>
+				<div class="m-t-15">
+					<a id="view_all_settings" href="#" class="view-more-settings-btn"><i-span>view_more</i-span></i><i class="icon-arrow-right" style="font-size: x-small; margin: 0 3px;"></i></a>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="master_unlock_template">
+		<section>
+			<div class="clearfix">
+				<div class="m-t-5" data-welcome_description="">
+					<p class="no-margin text-center"><i-span>enter_passphrase</i-span></p>
+				</div>
+				<div class="add-password-one-col">
+					<div class="form-group">
+						<label class="label-control">
+							<span class="label-text"><i-span>master_password</i-span></span>
+						</label>
+						<input id="input_passphrase" type="password" style="padding-right:35px !important;" class="form-control" spellcheck="false" autofocus>
+						<span class="password-show-hide" style="top:14px;">
+							<ul class="add-password-plus-minus">
+								<li>
+									<a style="width:30px; height: 30px; padding-top: 3px;" data-show_hide_passphrase="" id="icon_view_hide_passphrase" data-eye_for="#input_passphrase">
+										<i class="icon-view" data-tooltip_content="i18n:view" data-icon_tooltip="true"></i>
+									</a>
+								</li>
+							</ul>
+						</span>
+						<div id="error_passphrase" class="errormsg-text text-danger" style="display: none; bottom: -20px;"><i-span>invalid_master_passphrase</i-span></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="text-center clearfix m-t-15">
+				<button type="button" class="btn btn-lg btn-primary full-width" data-name="open_vault_button">
+					<span><i-span>open_zoho_vault</i-span></span>
+					<div id="open_vault_loading" class="btn-spinner" style="margin-top: 9px;display: none;"></div>
+				</button>
+			</div>
+
+		</section>
+	</template>
+
+	<template id="oneauth_unlock_template">
+		<section>
+			<div class="m-t-5">
+				<p class="no-margin text-center"><i-span>unlock_with</i-span><no-i-span>:</no-i-span></p>
+			</div>
+			<div class="unlock-login-option-card-panel">
+				<div class="unlock-login-option-card" data-unlock_oneauth="">
+					<div class="unlock-login-option-card-inner">
+						<div class="unlock-login-option-card-image">
+							<img src="/images/svg/oneauth.svg" />
+						</div>
+						<div> <span class="unlock-login-option-card-text m-t-5"><i-span>zoho_oneauth</i-span></span> </div>
+					</div>
+				</div>
+				<div class="unlock-login-option-card dis-hide" data-loading_container="" data-resend_push_container="" style="min-height: 91px;" data-display_css="flex">
+					<div class="unlock-login-option-card-inner" style="min-width: 80px">
+						<div class="unlock-login-loader-section">
+							<vault-loading></vault-loading>
+						</div>
+						<a class="unlock-login-resend-push dis-hide" data-resend_push=""><i-span>resend_push</i-span></a>
+					</div>
+				</div>
+			</div>
+		</section>
+	</template>
+
+	<template id="webauthn_unlock_template">
+		<section>
+			<div class="m-t-5">
+				<p class="no-margin text-center"><i-span>unlock_with</i-span><no-i-span>:</no-i-span></p>
+			</div>
+			<div class="unlock-login-option-card-panel">
+				<div class="unlock-login-option-card" data-unlock="">
+					<div class="unlock-login-option-card-inner">
+						<div class="unlock-login-option-card-image">
+							<img src="/images/svg/webauthn.svg" />
+						</div>
+						<div> <i-span class="unlock-login-option-card-text m-t-5">authenticators</i-span> </div>
+					</div>
+				</div>
+				<div class="unlock-login-option-card dis-hide" data-loading_container="" style="min-height: 91px;" data-display_css="flex">
+					<div class="unlock-login-option-card-inner" style="min-width: 80px; text-align: center;">
+						<div class="unlock-login-loader-section">
+							<vault-loading></vault-loading>
+						</div>
+						<span class="webauth-login-resend-push"><i-span>unlocking</i-span><no-i-span>...</no-i-span></span>
+					</div>
+				</div>
+			</div>
+		</section>
+	</template>
+
+	<template id="unlock_or_template">
+		<div>
+			<div class="unlock-login-or-panel">
+				<div class=" unlock-login-or-panel-line"></div>
+				<div class="unlock-login-or-panel-inner"><i-span>or</i-span></div>
+			</div>
+			<div class="unlock-option-section-bottom">
+				<a class="unlock-link-button dis-hide" data-unlock_master="">
+					<img src="/images/logo/vault-logo-blue.svg" />
+					<span><i-span>master_password</i-span></span>
+				</a>
+				<a class="unlock-link-button dis-hide" data-oneauth_unlock="">
+					<img src="/images/svg/oneauth.svg" />
+					<span><i-span>zoho_oneauth</i-span></span>
+				</a>
+				<a class="unlock-link-button dis-hide" data-webauthn_unlock="">
+					<img src="/images/svg/webauthn.svg" />
+					<span><i-span>authenticators</i-span></span>
+				</a>
+			</div>
+		</div>
+	</template>
+
+	<template id="generator_history_template">
+		<div>
+			<div class="page-header clearfix">
+				<h4 class="pull-left"><i-span>recently_copied_values</i-span></h4>
+				<span data-name="clearHistory" style="position: absolute;top: 10px;right: 45px;">
+					<a data-action="clear"><i-span>clear</i-span></a>
+				</span>
+				<span class="modal-panel-close">
+					<a href="#" data-action="close">
+						<i class="icon-close" data-tooltip_content="i18n:close" data-icon_tooltip="true"></i>
+					</a>
+				</span>
+			</div>
+
+			<div data-name="empty_history" class="no-data-panel dis-hide">
+				<div class="no-data-panel-inner">
+					<img src="/images/svg/add-password-image.svg" />
+					<h5 class="zfw-600" style="text-align: center;"><i-span>no_copied_values_yet</i-span></h5>
+					<p class="text-default m-t-3 " style="padding-left: 20px;padding-right: 20px;" data-i18n_key="generator_history_common_description,20">The last 20 passwords copied from the generator will appear here</p>
+				</div>
+			</div>
+
+			<div data-out="history_list"></div>
+		</div>
+	</template>
+
+	<template id="elem_list_history_generator">
+		<div class="password-list-panel history-password-list-panel pointer" data-row="">
+			<h6 class="password-list-name zvf-monospace full-width"></h6>
+			<p class="password-list-description text-default"></p>
+			<div class="password-list-icons" style="margin-right: -10px;">
+				<ul class="action-icon-list">
+					<li data-on="save"><a href="#" data-tooltip_content="i18n:save" data-icon_tooltip="true"><i class="icon-cat-note"></i></a></li>
+					<li class="m-l-5" data-on="copy"><a href="#" data-tooltip_content="i18n:copy" data-icon_tooltip="true"><i class="icon-copy"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="folder_list_item_template">
+		<div class="folder-list-panel pointer" data-folder_id="" data-path="" data-on_click="folders_ui.clicked_show_folder_passwords">
+			<div class="folder-list-panel-inner">
+				<i class="icon-arrow-right folder-icon-left" data-expand="" data-on_click="folders_ui.clicked_expand_arrow"></i>
+				<i class="icon-down-arrow folder-icon-left" data-collapse="" style="display: none;" data-on_click="folders_ui.clicked_collapse_arrow"></i>
+				<div class="folder-list-title" data-name="">Test</div>
+				<ul class="card-view-right-icon-list">
+					<li data-shared_by_me=""><span class="sharebyme"><i class="icon-share-to-me icon-lg" data-tooltip_content="i18n:shared_by_me" data-icon_tooltip="true"></i></span></li>
+					<li data-shared_to_me=""><span class="sharetome"><i class="icon-share-by-me icon-lg" data-tooltip_content="i18n:shared_with_me" data-icon_tooltip="true"></i></span></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="folder_search_list_item_template">
+		<div class="folder-list-panel pointer" data-folder_id="" data-path="" data-on_click="folders_ui.clicked_show_folder_passwords">
+			<div class="folder-list-panel-inner">
+				<div style="margin-right: 40px;">
+					<h6 class="password-list-name" data-name="">Name</h6>
+					<p class="password-list-description text-default" data-path="" style="min-height: 5px;">
+						Description</p>
+				</div>
+				<ul class="card-view-right-icon-list">
+					<li data-shared_by_me=""><span class="sharebyme"><i class="icon-share-to-me icon-lg" data-tooltip_content="i18n:shared_by_me" data-icon_tooltip="true"></i></span></li>
+					<li data-shared_to_me=""><span class="sharetome"><i class="icon-share-by-me icon-lg" data-tooltip_content="i18n:shared_with_me" data-icon_tooltip="true"></i></span></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="secret_list_item_template">
+		<div class="password-list-panel" data-secret_id="" data-on_click="passwords_ui.clicked_show_password_details" data-on_enter="passwords_ui.clicked_show_password_details" tabindex="0">
+			<span class="password-list-favorite" data-favourite="" data-on_click="passwords_ui.clicked_change_favourite">
+				<i class="icon-star-1 text-default" data-favourite_icon="" data-tooltip_content="i18n:mark_favourite" data-icon_tooltip="true"></i>
+			</span>
+			<div class="password-list-left">
+				<span class="card-view-list-no-image" style="background-color: rgb(66, 150, 165);" data-no_logo=""></span>
+				<span class="password-list-left-img image-center img-contain" data-logo=""></span>
+				<span data-access_control_icon="" class="password-list-access-control-icon"><i class="icon-access-control-configured-1 text-danger" data-tooltip_content="i18n:access_control_enabled" data-icon_tooltip="true"></i></span>
+			</div>
+			<div class="password-list-right">
+				<h6 class="password-list-name" data-secret_name="">Name</h6>
+				<p class="password-list-description text-default" data-description_container="">
+					<span class="copy-username" data-copy_username="" data-on_click="passwords_ui.clicked_copy_username_icon">
+						<i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i>
+					</span>
+					<span data-description="">Description</span>
+				</p>
+			</div>
+			<span class="password-details-icon-section" data-on_click="passwords_ui.clicked_show_password_details">
+				<i class="icon-slide-out " data-tooltip_content="i18n:show_details" data-icon_tooltip="true"></i>
+			</span>
+			<div class="password-list-icons" data-on_click="">
+				<ul class="action-icon-list" data-password_actions="">
+					<li data-copy_password="" data-on_click="passwords_ui.clicked_copy_password_icon"><a href="#"><i class="icon-copy" data-icon_tooltip="true" data-tooltip_content="i18n:no_copy_permission"></i></a></li>
+					<li data-on_click="passwords_ui.clicked_login" data-login="" data-login_url=""><a href="#"> <i class="icon-login" data-tooltip_content="i18n:login" data-icon_tooltip="true"></i></a></li>
+					<li data-on_click="passwords_ui.clicked_login" data-private_login="" data-login_url=""><a href="#" style="opacity: 0.7;"> <i class="icon-launch-private" data-tooltip_content="i18n:login_incognito" data-icon_tooltip="true"></i></a></li>
+					<li data-on_click="passwords_ui.clicked_share_password" data-share=""><a href="#"> <i class="icon-share" data-tooltip_content="i18n:share" data-icon_tooltip="true"></i></a></li>
+					<li data-on_click="passwords_ui.clicked_show_more_actions" data-show_more_options=""><a href="#"><i class="icon-more" data-tooltip_content="i18n:more" data-icon_tooltip="true"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_template">
+		<div data-secret_id="" data-secret_details="" class="add-password-panel password-detail-page" style="z-index: 120;overflow-y: auto;">
+			<div>
+				<div class="add-password-row-group">
+					<div class="add-password-one-col m-t-10">
+						<div class="add-password-col-left text-left">
+							<span class="card-view-list-no-image" style="background-color: rgb(66, 150, 165);" data-no_logo=""></span>
+							<span class="view-password-popup-logo img-contain" data-logo=""></span>
+						</div>
+
+						<div class="add-password-col-right">
+							<h5 class="modal-panel-title pull-left">
+								<div class="password-details-modal-names pull-left">
+									<div class="password-details-name-panel">
+										<span class="password-details-password-trim" data-secret_name="">Secret Name</span>
+										<span data-favourite="" class="pointer" data-on_click="passwords_ui.clicked_change_favourite">
+											<i data-favourite_icon="" class="icon-star-1 text-default" data-tooltip_content="i18n:mark_favourite" data-icon_tooltip="true"></i>
+										</span>
+										<span><i class="icon-owned-by-me icon-md text-purple" data-owned_by_me_icon="" data-tooltip_content="i18n:owned_by_me" data-icon_tooltip="true"></i></span>
+									</div>
+									<p class="text-default password-details-sub-title">
+										<span><i-span>created_on</i-span></span>
+										<span data-created_on="">1/2/2013</span>
+									</p>
+								</div>
+							</h5>
+
+						</div>
+
+						<span class="password-details-modal-head-actions">
+							<ul class="vault-list">
+								<li data-edit="" data-on_click="password_details.clickedEditPassword"><a><i class="icon-edit" data-tooltip_content="i18n:edit" data-icon_tooltip="true"></i></a></li>
+								<li data-on_click="password_details.clicked_hide_password_details"><a><i class="icon-close icon-xs" data-tooltip_content="i18n:close" data-icon_tooltip="true"></i></a></li>
+							</ul>
+
+						</span>
+
+					</div>
+				</div>
+
+				<div class="m-t-10" data-fields="">
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_text_field_template">
+		<div class="add-password-row-group dis-block" data-field_row="" data-field_name="">
+			<div class="add-password-one-col">
+				<div class="form-group active dis-block" tabindex="0">
+					<label class="label-control"><span data-name="" class="text-ellipsis label-text no-margin">FieldName</span></label>
+					<div class="form-control">
+						<div class="text-ellipsis" data-value="" data-on_copy="password_details.copiedField">Field Value</div>
+					</div>
+				</div>
+				<div class="password-right-actions">
+					<ul class="action-icon-list" style="margin-top: 20px;">
+						<li data-copy="" data-on_click="password_details.clickedCopyField"><a><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_custom_text_field_template">
+		<div class="add-password-row-group dis-block" data-field_row="">
+			<div class="add-password-one-col">
+				<div class="form-group active dis-block" tabindex="0">
+					<label class="label-control"><span data-name="" class="text-ellipsis label-text no-margin">FieldName</span></label>
+					<div class="form-control">
+						<div class="text-ellipsis" data-value="" data-on_copy="password_details.copiedCustomField">Field Value</div>
+					</div>
+				</div>
+				<div class="password-right-actions">
+					<ul class="action-icon-list" style="margin-top: 20px;">
+						<li data-copy="" data-on_click="password_details.clicked_copy_custom_field"><a><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_password_field_template">
+		<div data-field_row="" class="add-password-row-group dis-block">
+			<div class="add-password-one-col">
+				<div class="form-group active dis-block" tabindex="0">
+					<label class="label-control"><span data-name="" class="text-ellipsis label-text no-margin">Field Name</span></label>
+					<div class="form-control">
+						<div class="text-ellipsis zvf-monospace" data-value="" data-type="password" data-on_copy="password_details.copiedPasswordField"><no-i-span>****************</no-i-span></div>
+					</div>
+				</div>
+				<div class="password-right-actions">
+					<ul class="action-icon-list" style="margin-top: 20px;">
+						<li data-view_password="" data-on_click="password_details.clicked_show_hide_password_field"><a><i class="icon-view" data-tooltip_content="i18n:view" data-icon_tooltip="true" data-auto_hide_eye=""></i></a></li>
+						<li data-reset_password="" data-on_click="password_details.clicked_reset_password"><a><i class="icon-reset-password" data-tooltip_content="i18n:reset_password" data-icon_tooltip="true"></i></a></li>
+						<li data-copy="" data-on_click="password_details.clickedCopyField"><a><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_custom_password_field_template">
+		<div data-field_row="" class="add-password-row-group dis-block">
+			<div class="add-password-one-col">
+				<div class="form-group active dis-block" tabindex="0">
+					<label class="label-control"><span data-name="" class="text-ellipsis label-text no-margin">Field Name</span></label>
+					<div class="form-control">
+						<div class="text-ellipsis zvf-monospace" data-value="" data-type="password" data-on_copy="password_details.copiedCustomPasswordField"><no-i-span>****************</no-i-span></div>
+					</div>
+				</div>
+				<div class="password-right-actions">
+					<ul class="action-icon-list" style="margin-top: 20px;">
+						<li data-view_password="" data-on_click="password_details.clicked_show_hide_custom_field"><a><i class="icon-view" data-tooltip_content="i18n:view" data-icon_tooltip="true" data-auto_hide_eye=""></i></a></li>
+						<li data-copy="" data-on_click="password_details.clicked_copy_custom_field"><a><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_file_field_template">
+		<div class="add-password-row-group dis-block">
+			<div class="add-password-one-col">
+				<div class="form-group active dis-block">
+					<label class="label-control"><span data-name="" class="text-ellipsis label-text no-margin">Field Name</span></label>
+					<div class="form-control">
+						<div class="ellipsis m-t-10"><a data-value="" data-on_click="password_details.clicked_download_file">File Name</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_no_view_permission_template">
+		<div class="add-password-row-group dis-block">
+			<div class="add-password-one-col">
+				<div class="form-group active"><label class="label-control"><span class="text-ellipsis label-text no-margin" data-name="">Field Name</span></label>
+					<div class="form-control no-view text-danger"><i-span>no_view_permission</i-span></div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="secret_totp_template">
+		<div class="add-password-row-group dis-block">
+			<div class="add-password-one-col">
+				<div class="form-group active dis-block" tabindex="0">
+					<label class="label-control">
+						<span class="text-ellipsis label-text no-margin"><i-span>current_totp</i-span></span>
+					</label>
+					<div class="form-control" style="padding-right: 0 !important;">
+						<div class="text-ellipsis cursor-default" id="current_totp">012 345</div>
+					</div>
+				</div>
+
+				<div class="password-right-actions">
+					<ul class="action-icon-list" style="margin-top: 20px;">
+						<li style="margin-top: -1px;margin-right: -4px;">
+							<div class="totp-panel" style="position: relative; left: -3px;height:36px;">
+								<svg width="36" height="36">
+									<circle r="10" cy="18" cx="18" stroke-width="5" stroke="#ccc" fill="none" />
+									<circle id="totp_circle" r="10" cy="18" cx="18" stroke-width="5" stroke="#4780da" fill="none" />
+								</svg>
+							</div>
+						</li>
+						<li data-copy="" data-on_click="password_details.clicked_copy_totp"><a><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_textarea_template">
+		<div data-field_row="" class="add-password-row-group dis-block">
+			<div class="add-password-one-col">
+				<div class="form-group active dis-block">
+					<label class="label-control"><span data-name="" class="text-ellipsis label-text no-margin">Field Name</span></label>
+					<div class="form-control">
+						<div class="text-ellipsis" data-value="" style="white-space: pre;" data-on_copy="password_details.copiedField">Field Value</div>
+					</div>
+				</div>
+				<div class="password-right-actions">
+					<ul class="action-icon-list" style="margin-top: 20px;">
+						<li data-copy="" data-on_click="password_details.clickedCopyField"><a><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_notes_template">
+		<div class="add-password-row-group dis-block">
+			<div class="add-password-one-col">
+				<div class="form-group active dis-block">
+					<label class="label-control"><span data-name="" class="text-ellipsis label-text no-margin">Field Name</span></label>
+					<div class="form-control">
+						<textarea class="m-t-10" readonly data-value="" data-on_copy="password_details.copiedNotes" style="width: 365px; height: 135px;padding-right: 35px;" tabindex="0"></textarea>
+					</div>
+				</div>
+				<div class="password-right-actions">
+					<ul class="action-icon-list" style="margin-top: 34px;margin-right: 10px;">
+						<li data-copy="" data-on_click="password_details.clicked_copy_notes"><a><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_url_row_template">
+		<div class="add-password-row-group dis-block" data-url_row="">
+			<div class="add-password-one-col">
+				<div class="form-group active dis-block" tabindex="0">
+					<label class="label-control">
+						<span class="text-ellipsis label-text no-margin">
+							<span data-i18n_key="url"></span>
+							<span data-url_n="">0</span>
+						</span>
+					</label>
+					<div class="form-control">
+						<div class="text-ellipsis" data-url="" data-icon_tooltip="true" data-tooltip_content="i18n:copy" style="user-select: text;cursor: pointer;" data-on_click="password_details.clicked_copy_value">https://www.test.com</div>
+					</div>
+				</div>
+				<div class="password-right-actions">
+					<ul class="action-icon-list" style="margin-top: 20px;">
+						<li data-login="" data-on_click="passwords_ui.clicked_login"><a><i class="icon-login" data-tooltip_content="i18n:login" data-icon_tooltip="true"></i></a></li>
+						<li data-private_login="" data-on_click="passwords_ui.clicked_login"><a style="opacity: 0.7;"><i class="icon-launch-private" data-tooltip_content="i18n:login_incognito" data-icon_tooltip="true"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_description_template">
+		<div class="add-password-row-group dis-block">
+			<div class="add-password-one-col">
+				<div class="form-group active dis-block">
+					<label class="label-control"><span data-name="" class="text-ellipsis label-text no-margin"><i-span>description</i-span></span></label>
+					<div class="form-control">
+						<div class="text-ellipsis cursor-default" data-value="" style="user-select: text;cursor: text;white-space: pre;">Field Value</div>
+					</div>
+				</div>
+				<div class="password-right-actions">
+					<ul class="action-icon-list" style="margin-top: 20px;">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_more_actions_template">
+		<div class="zv-dropdown-popup" style="width: max-content;height: max-content; display: block;">
+			<ul class="vault-common-list" style="white-space: nowrap;">
+				<!-- <li>
+					<a style="padding-left: 15px;">
+						<div class="passwordList__moreAction__separationGroup--field">
+							<div>Enable Auto Login</div>
+							<div class="clearfix">
+								<input type="checkbox" class="cbx hidden">
+								<label for="lock_on_system_lock" class="lbl"></label>
+							</div>
+						</div>
+					</a>
+				</li>
+				<div class="passwordList__moreAction__separationGroup"></div> -->
+			</ul>
+		</div>
+	</template>
+
+	<template id="passwore_more_actions_item_template">
+		<div>
+			<li><a href="#" style="padding-right: 20px; padding-left: 15px;text-overflow: ellipsis;overflow-x: hidden;" data-text=""></a></li>
+		</div>
+	</template>
+
+	<template id="oneauth_install_template">
+		<div id="oneauthInstallPrompt">
+			<div class="overlay-bg"></div>
+			<div class="modal-panel modal-xl">
+				<div class="modal-panel-header clearfix bg-gray">
+					<h4 id="user-group-modal-title"><i-span id="oneauthInstallHeading">download</i-span> <i-span>zoho_oneauth</i-span></h4>
+					<span class="modal-panel-close" id="oneAuthInstallClose">
+						<a><i class="icon-close"></i></a>
+					</span>
+				</div>
+				<div class="modal-panel-content">
+					<div class="no-data-panel">
+						<div class="col-10 m-t-b-20">
+							<div class="no-data-panel-inner">
+								<img src="/images/svg/oneauth-download.svg" />
+								<h5 class="m-t-20"><i-span>unlock_vault_with_oneauth_min</i-span></h5>
+								<p class="m-t-b-10 text-default"><i-span>oneauth_install_description</i-span></p>
+								<a target="_blank" href="https://www.zoho.com/accounts/oneauth.html" class="btn btn-md btn-danger"><i-span>download</i-span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="list-select_template">
+		<div>
+			<div data-output_container="" class="filterDropdown__selected pointer">
+				<div class="filterList__selected">
+					<span data-output=""></span>
+					<span data-placeholder="" class="filterDropdown--placeholder"></span>
+				</div>
+				<div class="filterDropdown__actionIcons">
+					<span class="dis-hide closeicon" data-plus_count=""></span>
+					<span class="dis-hide closeicon" data-clear=""><i class="icon-close icon-xs"></i></span>
+					<span class="closeicon"><i data-arrow="" class="icon-down-arrow"></i></span>
+				</div>
+			</div>
+
+			<div data-dropdown_container="" class="dis-hide tagsDropdown__content clearfix">
+				<div data-search_container="" class="filterInner__search">
+					<span class="filterInner__search--icon"><i class="icon-magnifier"></i></span>
+					<input data-search="" spellcheck="false" autocomplete="off" placeholder="search" class="filterInner__search--input" />
+					<span class="dis-hide filterInner__close--icon" data-clear=""><i class="icon-close icon-xs"></i></span>
+				</div>
+				<ul class="password-filter-dropdown-list" data-select_all_container=""></ul>
+				<ul class="password-filter-dropdown-list password-filter-dropdown-list-nodata" data-dropdown_list_container=""></ul>
+
+				<div data-no_match="" class="dis-hide no-data-panel">
+					<div class="no-data-panel-inner">
+						<img src="/images/svg/no-data-found.svg" />
+						<p class="text-default" data-text=""><i-span>no_match_found</i-span></p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</template>
+
+	<template id="list-select-row_template">
+		<li>
+			<label class="form__checkbox">
+				<input type="checkbox" name="checkbox">
+				<span data-text class="form__checkbox--text"></span>
+			</label>
+		</li>
+	</template>
+
+	<template id="password_filter_template">
+		<div>
+			<div class="password-filter-inner-container">
+				<!-- filter inner group start -->
+				<div class="filterInnerGroup" data-general_container="">
+					<div class="filterInner__header">
+						<h4 class="filterheader--title"><i-span>general</i-span> <span class="filterheader--selectedindicator dis-hide" data-selected=""></span></h4>
+					</div>
+					<div class="filterInner__body">
+						<label class="filter__list--favorites">
+							<input data-favourite="" type="checkbox">
+							<span><i-span>favourites</i-span></span>
+						</label>
+						<label class="filter__list--domainmatching">
+							<input data-domain_matching="" type="checkbox">
+							<span><i-span>domain_matching</i-span></span>
+						</label>
+						<label class="filter__list--ownedbyme" data-owned_container="">
+							<input data-owned="" type="checkbox">
+							<span><i-span>owned_by_me</i-span></span>
+						</label>
+					</div>
+				</div>
+				<!-- filter inner group end -->
+
+				<!-- filter inner group start -->
+				<div class="filterInnerGroup" data-recent_container="">
+					<div class="filterInner__header">
+						<h4 class="filterheader--title"><i-span>recent</i-span> <span class="filterheader--selectedindicator dis-hide" data-selected=""></span></h4>
+					</div>
+					<div class="filterInner__body">
+						<div class="m-t-b-5">
+							<label class="form__checkbox">
+								<input data-recently_used="" type="checkbox" name="checkbox" />
+								<i-span>recently_used</i-span>
+							</label>
+							<label class="form__checkbox">
+								<input data-recently_added="" type="checkbox" name="checkbox" />
+								<i-span>recently_added</i-span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<!-- filter inner group end -->
+
+				<!-- filter inner group start -->
+				<div class="filterInnerGroup" data-classification_container="">
+					<div class="filterInner__header">
+						<h4 class="filterheader--title"><i-span>classification</i-span> <span class="filterheader--selectedindicator dis-hide" data-selected=""></span></h4>
+					</div>
+					<div class="filterInner__body">
+						<div class="m-t-b-5">
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="classification" value="ALL" />
+								<i-span>all</i-span>
+							</label>
+
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="classification" value="P" checked />
+								<i-span>personal</i-span>
+							</label>
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="classification" value="E" />
+								<i-span>enterprise</i-span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<!-- filter inner group end -->
+
+				<!-- filter inner group start -->
+				<div class="filterInnerGroup" data-sharing_container="">
+					<div class="filterInner__header">
+						<h4 class="filterheader--title"><i-span>sharing</i-span> <span class="filterheader--selectedindicator dis-hide" data-selected=""></span></h4>
+					</div>
+					<div class="filterInner__body">
+						<div class="filterInner__body__container clearfix">
+							<select data-sharing="" class="full-width">
+								<option value="ALL" data-i18n_key="all">All</option>
+								<option value="SHARED_BY_ME" data-i18n_key="shared_by_me">Shared by Me</option>
+								<option value="SHARED_TO_ME" data-i18n_key="shared_with_me">Shared with Me</option>
+								<option value="NONE" data-i18n_key="unshared">Unshared</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<!-- filter inner group end -->
+
+				<div data-tag_container="" data-filter_container="" class="filterInnerGroup m-b-10">
+					<header class="filterInner__header">
+						<h4 class="filterheader--title"><i-span>tags</i-span> <span class="filterheader--selectedindicator dis-hide" data-selected=""></span></h4>
+						<span>
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="tagMode" checked="" value="ALL">
+								<i-span>all</i-span>
+							</label>
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="tagMode" value="ANY">
+								<i-span>any</i-span>
+							</label>
+						</span>
+					</header>
+					<div class="filterInner__body">
+						<div class="filterInner__body__container">
+							<div data-tag_select_container="" class="tag__dropdown">
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</template>
+
+	<template id="applied_filter_name_template">
+		<div class="filterAppliedContainer">
+			<div class="filter__applied__header">
+				<a data-view_filters="" data-on_click="passwords_ui.clicked_show_password_filter" class="pointer"><i-span>view_filters</i-span></a>
+			</div>
+
+			<ul data-applied_filter="" class="filter__applied">
+				<li class="dis-hide" data-favourite=""><a class="pointer"></span><i-span>favourites</i-span><span class="closeicon"><i class="icon-close"></i></a></li>
+				<li class="dis-hide" data-domain_matching=""><a class="pointer"><i-span>domain_matching</i-span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+				<li class="dis-hide" data-owned=""><a class="pointer"><i-span>owned_by_me</i-span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+				<li class="dis-hide" data-recently_used=""=""><a class="pointer"><i-span>recently_used</i-span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+				<li class="dis-hide" data-recently_added=""=""><a class="pointer"><i-span>recently_added</i-span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+				<li class="dis-hide" data-classification=""><a class="pointer"><span data-text=""></span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+				<li class="dis-hide" data-sharing=""><a class="pointer"><span data-text=""></span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+				<li class="dis-hide" data-tags=""><a class="pointer"><i-span>tags</i-span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+				<li class="dis-hide" data-search=""><a class="pointer"><span data-text=""></span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+			</ul>
+		</div>
+	</template>
+
+	<template id="password_generator_options_template">
+		<div class="page-container clearfix">
+			<div data-out="lengthInput"></div>
+
+			<div data-part="policyList" class="full-width m-t-5">
+				<div class="panel-row">
+					<div class="form-group">
+						<div class="col-4">
+							<p class="m-t-5 text-left"><i-span>password_policy</i-span></p>
+						</div>
+						<div class="col-8" style="margin-left: -10px;">
+							<select style="width:100%;" data-input="policy">
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<article data-part="checkBoxInput" class="pass-gen-option-panel full-width m-t-10" style="user-select: none;">
+				<div class="full-width">
+					<div class="add-password-two-col">
+						<label class="checkbox-container"><span><i-span>lower_case_letters</i-span></span>
+							<input data-input="lowercase" type="checkbox" />
+							<span class="checkmark"></span>
+						</label>
+					</div>
+					<div class="add-password-two-col">
+						<label class="checkbox-container"><span><i-span>upper_case_letters</i-span></span>
+							<input data-input="uppercase" type="checkbox" />
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+
+				<div class="full-width m-t-5">
+					<div class="add-password-two-col">
+						<label class="checkbox-container">
+							<span data-text="noOfSplChars"></span>
+							<span><i-span>special_characters</i-span></span>
+							<input data-input="specialchars" type="checkbox" />
+							<span class="checkmark"></span>
+						</label>
+					</div>
+					<div class="add-password-two-col">
+						<label class="checkbox-container">
+							<span><i-span>numbers</i-span></span>
+							<input data-input="numbers" type="checkbox" />
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+			</article>
+
+			<div class="full-width m-t-20">
+				<div class="panel-row m-t-5">
+					<div class="form-group">
+						<div class="col-4">
+							<p class="m-b-5 text-right" style="width: max-content;"><i-span>exclude_character</i-span></p>
+						</div>
+						<div class="col-8">
+							<input type="textarea" data-input="excludeChar" placeholder="Example : %a$b@c(1F2!" class="pass-gen-input" style="background-color: transparent; font-size: 12px" spellcheck="false" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</template>
+
+	<template id="passphrase_generator_options_template">
+		<div class="page-container clearfix">
+			<div data-out="wordCountInput"></div>
+
+			<article data-part="checkBoxInput" class="pass-gen-option-panel full-width m-t-10" style="user-select: none;">
+				<div class="full-width">
+					<div class="add-password-two-col">
+						<label class="checkbox-container"><span><i-span>capitalize</i-span></span>
+							<input data-input="capital" type="checkbox">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+
+					<div class="add-password-two-col">
+						<label class="checkbox-container"><span><i-span>numbers</i-span></span>
+							<input data-input="numbers" type="checkbox">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+			</article>
+
+			<div class="full-width m-t-20" data-part="excludeChar">
+				<div class="panel-row m-t-5">
+					<div class="form-group">
+						<div class="col-4">
+							<p class="m-b-5 text-right" style="width: max-content;"><i-span>word_separator</i-span></p>
+						</div>
+						<div class="col-8">
+							<input type="textarea" data-input="separator" class="pass-gen-input" style="background-color: transparent; font-weight: 400 !important;width:100px;margin:0;padding:0;" spellcheck="false" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</template>
+
+	<template id="generator_length_input_template">
+		<div>
+			<div class="full-width"><span data-content="label"><i-span>generator_password_length</i-span></span>
+				&nbsp;&nbsp;
+				<input type="textarea" data-input="length" class="pass-gen-input" style="background-color: transparent; font-weight: 400 !important;width:20px;margin:0;padding:0;" spellcheck="false" />
+			</div>
+
+			<div class="m-t-10" style="position:relative;float:left;width:100%;">
+				<div class="slideContainer">
+					<div class="sliderGrayBar"></div>
+					<div data-name="sliderBar" class="sliderBar" style="width: 15.7895%;"></div>
+					<input data-input="lengthSlider" min="4" max="99" type="range" class="slider" />
+				</div>
+				<div class="full-width" style="position: relative; top: -3px;">
+					<span data-content="minLength" class="pull-left">1</span>
+					<span data-content="maxLength" class="pull-right">99</span>
+				</div>
+			</div>
+		</div>
+	</template>
+</body>
+
+</html>

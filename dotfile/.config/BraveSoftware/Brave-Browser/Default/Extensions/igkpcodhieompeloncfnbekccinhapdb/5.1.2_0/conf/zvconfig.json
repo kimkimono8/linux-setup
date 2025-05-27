@@ -1,0 +1,22 @@
+{
+	"oauth": "live",
+	"live": {
+		"vault": "vault",
+		"domains": [
+			"zoho.com",
+			"zoho.eu",
+			"zoho.in",
+			"zoho.com.au",
+			"zoho.jp",
+			"zoho.com.cn",
+			"zohocloud.ca",
+			"zoho.sa",
+			"zoho.ae"
+		],
+		"redirect_url": "https://vault.zoho.com/addonRedirect.do",
+		"client_id": "1000.T4OHUR02QKT75JAWI6HQ29T5422S6A",
+		"cdn_server": "https://static.zohocdn.com"
+	},
+	"oauthScope": "ZohoVault.user.ALL,ZohoVault.secrets.ALL,ZohoVault.others.ALL,ZohoContacts.userphoto.READ,AAAServer.lookup.READ,AAAServer.tpsecret.CREATE,AAAServer.tpsecret.UPDATE",
+	"browser": "chrome"
+}

@@ -1,0 +1,53 @@
+import { VtApiPortNames } from "../../service/vt/constants/VtApiPortNames.js";
+import { BgAccessCtrlApiImpl } from "./BgAccessCtrlApiImpl.js";
+import { BgAuditApiImpl } from "./BgAuditApiImpl.js";
+import { BgCardFrameApiImpl } from "./BgCardFrameApi.js";
+import { BgCryptoApiImpl } from "./BgCryptoApiImpl.js";
+import { BgFolderApiImpl } from "./BgFolderApiImpl.js";
+import { BgGeneratorApiImpl } from "./BgGeneratorApiImpl.js";
+import { BgLoginApiImpl } from "./BgLoginApiImpl.js";
+import { BgOtherApiImpl } from "./BgOtherApiImpl.js";
+import { BgPolicyApiImpl } from "./BgPolicyApiImpl.js";
+import { BgSaveFrameApiImpl } from "./BgSaveFrameApiImpl.js";
+import { BgSecretApiImpl } from "./BgSecretApiImpl.js";
+import { BgSecretTypeApiImpl } from "./BgSecretTypeApiImpl.js";
+import { BgSessionApiImpl } from "./BgSessionApiImpl.js";
+import { BgSettingsApiImpl } from "./BgSettingsApiImpl.js";
+import { BgSiteFrameApiImpl } from "./BgSiteFrameApiImpl.js";
+import { BgTabApiImpl } from "./BgTabApiImpl.js";
+import { BgTrashApiImpl } from "./BgTrashApiImpl.js";
+import { BgUnlockApiImpl } from "./BgUnlockApiImpl.js";
+import { BgUpdateFrameApiImpl } from "./BgUpdateFrameApiImpl.js";
+import { BgUserApiImpl } from "./BgUserApiImpl.js";
+import { BgVaultApiImpl } from "./BgVaultApiImpl.js";
+import { BgVaultWebApiImpl } from "./BgVaultWebApiImpl.js";
+import { BgZTabApiImpl } from "./BgZTabApiImpl.js";
+export class BgApiServer {
+    secret = new BgSecretApiImpl();
+    audit = new BgAuditApiImpl();
+    accessCtrl = new BgAccessCtrlApiImpl();
+    crypto = new BgCryptoApiImpl();
+    settings = new BgSettingsApiImpl();
+    siteFrame = new BgSiteFrameApiImpl();
+    policy = new BgPolicyApiImpl();
+    secretType = new BgSecretTypeApiImpl();
+    folder = new BgFolderApiImpl();
+    unlock = new BgUnlockApiImpl();
+    generator = new BgGeneratorApiImpl();
+    login = new BgLoginApiImpl();
+    cardFrame = new BgCardFrameApiImpl();
+    tab = new BgTabApiImpl();
+    other = new BgOtherApiImpl();
+    saveFrame = new BgSaveFrameApiImpl();
+    session = new BgSessionApiImpl();
+    ztab = new BgZTabApiImpl();
+    updateFrame = new BgUpdateFrameApiImpl();
+    vault = new BgVaultApiImpl();
+    trash = new BgTrashApiImpl();
+    user = new BgUserApiImpl();
+    vaultWeb = new BgVaultWebApiImpl();
+    async init() {
+        const apiServer = portApi.createApiServer();
+        apiServer.init({ name: VtApiPortNames.BG, fnObj: this });
+    }
+}

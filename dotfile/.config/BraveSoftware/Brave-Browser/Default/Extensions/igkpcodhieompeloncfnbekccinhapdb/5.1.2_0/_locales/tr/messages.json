@@ -1,0 +1,1319 @@
+{
+   "access_checkout_description": {
+      "message": "Erişim isteğiniz onaylandı. Erişmek için parolayı kullanıma al."
+   },
+   "access_control": {
+      "message": "Erişim Denetimi"
+   },
+   "access_control_admin_tooltip": {
+      "message": "Erişim isteklerini onaylayabilecek bir veya daha fazla yönetici seçin"
+   },
+   "access_control_altlest_two_grant_access": {
+      "message": "En az iki onaylayıcının erişim vermesi gereklidir"
+   },
+   "access_control_auto_approve_with_help_desk": {
+      "message": "Yardım masası bileti doğrulamasıyla"
+   },
+   "access_control_description": {
+      "message": "Kullanıcılar, seçili onaylayıcılardan alınan geçerli onaylardan sonra bu parolaya erişebilir"
+   },
+   "access_control_disabled_success": {
+      "message": "Erişim denetimi başarıyla devre dışı bırakıldı"
+   },
+   "access_control_enabled": {
+      "message": "Erişim denetimi etkin"
+   },
+   "access_control_exclude_users_tooltip": {
+      "message": "Seçili kullanıcılar erişim denetiminden hariç tutulacaktır"
+   },
+   "access_control_invalid_time": {
+      "message": "Otomatik onaylama için geçersiz saat verildi"
+   },
+   "access_control_provide_access_for": {
+      "message": "Şunun için erişim sağla"
+   },
+   "access_control_saved_success": {
+      "message": "Erişim denetimi yapılandırması başarıyla kaydedildi"
+   },
+   "access_control_select_another_approver": {
+      "message": "Lütfen başka bir onaylayıcı seçin ve yeniden deneyin"
+   },
+   "access_control_unapproved_request_void_after": {
+      "message": "Onaylanmayan istekler şu tarihten sonra geçersiz kılınır"
+   },
+   "access_privilege": {
+      "message": "Erişim Ayrıcalığı"
+   },
+   "access_request_created_success": {
+      "message": "Erişim isteği başarıyla oluşturuldu"
+   },
+   "access_request_pending_description": {
+      "message": "Erişim isteği onay bekliyor. İşlem tamamlandığında veya reddedildiğinde e-posta ile bilgilendirileceksiniz."
+   },
+   "access_required_on": {
+      "message": "Erişim gerekiyor"
+   },
+   "access_revoked_success": {
+      "message": "Parolaya erişim başarıyla iptal edildi"
+   },
+   "access_revoked_user_success": {
+      "message": "Parolaya erişim $1$‘den başarıyla iptal edildi",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "actions": {
+      "message": "Eylemler"
+   },
+   "activity": {
+      "message": "Etkinlik"
+   },
+   "add": {
+      "message": "Ekle"
+   },
+   "add_authenticator": {
+      "message": "Doğrulayıcı Ekle"
+   },
+   "add_card": {
+      "message": "Ödeme Kartı Ekle"
+   },
+   "add_field": {
+      "message": "Alan Ekle"
+   },
+   "add_folder": {
+      "message": "Klasör Ekle"
+   },
+   "add_password": {
+      "message": "Parola Ekle"
+   },
+   "add_password_restricted": {
+      "message": "Yeni parolaların eklenmesi, kuruluşunuzun yöneticisi tarafından devre dışı bırakıldı."
+   },
+   "add_url": {
+      "message": "URL ekle"
+   },
+   "added_successfully": {
+      "message": "başarıyla eklendi"
+   },
+   "additional_fields": {
+      "message": "Ek Alanlar"
+   },
+   "admin": {
+      "message": "Yönetici"
+   },
+   "advance_request_approved_description": {
+      "message": "Önceden erişim isteğiniz onaylandı. Parolaya erişim sağlamak için istenen zamanda parolayı kullanıma alın."
+   },
+   "advanced_settings": {
+      "message": "Gelişmiş Ayarlar"
+   },
+   "alert_http_fill": {
+      "message": "Güvenli olmayan sayfalar otomatik olarak doldurulurken uyar"
+   },
+   "algorithm": {
+      "message": "Algoritma"
+   },
+   "all_folders": {
+      "message": "Tüm Klasörler"
+   },
+   "all_passwords": {
+      "message": "Tüm Parolalar"
+   },
+   "all_rights_reserved": {
+      "message": "Tüm hakları saklıdır."
+   },
+   "all_users": {
+      "message": "Tüm Kullanıcılar"
+   },
+   "all_weekdays": {
+      "message": "Tüm hafta içi günler"
+   },
+   "all_weekends": {
+      "message": "Tüm hafta sonu günleri"
+   },
+   "allow": {
+      "message": "İzin Ver"
+   },
+   "allow_permanent": {
+      "message": "Kalıcı olarak izin ver"
+   },
+   "and": {
+      "message": "ve"
+   },
+   "approved": {
+      "message": "Onaylandı"
+   },
+   "ask_clear_history": {
+      "message": "Geçmiş Temizlensin mi?"
+   },
+   "authenticators": {
+      "message": "Kimlik Doğrulama Araçları"
+   },
+   "autofill_card_sub_domains": {
+      "message": "Eşleşmeyen etki alanına ödeme kartlarının otomatik doldurulması"
+   },
+   "autofill_sub_domains": {
+      "message": "Alt etki alanlarına parolalarının otomatik doldurulması"
+   },
+   "autologin_disable_success": {
+      "message": "Otomatik oturum açma başarıyla devre dışı bırakıldı"
+   },
+   "autologin_enable_success": {
+      "message": "Otomatik oturum açma başarıyla etkinleştirildi"
+   },
+   "automatically_approve_access_request": {
+      "message": "Erişim isteklerini otomatik olarak onayla"
+   },
+   "back_to_folders": {
+      "message": "Klasörlere Geri Dön"
+   },
+   "between": {
+      "message": "Arasında"
+   },
+   "cancel": {
+      "message": "İptal"
+   },
+   "cancel_access_request_success": {
+      "message": "İstek başarıyla iptal edildi"
+   },
+   "cancel_request": {
+      "message": "İsteği İptal Et"
+   },
+   "card_added_successfully": {
+      "message": "Ödeme Kartı başarıyla eklendi"
+   },
+   "card_card_no": {
+      "message": "Kart Numarası"
+   },
+   "card_edited_successfully": {
+      "message": "Ödeme Kartı başarıyla güncellendi"
+   },
+   "card_move_to_trash_success": {
+      "message": "Ödeme Kartı başarıyla çöp kutusuna taşındı"
+   },
+   "card_name_on_card": {
+      "message": "Kart üzerindeki Ad "
+   },
+   "card_security_code": {
+      "message": "Güvenlik Kodu"
+   },
+   "card_valid_thru": {
+      "message": "Şu zamana kadar geçerli:"
+   },
+   "category": {
+      "message": "Kategori"
+   },
+   "changes_updated": {
+      "message": "Değişiklikler başarıyla güncellendi"
+   },
+   "check_in_confirm_description": {
+      "message": "Parolayı girdikten sonra artık ona erişemeyeceksiniz"
+   },
+   "check_in_confirm_title": {
+      "message": "Parolaya giriş yapılsın mı?"
+   },
+   "check_in_success": {
+      "message": "Parola başarıyla iade edildi"
+   },
+   "checkin": {
+      "message": "Giriş"
+   },
+   "checkout": {
+      "message": "Kullanıma Al"
+   },
+   "checkout_success": {
+      "message": "Parola başarıyla kullanıma alındı"
+   },
+   "clear": {
+      "message": "Temizle"
+   },
+   "clear_all": {
+      "message": "Tümünü Temizle"
+   },
+   "clear_clipboard_after": {
+      "message": "Şundan sonra panoyu temizle:"
+   },
+   "clear_filters": {
+      "message": "Filtreleri Temizle"
+   },
+   "close": {
+      "message": "Kapat"
+   },
+   "close_dev_tools_one_click_login": {
+      "message": "Otomatik oturum açmak için geliştirici araçlarını kapat."
+   },
+   "close_profile_panel": {
+      "message": "Profil Panelini Kapat"
+   },
+   "comment": {
+      "message": "Yorum"
+   },
+   "confirm_access_control_disable": {
+      "message": "Erişim Denetimini Devre Dışı Bırak?"
+   },
+   "confirm_checkout_description": {
+      "message": "Parolayı kullanıma aldığınızda, yalnızca 30 dakika erişiminiz olacaktır"
+   },
+   "confirm_insecure_fill": {
+      "message": "Parolanızı güvenli olmayan bir sayfada doldurmak üzeresiniz. Zoho Vault bu siteye güvenmiyorsanız yapmamanızı şiddetle tavsiye eder. Yine de parola doldurulmaya devam edilsin mi?"
+   },
+   "context_menu_show_all_passwords": {
+      "message": "Tüm Parolaları Göster"
+   },
+   "copied": {
+      "message": "Kopyalandı"
+   },
+   "copy": {
+      "message": "Kopyala"
+   },
+   "copy_to_clipboard": {
+      "message": "Panoya Kopyala"
+   },
+   "create_folder": {
+      "message": "Klasör Oluştur"
+   },
+   "create_new": {
+      "message": "Yeni Oluştur"
+   },
+   "created_on": {
+      "message": "Oluşturma tarihi"
+   },
+   "current_domain": {
+      "message": "Alt Etki Alanı"
+   },
+   "current_totp": {
+      "message": "Geçerli TOTP"
+   },
+   "custom": {
+      "message": "Özel"
+   },
+   "custom_fields": {
+      "message": "Özel Alanlar"
+   },
+   "dark_mode": {
+      "message": "Gece Modu"
+   },
+   "data_sync": {
+      "message": "Veri Eşitleme"
+   },
+   "date": {
+      "message": "Tarih"
+   },
+   "day": {
+      "message": "Gün"
+   },
+   "days": {
+      "message": "Gün"
+   },
+   "default_view": {
+      "message": "Varsayılan görünüm"
+   },
+   "delete": {
+      "message": "Sil"
+   },
+   "delete_domain_from_list": {
+      "message": "$1$ bu listeden silinsin mi ?",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "delete_domain_from_list_description": {
+      "message": "$1$ parolalarınızı kaydetmenizi ve güncellemeniz için komut istemleri almaya başlayacaksınız",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "delete_password": {
+      "message": "Parolayı Sil"
+   },
+   "delete_password_confirm_message": {
+      "message": "Bir parolayı silmek, onu ve tüm ilişkili klasörleri hesabınızdan kalıcı olarak kaldırır."
+   },
+   "delete_password_confirm_title": {
+      "message": "Parola silinsin mi?"
+   },
+   "delete_password_success_message": {
+      "message": "Parola “$1$” başarıyla silindi.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "deny": {
+      "message": "Reddet"
+   },
+   "description": {
+      "message": "Açıklama"
+   },
+   "detailed_view": {
+      "message": "Ayrıntılı Görünüm"
+   },
+   "digits": {
+      "message": "Haneler"
+   },
+   "disable": {
+      "message": "Devre dışı bırak"
+   },
+   "disable_access_control": {
+      "message": "Erişim Denetimini Devre Dışı Bırak"
+   },
+   "disable_auto_login": {
+      "message": "Otomatik Oturum Açmayı Devre Dışı Bırak"
+   },
+   "displaying": {
+      "message": "Gösteriyor"
+   },
+   "domain": {
+      "message": "Etki alanı"
+   },
+   "domain_matching": {
+      "message": "Etki Alanı Eşleşmesi"
+   },
+   "domain_mismatch_alert": {
+      "message": "Etki alanı eşleşmeme uyarısı"
+   },
+   "download": {
+      "message": "İndir"
+   },
+   "edit": {
+      "message": "Düzenle"
+   },
+   "edit_card": {
+      "message": "Ödeme Kartını Düzenle"
+   },
+   "edit_password": {
+      "message": "Parolayı Düzenle"
+   },
+   "email": {
+      "message": "E-posta"
+   },
+   "empty_trash": {
+      "message": "Çöp Kutusunu Boşalt"
+   },
+   "empty_trash_confirm_message": {
+      "message": "Bu eylem, Çöp Kutusundaki tüm parolaları kalıcı olarak siler. Gelecekte bu Parolaları geri yükleyemeyeceksiniz."
+   },
+   "empty_trash_confirm_title": {
+      "message": "Çöp Kutusu Boşaltılsın mı?"
+   },
+   "empty_trash_success_message": {
+      "message": "Çöp kutusundan tüm parolalar başarıyla silindi."
+   },
+   "enable_access_control": {
+      "message": "Erişim Denetimini Etkinleştir"
+   },
+   "enable_auto_login": {
+      "message": "Otomatik Oturum Açmayı Etkinleştir"
+   },
+   "encryption_key": {
+      "message": "Şifreleme anahtarı"
+   },
+   "enter_passphrase": {
+      "message": "Vault’unuza erişmek için ana parolanızı girin"
+   },
+   "enterprise_passwords": {
+      "message": "Kuruluş Parolaları"
+   },
+   "error_getting_oneauth_totp": {
+      "message": "OneAuth TOTP alınırken hata"
+   },
+   "exclude_character": {
+      "message": "Karakteri Dışla"
+   },
+   "exclude_users": {
+      "message": "Kullanıcıları Çıkar"
+   },
+   "extDescription": {
+      "message": "Online password manager for teams to securely store, share and manage passwords and other sensitive data."
+   },
+   "extName": {
+      "message": "Zoho Vault"
+   },
+   "extension": {
+      "message": "Uzantı"
+   },
+   "extension_locked": {
+      "message": "Uzantı Kilitli"
+   },
+   "extension_logged_out": {
+      "message": "Uzantı Oturum Kapatma"
+   },
+   "favourites": {
+      "message": "Sık Kullanılanlar"
+   },
+   "field_holds_personal_data": {
+      "message": "Bu alanda kişisel veriler bulunmakta"
+   },
+   "field_name": {
+      "message": "Alan Adı"
+   },
+   "file": {
+      "message": "Dosya"
+   },
+   "file_only_n_per_password": {
+      "message": "Parola başına yalnızca $1$ dosya ekleyebilirsiniz",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_cannot_exceed": {
+      "message": "Dosya boyutu $1$’ı aşamaz",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_per_password_cannot_exceed": {
+      "message": "Parola başına maks.dosya boyutu $1$’ı aşmamalıdır",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_within_max": {
+      "message": "dosyalar en fazla 2MB boyutunda olmalıdır"
+   },
+   "fill": {
+      "message": "Doldur"
+   },
+   "filter": {
+      "message": "Filtrele"
+   },
+   "folder": {
+      "message": "Klasör"
+   },
+   "folder_name": {
+      "message": "Klasör Adı"
+   },
+   "folders": {
+      "message": "Klasörler"
+   },
+   "font": {
+      "message": "Yazı tipi"
+   },
+   "generate": {
+      "message": "Oluştur"
+   },
+   "generator": {
+      "message": "Oluşturucu"
+   },
+   "generator_history_description": {
+      "message": "Oluşturucudan kopyalanan son $1$ parola burada belirecektir",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "generator_password_length": {
+      "message": "Parola Uzunluğu"
+   },
+   "get_oneauth_totp": {
+      "message": "OneAuth TOTP al"
+   },
+   "grant": {
+      "message": "İzin Ver"
+   },
+   "help": {
+      "message": "Yardım"
+   },
+   "help_resources": {
+      "message": "Yardım Kaynakları"
+   },
+   "hide": {
+      "message": "Gizle"
+   },
+   "history": {
+      "message": "Geçmiş"
+   },
+   "hour": {
+      "message": "Saat"
+   },
+   "hours": {
+      "message": "Saat"
+   },
+   "insecure_card_fill_description": {
+      "message": "Ödeme kartınızı güvenli olmayan bir sayfada doldurmak üzeresiniz"
+   },
+   "insecure_page_alert": {
+      "message": "Güvenli olmayan sayfa uyarısı"
+   },
+   "invalid_date_error": {
+      "message": "Lütfen geçerli bir tarih belirtin"
+   },
+   "invalid_email_address": {
+      "message": "Geçersiz e-posta adresi"
+   },
+   "invalid_field": {
+      "message": "Geçersiz $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "invalid_master_passphrase": {
+      "message": "Geçersiz ana parola"
+   },
+   "list_view": {
+      "message": "Liste Görünümü"
+   },
+   "lock": {
+      "message": "Kilitle"
+   },
+   "lock_after": {
+      "message": "Şundan sonra uzantıyı kilitle:"
+   },
+   "lock_on_system_lock": {
+      "message": "Ekran kilitlendiğinde uzantıyı kilitle"
+   },
+   "login": {
+      "message": "Oturum Aç"
+   },
+   "login_incognito": {
+      "message": "Özel Oturum Başlat"
+   },
+   "lower_case": {
+      "message": "Küçük Harf"
+   },
+   "manage": {
+      "message": "Yönet"
+   },
+   "manage_access_control": {
+      "message": "Erişim Denetimini Yönet"
+   },
+   "manage_authenticator": {
+      "message": "Kimlik Doğrulama Araçlarını Yönet"
+   },
+   "manage_authenticators": {
+      "message": "Kimlik Doğrulama Araçlarını Yönet"
+   },
+   "manage_custom_fields": {
+      "message": "Özel Alanları Yönet"
+   },
+   "manage_prompts": {
+      "message": "Komut İstemlerini Yönet"
+   },
+   "mark_as_personal": {
+      "message": "Kişisel olarak işaretle"
+   },
+   "mark_favourite": {
+      "message": "Sık kullanılan olarak işaretle"
+   },
+   "master_password": {
+      "message": "Ana Parola"
+   },
+   "max_file_size_popup": {
+      "message": "Parola başına maks.dosya boyutu 2 MB’ı aşmamalıdır"
+   },
+   "message": {
+      "message": "Mesaj"
+   },
+   "minute": {
+      "message": "Dakika"
+   },
+   "minutes": {
+      "message": "Dakika"
+   },
+   "modified_time": {
+      "message": "Değiştirilme Saati"
+   },
+   "modify": {
+      "message": "Değiştir"
+   },
+   "more": {
+      "message": "Daha fazla"
+   },
+   "move_password_name_to_trash": {
+      "message": "“$1$” Çöp Kutusuna Taşı",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "move_to_trash": {
+      "message": "Çöp Kutusuna Taşı"
+   },
+   "move_to_trash_success": {
+      "message": "Parola çöp kutusuna başarıyla taşındı"
+   },
+   "must_not_be_empty": {
+      "message": "boş olmamalıdır"
+   },
+   "must_not_contain": {
+      "message": "içermemelidir"
+   },
+   "n_user_groups_selected": {
+      "message": "$1$ kullanıcı grubu seçildi",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "n_users_selected": {
+      "message": "$1$ kullanıcı seçildi",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "name": {
+      "message": "Ad"
+   },
+   "never_save": {
+      "message": "Asla Kaydetme"
+   },
+   "night_mode": {
+      "message": "Gece modu"
+   },
+   "no_cards_found": {
+      "message": "Hiçbir ödeme kartı bulunamadı"
+   },
+   "no_cards_matching_found": {
+      "message": "Hiçbir eşleşen ödeme kartı bulunamadı"
+   },
+   "no_copy_permission": {
+      "message": "Kopyalama izni yok"
+   },
+   "no_edit_permission": {
+      "message": "Düzenleme izni yok"
+   },
+   "no_folders_found": {
+      "message": "Klasör bulunamadı"
+   },
+   "no_folders_matching_found": {
+      "message": "“$1$” eşleşen klasör bulunamadı",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_history_available": {
+      "message": "Geçmiş verileri kullanılamıyor."
+   },
+   "no_matching_folders_found": {
+      "message": "Eşleşen klasör bulunamadı"
+   },
+   "no_matching_passwords_found": {
+      "message": "Eşleşen parola bulunamadı"
+   },
+   "no_passwords_folder": {
+      "message": "Bu klasörde parola bulunamadı"
+   },
+   "no_passwords_found": {
+      "message": "Parola bulunamadı"
+   },
+   "no_passwords_matching_found_folder": {
+      "message": "Bu klasörde eşleşen parola bulunamadı"
+   },
+   "no_passwords_yet": {
+      "message": "Henüz bir parola yok"
+   },
+   "no_share_permission": {
+      "message": "Paylaşım izni yok"
+   },
+   "no_trashed_passwords": {
+      "message": "Çöp kutunuz boş"
+   },
+   "no_user_groups_found": {
+      "message": "Kullanıcı grubu bulunamadı"
+   },
+   "no_user_groups_matching_found": {
+      "message": "“$1$” eşleşen kullanıcı grubu bulunamadı",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_users_found": {
+      "message": "Kullanıcı bulunamadı"
+   },
+   "no_users_matching_found": {
+      "message": "“$1$” eşleşen kullanıcı bulunamadı",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_view_permission": {
+      "message": "Görüntüleme izni yok"
+   },
+   "not_selected_users": {
+      "message": "Seçili kullanıcılar değil"
+   },
+   "notes": {
+      "message": "Notlar"
+   },
+   "numbers": {
+      "message": "Sayılar"
+   },
+   "of": {
+      "message": "şunun:"
+   },
+   "ok": {
+      "message": "TAMAM"
+   },
+   "one_click_password_change_prevented_popup": {
+      "message": "Bir tıkla oturum açma izni ile paylaşılan parola için parola değişimine izin verilmemektedir"
+   },
+   "oneauth_approve_message": {
+      "message": "TOTP almak için telefonunuza gönderilen bildirimi lütfen onaylayın"
+   },
+   "oneauth_install_description": {
+      "message": "Kapsamlı bir kimlik doğrulama aracı uygulaması tüm Çok Faktörlü Kimlik Doğrulama ihtiyaçlarınızı basitleştirir ve işiniz güvenliğini arttırır"
+   },
+   "oneauth_notification_pushed": {
+      "message": "OneAuth Bildirimi gönderildi"
+   },
+   "oneauth_secrets": {
+      "message": "OneAuth Gizli Dizeleri"
+   },
+   "oneauth_unlock_failed": {
+      "message": "Bir sorun oluştu. Kilidi açmak için ana parolanızı girin."
+   },
+   "open_profile_panel": {
+      "message": "Profil Panelini Aç"
+   },
+   "open_web_app": {
+      "message": "Web Uygulamasını Aç"
+   },
+   "open_zoho_vault": {
+      "message": "Zoho Vault’u Aç"
+   },
+   "or": {
+      "message": "veya"
+   },
+   "others": {
+      "message": "Diğerleri"
+   },
+   "parent_domain": {
+      "message": "Üst Etki Alanı"
+   },
+   "passphrase_cleared": {
+      "message": "Ana parolanız temizlendi"
+   },
+   "password": {
+      "message": "Parola"
+   },
+   "password_added_successfully": {
+      "message": "Parola başarıyla eklendi"
+   },
+   "password_edited_successfully": {
+      "message": "Parola başarıyla güncellendi"
+   },
+   "password_must_have_lowercase": {
+      "message": "Parola en az bir küçük harf içermelidir."
+   },
+   "password_must_have_minimum_chars": {
+      "message": "Parola en az $1$ karakter içermelidir.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_have_number": {
+      "message": "Parola en az bir sayı içermelidir."
+   },
+   "password_must_have_spl_char": {
+      "message": "Parola en az $1$ özel karakter içermelidir.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_have_uppercase": {
+      "message": "Parola en az bir büyük harf içermelidir."
+   },
+   "password_must_not_have_chars": {
+      "message": "Parolada $1$ karakterine izin verilmez.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_start_with_alphabet": {
+      "message": "Parola harfle başlamalıdır."
+   },
+   "password_policy": {
+      "message": "Parola İlkesi"
+   },
+   "passwords": {
+      "message": "Parolalar"
+   },
+   "path": {
+      "message": "Yol"
+   },
+   "personal_password_cannot_be_shared": {
+      "message": "Kişisel parolalar paylaşılamaz"
+   },
+   "personal_password_restricted": {
+      "message": "Kişisel parolalar eklemek, yönetici tarafından kısıtlandı"
+   },
+   "personal_passwords": {
+      "message": "Kişisel Parolalar"
+   },
+   "personalization": {
+      "message": "Kişiselleştirme"
+   },
+   "please_enter": {
+      "message": "Lütfen şunu girin:"
+   },
+   "please_enter_a": {
+      "message": "Lütfen bir girin"
+   },
+   "please_enter_an_email": {
+      "message": "Lütfen bir e-posta adresi girin"
+   },
+   "please_enter_your": {
+      "message": "Lütfen $1$ girin",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "please_upload_your": {
+      "message": "Lütfen $1$ öğenizi karşıya yükleyin",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "port": {
+      "message": "Bağlantı Noktası"
+   },
+   "proceed": {
+      "message": "Devam Et"
+   },
+   "product_videos": {
+      "message": "Ürün Videoları"
+   },
+   "prompt_auto_save_update": {
+      "message": "Parolaları kaydetme ve güncelleme için komut istemi"
+   },
+   "prompt_card_auto_save_update": {
+      "message": "Ödeme kartları kaydetme ve güncelleme için komut istemi"
+   },
+   "push_sent_success": {
+      "message": "Anında iletme bildirimi başarıyla gönderildi"
+   },
+   "reason": {
+      "message": "Neden"
+   },
+   "recently_added": {
+      "message": "En Son Eklenenler"
+   },
+   "recently_copied_passwords": {
+      "message": "Son Kopyalanan Parolalar"
+   },
+   "recently_used": {
+      "message": "Son Kullanılan"
+   },
+   "remove_field": {
+      "message": "Alanı Kaldır"
+   },
+   "remove_logo": {
+      "message": "Logoyu Kaldır"
+   },
+   "remove_url": {
+      "message": "ORL’yi Kaldır"
+   },
+   "request": {
+      "message": "İstek"
+   },
+   "request_access": {
+      "message": "Erişim İste"
+   },
+   "request_access_description": {
+      "message": "Bu parolaya erişim izni iste. İsteğiniz parola sahibi tarafından onaylandığında veya reddedildiğinde e-posta ile bilgilendirileceksiniz."
+   },
+   "request_advance_approval": {
+      "message": "Önceden onay iste"
+   },
+   "request_approved": {
+      "message": "İstek onaylandı"
+   },
+   "request_details": {
+      "message": "Talep Ayrıntıları"
+   },
+   "request_immediate_access": {
+      "message": "Anında erişim iste"
+   },
+   "request_time": {
+      "message": "İstek saati"
+   },
+   "resend_push": {
+      "message": "Anında Bildirimi Yeniden Gönder"
+   },
+   "reset_password": {
+      "message": "Parolayı sıfırla"
+   },
+   "resource_removed_successfully": {
+      "message": "$1$ başarıyla kaldırıldı",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "restore_password": {
+      "message": "Parolayı Geri Yükle"
+   },
+   "restore_password_confirm_message": {
+      "message": "Bu eylem, parolanın paylaşım ayrıcalıklarını geri yüklerken parolayı hesabınıza ve ilgili klasörlerine taşır."
+   },
+   "restore_password_confirm_title": {
+      "message": "Parola Geri Yüklensin mi?"
+   },
+   "restore_password_success_message": {
+      "message": "Parola “$1$” başarıyla geri yüklendi.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "retry": {
+      "message": "Yeniden Dene"
+   },
+   "revoke": {
+      "message": "İptal Et"
+   },
+   "same_name_password_exists": {
+      "message": "Aynı ada sahip bir parola zaten var"
+   },
+   "save": {
+      "message": "Kaydet"
+   },
+   "save_and_enable": {
+      "message": "Kaydet ve Etkinleştir"
+   },
+   "save_as_new": {
+      "message": "Yeni olarak Kaydet"
+   },
+   "save_prompt_disabled_description": {
+      "message": "Oto. Güncelleme komut istemleri aşağıdaki websiteleri için devre dışı bırakıldı"
+   },
+   "save_to_zoho_vault_question": {
+      "message": "Zoho Vault’a kaydedilsin mi?"
+   },
+   "scheme": {
+      "message": "Şema"
+   },
+   "search": {
+      "message": "Ara"
+   },
+   "searching": {
+      "message": "Aranıyor"
+   },
+   "seconds": {
+      "message": "Saniye"
+   },
+   "select_admins": {
+      "message": "Yöneticileri Seçin"
+   },
+   "select_all": {
+      "message": "Tümünü Seç"
+   },
+   "select_create_folder": {
+      "message": "Klasör seç veya oluştur"
+   },
+   "select_oneauth_secrets": {
+      "message": "Oneauth gizli dizi seçin"
+   },
+   "selected_users": {
+      "message": "Seçili Kullanıcılar"
+   },
+   "seperate_session": {
+      "message": "Oturum açık kalsın"
+   },
+   "setting_enforced_by_amdin": {
+      "message": "Süper Yönetici Tarafından Zorunlu Konulan"
+   },
+   "settings": {
+      "message": "Ayarlar"
+   },
+   "share": {
+      "message": "Paylaş"
+   },
+   "share_feedback": {
+      "message": "Geri Bildirim Paylaş"
+   },
+   "share_one_click_login": {
+      "message": "Tek Tıkla Oturum Açma"
+   },
+   "share_password": {
+      "message": "Parolayı Paylaş"
+   },
+   "share_success": {
+      "message": "Parola başarıyla paylaşıldı"
+   },
+   "share_user_success": {
+      "message": "Parola $1$ ile başarıyla paylaşıldı",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "shared_by_me": {
+      "message": "Benim Paylaştıklarım"
+   },
+   "shared_with_me": {
+      "message": "Benimle Paylaşılan"
+   },
+   "sharing_restricted": {
+      "message": "Paylaşım yönetici tarafından kısıtlandı"
+   },
+   "show_domain_matching": {
+      "message": "Eşleşen Etki Alanını Göster"
+   },
+   "show_more_fields": {
+      "message": "Daha Fazla Alan Göster"
+   },
+   "shows": {
+      "message": "Gösteriler"
+   },
+   "sign_out": {
+      "message": "Oturumu Kapat"
+   },
+   "sign_out_confirm": {
+      "message": "Zoho Vault Oturumu Kapatılsın mı?"
+   },
+   "special_character": {
+      "message": "Özel Karakter"
+   },
+   "status": {
+      "message": "Durum"
+   },
+   "sub_domain": {
+      "message": "Alt etki alanı"
+   },
+   "sync": {
+      "message": "Eşitle"
+   },
+   "sync_changes": {
+      "message": "Web üzerinde yapılan tüm değişiklikleri eşitle"
+   },
+   "sync_completed": {
+      "message": "Eşitleme Tamamlandı"
+   },
+   "sync_description": {
+      "message": "Uzantınızı web uygulamanızda yapılan değişikliklerle eşitlemeyi sürdürün"
+   },
+   "sync_started": {
+      "message": "Eşitleme Başlatıldı"
+   },
+   "syncing": {
+      "message": "Eşitleniyor"
+   },
+   "tags": {
+      "message": "Etiketler"
+   },
+   "text": {
+      "message": "Metin"
+   },
+   "theme": {
+      "message": "Tema"
+   },
+   "third_parties": {
+      "message": "Üçüncü Taraflar"
+   },
+   "third_party_revoke_link_after": {
+      "message": "Şundan sonra bağlantı için erişimi iptal et"
+   },
+   "third_party_shared_output": {
+      "message": "Bir e-posta $1$ adresine gönderildi. $2$ için bu parolaya erişim vermek üzere onlara aşağıdaki şifreleme anahtarını paylaşın. Bu anahtar aynı zamanda parola oluşturucu geçmişinde bulunacaktır.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "third_party_sharing_restricted": {
+      "message": "Üçüncü taraflarla parola paylaşımı, yönetici tarafından kısıtlandı"
+   },
+   "tile_view": {
+      "message": "Kutucuk Görünümü"
+   },
+   "time": {
+      "message": "Saat"
+   },
+   "totp": {
+      "message": "TOTP"
+   },
+   "totp_key": {
+      "message": "TOTP Anahtarı"
+   },
+   "totp_key_must_contain_atleast_n_chars": {
+      "message": "TOTP Anahtarı en az $1$ karakter içermelidir.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "trash": {
+      "message": "Çöpe at"
+   },
+   "turn_off_dark_mode": {
+      "message": "Gece Modunu Kapat"
+   },
+   "turn_on_dark_mode": {
+      "message": "Gece Modunu Aç"
+   },
+   "unlock": {
+      "message": "Kilidi Aç"
+   },
+   "unlock_vault": {
+      "message": "Vault’un Kilidini Aç"
+   },
+   "unlock_vault_with_authenticators_min": {
+      "message": "Vault’un Kilidini Kimlik Doğrulama Araçları ile Aç"
+   },
+   "unlock_vault_with_oneauth": {
+      "message": "Zoho Vault’un Kilidini Zoho OneAuth mobil uygulaması ile aç"
+   },
+   "unlock_vault_with_oneauth_min": {
+      "message": "Vault’un Kilidini Zoho OneAuth ile Aç"
+   },
+   "unlock_vault_with_webauthn": {
+      "message": "Zoho Vault’un Kilidini Kimlik Doğrulama Araçları ile Aç"
+   },
+   "unlock_with": {
+      "message": "Şununla kilidi aç:"
+   },
+   "unlock_zoho_vault": {
+      "message": "Zoho Vault’un Kilidini Aç"
+   },
+   "unlocking": {
+      "message": "Kilit açılıyor"
+   },
+   "unmark_favourite": {
+      "message": "Sık kullanılanlardan kaldır"
+   },
+   "unshared_folders": {
+      "message": "Paylaşılmayan Klasörler"
+   },
+   "unshared_passwords": {
+      "message": "Paylaşılmayan Parolalar"
+   },
+   "update": {
+      "message": "Güncelle"
+   },
+   "update_card": {
+      "message": "Ödeme Kartı Güncellensin mi?"
+   },
+   "update_password_question": {
+      "message": "Parola güncellensin mi?"
+   },
+   "upload": {
+      "message": "Karşıya Yükle"
+   },
+   "upload_logo": {
+      "message": "Logoyu Karşıya Yükle"
+   },
+   "upper_case": {
+      "message": "Büyük Harf"
+   },
+   "url": {
+      "message": "URL"
+   },
+   "url_invalid": {
+      "message": "Sağlanan URL geçersiz"
+   },
+   "urls_max_n": {
+      "message": "En fazla $1$ URL ekleyebilirsiniz.",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "usage_confirmation": {
+      "message": "Kullanım Onayı"
+   },
+   "use": {
+      "message": "Kullan"
+   },
+   "use_xs_password_on_y": {
+      "message": "$1$’nın parolası $2$‘de kullanılsın mı?",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "user": {
+      "message": "Kullanıcı"
+   },
+   "user_group": {
+      "message": "Kullanıcı Grubu"
+   },
+   "user_groups": {
+      "message": "Kullanıcı Grupları"
+   },
+   "user_name_label": {
+      "message": "Kullanıcı Adı"
+   },
+   "users": {
+      "message": "Kullanıcılar"
+   },
+   "validity": {
+      "message": "Geçerlilik"
+   },
+   "value": {
+      "message": "Değer"
+   },
+   "view": {
+      "message": "Görüntüle"
+   },
+   "view_filters": {
+      "message": "Filtreleri Görüntüle"
+   },
+   "view_more": {
+      "message": "Daha fazlasını görüntüle"
+   },
+   "week": {
+      "message": "Hafta"
+   },
+   "weeks": {
+      "message": "Haftalar"
+   },
+   "welcome_to_vault": {
+      "message": "Zoho Vault’a hoş geldiniz"
+   },
+   "zoho_oneauth": {
+      "message": "Zoho OneAuth"
+   },
+   "zoho_vault_extension_locked": {
+      "message": "Zoho Vault - Uzantı Kilitli"
+   }
+}

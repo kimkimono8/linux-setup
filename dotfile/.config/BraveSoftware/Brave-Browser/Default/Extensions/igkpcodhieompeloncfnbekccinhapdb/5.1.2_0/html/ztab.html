@@ -1,0 +1,3527 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Zoho Vault Extension</title>
+	<meta charset="utf-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="/images/logo/vault-logo-blue.svg">
+
+	<script type="module" src="/js/src/ztab/ZTabMain.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/style/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/style/ZVaultTab.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-themes.css">
+	<link rel="stylesheet" type="text/css" href="/style/styles.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-nightmode.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault_dstyle.css">
+
+	<script src="/lib/jquery-3.3.1.min.js"></script>
+	<script src="/lib/jquery-ui.min.js"></script>
+	<script src="/lib/select2.min.js"></script>
+	<script src="/lib/jquery.slimscroll.js"></script>
+	<script src="/lib/sweetalert.min.js"></script>
+	<script src="/lib/FileSaver.js"></script>
+</head>
+
+<body class="ext-app-view zvf-opensans">
+	<div id="tooltip_arrow" class="tooltip_arrow" style="display: none;transition: opacity 0.6s linear;"></div>
+	<div id="tooltip_elem" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+	<div id="elem_msg_action" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+
+	<!--notification start-->
+	<div id="notification" class="notify notify-success clearfix" style="display: none;max-width: 90%;width: max-content;transition: opacity 0.5s linear;">
+		<div class="notify-inner">
+			<span class="notify-symbol pointer" data-close=""></span>
+			<div class="notify-content" data-content="">
+				notification content</div>
+		</div>
+	</div>
+	<!--notification end-->
+
+	<div id="output">
+		<vault-loading></vault-loading>
+	</div>
+
+	<!--before appending element to actual position , rendered here to add third party listeners - select2-->
+	<div id="pre_render_0" class="pre-render">
+	</div>
+
+	<template id="vault_loading_template">
+		<div data-loading="">
+			<div class="component-loader" style="display: block;">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</template>
+
+	<template id="main_ui_template">
+		<div style="height: 100%;">
+			<!--header start-->
+			<header class="topHeaderPanel">
+				<div class="left-nav-top-logo-panel">
+					<img src="/images/logo/vault-logo.svg" class="left-nav-top-logo-image" data-name="logo" data-tooltip_content="i18n:open_web_app" data-icon_tooltip="true" />
+					<div class="left-nav-top-logo-text" style="cursor: default;"><no-i-span>Vault</no-i-span> <span class="logo-text-extension"><i-span>extension</i-span></span></div>
+				</div>
+
+				<div class="top-nav-menu">
+					<a class="top-nav-open-web-button" data-name="openWebUI" data-on_click="main_ui.openWebUI"><i class="icon-autologon m-r-10"></i> <i-span>open_web_app</i-span></a>
+					<ul>
+						<li></li>
+						<li data-on_click="main_ui.clickedSync"><a id="syncIcon" data-icon_tooltip="true" data-tooltip_content="i18n:sync"><i class="icon-sync icon-lg"></i></a></li>
+						<li data-toggle_dark_mode="" data-on_click="main_ui.clickedToggleDarkMode"><a><i id="dark_mode_icon" class="icon-dark-theme" data-icon_tooltip="true" data-tooltip_content="i18n:turn_on_dark_mode"></i></a></li>
+						<li><a target="_blank" href="https://www.zoho.com/vault/contactus.html"><i class="icon-sprite-feedback" data-icon_tooltip="true" data-tooltip_content="i18n:share_feedback"></i></a></li>
+						<li data-on_click="main_ui.clicked_show_tab"><a data-tab_name="SETTINGS"><i class="icon-general-settings" data-icon_tooltip="true" data-tooltip_content="i18n:settings"></i></a></li>
+						<li data-on_click="main_ui.clickedToggleProfilePanel"><a><img data-name="dp" class="top-nav-profile-pic" src="/images/user/profile.svg" /></a>
+						</li>
+					</ul>
+				</div>
+			</header>
+			<!--header end-->
+			<!------ container start ------>
+			<section class="mainContainerPanel">
+				<!--nav lhs start-->
+				<nav id="sidebarNav" class="navLHSPanel">
+					<!-- <div class="nav__menu dis-hide">
+						<span class="nav__menu--icon"><i class="icon-nav-dashboard"></i></span>
+						<span class="nav__menu--text">Dashboard</span>
+					</div> -->
+					<div id="passwordsTabNav" class="nav__menu nav__menu--active">
+						<span class="nav__menu--icon"><i class="icon-nav-password"></i></span>
+						<span class="nav__menu--text"><i-span>passwords</i-span></span>
+					</div>
+					<!-- <div class="nav__menu dis-hide">
+						<span class="nav__menu--icon"><i class="icon-categories"></i></span>
+						<span class="nav__menu--text">Category</span>
+					</div> -->
+					<div id="foldersTabNav" class="nav__menu">
+						<span class="nav__menu--icon"><i class="icon-nav-folder"></i></span>
+						<span class="nav__menu--text"><i-span>folders</i-span></span>
+					</div>
+					<div id="settingsTabNav" class="nav__menu">
+						<span class="nav__menu--icon"><i class="icon-nav-settings"></i></span>
+						<span class="nav__menu--text"><i-span>settings</i-span></span>
+					</div>
+				</nav>
+				<!--nav lhs end-->
+				<!--left panel start-->
+				<div id="content" class="right-side-panel"></div>
+			</section>
+			<!------ container end ------>
+
+
+			<div class="overlay-bg dis-hide" id="password_filter_overlay" data-on_click="passwords_ui.clicked_hide_password_filter" style="position: absolute;left: 0px; width: 100%; background: transparent;">
+			</div>
+			<div class="overlay-bg" id="folder_filter_overlay" data-on_click="folders_ui.clicked_hide_folders_filter" style="display: none;position: absolute;left: 0px; width: 100%; background: transparent;">
+			</div>
+
+			<div class="overlay-bg" id="complete_loading" style="display: none;background-color: rgb(0, 0, 0, 0.1);">
+				<vault-loading></vault-loading>
+			</div>
+
+			<div id="dot_loading" style="display: none; transition: opacity 0.5s; opacity: 0;">
+				<vault-loading></vault-loading>
+			</div>
+		</div>
+	</template>
+
+	<template id="passwords_tab_template">
+		<div style="display: flex;">
+			<div id="passwords_nav_panel" class="left-nav-panel clearfix"></div>
+			<div id="passwords_content" class="clearfix" style="flex-grow: 1;"></div>
+		</div>
+	</template>
+
+	<template id="folders_page_template">
+		<div class="right-side-content-panel clearfix" style="width: calc(100vw - 72px);">
+			<h3 class="page-inner-title"><i-span>folders</i-span></h3>
+			<div class="clearfix">
+				<div class="pull-left">
+					<button type="button" data-on_click="folders_ui.clickedAddFolder" href="#" class="btn btn-md btn-primary pull-left m-r-5"><i-span>create_folder</i-span></button>
+					<div class="table-search-panel table-search-panel_temp pull-left m-r-5">
+						<div class="table-search-panel-dropdown">
+							<i class="icon-magnifier"></i>
+						</div>
+						<input id="folders_search" data-on_keyup="folders_ui.keyedSearchString" type="text" placeholder="i18n:search" autocomplete="off" spellcheck="false" autofocus data-clear_id="clear_folders_search" style="position: absolute;" data-show_above_folder_filter_overlay="" data-on_escape="folders_ui.pressed_search_escape" />
+						<span class="password-search-close" style="display: none;" id="clear_folders_search" data-clear_input="#folders_search" data-on_click="folders_ui.clicked_clear_search" data-show_above_folder_filter_overlay="">
+							<i class="icon-close"></i>
+						</span>
+					</div>
+					<button type="button" id="show_folders_filter" data-on_click="folders_ui.clicked_show_folders_filter" class="btn btn-md btn-default-line pull-left m-r-5 zv-funnel-dropdown" data-tooltip_content="i18n:filter" data-icon_tooltip="true" data-show_above_folder_filter_overlay="">
+						<i class="icon-filter icon-md"></i>
+						<span data-filter_counter="" class="filter-counter dis-hide"><no-i-span>0</no-i-span></span>
+					</button>
+					<a id="clear_folder_filters" class="pointer pull-left m-t-7 dis-hide m-l-5" data-on_click="folders_ui.clicked_clear_folder_filters" data-show_above_folder_filter_overlay="" style="z-index: 100;"><i-span>clear_filters</i-span></a>
+
+				</div>
+
+			</div>
+
+			<div id="folders_filter_container" class="dis-hide passwords-filter-panel passwords-filter-panel--detailview ">
+				<div class="password-filter-inner-container">
+					<!-- filter inner group start -->
+
+					<div class="filterInnerGroup"">
+							<div class=" filterInner__header">
+						<h4 class="filterheader--title"><i-span>sharing</i-span></h4>
+					</div>
+					<div class="filterInner__body">
+						<div class="flex--column m-t-b-10">
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="folder_sharing" value="ALL" checked />
+								<i-span>all</i-span>
+							</label>
+
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="folder_sharing" value="SHARED_BY_ME" />
+								<i-span>shared_by_me</i-span>
+							</label>
+
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="folder_sharing" value="SHARED_TO_ME" />
+								<i-span>shared_with_me</i-span>
+							</label>
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="folder_sharing" value="NONE" />
+								<i-span>unshared_folders</i-span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<!-- filter inner group end -->
+			</div>
+		</div>
+
+		<div class="folders-page-table-content m-t-10 clearfix" id="folders_list_container">
+			<div class="folders-page-table-row bg-gray">
+				<div class="folders-page-table-col bold"><i-span>folder_name</i-span></div>
+			</div>
+
+			<div class="content-panel clearfix" id="no_matching_folders_div" style="display: none;">
+				<div class="no-data-panel">
+					<div class="no-data-panel-inner">
+						<img src="/images/svg/no-data-found.svg" />
+						<p class="text-default" data-text=""><i-span>no_matching_folders_found</i-span></p>
+					</div>
+				</div>
+			</div>
+
+			<div class="content-panel clearfix" id="no_folders_div" style="display: none;">
+				<div class="no-data-panel">
+					<div class="no-data-panel-inner">
+						<img src="/images/folder/add-folder-image.svg" />
+						<p class="text-default" data-text=""><i-span>no_folders_found</i-span></p>
+					</div>
+				</div>
+			</div>
+
+			<div id="folders_list" class="clearfix"></div>
+		</div>
+
+		</div>
+	</template>
+
+	<template id="settings_page_template">
+		<div id="settings_list" class="right-side-content-panel clearfix" style="padding-bottom: 0px;">
+			<div class="cleafix">
+				<ul class="vault-tabs-horizontal no-margin" id="settingsTabHeader">
+					<li><a href="#" class="selected" id="settingsLocalTab"><i-span>settings</i-span></a></li>
+					<li><a href="#" id="advancedSettingsTab"><i-span>advanced_settings</i-span></a></li>
+				</ul>
+			</div>
+
+			<div id="settingsTabContent" class="password-list-container clearfix" style="position: relative; margin-top: 0px;" data-list_container="">
+			</div>
+
+		</div>
+	</template>
+
+	<template id="settings_sub_tab_template">
+		<div>
+			<!--inactivity timeout start-->
+			<div class="app-settings-panel-inner">
+				<h4 class="app-settings-field-title"><i-span>activity</i-span></h4>
+
+				<div class="app-settings-field">
+					<div class="app-settings-field-left text-right" style="padding-top:5px;">
+						<p class="m-b-5 bold"><i-span>lock_after</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<select style="width:250px;" id="inactivity_select"></select>
+					</div>
+				</div>
+
+				<div class="app-settings-field" id="lock_on_system_lock_container">
+					<div class="app-settings-field-left text-right v-top">
+						<p class="m-b-5 bold"><i-span class="label-with-toggle" data-checkbox_label="">lock_on_system_lock</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<div class="clearfix">
+							<input data-setting_name="LOCK_ON_SYSTEM_LOCK" type="checkbox" id="lock_on_system_lock" class="cbx hidden">
+							<label for="lock_on_system_lock" class="lbl"></label>
+						</div>
+					</div>
+				</div>
+
+				<div class="app-settings-field">
+					<div class="app-settings-field-left text-right" style="padding-top:5px;">
+						<p class="m-b-5 bold"><i-span>clear_clipboard_after</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<select style="width:250px;" id="select_clear_clipboard"></select>
+					</div>
+				</div>
+
+
+			</div>
+			<!--inactivity timeout end-->
+
+			<div class="app-settings-panel-inner" id="domainContainer">
+				<h4 class="app-settings-field-title"><i-span>domain_matching</i-span></h4>
+				<div class="domain-matching-list">
+					<ul>
+						<li>
+							<span class="domain-matching-url-text" data-scheme=""><no-i-span>https://</no-i-span></span>
+							<span class="domain-matching-url-separator-line"></span>
+							<span class="domain-matching-url-legend"><i-span>scheme</i-span></span>
+						</li>
+						<li class="domain-matching-list-selected">
+							<span class="domain-matching-url-text" data-subdomain=""><no-i-span>vault.</no-i-span></span>
+							<span class="domain-matching-url-separator-line"></span>
+							<span class="domain-matching-url-legend"><i-span>sub_domain</i-span></span>
+						</li>
+						<li class="domain-matching-list-selected" data-domain="domain">
+							<span class="domain-matching-url-text" data-css_domain=""><no-i-span>zoho.com</no-i-span></span>
+							<span class="domain-matching-url-separator-line"></span>
+							<span class="domain-matching-url-legend"><i-span>domain</i-span></span>
+						</li>
+						<li class="domain-matching-list-selected">
+							<span class="domain-matching-url-text" data-port=""><no-i-span>:8443</no-i-span></span>
+							<span class="domain-matching-url-separator-line"></span>
+							<span class="domain-matching-url-legend"><i-span>port</i-span></span>
+						</li>
+						<li>
+							<span class="domain-matching-url-text" data-path=""><no-i-span>/app</no-i-span></span>
+							<span class="domain-matching-url-separator-line"></span>
+							<span class="domain-matching-url-legend"><i-span>path</i-span></span>
+						</li>
+					</ul>
+				</div>
+
+
+			</div>
+
+			<!-- Unlock vault start-->
+			<div class="app-settings-panel-inner" id="unlock_container">
+				<h4 class="app-settings-field-title"><i-span>unlock_vault</i-span></h4>
+				<div class="app-settings-field" id="oneauth_unlock_container">
+					<div class="app-settings-field-left text-right v-top">
+						<p class="m-b-5 bold"><i-span class="label-with-toggle" data-checkbox_label="">unlock_vault_with_oneauth</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<div class="clearfix">
+							<input type="checkbox" class="cbx hidden" id="oneauth_unlock">
+							<label for="oneauth_unlock" class="lbl"></label>
+						</div>
+					</div>
+				</div>
+
+				<div class="app-settings-field" id="webauthn_unlock_container">
+					<div class="app-settings-field-left text-right v-top">
+						<p class="m-b-5 bold"><i-span class="label-with-toggle" data-checkbox_label="">unlock_vault_with_webauthn</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<div class="clearfix">
+							<input type="checkbox" class="cbx hidden" id="webauthn_unlock">
+							<label for="webauthn_unlock" class="lbl"></label>
+						</div>
+					</div>
+					<div id="authenticator_options" class="m-l-10 dis-hide">
+						<a id="addAuthenticator"><i class="icon-plus icon-sm m-r-5"></i><span><i-span>add_authenticator</i-span></span></a>
+						<span id="manageAuthenticatorSeparation" class="m-l-10 m-r-10"><no-i-span>|</no-i-span></span>
+						<a id="manageAuthenticator"><i class="icon-general-settings icon-sm m-r-5"></i><span id="authenticatorCountText"><i-span>manage_authenticator</i-span></span></a>
+					</div>
+				</div>
+			</div>
+			<!-- Unlock vault end-->
+
+			<!-- advanced settings start-->
+			<div class="app-settings-panel-inner">
+				<h4 class="app-settings-field-title"><i-span>advanced_settings</i-span></h4>
+
+				<div class="app-settings-field">
+					<div class="app-settings-field-left text-right v-top">
+						<p class="m-b-5 bold"><i-span class="label-with-toggle" data-checkbox_label="">prompt_auto_save_update</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<div class="clearfix">
+							<input data-setting_name="AUTO_SAVE_UPDATE_PASSWORDS" type="checkbox" id="prompt_save" class="cbx hidden">
+							<label for="prompt_save" class="lbl"></label>
+						</div>
+					</div>
+				</div>
+
+				<div class="app-settings-field">
+					<div class="app-settings-field-left text-right v-top">
+						<p class="m-b-5 bold"><i-span class="label-with-toggle" data-checkbox_label="">prompt_card_auto_save_update</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<div class="clearfix">
+							<input data-setting_name="CARD_SAVE_PROMPT" type="checkbox" id="prompt_card_save" class="cbx hidden">
+							<label for="prompt_card_save" class="lbl"></label>
+						</div>
+					</div>
+				</div>
+
+				<div class="app-settings-field">
+					<div class="app-settings-field-left text-right v-top">
+						<p class="m-b-5 bold"><i-span class="label-with-toggle" data-checkbox_label="">alert_http_fill</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<div class="clearfix">
+							<input data-setting_name="INSECURE_PAGE_PROMPT" type="checkbox" id="prompt_insecure_fill" class="cbx hidden">
+							<label for="prompt_insecure_fill" class="lbl"></label>
+						</div>
+					</div>
+				</div>
+
+				<div class="app-settings-field">
+					<div class="app-settings-field-left text-right v-top">
+						<p class="m-b-5 bold"><i-span class="label-with-toggle" data-checkbox_label="">autofill_card_sub_domains</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<div class="clearfix">
+							<input data-setting_name="CARD_AUTOFILL_SUBDOMAIN" type="checkbox" id="autofill_card_sub_domains" class="cbx hidden">
+							<label for="autofill_card_sub_domains" class="lbl"></label>
+						</div>
+					</div>
+				</div>
+
+				<div class="app-settings-field">
+					<div class="app-settings-field-left text-right v-top">
+						<p class="m-b-5 bold"><i-span class="label-with-toggle" data-checkbox_label="">seperate_session</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<div class="clearfix">
+							<input type="checkbox" id="stay_signed_in" class="cbx hidden">
+							<label for="stay_signed_in" class="lbl"></label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--advanced settings end-->
+
+			<!--personalization start-->
+			<div class="app-settings-panel-inner">
+				<h4 class="app-settings-field-title"><i-span>personalization</i-span></h4>
+				<div class="app-settings-field">
+					<div class="app-settings-field-left text-right v-top">
+						<p class="m-b-5 bold"><i-span class="label-with-toggle" data-checkbox_label="">dark_mode</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<div class="clearfix">
+							<input type="checkbox" id="toggle_dark_mode" class="cbx hidden" checked="">
+							<label for="toggle_dark_mode" class="lbl"></label>
+						</div>
+					</div>
+				</div>
+
+				<div class="app-settings-field">
+					<div class="app-settings-field-left text-right v-top">
+						<p class="m-b-5 bold"><i-span>theme</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<ul class="theme-color-list m-t-10" id="select_theme">
+							<li><a class="" title="Blue" data-theme="blue"><abbr class="blue-theme"></abbr></a></li>
+							<li><a title="Red" class="" data-theme="red"><abbr class="red-theme"></abbr></a></li>
+							<li><a title="Green" data-theme="green"><abbr class="green-theme"></abbr></a></li>
+							<li><a title="Orange" data-theme="orange" class=""><abbr class="orange-theme"></abbr></a></li>
+							<li><a title="Purple" data-theme="purple"><abbr class="purple-theme"></abbr></a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="app-settings-field">
+					<div class="app-settings-field-left text-right v-top">
+						<p class="m-b-5 bold m-t-5"><i-span>font</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<select style="width:250px;" id="fontSelect" data-no_i18n="">
+							<option value="OPENSANS">OpenSans</option>
+							<option value="ZOHOPUVI">Zoho Puvi</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<!--personalization end-->
+
+			<!--never save urls start-->
+			<div id="neverSaveContainer" class="app-settings-panel-inner">
+				<h4 class="app-settings-field-title"><i-span>manage_prompts</i-span></h4>
+				<p><i-span>save_prompt_disabled_description</i-span></p>
+				<div class="app-settings-field">
+					<div class="app-settings-field-right">
+						<div class="neverSave__listPanel clearfix">
+							<ul id="neverSaveList" class="neversave-list">
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!--never save urls end-->
+
+		</div>
+	</template>
+
+	<template id="advanced_settings_tab_template">
+		<div>
+			<!--advanced settings start-->
+			<div class="app-settings-panel-inner advanced-settings-panel-inner">
+
+				<div class="advanced-settings-field label-with-toggle">
+					<div class="advanced-settings-field-left">
+						<h6 class="zfw-600"><i-span>adv_setting_disable_shadow_root</i-span></h6>
+						<p class="text-default no-margin"><i-span>adv_setting_disable_shadow_root_content</i-span></p>
+					</div>
+					<div class="advanced-settings-field-right">
+						<input data-setting_name="DISABLE_SHADOW_ROOT" type="checkbox" id="disableShadowRoot" class="cbx hidden">
+						<label for="" class="lbl"></label>
+					</div>
+				</div>
+
+				<div class="advanced-settings-field label-with-toggle">
+					<div class="advanced-settings-field-left">
+						<h6 class="zfw-600"><i-span>adv_setting_disable_badge_count_heading</i-span></h6>
+						<p class="text-default no-margin"><i-span>adv_setting_disable_badge_count_content</i-span></p>
+					</div>
+					<div class="advanced-settings-field-right">
+						<input data-setting_name="DISABLE_BADGE_COUNT" type="checkbox" id="disable_badge_count" class="cbx hidden">
+						<label for="" class="lbl"></label>
+					</div>
+				</div>
+
+				<div class="advanced-settings-field label-with-toggle">
+					<div class="advanced-settings-field-left">
+						<h6 class="zfw-600"><i-span>adv_setting_disable_vault_icon_heading</i-span></h6>
+						<p class="text-default no-margin"><i-span>adv_setting_disable_vault_icon_content</i-span></p>
+					</div>
+					<div class="advanced-settings-field-right">
+						<input data-setting_name="DISABLE_WEBSITE_VAULT_ICON" type="checkbox" id="disable_website_vault_icon" class="cbx hidden">
+						<label for="" class="lbl"></label>
+					</div>
+				</div>
+
+				<div class="advanced-settings-field label-with-toggle">
+					<div class="advanced-settings-field-left">
+						<h6 class="zfw-600"><i-span>adv_setting_disable_website_keyboard_shortcut_heading</i-span></h6>
+						<p class="text-default no-margin"><i-span>adv_setting_disable_website_keyboard_shortcut_content</i-span></p>
+					</div>
+					<div class="advanced-settings-field-right">
+						<input data-setting_name="DISABLE_WEBSITE_KEYBOARD_SHORTCUT" type="checkbox" id="disable_website_keyboard_shortcut" class="cbx hidden">
+						<label for="" class="lbl"></label>
+					</div>
+				</div>
+
+				<div class="advanced-settings-field label-with-toggle">
+					<div class="advanced-settings-field-left">
+						<h6 class="zfw-600"><i-span>adv_setting_disable_click_to_login</i-span></h6>
+						<p class="text-default no-margin"><i-span>adv_setting_disable_click_to_login_content</i-span></p>
+					</div>
+					<div class="advanced-settings-field-right">
+						<input data-setting_name="DISABLE_CLICK_TO_LOGIN" type="checkbox" id="disableClickToLogin" class="cbx hidden">
+						<label for="" class="lbl"></label>
+					</div>
+				</div>
+
+			</div>
+			<!--advanced settings end-->
+		</div>
+	</template>
+
+	<template id="trash_page_template">
+		<div class="right-side-content-panel clearfix" style="height: 100%;">
+			<div class="clearfix">
+				<h3 class="page-inner-title"><i-span>trash</i-span></h3>
+				<div class="pull-left" data-search_container="">
+					<button type="button" data-on_click="trash_ui.clickedEmptyTrash" href="#" class="btn btn-md btn-primary pull-left m-r-5" data-tooltip_content="" data-icon_tooltip="true"><i-span>empty_trash</i-span></button>
+
+					<div class="table-search-panel table-search-panel_temp pull-left m-r-5">
+						<div class="table-search-panel-dropdown">
+							<i class="icon-magnifier"></i>
+						</div>
+						<input id="trash_search" data-search="" data-on_keyup="trash_ui.keyed_search_string" data-on_enter="trash_ui.searchTrash" type="text" placeholder="i18n:search" autocomplete="off" spellcheck="false" autofocus data-clear_id="clear_trash_search" style="position: absolute;" data-on_escape="trash_ui.pressed_search_escape" />
+						<span class="password-search-close" style="display: none;" id="clear_trash_search" data-clear_input="#trash_search" data-on_click="trash_ui.clicked_clear_search">
+							<i class="icon-close"></i>
+						</span>
+					</div>
+				</div>
+
+				<div class="pagination-panel" data-pagination_panel="">
+					<span class="pull-left m-t-5">
+						<span><i-span>displaying</i-span></span>
+						<b data-pagintation_displaying=""></b>
+						<span><i-span>of</i-span></span>
+						<b data-pagintation_total=""></b>
+					</span>
+					<ul class="pagination-link m-t-5">
+						<li data-on_click="trash_ui.clicked_prev_page">
+							<a href="#" data-pagination_left_arrow="">
+								<i class="icon-arrow-left"></i>
+							</a>
+						</li>
+						<li data-on_click="trash_ui.clicked_next_page">
+							<a href="#" data-pagination_right_arrow="">
+								<i class="icon-arrow-right"></i>
+							</a>
+						</li>
+					</ul>
+					<div class="pull-left">
+						<span class="pull-left m-t-5"><i-span>shows</i-span></span>&nbsp;
+						<select class="pagination-select" data-pagination_rows_per_page="" style="width: 55px;" data-no_i18n="">
+							<option value="50">&nbsp;50</option>
+							<option value="100">100</option>
+							<option value="150">150</option>
+							<option value="200">200</option>
+						</select>
+						<span class="m-l-20 m-t-5 pull-right">&nbsp;</span>
+						<!-- <i class="icon-sorting-up icon-lg pointer m-l-20 m-t-5 pull-right"></i> -->
+					</div>
+					<div class="view-change-panel">
+						<ul>
+							<li data-on_click="trash_ui.clicked_show_card_view" data-card_view="" class="view-change-panel-selected"><a href="#"><i class="icon-grid-view" data-tooltip_content="i18n:tile_view" data-icon_tooltip="true"></i></a></li>
+							<li data-on_click="trash_ui.clicked_show_list_view" data-list_view=""><a href="#"><i class="icon-list-view" data-tooltip_content="i18n:list_view" data-icon_tooltip="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+
+			<section class="password-list-container clearfix" style="position: relative;" data-list_container="" id="trash_list_container"></section>
+
+
+			<!--password details start-->
+			<div class="password-details-slider" data-password_details_container="" style="right: -710px;overflow-y: auto;z-index: 100;"></div>
+			<!--password details end-->
+
+			<div class="overlay-bg" data-password_details_overlay="" data-on_click="trash_ui.clicked_hide_password_details" style="display: none;"></div>
+
+			<div class="overlay-bg-blank" id="password_history_overlay" data-on_click="passwords_ui.clicked_hide_history" style="display: none;position: absolute; z-index: 1002;">
+			</div>
+
+		</div>
+	</template>
+
+	<template id="passwords_page_template">
+		<div class="right-side-content-panel clearfix" style="padding-bottom: 10px;" data-overlay_container="password">
+
+			<div class="clearfix">
+				<i class="icon-arrow-left back-arrow-icon" id="back_to_folders" style="display: none;" data-on_click="passwords_ui.clicked_back_to_folders" data-icon_tooltip="true" data-tooltip_content="i18n:back_to_folders"></i>
+				<h3 id="password_heading" class="page-inner-title"><i-span>passwords</i-span></h3>
+				<div class="pull-left">
+					<button type="button" data-on_click="passwords_ui.clicked_add_password" href="#" class="btn btn-md btn-primary pull-left m-r-5" id="add_password" data-tooltip_content="" data-icon_tooltip="true"><i-span>add</i-span></button>
+
+					<div class="table-search-panel table-search-panel_temp pull-left m-r-5">
+						<div class="table-search-panel-dropdown">
+							<i class="icon-magnifier"></i>
+						</div>
+						<input id="passwords_search" data-search="" data-on_keyup="passwords_ui.keyed_search_string" type="text" placeholder="i18n:search" autocomplete="off" spellcheck="false" autofocus data-clear_id="clear_passwords_search" style="position: absolute;" data-show_above_password_filter_overlay="" data-on_escape="passwords_ui.pressed_search_escape" />
+						<span class="password-search-close" style="display: none;" id="clear_passwords_search" data-clear_input="#passwords_search" data-on_click="passwords_ui.clicked_clear_search" data-show_above_password_filter_overlay="">
+							<i class="icon-close"></i>
+						</span>
+					</div>
+					<div class="pull-left m-r-5" id="filter_div">
+						<button type="button" id="show_password_filter" tabindex="-1" data-on_click="passwords_ui.clicked_show_password_filter" class="btn btn-md btn-default-line pull-left m-r-5 zv-funnel-dropdown" data-tooltip_content="i18n:filter" data-icon_tooltip="true">
+							<i class="icon-filter icon-md"></i>
+							<span data-filter_counter="" class="filter-counter dis-hide"><no-i-span>0</no-i-span></span>
+						</button>
+						<a id="clear_password_filters" class="pointer pull-left m-t-7 dis-hide m-l-5" data-on_click="passwords_ui.clicked_clear_password_filters" data-show_above_password_filter_overlay=""><i-span>clear_filters</i-span></a>
+					</div>
+					<!-- <div class="dropdownWrapper pull-left">
+						<button type="button"  class="btn btn-primary btn-md dropdown--button">File <span class="dropdown--button--arrow"><i class="icon-down-arrow"></i></span></button>
+						<div class="zv-dropdown-popup zv-dropdown-popup-arrow-top">
+							<ul class="vault-common-list" >
+								<div>
+									<li><a href="#" style="padding-right: 20px; padding-left: 15px;">File and Update</a></li>
+								</div>
+								<div>
+									<li><a href="#" style="padding-right: 20px; padding-left: 15px;">File and Save</a></li>
+								</div>
+							</ul>
+						</div>
+					</div> -->
+				</div>
+
+				<div class="pagination-panel" data-pagination_panel="">
+					<span class="pull-left m-t-5">
+						<span><i-span>displaying</i-span></span>
+						<b data-pagintation_displaying=""></b>
+						<span><i-span>of</i-span></span>
+						<b data-pagintation_total=""></b>
+					</span>
+					<ul class="pagination-link m-t-5">
+						<li data-on_click="passwords_ui.clicked_prev_page">
+							<a href="#" data-pagination_left_arrow="" tabindex="-1">
+								<i class="icon-arrow-left"></i>
+							</a>
+						</li>
+						<li data-on_click="passwords_ui.clicked_next_page">
+							<a href="#" data-pagination_right_arrow="" tabindex="-1">
+								<i class="icon-arrow-right"></i>
+							</a>
+						</li>
+					</ul>
+					<div class="pull-left">
+						<span class="pull-left m-t-5"><i-span>shows</i-span></span>&nbsp;
+						<select class="pagination-select" data-pagination_rows_per_page="" style="width: 55px;" data-no_i18n="" tabindex="-1">
+							<option value="50">&nbsp;50</option>
+							<option value="100">100</option>
+							<option value="150">150</option>
+							<option value="200">200</option>
+						</select>
+						<span class="m-l-20 m-t-5 pull-right">&nbsp;</span>
+					</div>
+					<div class="view-change-panel">
+						<ul>
+							<li data-on_click="passwords_ui.clicked_show_card_view" data-card_view="" class="view-change-panel-selected"><a href="#" tabindex="-1"><i class="icon-grid-view" data-tooltip_content="i18n:tile_view" data-icon_tooltip="true"></i></a></li>
+							<li data-on_click="passwords_ui.clicked_show_list_view" data-list_view=""><a href="#" tabindex="-1"><i class="icon-list-view" data-tooltip_content="i18n:list_view" data-icon_tooltip="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+
+			<div id="passwords_filter_container" class="dis-hide passwords-filter-panel passwords-filter-panel--detailview ">
+			</div>
+
+			<div data-list_container=""></div>
+
+
+			<div class="overlay-bg-blank" id="more_options_overlay" data-on_click="passwords_ui.clicked_hide_more_actions" style="display: none;position: absolute;">
+			</div>
+
+			<div class="overlay-bg-blank" id="password_history_overlay" data-on_click="passwords_ui.clicked_hide_history" style="display: none;position: absolute; z-index: 1002;">
+			</div>
+
+			<!--password details start-->
+			<div class="password-details-slider" id="password_details_container" data-password_details_container="" style="right: -710px;overflow-y: auto;z-index: 100;"></div>
+			<!--password details end-->
+
+			<div class="overlay-bg" id="password_details_overlay" data-password_details_overlay="" data-on_click="passwords_ui.clicked_hide_password_details" style="display: none;"></div>
+
+			<!--add password form start-->
+			<div class="add-password-slider" id="add_password_container" style="right: -710px;"></div>
+			<!--add password form end-->
+
+			<div class="overlay-bg" id="add_password_overlay" data-on_click="password_add.clickedHideForm" style="display: none;z-index: 101;"></div>
+
+			<!--edit password form start-->
+			<div class="add-password-slider" id="edit_password_container" style="right: -710px;"></div>
+			<!--edit password form end-->
+
+			<div class="overlay-bg" id="edit_password_overlay" data-on_click="password_edit.clickedHideForm" style="display: none;z-index: 101;"></div>
+
+			<!--share password form start-->
+			<div class="add-password-slider" id="share_password_container" style="right: -710px;"></div>
+			<!--share password form end-->
+
+			<div class="overlay-bg" id="share_password_overlay" data-on_click="passwords_ui.clicked_close_share_password" style="display: none;z-index: 101;"></div>
+
+			<!--access control form start-->
+			<div class="add-password-slider" id="access_control_form" style="right: -710px;"></div>
+			<!--access control form end-->
+
+			<div class="overlay-bg" id="access_control_overlay" data-on_click="access_control.clickedHideForm" style="display: none;z-index: 101;"></div>
+
+			<!--access control request form start-->
+			<div class="add-password-slider" id="access_control_request_container" style="right: -710px;"></div>
+			<!--access control request form end-->
+
+			<div class="overlay-bg" id="access_control_request_overlay" data-on_click="access_request.clickedHideForm" style="display: none;z-index: 101;"></div>
+			<div class="overlay-bg" id="access_control_request_pending_overlay" data-on_click="access_pending_request.clickedHideForm" style="display: none;z-index: 101;"></div>
+
+			<div class="overlay-bg" id="no_action_overlay" style="display: none;z-index: 101;"></div>
+		</div>
+	</template>
+
+	<template id="secret_list_item_template">
+		<div class="card-view-password-list" data-on_click="passwords_ui.clicked_show_password_details" tabindex="0">
+			<div class="card-view-password-list-inner">
+				<div class="card-view-list-left">
+					<span class="card-view-list-no-image" style="background-color: lightblue;" data-no_logo=""></span>
+					<span class="card-view-list-left-img img-contain" data-logo=""></span>
+					<span class="card-view-access-control-icon" data-access_control_icon=""><i class="icon-access-control-configured-1 text-danger" data-tooltip_content="i18n:access_control_enabled" data-icon_tooltip="true"></i></span>
+				</div>
+				<ul class="card-view-right-icon-list">
+					<li><span class="card-view-favorite" data-favourite="" data-on_click="passwords_ui.clicked_change_favourite"><i class="icon-star-1 text-default" data-tooltip_content="i18n:mark_favourite" data-icon_tooltip="true" data-favourite_icon=""></i></span></li>
+					<li data-shared_by_me_icon=""><span class="sharebyme"><i class="icon-share-to-me icon-lg" data-tooltip_content="i18n:shared_by_me" data-icon_tooltip="true"></i></span></li>
+					<li data-shared_to_me_icon=""><span class="sharetome"><i class="icon-share-by-me icon-lg" data-tooltip_content="i18n:shared_with_me" data-icon_tooltip="true"></i></span></li>
+				</ul>
+				<div class="card-view-list-right">
+					<h6 class="card-view-password-name" data-name="">Password Name</h6>
+					<p class="password-list-description text-default" data-description_container="">
+						<span class="copy-username" data-copy_username="" data-on_click="passwords_ui.clicked_copy_username_icon">
+							<i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i>
+						</span>
+						<span data-description="">Description</span>
+					</p>
+					<div class="card-view-password-icons" data-icon_list="" data-on_click="">
+						<ul data-password_actions="">
+							<li data-copy_password="" data-on_click="passwords_ui.clicked_copy_password_icon"><a tabindex="-1" href="#"><i class="icon-copy icon-md" data-tooltip_content="i18n:no_copy_permission" data-icon_tooltip="true"></i></a></li>
+							<li data-on_click="passwords_ui.clicked_login" data-login="" data-login_url=""><a tabindex="-1" href="#"><i class="icon-login" data-tooltip_content="i18n:login" data-icon_tooltip="true"></i></a></li>
+							<li data-on_click="passwords_ui.clicked_login" data-private_login="" data-login_url=""><a tabindex="-1" href="#" style="opacity: 0.7;"> <i class="icon-launch-private" data-tooltip_content="i18n:login_incognito" data-icon_tooltip="true"></i></a>
+							</li>
+							<li data-on_click="passwords_ui.clicked_share_password" data-share=""><a tabindex="-1" href="#"> <i class="icon-share" data-tooltip_content="i18n:share" data-icon_tooltip="true"></i></a></li>
+							<li data-on_click="passwords_ui.clicked_show_more_actions" data-show_more_options=""><a tabindex="-1" href="#"><i class="icon-more" data-tooltip_content="i18n:more" data-icon_tooltip="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_template">
+		<div class="password-list-view-details-panel clearfix" data-secret_details="" data-secret_id="">
+			<div class="password-detail-page" data-details="">
+				<div class="zv-pwd-details-header clearfix">
+					<span class="password-details-title-img">
+						<span data-logo="" class="card-view-list-left-img img-contain"></span>
+						<span data-no_logo="" class="card-view-list-no-image"></span>
+					</span>
+					<h5 class="modal-panel-title pull-left app-view-password-details-names">
+						<div class="password-details-name-panel">
+							<span data-secret_name="" class="password-details-password-trim">Password Name</span>
+							<span data-favourite="" data-on_click="passwords_ui.clicked_change_favourite" class="pointer"><i class="icon-star-1 text-default" data-favourite_icon="" data-tooltip_content="i18n:mark_favourite" data-icon_tooltip="true"></i></span>
+							<span><i class="icon-owned-by-me icon-md text-purple" data-owned_by_me_icon="" data-tooltip_content="i18n:owned_by_me" data-icon_tooltip="true"></i></span>
+						</div>
+						<p class="text-default password-details-sub-title">
+							<span><i-span>created_on</i-span></span>
+							<span data-created_on="">1/2/2013</span>
+						</p>
+
+					</h5>
+					<span class="password-list-view-details-close">
+						<ul class="vault-list">
+							<li data-edit="" data-on_click="password_details.clickedEditPassword"><a><i class="icon-edit" data-tooltip_content="i18n:edit" data-icon_tooltip="true"></i></a></li>
+							<li data-history="" data-on_click="password_details.clickedShowHistory"><a><i class="icon-history" data-tooltip_content="i18n:history" data-icon_tooltip="true"></i></a></li>
+							<li data-share="" data-on_click="password_details.clickedSharePassword"><a><i class="icon-share" data-tooltip_content="i18n:share" data-icon_tooltip="true"></i></a></li>
+							<li data-on_click="password_details.clicked_hide_password_details"><a><i class="icon-close icon-xs" data-tooltip_content="i18n:close" data-icon_tooltip="true"></i></a></li>
+						</ul>
+					</span>
+				</div>
+
+				<!-- password fields start -->
+				<div id="password_details_fields_container"></div>
+				<!-- password fields end-->
+
+				<!-- form row , notes field start-->
+				<div class="zv-label-group" data-notes="" data-field_row="">
+					<div class="zvleft-label"><i-span>notes</i-span></div>
+					<div class="zvcenter-label">
+						<div class="zv-field-detail" style="position: relative;">
+							<span data-on_click="password_details.clicked_copy_notes" data-copy="" class="zv-copyicon" style="position: absolute; z-index: 10;"><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></span>
+							<textarea readonly tabindex="0" data-on_copy="password_details.copiedNotes" style="height: 135px; padding-left: 35px; width: 280px; position: relative; left: -10px;"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- form row , notes field end-->
+
+			<!--tags start-->
+			<div class="zv-label-group" data-tag="">
+				<div class="zvleft-label"><i-span>tags</i-span></div>
+				<div class="zvcenter-label">
+					<div class="zv-field-detail">
+						<ul class="filter-result-list" data-tag_list="">
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--tags end-->
+
+			<!--description start-->
+			<div class="zv-label-group" data-description_container="">
+				<div class="zvleft-label"><i-span>description</i-span></div>
+				<div class="zvcenter-label">
+					<div class="zv-field-detail zv-field-detail-textbox" data-description="" style="white-space: pre-wrap;">
+					</div>
+				</div>
+			</div>
+			<!--description end-->
+
+			<!--custom fields start-->
+			<article class="zv-password-custom-field clearfix" data-custom_fields_container="">
+				<div class="zv-custom-field-title">
+					<span><i-span>password</i-span></span>
+					<span><i-span>custom_fields</i-span></span>
+				</div>
+				<div data-custom_fields=""></div>
+			</article>
+			<!--custom fields end-->
+
+			<div class="m-t-20 m-l-20" data-check_in_container="" style="display: none;">
+				<button type="button" class="btn btn-md btn-primary" data-on_click="password_details.clickedCheckIn"><i-span>checkin</i-span></button>
+			</div>
+		</div>
+		</div>
+	</template>
+
+	<template id="password_details_text_field_template">
+		<div data-field_row="" class="zv-label-group">
+			<div class="zvleft-label" data-name=""></div>
+			<div class="zvcenter-label">
+				<div class="zv-field-detail" tabindex="0">
+					<span data-copy="" data-on_click="password_details.clickedCopyField" class="zv-copyicon"><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></span>
+					<span data-value="" class="zv-field-detail-ellipsis" data-on_copy="password_details.copiedField">UserName</span>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_textarea_template">
+		<div data-field_row="" class="zv-label-group">
+			<div class="zvleft-label" data-name=""></div>
+			<div class="zvcenter-label">
+				<div class="zv-field-detail" tabindex="0">
+					<span data-copy="" data-on_click="password_details.clickedCopyField" class="zv-copyicon"><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></span>
+					<span data-value="" style="white-space: pre-wrap;" class="zv-field-detail-ellipsis" data-on_copy="password_details.copiedField">UserName</span>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_custom_text_field_template">
+		<div data-field_row="" class="zv-label-group">
+			<div class="zvleft-label" data-name=""></div>
+			<div class="zvcenter-label">
+				<div class="zv-field-detail" tabindex="0">
+					<span data-copy="" data-on_click="password_details.clicked_copy_custom_field" class="zv-copyicon"><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></span>
+					<span data-value="" class="zv-field-detail-ellipsis" data-on_copy="password_details.copiedCustomField">UserName</span>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_password_field_template">
+		<div data-field_row="" class="zv-label-group">
+			<div class="zvleft-label" data-name=""></div>
+			<div class="zvcenter-label">
+				<div class="zv-field-detail" tabindex="0">
+					<span data-on_click="password_details.clickedCopyField" data-copy="" class="zv-copyicon"><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></span>
+					<span data-value="" class="zv-field-detail-ellipsis zvf-monospace" data-on_copy="password_details.copiedPasswordField"><no-i-span>****************</no-i-span></span>
+				</div>
+			</div>
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li data-view_password="" data-on_click="password_details.clicked_show_hide_password_field" data-show_hide=""><a><i class="icon-view icon-md" data-tooltip_content="i18n:view" data-icon_tooltip="true"></i></a></li>
+					<li data-on_click="password_details.clicked_reset_password" data-reset_password=""><a><i class="icon-reset-password icon-md" data-tooltip_content="i18n:reset_password" data-icon_tooltip="true"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_custom_password_field_template">
+		<div data-field_row="" class="zv-label-group">
+			<div class="zvleft-label" data-name=""></div>
+			<div class="zvcenter-label">
+				<div class="zv-field-detail" tabindex="0">
+					<span data-on_click="password_details.clicked_copy_custom_field" data-copy="" class="zv-copyicon"><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></span>
+					<span data-value="" class="zv-field-detail-ellipsis zvf-monospace" data-on_copy="password_details.copiedCustomPasswordField"><no-i-span>****************</no-i-span></span>
+				</div>
+			</div>
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li data-view_password="" data-on_click="password_details.clicked_show_hide_custom_field" data-show_hide=""><a><i class="icon-view icon-md" data-tooltip_content="i18n:view" data-icon_tooltip="true"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_file_field_template">
+		<div class="zv-label-group">
+			<div class="zvleft-label" data-name=""></div>
+			<div class="zvcenter-label">
+				<div class="zv-field-detail"><a class="zv-field-detail-ellipsis" data-on_click="password_details.clicked_download_file" data-value=""></a></div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_no_view_permission_template">
+		<div class="zv-label-group">
+			<div class="zvleft-label" data-name=""></div>
+			<div class="zvcenter-label">
+				<div class="zv-field-detail">
+					<span class="zv-field-detail-ellipsis text-danger"><i-span>no_view_permission</i-span></span>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_totp_template">
+		<div class="zv-label-group" data-field_row="">
+			<div class="zvleft-label"><i-span>current_totp</i-span></div>
+			<div class="zvcenter-label">
+				<div class="zv-field-detail" tabindex="0">
+					<span data-copy="" class="zv-copyicon" data-on_click="password_details.clicked_copy_totp"><i class="icon-copy"></i></span>
+					<span class="zv-field-detail-ellipsis" id="current_totp"><no-i-span>012 345</no-i-span></span>
+				</div>
+			</div>
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li style="margin-top: -5px;">
+						<div class="totp-panel" style="position: relative; left: -3px;height:36px;">
+							<svg width="36" height="36">
+								<circle r="10" cy="18" cx="18" stroke-width="5" stroke="#ccc" fill="none" />
+								<circle id="totp_circle" r="10" cy="18" cx="18" stroke-width="5" stroke="#4780da" fill="none" />
+							</svg>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_url_row_template">
+		<div class="zv-label-group" data-url_row="" data-field_row="">
+			<div class="zvleft-label">
+				<span data-i18n_key="url"></span>
+				<span data-url_n="">0</span>
+			</div>
+			<div class="zvcenter-label" tabindex="0">
+				<span class="zv-copyicon" data-copy="" data-on_click="password_details.clicked_copy_value"><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></span>
+				<span class="zv-field-detail-ellipsis"><a tabindex="-1" href="#" target="" data-url="" data-on_click="password_details.clicked_copy_value"></a></span>
+			</div>
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li data-login="" data-on_click="passwords_ui.clicked_login"><a><i class="icon-login" data-tooltip_content="i18n:login" data-icon_tooltip="true"></i></a></li>
+					<li data-private_login="" data-on_click="passwords_ui.clicked_login"><a tabindex="-1" style="opacity: 0.7;"><i class="icon-launch-private" data-tooltip_content="i18n:login_incognito" data-icon_tooltip="true"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_details_tag_template">
+		<li><abbr data-tag=""></abbr></li>
+	</template>
+
+	<template id="add_password_template">
+		<div data-on_parent="password_add">
+			<div class="modal-panel-header clearfix bg-gray">
+				<h4 id="user-group-modal-title"><i-span>add_password</i-span></h4>
+				<span class="modal-panel-close" data-close="" data-on_click="password_add.clickedHideForm">
+					<a><i class="icon-close"></i></a>
+				</span>
+			</div>
+
+			<form id="addPasswordForm" data-on_enter="password_add.clickedSavePassword">
+
+				<div class="add_password_form_scrollable_div">
+					<div class="zv-add-password-body clearfix" style="padding-right: 20px;">
+
+						<!-- category start -->
+						<div class="zv-label-group" data-on_enter="">
+							<div class="zvleft-label"><span><i-span>category</i-span></span> <span class="zv-mandatory"><no-i-span>*</no-i-span></span></div>
+							<div class="zvcenter-label">
+								<div class="field-control">
+									<select class="form-control" data-secret_type_select="" style="width: 100%;"></select>
+								</div>
+							</div>
+						</div>
+						<!-- category end -->
+
+						<!--name start-->
+						<div class="zv-label-group">
+							<div class="zvleft-label">
+								<span><i-span>name</i-span></span> <span class="zv-mandatory"><no-i-span>*</no-i-span></span>
+							</div>
+							<div class="zvcenter-label" data-field_row="name">
+								<div class="field-control">
+									<input type="text" data-name="" name="secret_name" maxlength="250" data-mandatory="true" spellcheck="false" autocomplete="off" data-on_blur="password_add.handleNameChange" data-on_input="password_add.handleInputClearError" />
+									<span class="underline-animation"></span>
+								</div>
+								<div class="errormsg-text text-danger" data-error=""></div>
+							</div>
+							<div class="zvright-label">
+								<span class="add-password-display-icon" data-select_logo="" data-tooltip_content="i18n:remove_logo" data-icon_tooltip="true" data-on_click="password_add.clickedLogo">
+									<img src="/images/password/icon-upload.svg" data-logo_preview="" data-tooltip_content="i18n:upload_logo" data-icon_tooltip="true" />
+								</span>
+								<span hidden="">
+									<input type="file" data-logo_input="" data-on_change="password_add.handleLogoChange">
+								</span>
+							</div>
+						</div>
+						<!--name end-->
+
+						<!--folder start-->
+						<div class="zv-label-group" data-field_row="folder" data-on_enter="">
+							<div class="zvleft-label"><i-span>folder</i-span></div>
+							<div class="zvcenter-label" data-folder_container="">
+								<div class="field-control text-ellipsis" style="margin-top: 0;">
+									<select class="form-control" data-folder_select="" style="width: 100%;">
+										<option value=""></option>
+									</select>
+								</div>
+								<div class="errormsg-text text-danger" data-error=""></div>
+							</div>
+						</div>
+						<!--folder end-->
+
+
+						<!--password policies start-->
+						<div class="zv-label-group" data-policy_container="">
+							<div class="zvleft-label"><i-span>password_policy</i-span></div>
+							<div class="zvcenter-label">
+								<div class="field-control text-ellipsis" style="margin-top: 0;">
+									<select class="form-control" name="password_policy_select" data-policy_select="" style="width: 100%;"></select>
+								</div>
+							</div>
+						</div>
+						<!--password policies end-->
+
+						<!--secret data fields start-->
+						<div data-fields_container=""></div>
+						<!--secret data fields end-->
+
+						<!-- OneAuth Secrets -->
+						<div class="zv-label-group" data-oneauthSecretsContainer="" data-selector="[data-addOneAuthSecrets]">
+							<div class="zvleft-label"><i-span>oneauth_secrets</i-span></div>
+							<div class="zvcenter-label">
+								<div class="field-control text-ellipsis" style="margin-top: 0;">
+									<select class="form-control" data-addOneAuthSecrets="" style="width: 100%;">
+										<option></option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<!-- OneAuth Secrets -->
+
+						<!--Totp start-->
+						<div id="totp_fields" data-selector="[data-totp_key_input]">
+							<div class="zv-label-group">
+								<div class="zvleft-label"><i-span>totp_key</i-span></div>
+								<div class="zvcenter-label" data-field_row="totp">
+									<div class="field-control">
+										<input data-totp_key_input="" data-on_input="password_add.handleTotpKeyInput" data-on_blur="password_add.handleTotpKeyChange" style="max-width: calc(100% - 40px);" type="password" placeholder="Ex: QJP5 GZBH 6GNA WARH" spellcheck="false" />
+										<span class="underline-animation"></span>
+										<span class="password-show-hide">
+											<ul class="add-password-plus-minus">
+												<li data-show_hide="" data-on_click="password_add.clickedShowHideTotpKey" data-eye_for="[data-totp_key_input]"><a><i class="icon-view" data-tooltip_content="i18n:view" data-icon_tooltip="true"></i></a></li>
+											</ul>
+										</span>
+									</div>
+									<div class="errormsg-text text-danger" data-error=""></div>
+								</div>
+							</div>
+
+							<div class="zv-label-group">
+								<div class="zvleft-label"><i-span>current_totp</i-span></div>
+
+								<div class="zvcenter-label">
+									<div class="field-control">
+										<div class="totp-panel" style="position: absolute; padding-top: 0;display: none;">
+											<svg width="36" height="36">
+												<circle r="10" cy="18" cx="18" stroke-width="5" stroke="#ccc" fill="none" />
+												<circle data-totp_circle="totp_circle" r="10" cy="18" cx="18" stroke-width="5" stroke="#4780da" fill="none" />
+											</svg>
+										</div>
+										<input data-current_totp="" type="text" disabled="disabled" class="current_totp_text" spellcheck="false" />
+										<span class="underline-animation"></span>
+										<span class="password-show-hide">
+											<ul class="add-password-plus-minus">
+												<li data-copy_current_totp="" data-on_click="password_add.clickedCopyCurrentTotp"><a><i class="icon-copy" style="margin-top: 2px;"></i></a></li>
+											</ul>
+										</span>
+									</div>
+								</div>
+
+								<div class="zvright-label">
+									<ul class="add-password-plus-minus">
+										<li data-show_totp_settings="" data-on_click="password_add.clickedShowTotpSettings"><a><i class="icon-general-settings" style="margin-top:2px;"></i></a></li>
+									</ul>
+								</div>
+							</div>
+
+							<!--Totp settings start-->
+							<div data-totp_settings="" data-on_enter="" class="zv-dropdown-popup zv-dropdown-popup-arrow-top" style="width: max-content; display: none;padding:10px 30px 10px 20px;position: absolute;right: 30px; top: 105px;z-index: 2000;">
+								<!--algorithm start-->
+								<div class="zv-label-group">
+									<div class="zvleft-label" style="width: 130px;"><i-span>algorithm</i-span></div>
+
+									<div class="zvcenter-label" style="width: 180px;">
+										<div class="field-control">
+											<select style="width: 100%;" data-totp_algorithm="" data-no_i18n="">
+												<option value="SHA1" selected="selected">SHA1</option>
+												<option value="SHA256">SHA256</option>
+												<option value="SHA512">SHA512</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<!-- algorithm end-->
+
+								<!--Digits start-->
+								<div class="zv-label-group">
+									<div class="zvleft-label" style="width: 130px;"><i-span>digits</i-span>
+									</div>
+
+									<div class="zvcenter-label" style="width: 180px;">
+										<div class="field-control">
+											<select style="width: 100%;" data-totp_digits="" data-no_i18n="">
+												<option value="6" selected="selected">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<!-- Digits end-->
+
+								<!--Time period start-->
+								<div class="zv-label-group">
+									<div class="zvleft-label" style="width: 130px;"><i-span>validity</i-span></div>
+
+									<div class="zvcenter-label" style="width: 180px;">
+										<div class="field-control">
+											<input data-time_period="" type="text" value="30" maxlength="3" style="z-index: 1;background:transparent;" autocomplete="off" spellcheck="false" data-on_input="password_add.handleTimePeriodEntering" data-on_change="password_add.handleTimePeriodChange" />
+											<span style="position: absolute;top: 2px;left: 30px;z-index: -1;" class="disabled"><i-span>seconds</i-span></span>
+										</div>
+									</div>
+								</div>
+								<!-- Time period end-->
+
+								<div>
+									<div class="pull-left" style="margin-bottom: 5px;">
+										<button type="button" data-close_totp_settings="" data-on_click="password_add.clickedHideTotpSettings" class="btn btn-md  bg-default-none"><i-span>cancel</i-span></button>
+									</div>
+								</div>
+							</div>
+							<!--Totp settings end-->
+						</div>
+						<!--Totp end-->
+
+						<!--url start-->
+						<div data-url_container="" data-reset="urlComponent"></div>
+						<!--url end-->
+
+						<!-- notes start-->
+						<div class="zv-label-group" data-on_enter="" id="notes">
+							<div class="zvleft-label"><i-span>notes</i-span></div>
+							<div class="zvcenter-label">
+								<div class="field-control">
+									<textarea name="notes" data-notes=""></textarea>
+									<span class="underline-animation"></span>
+								</div>
+							</div>
+						</div>
+						<!-- notes end -->
+
+						<!--tags start -->
+						<div class="zv-label-group" data-on_enter="">
+							<div class="zvleft-label"><i-span>tags</i-span></div>
+							<div class="zvcenter-label tags" id="add_password_tags_container" data-field_row="tags">
+								<div class="field-control text-ellipsis" style="margin-top: 0;">
+									<select class="form-control tag-select-box" id="tags_select" name="tags" data-tags_select="" style="width: 100%;" multiple="multiple"></select>
+									<span class="underline-animation"></span>
+								</div>
+								<div class="errormsg-text text-danger" data-error=""></div>
+							</div>
+						</div>
+						<!--tags end-->
+
+						<!-- <a data-more_fields="" data-on_click="password_add.clickedShowMoreFields"><i class="icon-plus icon-sm m-r-5"></i><span><i-span>show_more_fields</i-span></span></a> -->
+						<!--More fields start-->
+						<!-- <div data-additional_fields=""> -->
+
+						<!--optional file fields start-->
+						<div data-optional_file_fields=""></div>
+						<!--optional file fields end-->
+
+						<!--description start-->
+						<div class="zv-label-group" data-description_container="" data-field_row="description" data-on_enter="" data-selector="[data-description]">
+							<div class="zvleft-label"><i-span>description</i-span></div>
+							<div class="zvcenter-label">
+								<div class="field-control">
+									<textarea name="description" maxlength="250" data-description="" data-on_input="password_add.handleInputClearError" data-on_blur="password_add.handleDescriptionChange"></textarea>
+									<span class="underline-animation"></span>
+								</div>
+								<div class="errormsg-text text-danger" data-error=""></div>
+							</div>
+						</div>
+						<!--description end-->
+
+						<!--Custom fields start-->
+						<div data-custom_column_container="" data-selector="[data-custom_fields]">
+							<div class="zv-custom-field-title">
+								<span><i-span>add</i-span></span>
+								<span><i-span>custom_fields</i-span></span>
+							</div>
+
+							<div data-custom_fields=""></div>
+						</div>
+						<!--Custom fields end-->
+
+						<!-- </div> -->
+						<!--more fields end-->
+
+						<!-- <a data-more_fields="" data-on_click="password_add.clickedShowMoreFields"><i
+							class="icon-plus icon-sm m-r-5"></i><span><i-span>show_more_fields</i-span></span></a> -->
+
+					</div>
+					<div class="overlay-bg" data-totp_settings_overlay="" data-on_click="password_add.clickedHideTotpSettings" style="display: none;position: absolute;left: 0px; width: calc(100% - 2vw); background: transparent;">
+					</div>
+				</div>
+
+				<!-- Additional Fields -->
+				<div class="add_password_form_additional_field">
+					<div id="passwords_additional_fields_container" class="passwords-additional-fields-panel" style="display: none;">
+						<div class="password-filter-inner-container">
+							<ul class="password-filter-dropdown-list ">
+								<div data-additional_fields_select_all="">
+									<li>
+										<label class="form__checkbox">
+											<input type="checkbox" data-af_select_all_checkbox="" data-on_click="password_add.clickedAFSelectAll">
+											<span class="form__checkbox--text" data-fieldName=""><i-span>select_all</i-span></span>
+										</label>
+									</li>
+									<div class="divider clearfix"></div>
+								</div>
+								<div data-additionalFieldsList="">
+
+								</div>
+							</ul>
+						</div>
+					</div>
+					<a data-additional_fields="" data-on_click="password_add.clickedAdditionalFields"><i class="icon-plus icon-sm m-r-5"></i><span><i-span>additional_fields</i-span></span>
+					</a>
+				</div>
+				<!-- Additional Fields end -->
+
+				<!--footer start-->
+				<div class="zv-modal-footer">
+					<div class="pull-left">
+						<button type="button" class="btn btn-primary btn-md" data-save="" data-on_click="password_add.clickedSavePassword"><i-span>save</i-span></button>
+						<button type="button" class="btn bg-default-none btn-md" data-cancel="" data-on_click="password_add.clickedHideForm"><i-span>cancel</i-span></button>
+					</div>
+
+					<div class="pull-right" data-classification_container="">
+						<label class="personal-enterprise-switch" data-classification_label="" data-icon_tooltip="true">
+							<input type="checkbox" name="classification" data-classification="" checked>
+							<span class="personal-enterprise-slider"></span>
+							<span class="personal-enterprise-label">
+								<span class="personal"><i-span>personal</i-span></span>
+								<span class="enterprise"><i-span>enterprise</i-span></span>
+							</span>
+						</label>
+					</div>
+				</div>
+				<!--footer end-->
+			</form>
+
+		</div>
+	</template>
+
+	<template id="folder_select2_dropdown">
+		<div class="select2-results_repository clearfix" style="min-height: 30px;">
+			<div class="m-l-10">
+				<p class="table-text-title" data-folder_name=""></p>
+			</div>
+			<span class="folder-path m-l-10" data-folder_path=""></span>
+		</div>
+	</template>
+
+	<template id="folder_select2_arrow">
+		<i class="icon-arrow-right icon-xs" style="padding:0 3px;"></i>
+	</template>
+
+	<template id="add_password_text_input_template">
+		<div class="zv-label-group">
+			<div class="zvleft-label">
+				<span data-name=""></span>
+				<span class="zv-mandatory" data-mandatory=""><no-i-span>*</no-i-span></span>
+			</div>
+
+			<div class="zvcenter-label" data-field_row="">
+				<div class="field-control">
+					<input type="text" autocomplete="off" spellcheck="false" data-on_input="$.handleInputClearError" />
+					<span class="underline-animation"></span>
+				</div>
+				<div class="errormsg-text text-danger" data-error=""></div>
+			</div>
+
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li data-pii=""><abbr><i class="icon-pii icon-md" data-tooltip_content="i18n:field_holds_personal_data" data-icon_tooltip="true"></i></abbr></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="add_password_textarea_template">
+		<div class="zv-label-group" data-on_enter="">
+			<div class="zvleft-label">
+				<span data-name=""></span>
+				<span class="zv-mandatory" data-mandatory=""><no-i-span>*</no-i-span></span>
+			</div>
+
+			<div class="zvcenter-label" data-field_row="">
+				<div class="field-control">
+					<textarea autocomplete="off" spellcheck="false" data-on_input="$.handleInputClearError"></textarea>
+					<span class="underline-animation"></span>
+				</div>
+				<div class="errormsg-text text-danger" data-error=""></div>
+			</div>
+
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li data-pii=""><abbr><i class="icon-pii icon-md" data-tooltip_content="i18n:field_holds_personal_data" data-icon_tooltip="true"></i></abbr></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="add_password_password_input_template">
+		<div class="zv-label-group">
+			<div class="zvleft-label">
+				<span data-name=""></span>
+				<span class="zv-mandatory" data-mandatory=""><no-i-span>*</no-i-span></span>
+			</div>
+
+			<div class="zvcenter-label" data-field_row="">
+				<div class="field-control">
+					<input type="password" style="max-width: calc(100% - 40px);" data-parent="[data-field_row]" autocomplete="off" spellcheck="false" data-on_input="$.handleInputClearError" data-on_blur="$.handlePasswordChange" class="zvf-monospace" />
+					<span class="underline-animation"></span>
+				</div>
+				<div class="errormsg-text text-danger" data-error=""></div>
+				<span class="password-show-hide">
+					<ul class="add-password-plus-minus">
+						<li data-show_hide="" data-on_click="$.clickedShowHidePassword" data-eye_input_parent="[data-field_row]" data-eye_for="input"><a><i class="icon-view" data-icon="eye" data-tooltip_content="i18n:view" data-icon_tooltip="true"></i></a></li>
+					</ul>
+				</span>
+			</div>
+
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li data-pii=""><abbr><i class="icon-pii icon-md" data-tooltip_content="i18n:field_holds_personal_data" data-icon_tooltip="true"></i></abbr></li>
+					<li data-generate_password="" data-on_click="$.clickedGeneratePassword"><a data-tooltip_content="i18n:generate" data-icon_tooltip="true"><i class="icon-pwd-generate"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="add_card_password_input_template">
+		<div class="zv-label-group">
+			<div class="zvleft-label">
+				<span data-name=""></span>
+				<span class="zv-mandatory" data-mandatory=""><no-i-span>*</no-i-span></span>
+			</div>
+
+			<div class="zvcenter-label" data-field_row="">
+				<div class="field-control">
+					<input type="password" autocomplete="off" spellcheck="false" data-on_input="$.handleInputClearError" class="zvf-monospace" />
+					<span class="underline-animation"></span>
+				</div>
+				<div class="errormsg-text text-danger" data-error=""></div>
+				<span class="password-show-hide">
+					<ul class="add-password-plus-minus">
+						<li data-show_hide="" data-on_click="$.clickedShowHidePassword" data-eye_input_parent="[data-field_row]" data-eye_for="input"><a><i class="icon-view" data-tooltip_content="i18n:view" data-icon_tooltip="true"></i></a></li>
+					</ul>
+				</span>
+			</div>
+
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li data-pii=""><abbr><i class="icon-pii icon-md" data-tooltip_content="i18n:field_holds_personal_data" data-icon_tooltip="true"></i></abbr></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="add_card_cvv_input_template">
+		<div class="zv-label-group zv-label-group-two-col">
+			<div class="zvleft-label">
+				<span data-name=""></span>
+				<span class="zv-mandatory" data-mandatory=""><no-i-span>*</no-i-span></span>
+			</div>
+
+			<div class="zvcenter-label" data-field_row="">
+				<div class="field-control">
+					<input type="password" autocomplete="off" spellcheck="false" data-on_input="$.handleInputClearError" class="zvf-monospace" />
+					<span class="underline-animation"></span>
+				</div>
+				<div class="errormsg-text text-danger" data-error=""></div>
+				<span class="password-show-hide">
+					<ul class="add-password-plus-minus">
+						<li data-show_hide="" data-on_click="$.clickedShowHidePassword" data-eye_input_parent="[data-field_row]" data-eye_for="input"><a><i class="icon-view" data-tooltip_content="i18n:view" data-icon_tooltip="true"></i></a></li>
+					</ul>
+				</span>
+			</div>
+
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li data-pii=""><abbr><i class="icon-pii icon-md" data-tooltip_content="i18n:field_holds_personal_data" data-icon_tooltip="true"></i></abbr></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="add_card_validity_template">
+		<div class="zv-label-group zv-label-group-two-col">
+			<div class="zvleft-label">
+				<span data-name=""></span>
+				<span class="zv-mandatory" data-mandatory=""><no-i-span>*</no-i-span></span>
+			</div>
+
+			<div class="zvcenter-label" data-field_row="">
+				<div class="field-control">
+					<input type="text" autocomplete="off" spellcheck="false" hidden />
+					<span class="underline-animation"></span>
+					<select style="width:45%;" data-expiry_month name="expiry_month" data-no_i18n="">
+						<option value="0">mm</option>
+						<option value="01">01</option>
+						<option value="02">02</option>
+						<option value="03">03</option>
+						<option value="04">04</option>
+						<option value="05">05</option>
+						<option value="06">06</option>
+						<option value="07">07</option>
+						<option value="08">08</option>
+						<option value="09">09</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select>
+					<select style="width:50%;" data-expiry_year name="expiry_year"></select>
+				</div>
+				<div class="errormsg-text text-danger" data-error=""></div>
+			</div>
+
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li data-pii=""><abbr><i class="icon-pii icon-md" data-tooltip_content="i18n:field_holds_personal_data" data-icon_tooltip="true"></i></abbr></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="add_address_dropdown_template">
+		<div class="zv-label-group">
+			<div class="zvleft-label">
+				<span data-name=""></span>
+				<span class="zv-mandatory" data-mandatory="">*</span>
+			</div>
+
+			<div class="zvcenter-label" data-field_row="">
+				<div class="field-control">
+					<input type="text" autocomplete="off" spellcheck="false" hidden />
+					<span class="underline-animation"></span>
+					<select style="width:100%;" data-dropdown name=""></select>
+				</div>
+				<div class="errormsg-text text-danger" data-error=""></div>
+			</div>
+
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li data-pii=""><abbr><i class="icon-pii icon-md" data-tooltip_content="i18n:field_holds_personal_data" data-icon_tooltip="true"></i></abbr></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="add_address_zip_input_template">
+		<div class="zv-label-group zv-label-group-two-col">
+			<div class="zvleft-label">
+				<span data-name=""></span>
+				<span class="zv-mandatory" data-mandatory="">*</span>
+			</div>
+
+			<div class="zvcenter-label" data-field_row="">
+				<div class="field-control">
+					<input type="text" autocomplete="off" spellcheck="false" data-on_input="$.handleInputClearError" />
+					<span class="underline-animation"></span>
+				</div>
+				<div class="errormsg-text text-danger" data-error=""></div>
+			</div>
+
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li data-pii=""><abbr><i class="icon-pii icon-md" data-tooltip_content="i18n:field_holds_personal_data" data-icon_tooltip="true"></i></abbr></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="add_password_file_input_template">
+		<div class="zv-label-group">
+			<div class="zvleft-label">
+				<span data-name=""></span>
+				<span class="zv-mandatory" data-mandatory=""><no-i-span>*</no-i-span></span>
+			</div>
+
+			<div class="zvcenter-label" data-field_row="">
+				<div class="field-control">
+					<div class="add-password-upload-doc-panel">
+						<div>
+							<!--upload start-->
+							<div data-upload_div="">
+								<a href="#" data-upload_a="" data-on_click="$.clickedUpload"><b><i-span>upload</i-span></b> </a>
+								<input type="file" name="" style="visibility:hidden;position:absolute;top:0;left: 0;" data-on_input="$.handleInputClearError" data-on_change="$.handleFileInputChange" />
+								<sub class="max-file-size"> <no-i-span>(</no-i-span><span><i-span>file_size_within_max</i-span></span><no-i-span>)</no-i-span></sub>
+							</div>
+							<!--upload end-->
+
+							<!--file info div start-->
+							<div style="display: none;" class="" data-file_info="">
+								<a href="#">
+									<span style="max-width: 80%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display:inline-block;vertical-align: middle;" data-file_name="">File Name</span>
+									<i class="icon-close icon-xs m-l-10" data-remove_file="" data-on_click="$.clickedRemoveFile"></i>
+								</a>
+							</div>
+							<!--file info div end-->
+
+						</div>
+					</div>
+				</div>
+				<div class="errormsg-text text-danger" data-error=""></div>
+			</div>
+
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li data-pii=""><abbr><i class="icon-pii icon-md" data-tooltip_content="i18n:field_holds_personal_data" data-icon_tooltip="true"></i></abbr></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="add_password_url_row_template">
+		<div class="zv-label-group" data-url_row="">
+			<div class="zvleft-label" name="label">
+				<span><i-span>url</i-span></span>
+				<span data-url_n="">0</span>
+			</div>
+
+			<div class="zvcenter-label" data-field_row="">
+				<div class="field-control">
+					<input type="text" spellcheck="false" data-on_input="$.handleInputClearError" data-on_blur="$.handleUrlInput" />
+					<span class="underline-animation"></span>
+				</div>
+				<div data-error="" class="errormsg-text text-danger"></div>
+			</div>
+
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li data-plus="" data-on_click="$.clickedAddUrlRow"><a href="#" tabindex="-1"><i class="icon-plus-line" data-tooltip_content="i18n:add_url" data-icon_tooltip="true"></i></a></li>
+					<li data-minus="" data-on_click="$.clickedRemoveUrlRow"><a href="#" tabindex="-1"><i class="icon-minus-line" data-tooltip_content="i18n:remove_url" data-icon_tooltip="true"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="add_password_custom_field_template">
+		<div class="password-custom-group clearfix" data-custom_col_row="">
+			<div class="zvcustom-left-label">
+				<aside data-field_row="">
+					<div class="field-control">
+						<input type="text" name="column_name" placeholder="Field Name" spellcheck="false" data-on_input="$.handleInputClearError">
+						<span class="underline-animation"></span>
+					</div>
+					<div class="errormsg-text text-danger" data-error=""></div>
+				</aside>
+
+				<aside data-col_val_container="" data-field_row=""></aside>
+
+				<aside>
+					<div class="field-control">
+						<select class="form-control" style="width:100%;" data-field_type_select="">
+							<option value="text" data-i18n_key="text">Text</option>
+							<option value="password" data-i18n_key="password">Password</option>
+							<option value="file" data-i18n_key="file">File</option>
+						</select>
+					</div>
+				</aside>
+			</div>
+
+			<div class="zvright-label">
+				<ul class="add-password-plus-minus">
+					<li data-plus="" data-on_click="$.clickedAddCustomFieldRow"><a href="#"><i class="icon-plus-line" data-icon_tooltip="true" data-tooltip_content="i18n:add_field"></i></a></li>
+					<li data-minus="" data-on_click="$.clickedRemoveCustomFieldRow"><a href="#"><i class="icon-minus-line" data-icon_tooltip="true" data-tooltip_content="i18n:remove_field"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="add_pass_custom_text_field_template">
+		<div data-field_row="">
+			<div class="field-control">
+				<input type="text" placeholder="i18n:value" name="column_value" spellcheck="false" data-on_input="$.handleInputClearError" />
+				<span class="underline-animation"></span>
+			</div>
+			<div class="errormsg-text text-danger" data-error=""></div>
+		</div>
+	</template>
+
+	<template id="add_pass_custom_password_field_template">
+		<div data-field_row="">
+			<div class="field-control">
+				<input style="max-width: calc(100% - 40px);" type="password" name="column_value" data-on_input="$.handleInputClearError" class="zvf-monospace" />
+				<span class="underline-animation"></span>
+				<span class="password-show-hide">
+					<ul class="add-password-plus-minus">
+						<li data-show_hide="" data-on_click="$.clickedShowHideCustomFieldPassword" data-eye_input_parent="[data-field_row]" data-eye_for="input"><a href="#"><i class="icon-view" data-icon_tooltip="true" data-tooltip_content="i18n:view"></i></a>
+						</li>
+					</ul>
+				</span>
+			</div>
+			<div class="errormsg-text text-danger" data-error=""></div>
+		</div>
+	</template>
+
+	<template id="add_pass_custom_file_field_template">
+		<div data-field_row="">
+			<div class="field-control">
+				<div>
+					<!--upload start-->
+					<div data-upload_div="">
+						<a href="#" data-upload_a="" data-on_click="$.clickedUpload"><b><i-span>upload</i-span></b> </a>
+						<input type="file" name="column_value" style="visibility:hidden;position:absolute;top:0;left: 0;" data-on_change="$.handleFileInputChange" data-on_input="$.handleInputClearError" />
+					</div>
+					<!--upload end-->
+
+					<!--file info div start-->
+					<div style="display: none;" class="" data-file_info="">
+						<a href="#">
+							<span style="max-width: 80%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display:inline-block;vertical-align: middle;" data-file_name="">File Name</span>
+							<i class="icon-close icon-xs m-l-10 m-t-5" data-remove_file="" data-on_click="$.clickedRemoveFile"></i>
+						</a>
+					</div>
+					<!--file info div end-->
+
+				</div>
+			</div>
+			<div class="errormsg-text text-danger" data-error=""></div>
+		</div>
+	</template>
+
+	<template id="never_save_domain_template">
+		<li>
+			<div class="neverSave__text" data-content="">zoho.com</div>
+			<div class="neverSave__iconsPanel">
+				<ul>
+					<li style="visibility: hidden;"><i class="icon-edit"></i></li>
+					<li><i class="icon-delete text-danger" data-tooltip_content="i18n:delete" data-icon_tooltip="true"></i></li>
+				</ul>
+			</div>
+		</li>
+	</template>
+
+	<template id="folder_list_item_template">
+		<div class="folder-list-panel pointer" data-folder_id="" data-path="" data-on_click="folders_ui.clicked_show_folder_passwords">
+			<div class="folder-list-panel-inner">
+				<i class="icon-arrow-right folder-icon-left" data-expand="" data-on_click="folders_ui.clicked_expand_arrow"></i>
+				<i class="icon-down-arrow folder-icon-left" data-collapse="" style="display: none;" data-on_click="folders_ui.clicked_collapse_arrow"></i>
+				<div class="folder-list-title" data-name="">Test</div>
+				<ul class="card-view-right-icon-list">
+					<li data-shared_by_me=""><span class="sharebyme"><i class="icon-share-to-me" data-tooltip_content="i18n:shared_by_me" data-icon_tooltip="true"></i></span></li>
+					<li data-shared_to_me=""><span class="sharetome"><i class="icon-share-by-me" data-tooltip_content="i18n:shared_with_me" data-icon_tooltip="true"></i></span></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="folder_search_list_item_template">
+		<div class="folder-list-panel pointer" data-folder_id="" data-path="" data-on_click="folders_ui.clicked_show_folder_passwords">
+			<div class="folder-list-panel-inner">
+				<div style="margin-right: 40px;">
+					<h6 class="password-list-name" data-name="">Name</h6>
+					<p class="password-list-description text-default" data-path="" style="min-height: 5px;">
+						Description</p>
+				</div>
+				<ul class="card-view-right-icon-list">
+					<li data-shared_by_me=""><span class="sharebyme"><i class="icon-share-to-me" data-tooltip_content="i18n:shared_by_me" data-icon_tooltip="true"></i></span></li>
+					<li data-shared_to_me=""><span class="sharetome"><i class="icon-share-by-me" data-tooltip_content="i18n:shared_with_me" data-icon_tooltip="true"></i></span></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+	<template id="trash_list_item_template">
+		<div class="card-view-password-list" data-on_click="trash_ui.clicked_show_password_details">
+			<div class="card-view-password-list-inner">
+				<div class="card-view-list-left">
+					<span class="card-view-list-no-image" style="background-color: lightblue;" data-no_logo=""></span>
+					<span class="card-view-list-left-img img-contain" data-logo=""></span>
+				</div>
+				<div class="card-view-list-right">
+					<h6 class="card-view-password-name" data-name="">Password Name</h6>
+					<p class="card-view-password-description text-default" data-description="">User Name</p>
+					<div class="card-view-password-icons" data-icon_list="" data-on_click="">
+						<ul data-password_actions="">
+							<li data-on_click="trash_ui.clickedRestorePassword" data-restore=""><a href="#"> <i class="icon-reset-password" data-tooltip_content="i18n:restore_password" data-icon_tooltip="true"></i></a></li>
+							<li data-on_click="trash_ui.clickedDeletePassword" data-delete=""><a href="#"><i class="icon-delete text-danger" data-tooltip_content="i18n:delete_password" data-icon_tooltip="true"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="edit_password_template">
+		<div data-on_parent="password_edit">
+			<div class="modal-panel-header clearfix bg-gray">
+				<h4 id="user-group-modal-title"><i-span>edit_password</i-span></h4>
+				<span class="modal-panel-close" data-close="" data-on_click="password_edit.clickedHideForm">
+					<a><i class="icon-close"></i></a>
+				</span>
+			</div>
+
+			<form id="editPasswordForm" data-on_enter="password_edit.clickedSavePassword">
+				<div class="add_password_form_scrollable_div">
+					<div class="zv-add-password-body clearfix" style="padding-right: 20px;">
+
+						<!--name start-->
+						<div class="zv-label-group">
+							<div class="zvleft-label">
+								<span><i-span>name</i-span></span> <span class="zv-mandatory"><no-i-span>*</no-i-span></span>
+							</div>
+							<div class="zvcenter-label" data-field_row="name">
+								<div class="field-control">
+									<input type="text" data-name="" name="secret_name" maxlength="250" data-mandatory="true" spellcheck="false" autocomplete="off" data-on_blur="password_edit.handleNameChange" data-on_input="password_edit.handleInputClearError" />
+									<span class="underline-animation"></span>
+								</div>
+								<div class="errormsg-text text-danger" data-error=""></div>
+							</div>
+							<div class="zvright-label">
+								<span class="add-password-display-icon" data-select_logo="" data-tooltip_content="i18n:remove_logo" data-icon_tooltip="true" data-on_click="password_edit.clickedLogo">
+									<img src="/images/password/icon-upload.svg" data-logo_preview="" data-tooltip_content="i18n:upload_logo" data-icon_tooltip="true" />
+								</span>
+								<span hidden="">
+									<input type="file" data-logo_input="" data-on_change="password_edit.handleLogoChange">
+								</span>
+							</div>
+						</div>
+						<!--name end-->
+
+						<!--password policies start-->
+						<div class="zv-label-group" data-policy_container="">
+							<div class="zvleft-label"><i-span>password_policy</i-span></div>
+							<div class="zvcenter-label">
+								<div class="field-control text-ellipsis" style="margin-top: 0;">
+									<select class="form-control" name="password_policy_select" data-policy_select="" style="width: 100%;"></select>
+								</div>
+							</div>
+						</div>
+						<!--password policies end-->
+
+						<!--secret data fields start-->
+						<div data-fields_container=""></div>
+						<!--secret data fields end-->
+
+						<!-- OneAuth Secrets -->
+						<div class="zv-label-group" data-oneauthSecretsContainer="" data-selector="[data-addOneAuthSecrets]">
+							<div class="zvleft-label"><i-span>oneauth_secrets</i-span></div>
+							<div class="zvcenter-label">
+								<div class="field-control text-ellipsis" style="margin-top: 0;">
+									<select class="form-control" data-addOneAuthSecrets="" style="width: 100%;">
+										<option></option>
+									</select>
+								</div>
+							</div>
+						</div>
+						<!-- OneAuth Secrets -->
+
+						<!--Totp start-->
+						<div id="totp_fields" data-selector="[data-totp_key_input]">
+							<div class="zv-label-group">
+								<div class="zvleft-label"><i-span>totp_key</i-span></div>
+								<div class="zvcenter-label" data-field_row="totp">
+									<div class="field-control">
+										<input data-totp_key_input="" data-on_input="password_edit.handleTotpKeyInput" data-on_blur="password_edit.handleTotpKeyChange" style="max-width: calc(100% - 40px);" type="password" placeholder="Ex: QJP5 GZBH 6GNA WARH" spellcheck="false" />
+										<span class="underline-animation"></span>
+										<span class="password-show-hide">
+											<ul class="add-password-plus-minus">
+												<li data-show_hide="" data-on_click="password_edit.clickedShowHideTotpKey" data-eye_for="[data-totp_key_input]"><a><i class="icon-view" data-tooltip_content="i18n:view" data-icon_tooltip="true"></i></a></li>
+											</ul>
+										</span>
+									</div>
+									<div class="errormsg-text text-danger" data-error=""></div>
+								</div>
+							</div>
+
+							<div class="zv-label-group">
+								<div class="zvleft-label"><i-span>current_totp</i-span></div>
+
+								<div class="zvcenter-label">
+									<div class="field-control">
+										<div class="totp-panel" style="position: absolute; padding-top: 0;display: none;">
+											<svg width="36" height="36">
+												<circle r="10" cy="18" cx="18" stroke-width="5" stroke="#ccc" fill="none" />
+												<circle data-totp_circle="totp_circle" r="10" cy="18" cx="18" stroke-width="5" stroke="#4780da" fill="none" />
+											</svg>
+										</div>
+										<input data-current_totp="" type="text" disabled="disabled" class="current_totp_text" spellcheck="false" />
+										<span class="underline-animation"></span>
+										<span class="password-show-hide">
+											<ul class="add-password-plus-minus">
+												<li data-copy_current_totp="" data-on_click="password_edit.clickedCopyCurrentTotp"><a><i class="icon-copy" style="margin-top: 2px;"></i></a></li>
+											</ul>
+										</span>
+									</div>
+								</div>
+
+								<div class="zvright-label">
+									<ul class="add-password-plus-minus">
+										<li data-show_totp_settings="" data-on_click="password_edit.clickedShowTotpSettings"><a><i class="icon-general-settings" style="margin-top:2px;"></i></a></li>
+									</ul>
+								</div>
+							</div>
+
+							<!--Totp settings start-->
+							<div data-totp_settings="" data-on_enter="" class="zv-dropdown-popup zv-dropdown-popup-arrow-top" style="width: max-content; display: none;padding:10px 30px 10px 20px;position: absolute;right: 30px; top: 105px;z-index: 2000;">
+								<!--algorithm start-->
+								<div class="zv-label-group">
+									<div class="zvleft-label" style="width: 130px;"><i-span>algorithm</i-span></div>
+
+									<div class="zvcenter-label" style="width: 180px;">
+										<div class="field-control">
+											<select style="width: 100%;" data-totp_algorithm="" data-no_i18n="">
+												<option value="SHA1" selected="selected">SHA1</option>
+												<option value="SHA256">SHA256</option>
+												<option value="SHA512">SHA512</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<!-- algorithm end-->
+
+								<!--Digits start-->
+								<div class="zv-label-group">
+									<div class="zvleft-label" style="width: 130px;"><i-span>digits</i-span>
+									</div>
+
+									<div class="zvcenter-label" style="width: 180px;">
+										<div class="field-control">
+											<select style="width: 100%;" data-totp_digits="" data-no_i18n="">
+												<option value="6" selected="selected">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<!-- Digits end-->
+
+								<!--Time period start-->
+								<div class="zv-label-group">
+									<div class="zvleft-label" style="width: 130px;"><i-span>validity</i-span></div>
+
+									<div class="zvcenter-label" style="width: 180px;">
+										<div class="field-control">
+											<input data-time_period="" type="text" value="30" maxlength="3" style="z-index: 1;background:transparent;" autocomplete="off" spellcheck="false" data-on_input="password_edit.handleTimePeriodEntering" data-on_change="password_edit.handleTimePeriodChange" />
+											<span style="position: absolute;top: 2px;left: 30px;z-index: -1;" class="disabled"><i-span>seconds</i-span></span>
+										</div>
+									</div>
+								</div>
+								<!-- Time period end-->
+
+								<div>
+									<div class="pull-left" style="margin-bottom: 5px;">
+										<button type="button" data-close_totp_settings="" data-on_click="password_edit.clickedHideTotpSettings" class="btn btn-md  bg-default-none"><i-span>cancel</i-span></button>
+									</div>
+								</div>
+							</div>
+							<!--Totp settings end-->
+						</div>
+						<!--Totp end-->
+
+						<!-- notes start-->
+						<div class="zv-label-group" data-on_enter="" id="notes">
+							<div class="zvleft-label"><i-span>notes</i-span></div>
+							<div class="zvcenter-label">
+								<div class="field-control">
+									<textarea name="notes" data-notes=""></textarea>
+									<span class="underline-animation"></span>
+								</div>
+							</div>
+						</div>
+						<!-- notes end -->
+
+						<!--url start-->
+						<div data-url_container="" data-reset="urlComponent"></div>
+						<!--url end-->
+
+						<!--tags start -->
+						<div class="zv-label-group" data-on_enter="">
+							<div class="zvleft-label"><i-span>tags</i-span></div>
+							<div class="zvcenter-label tags" id="add_password_tags_container" data-field_row="tags">
+								<div class="field-control text-ellipsis" style="margin-top: 0;">
+									<select class="form-control tag-select-box" id="tags_select" name="tags" data-tags_select="" style="width: 100%;" multiple="multiple"></select>
+									<span class="underline-animation"></span>
+								</div>
+								<div class="errormsg-text text-danger" data-error=""></div>
+							</div>
+						</div>
+						<!--tags end-->
+
+						<!--More fields start-->
+						<div style="display: block;">
+
+							<!--optional file fields start-->
+							<div data-optional_file_fields=""></div>
+							<!--optional file fields end-->
+
+							<!--description start-->
+							<div class="zv-label-group" data-description_container="" data-field_row="description" data-on_enter="" data-selector="[data-description]">
+								<div class="zvleft-label"><i-span>description</i-span></div>
+								<div class="zvcenter-label">
+									<div class="field-control">
+										<textarea name="description" maxlength="250" data-description="" data-on_input="password_edit.handleInputClearError" data-on_blur="password_edit.handleDescriptionChange"></textarea>
+										<span class="underline-animation"></span>
+									</div>
+									<div class="errormsg-text text-danger" data-error=""></div>
+								</div>
+							</div>
+							<!--description end-->
+
+							<!--Custom fields start-->
+							<div data-custom_column_container="" data-reset="customFieldComponent" data-selector="[data-custom_fields]">
+								<div class="zv-custom-field-title">
+									<span><i-span>manage_custom_fields</i-span></span>
+								</div>
+
+								<div data-custom_fields=""></div>
+							</div>
+							<!--Custom fields end-->
+
+						</div>
+						<!--more fields end-->
+
+
+					</div>
+					<div class="overlay-bg" data-totp_settings_overlay="" data-on_click="password_edit.clickedHideTotpSettings" style="display: none;position: absolute;left: 0px; width: calc(100% - 2vw); background: transparent;">
+					</div>
+				</div>
+
+				<!-- additional fields -->
+				<div class="add_password_form_additional_field">
+					<div id="passwords_additional_fields_container" class="passwords-additional-fields-panel" style="display: none;">
+						<div class="password-filter-inner-container">
+							<ul class="password-filter-dropdown-list ">
+								<div data-additional_fields_select_all="">
+									<li>
+										<label class="form__checkbox">
+											<input type="checkbox" data-af_select_all_checkbox="" data-on_click="password_edit.clickedAFSelectAll">
+											<span class="form__checkbox--text" data-fieldName=""><i-span>select_all</i-span></span>
+										</label>
+									</li>
+
+									<div class="divider clearfix"></div>
+								</div>
+								<div data-additionalFieldsList="">
+
+								</div>
+							</ul>
+						</div>
+					</div>
+					<a data-additional_fields="" data-on_click="password_edit.clickedAdditionalFields"><i class="icon-plus icon-sm m-r-5"></i><span><i-span>additional_fields</i-span></span></a>
+				</div>
+				<!-- additional fields end -->
+
+				<!--footer start-->
+				<div class="zv-modal-footer">
+					<div class="pull-left">
+						<button type="button" class="btn btn-primary btn-md" data-save="" data-on_click="password_edit.clickedSavePassword"><i-span>update</i-span></button>
+						<button type="button" class="btn bg-default-none btn-md" data-cancel="" data-on_click="password_edit.clickedHideForm"><i-span>cancel</i-span></button>
+					</div>
+
+					<div class="pull-right" data-classification_container="">
+						<label class="personal-enterprise-switch" data-classification_label="" data-icon_tooltip="true">
+							<input type="checkbox" name="classification" data-classification="">
+							<span class="personal-enterprise-slider"></span>
+							<span class="personal-enterprise-label">
+								<span class="personal">Personal</span>
+								<span class="enterprise">Enterprise</span>
+							</span>
+						</label>
+					</div>
+
+				</div>
+				<!--footer end-->
+			</form>
+		</div>
+	</template>
+
+	<template id="share_password_template">
+		<div style="height: 100%;" data-share_password_ui="">
+			<div class="modal-panel-header bg-gray">
+				<h4 class="modal-panel-title"><i-span>share_password</i-span></h4>
+				<span class="modal-panel-close" data-name="closeForm"><a href="#"><i class="icon-close"></i> </a> </span>
+			</div>
+
+			<div class="password-right-slider-content" style="height: 100%;">
+				<div class="zv-pwd-details-header clearfix m-b-10">
+					<span class="password-details-title-img">
+						<span data-logo="" class="card-view-list-left-img img-contain"></span>
+						<span data-no_logo="" class="card-view-list-no-image"></span>
+					</span>
+					<h5 class="modal-panel-title pull-left">
+						<span data-secret_name="" data-tooltip_content="">Password Name</span>
+						<p class="text-default password-details-sub-title">
+							<span data-username="" data-tooltip_content="">Apr 13, 2021</span>
+						</p>
+					</h5>
+				</div>
+
+				<div class="cleafix">
+					<ul class="vault-tabs-horizontal no-margin">
+						<li data-show_tab="user"><a href="#" class="selected" data-user_share_tab_highlight_header=""><i-span>users</i-span></a></li>
+						<li data-show_tab="user_group"><a href="#" data-user_group_share_tab_highlight_header=""><i-span>user_groups</i-span></a></li>
+						<li data-show_tab="third_party"><a href="#" data-third_party_share_tab_highlight_header=""><i-span>third_parties</i-span></a></li>
+					</ul>
+				</div>
+
+				<div data-sharing_tab_container="" style="height: 100%;">
+					<div style="display: block;">
+						<vault-loading></vault-loading>
+					</div>
+				</div>
+
+			</div>
+
+			<footer class="apps-footer clearfix">
+				<div class="pull-left">
+					<button type="button" href="#" data-share_password_button="" class="btn btn-md btn-primary pull-left" style="display: none;"><i-span>share_password</i-span></button>
+					<button type="button" class="btn btn-md btn-default-line m-l-5" data-name="closeForm"><i-span>cancel</i-span></button>
+				</div>
+				<!-- <div class="pull-right m-t-10">
+					<span data-selected_count_text=""><i-span>n_users_selected</i-span></span>
+				</div> -->
+			</footer>
+		</div>
+	</template>
+
+	<template id="user_sharing_tab_template">
+		<div style="height: 100%;">
+			<div class="clearfix m-t-10">
+				<div class="table-search-panel table-search-panel_temp pull-left m-r-5" data-field_row="">
+					<div class="table-search-panel-dropdown pointer">
+						<i class="icon-magnifier"></i>
+					</div>
+					<input type="text" id="user_sharing_search" data-search="" placeholder="i18n:search" spellcheck="false" data-clear_parent_selector="[data-field_row]" data-clear_selector="[data-clear_input]" />
+					<span class="password-search-close" data-name="clearSearch" id="clear_user_sharing_search" data-clear_input="#user_sharing_search" style="display: none;">
+						<i class="icon-close"></i>
+					</span>
+				</div>
+				<div data-global_grant_revoke_container="" class="pull-left">
+					<button type="button" class="btn btn-primary-line btn-md" data-global_grant=""><span><i-span>grant</i-span></span><span class="dropdown-toggle"></span></button>
+					<button type="button" class="btn btn-danger-line btn-md" data-global_revoke=""><i-span>revoke</i-span></button>
+				</div>
+				<div class="pagination-panel" data-pagination_panel="">
+					<span class="pull-left m-t-5">
+						<span><i-span>displaying</i-span></span>
+						<b data-pagintation_displaying=""></b>
+						<span><i-span>of</i-span></span>
+						<b data-pagintation_total=""></b>
+					</span>
+					<ul class="pagination-link m-t-5">
+						<li data-pagination_left_arrow_container="">
+							<a href="#" data-pagination_left_arrow="">
+								<i class="icon-arrow-left"></i>
+							</a>
+						</li>
+						<li data-pagination_right_arrow_container="">
+							<a href="#" data-pagination_right_arrow="">
+								<i class="icon-arrow-right"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<table class="vault-table">
+				<thead>
+					<tr>
+						<th style="width:10px;">
+							<label class="checkbox-container">
+								<input type="checkbox" data-global_checkbox="">
+								<span class="checkmark"></span>
+							</label>
+						</th>
+						<th style="width: 50%"><i-span>user</i-span></th>
+						<th class="accessPrivilege"><i-span>access_privilege</i-span></th>
+						<th class="sharingActions"><i-span>actions</i-span></th>
+					</tr>
+				</thead>
+			</table>
+
+			<div class="no-data-panel" data-no_users="" style="display: block;">
+				<div class="no-data-panel-inner">
+					<img src="/images/user/no-users-images.svg" />
+					<p class="text-default" data-text="">No matching users found</p>
+				</div>
+			</div>
+
+			<div class="shareScroll">
+				<table class="vault-table no-margin" style="margin-bottom: 20px !important;border: none;">
+					<tbody data-user_list="">
+					</tbody>
+				</table>
+
+			</div>
+
+			<div class="grantMenu zv-dropdown-popup" data-grant_menu="" data-user="" style="display: none;">
+				<ul class="vault-common-list">
+					<li data-share_level="LOGIN"><a href="#" class="vault-common-list-selected"><i-span>share_one_click_login</i-span></a></li>
+					<li data-share_level="VIEW"><a href="#"><i-span>view</i-span></a></li>
+					<li data-share_level="MODIFY"><a href="#"><i-span>modify</i-span></a></li>
+					<li data-share_level="MANAGE"><a href="#"><i-span>manage</i-span></a></li>
+				</ul>
+			</div>
+
+			<div class="grantMenu zv-dropdown-popup" data-global_grant_menu="" style="display: none;">
+				<ul class="vault-common-list">
+					<li data-share_level="LOGIN"><a href="#"><i-span>share_one_click_login</i-span></a></li>
+					<li data-share_level="VIEW"><a href="#"><i-span>view</i-span></a></li>
+					<li data-share_level="MODIFY"><a href="#"><i-span>modify</i-span></a></li>
+					<li data-share_level="MANAGE"><a href="#"><i-span>manage</i-span></a></li>
+				</ul>
+			</div>
+
+			<div class="overlay-bg" data-grant_overlay="" style="display: none;position: absolute;height: 100%;left: 0px; width: 100%; background: transparent;">
+			</div>
+		</div>
+	</template>
+
+	<template id="password_share_user_row_template">
+		<tr data-user="">
+			<td style="width: 20px; cursor: pointer;" data-select_checkbox=""><label class="checkbox-container" data-on_click=""><input type="checkbox" data-selected="" /><span class="checkmark"></span></label>
+			</td>
+			<td style="width:50%;padding-left:0;cursor: pointer;" data-user_detail="">
+				<span class="table-profile-image"><img width="40" src="/images/user/profile.svg" data-dp="" /></span>
+				<div class="dis-inblock v-middle">
+					<p class="table-user-name" data-name="">Name</p>
+					<span class="table-user-email text-default" data-email="">Email</span>
+				</div>
+			</td>
+			<td class="accessPrivilege">
+				<p class="no-margin defaultCursor" data-share_level="">Manage</p>
+			</td>
+			<td class="sharingActions">
+				<button type="button" class="btn btn-primary-line btn-sm" data-grant=""><span><i-span>grant</i-span></span><span class="dropdown-toggle"></span></button>
+				<button type="button" class="btn btn-danger-line btn-sm m-l-5" data-revoke=""><i-span>revoke</i-span></button>
+			</td>
+		</tr>
+	</template>
+
+	<template id="user_group_sharing_tab_template">
+		<div style="height: 100%;">
+			<div class="clearfix m-t-10">
+				<div class="table-search-panel table-search-panel_temp pull-left m-r-5" data-field_row="">
+					<div class="table-search-panel-dropdown pointer">
+						<i class="icon-magnifier"></i>
+					</div>
+					<input type="text" id="user_sharing_search" data-search="" placeholder="i18n:search" spellcheck="false" data-clear_parent_selector="[data-field_row]" data-clear_selector="[data-clear_input]" />
+					<span class="password-search-close" data-name="clearSearch" id="clear_user_sharing_search" data-clear_input="#user_sharing_search" style="display: none;">
+						<i class="icon-close"></i>
+					</span>
+				</div>
+				<div data-global_grant_revoke_container="" class="pull-left">
+					<button type="button" class="btn btn-primary-line btn-md" data-global_grant=""><span><i-span>grant</i-span></span><span class="dropdown-toggle"></span></button>
+					<button type="button" class="btn btn-danger-line btn-md" data-global_revoke=""><i-span>revoke</i-span></button>
+				</div>
+				<div class="pagination-panel" data-pagination_panel="">
+					<span class="pull-left m-t-5">
+						<span><i-span>displaying</i-span></span>
+						<b data-pagintation_displaying=""></b>
+						<span><i-span>of</i-span></span>
+						<b data-pagintation_total=""></b>
+					</span>
+					<ul class="pagination-link m-t-5">
+						<li data-pagination_left_arrow_container="">
+							<a href="#" data-pagination_left_arrow="">
+								<i class="icon-arrow-left"></i>
+							</a>
+						</li>
+						<li data-pagination_right_arrow_container="">
+							<a href="#" data-pagination_right_arrow="">
+								<i class="icon-arrow-right"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<table class="vault-table">
+				<thead>
+					<tr>
+						<th style="width:10px;">
+							<label class="checkbox-container">
+								<input type="checkbox" data-global_checkbox="">
+								<span class="checkmark"></span>
+							</label>
+						</th>
+						<th style="width: 50%"><i-span>user_group</i-span></th>
+						<th class="accessPrivilege"><i-span>access_privilege</i-span></th>
+						<th class="sharingActions"><i-span>actions</i-span></th>
+					</tr>
+				</thead>
+			</table>
+
+			<div class="no-data-panel" data-no_users="" style="display: block;">
+				<div class="no-data-panel-inner">
+					<img src="/images/svg/no-data-found.svg" />
+					<p class="text-default" data-text=""><i-span>no_user_groups_found</i-span></p>
+				</div>
+			</div>
+
+			<div class="shareScroll">
+				<table class="vault-table no-margin" style="margin-bottom: 20px !important;border: none;">
+					<tbody data-user_list="">
+					</tbody>
+				</table>
+
+			</div>
+
+
+			<div class="grantMenu zv-dropdown-popup" data-grant_menu="" data-user="" style="display: none;">
+				<ul class="vault-common-list">
+					<li data-share_level="LOGIN"><a href="#" class="vault-common-list-selected"><i-span>share_one_click_login</i-span></a></li>
+					<li data-share_level="VIEW"><a href="#"><i-span>view</i-span></a></li>
+					<li data-share_level="MODIFY"><a href="#"><i-span>modify</i-span></a></li>
+					<li data-share_level="MANAGE"><a href="#"><i-span>manage</i-span></a></li>
+				</ul>
+			</div>
+
+			<div class="grantMenu zv-dropdown-popup" data-global_grant_menu="" style="display: none;">
+				<ul class="vault-common-list">
+					<li data-share_level="LOGIN"><a href="#"><i-span>share_one_click_login</i-span></a></li>
+					<li data-share_level="VIEW"><a href="#"><i-span>view</i-span></a></li>
+					<li data-share_level="MODIFY"><a href="#"><i-span>modify</i-span></a></li>
+					<li data-share_level="MANAGE"><a href="#"><i-span>manage</i-span></a></li>
+				</ul>
+			</div>
+
+			<div class="overlay-bg" data-grant_overlay="" style="display: none;position: absolute;height: 100%;left: 0px; width: 100%; background: transparent;">
+			</div>
+		</div>
+	</template>
+
+	<template id="password_share_user_group_row_template">
+		<tr data-user="">
+			<td style="width: 20px; cursor: pointer;" data-select_checkbox=""><label class="checkbox-container" data-on_click=""><input type="checkbox" data-selected="" /><span class="checkmark"></span></label>
+			</td>
+			<td style="width:50%;padding-left:0;cursor: pointer;" data-user_detail="">
+				<div class="dis-inblock v-middle">
+					<p class="table-text-title m-b-5" data-name="">Name</p>
+				</div>
+			</td>
+			<td class="accessPrivilege">
+				<p class="no-margin defaultCursor" data-share_level="">Manage</p>
+			</td>
+			<td class="sharingActions">
+				<button type="button" class="btn btn-primary-line btn-sm" data-grant=""><span><i-span>grant</i-span></span><span class="dropdown-toggle"></span></button>
+				<button type="button" class="btn btn-danger-line btn-sm m-l-5" data-revoke=""><i-span>revoke</i-span></button>
+			</td>
+		</tr>
+	</template>
+
+	<template id="access_control_template">
+		<div>
+			<div class="modal-panel-header bg-gray">
+				<h4 class="modal-panel-title"><i-span>access_control</i-span></h4>
+				<span class="modal-panel-close" data-on_click="access_control.clickedHideForm"><a href="#"><i class="icon-close"></i> </a> </span>
+			</div>
+
+			<div class="password-right-slider-content password-detail-page" data-access_control_body="">
+				<div class="zv-pwd-details-header clearfix">
+					<span class="password-details-title-img">
+						<span data-logo="" class="card-view-list-left-img img-contain"></span>
+						<span data-no_logo="" class="card-view-list-no-image"></span>
+					</span>
+					<h5 class="modal-panel-title pull-left">
+						<span data-secret_name="">Password Name</span>
+						<p class="text-default password-details-sub-title">
+							<span><i-span>created_on</i-span></span>
+							<span data-created_on="">1/2/2013</span>
+						</p>
+					</h5>
+				</div>
+
+				<h6 class="zfw-600"><i-span>access_control_description</i-span></h6>
+				<!-- Row start -->
+				<div class="app-settings-field m-t-20">
+					<div class="app-settings-field-left text-right">
+						<p class="m-b-5 bold"><i-span>select_admins</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<select data-admins_select="" multiple="multiple" style="width: 80%"></select>
+						<span><i class="icon-info icon-md pointer text-default" data-icon_tooltip="true" data-tooltip_content="i18n:access_control_admin_tooltip"></i></span>
+					</div>
+				</div>
+				<!-- Row end -->
+
+				<!-- Row start -->
+				<div class="app-settings-field m-t-10">
+					<div class="app-settings-field-left text-right">
+						<p class="m-b-5 bold"><i-span>exclude_users</i-span></p>
+					</div>
+					<div class="app-settings-field-right">
+						<select data-exclude_users_select="" multiple="multiple" style="width: 80%"></select>
+						<span><i class="icon-info icon-md pointer text-default" data-icon_tooltip="true" data-tooltip_content="i18n:access_control_exclude_users_tooltip"></i></span>
+					</div>
+				</div>
+				<!-- Row end -->
+
+				<!-- Row start -->
+				<div class="app-settings-field m-t-15">
+					<div class="app-settings-field-left">
+					</div>
+					<div class="app-settings-field-right">
+						<label class="checkbox-container"><span><i-span>access_control_altlest_two_grant_access</i-span></span>
+							<input type="checkbox" data-dual_approval="">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+				<!-- Row end -->
+
+
+				<!-- Row start -->
+				<div class="app-settings-field m-t-10">
+					<div class="app-settings-field-left">
+					</div>
+					<div class="app-settings-field-right">
+						<label class="checkbox-container" data-on_click="access_control.clickedFocusInput" data-on_click_focus="[data-request_timeout]"><span><i-span>access_control_unapproved_request_void_after</i-span></span>&nbsp;
+							<input type="checkbox" checked="checked" class="disable_uncheck" disabled="disabled">
+							<span class="checkmark"></span>
+						</label>
+						<input data-request_timeout="" data-min="10" data-max="48" data-on_keydown="access_control.handleNumberInputKeyDown" data-on_blur="access_control.handleNumberInputBlur" data-on_click="access_control.clickedTimeInput" style="width: 3em;text-align: center;" value="24" spellcheck="false" />
+						<label>&nbsp;<span><i-span>hours</i-span></span></label>
+					</div>
+				</div>
+				<!-- Row end -->
+
+				<!-- Row start -->
+				<div class="app-settings-field">
+					<div class="app-settings-field-left">
+					</div>
+					<div class="app-settings-field-right">
+						<label class="checkbox-container" data-on_click="access_control.clickedFocusInput" data-on_click_focus="[data-checkout_timeout]"><label><i-span>access_control_provide_access_for</i-span></label>&nbsp;
+							<input type="checkbox" checked="checked" class="disable_uncheck" disabled="disabled">
+							<span class="checkmark"></span>
+						</label>
+						<input data-checkout_timeout="" data-digits="3" data-min="30" data-max="120" data-on_keydown="access_control.handleNumberInputKeyDown" data-on_blur="access_control.handleNumberInputBlur" data-on_click="access_control.clickedTimeInput" value="30" style="width: 4em;text-align: center;" spellcheck="false" />
+						&nbsp;<label><i-span>minutes</i-span></label>
+					</div>
+				</div>
+				<!-- Row end -->
+
+
+				<!-- Row start -->
+				<div class="app-settings-field">
+					<div class="app-settings-field-left">
+					</div>
+					<div class="app-settings-field-right">
+						<label class="checkbox-container"><span><i-span>automatically_approve_access_request</i-span></span>
+							<input data-auto_approve="" data-on_input="access_control.handleAutoApproveInput" type="checkbox">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+				<!-- Row end -->
+
+
+				<div class="m-l-20 disabled" data-auto_approve_options="" style="position: relative;">
+					<div class="overlay-bg" data-overlay="" data-on_click="" style="display: block;position: absolute;height: 100%;left: 0px; width: 100%; background: transparent;">
+					</div>
+					<!-- Row start -->
+					<div class="app-settings-field">
+						<div class="app-settings-field-left">
+						</div>
+						<div class="app-settings-field-right">
+							<label class="form__radio">
+								<input class="pointer" id="access_control_auto_approve_help_desk" name="access_control_auto_approve_mode" type="radio" value="ticket" />
+								<i-span>access_control_auto_approve_with_help_desk</i-span>
+							</label>
+						</div>
+					</div>
+					<!-- Row end -->
+					<!-- Row start -->
+					<div class=" app-settings-field">
+						<div class="app-settings-field-left">
+						</div>
+						<div class="app-settings-field-right">
+							<label class="form__radio">
+								<input class="pointer" id="access_control_auto_approve_week_days" name="access_control_auto_approve_mode" type="radio" value="week_days" />
+								<i-span>all_weekdays</i-span>
+							</label>
+						</div>
+					</div>
+					<!-- Row end -->
+					<!-- Row start -->
+					<div class="app-settings-field">
+						<div class="app-settings-field-left">
+						</div>
+						<div class="app-settings-field-right">
+							<label class="form__radio">
+								<input class="pointer" id="access_control_auto_approve_week_ends" name="access_control_auto_approve_mode" type="radio" value="week_ends" />
+								<i-span>all_weekends</i-span>
+							</label>
+						</div>
+					</div>
+					<!-- Row end -->
+					<!-- Row start -->
+					<div class="app-settings-field">
+						<div class="app-settings-field-left">
+						</div>
+						<div class="app-settings-field-right">
+							<label class="form__radio">
+								<input class="pointer" id="access_control_auto_approve_between" name="access_control_auto_approve_mode" type="radio" value="time" />
+								<i-span>between</i-span>&nbsp;
+								<span data-time_container="">
+									<select data-from_hour_select="" style="width:50px;"></select> <no-i-span>:</no-i-span>
+									<select data-from_mins_select="" style="width:50px;"></select>
+								</span>
+								<span><i-span>and</i-span></span>
+								<span data-time_container="">
+									<select data-to_hour_select="" style="width:50px;"></select> <no-i-span>:</no-i-span>
+									<select data-to_mins_select="" style="width:50px;"></select>
+								</span>
+							</label>
+						</div>
+					</div>
+					<!-- Row end -->
+				</div>
+
+				<!-- Row start -->
+				<div class="app-settings-field m-t-20">
+					<div class="app-settings-field-left">
+					</div>
+					<div class="app-settings-field-right">
+						<button type="button" class="btn btn-md btn-primary" data-save="" data-on_click="access_control.clickedSaveEnable"><i-span>save_and_enable</i-span></button>
+						<button type="button" class="btn btn-md btn-default-line" data-on_click="access_control.clickedHideForm"><i-span>cancel</i-span></button>
+					</div>
+				</div>
+				<!-- Row end -->
+			</div>
+
+		</div>
+	</template>
+
+	<template id="access_control_dropdown_user_template">
+		<div class="select2-results_repository clearfix">
+			<span class="table-profile-image pull-left m-t-3">
+				<img width="40" data-dp="" src="/images/user/profile.svg" />
+			</span>
+			<div class=" pull-left">
+				<p class="table-text-title" data-name="">User Name</p>
+				<span class="table-text-sub-title" data-email="">Email</span>
+			</div>
+		</div>
+	</template>
+
+	<template id="access_control_request_template">
+		<div>
+			<div class="modal-panel-header bg-gray">
+				<h4 class="modal-panel-title"><i-span>request_access</i-span></h4>
+				<span class="modal-panel-close" data-on_click="access_request.clickedHideForm"><a href="#"><i class="icon-close"></i> </a> </span>
+			</div>
+
+			<div class="password-right-slider-content password-detail-page" data-access_control_body="">
+				<div class="zv-pwd-details-header clearfix">
+					<span class="password-details-title-img">
+						<span data-logo="" class="card-view-list-left-img img-contain"></span>
+						<span data-no_logo="" class="card-view-list-no-image"></span>
+					</span>
+					<h5 class="modal-panel-title pull-left">
+						<div class="pull-left">
+							<span data-secret_name="">Password Name</span>
+							<p class="text-default password-details-sub-title">
+								<span><i-span>created_on</i-span></span>
+								<span data-created_on="">1/2/2013</span>
+							</p>
+						</div>
+					</h5>
+				</div>
+
+				<p><i-span>request_access_description</i-span></p>
+
+				<!-- Row start -->
+				<div class="app-settings-field">
+					<div class="app-settings-field-left text-right">
+					</div>
+					<div class="app-settings-field-right">
+						<label class="form__radio">
+							<input id="immediateAccess" name="accessRequestType" class="pointer" type="radio" checked="" data-on_input="access_request.handleImmediateAccessSelect">
+							<i-span>request_immediate_access</i-span>
+						</label>
+						<label class="form__radio">
+							<input id="accessLater" name="accessRequestType" class="pointer" type="radio" data-on_input="access_request.handleAdvanceApprovalSelect" data-advance_request="">
+							<i-span>request_advance_approval</i-span>
+						</label>
+					</div>
+				</div>
+				<!-- Row end -->
+
+				<!-- Row start -->
+				<div data-time_container="" style="display: none;">
+					<div class="app-settings-field">
+						<div class="app-settings-field-left text-right">
+							<p class="m-b-5 bold">
+								<span><i-span>date</i-span></span>
+								<span class="mandatory"><no-i-span>*</no-i-span></span>
+							</p>
+						</div>
+						<div class="app-settings-field-right">
+							<input type="date" style="width:150px;" data-request_date="" spellcheck="false">
+						</div>
+					</div>
+					<!-- Row end -->
+					<!-- Row start -->
+					<div class="app-settings-field">
+						<div class="app-settings-field-left text-right">
+							<p class="m-b-5 bold">
+								<span><i-span>time</i-span></span>
+								<span class="mandatory"><no-i-span>*</no-i-span></span>
+							</p>
+						</div>
+						<div class="app-settings-field-right">
+							<select style="width:50px;" data-hour_select="">
+							</select> <no-i-span>:</no-i-span> <select style="width:50px;" data-minute_select="">
+							</select>
+						</div>
+					</div>
+				</div>
+				<!-- Row end -->
+
+
+				<!-- Row start -->
+				<div data-ticket_container="" class="dis-hide">
+					<div class="app-settings-field">
+						<div class="app-settings-field-left text-right">
+							<p class="m-b-5 bold">
+								<span><i-span>ticket_id</i-span></span>
+							</p>
+						</div>
+						<div class="app-settings-field-right">
+							<input type="text" style="width:150px;" data-ticket_id="" spellcheck="false">
+							<span class="m-l-5">(<i-span>ticket_id_can_be_specified</i-span>)</span>
+						</div>
+					</div>
+				</div>
+				<!-- Row end -->
+
+				<!-- Row start -->
+				<div class="app-settings-field" style="margin-bottom: 30px;">
+					<div class="app-settings-field-left text-right v-top">
+						<p class="m-b-5 bold">
+							<span><i-span>reason</i-span></span>
+							<span class="mandatory"><no-i-span>*</no-i-span></span>
+						</p>
+					</div>
+					<div class="app-settings-field-right" data-field_row="reason">
+						<textarea style="width:100%; height:150px;" data-reason="" maxlength="250" data-on_input="access_request.handleInputClearError"></textarea>
+						<p class="text-danger" data-error="" style="position: absolute;margin: 0;"></p>
+					</div>
+				</div>
+				<!-- Row end -->
+
+				<!-- Row start -->
+				<div class="app-settings-field m-t-20">
+					<div class="app-settings-field-left">
+					</div>
+					<div class="app-settings-field-right">
+						<button type="button" class="btn btn-md btn-primary" data-on_click="access_request.clickedRequest"><i-span>request</i-span></button>
+						<button type="button" class="btn btn-md btn-default-line" data-on_click="access_request.clickedHideForm"><i-span>cancel</i-span></button>
+					</div>
+				</div>
+				<!-- Row end -->
+			</div>
+		</div>
+	</template>
+
+	<template id="access_control_request_pending_template">
+		<div>
+			<div class="modal-panel-header bg-gray">
+				<h4 class="modal-panel-title"><i-span>request_details</i-span></h4>
+				<span class="modal-panel-close" data-on_click="access_pending_request.clickedHideForm"><a href="#"><i class="icon-close"></i> </a> </span>
+			</div>
+
+			<div class="password-right-slider-content password-detail-page" data-access_control_body="">
+				<div class="zv-pwd-details-header clearfix">
+					<span class="password-details-title-img">
+						<span data-logo="" class="card-view-list-left-img img-contain"></span>
+						<span data-no_logo="" class="card-view-list-no-image"></span>
+					</span>
+					<h5 class="modal-panel-title pull-left">
+						<div class="pull-left">
+							<span data-secret_name="">Password Name</span>
+							<p class="text-default password-details-sub-title">
+								<span><i-span>created_on</i-span></span>
+								<span data-created_on="">1/2/2013</span>
+							</p>
+						</div>
+					</h5>
+				</div>
+
+				<p class="no-margin" data-descripton=""><i-span>access_request_pending_description</i-span></p>
+
+				<div data-request_detail_container="">
+					<!-- Row start -->
+					<div class="app-settings-field">
+						<div class="app-settings-field-left text-right">
+							<p class="bold"><i-span>request_time</i-span></p>
+						</div>
+						<div class="app-settings-field-right">
+							<p data-requested_on=""></p>
+						</div>
+					</div>
+					<!-- Row end -->
+
+					<!-- Row start -->
+					<div class="app-settings-field" data-access_required_on_container="">
+						<div class="app-settings-field-left text-right">
+							<p class="bold"><i-span>access_required_on</i-span></p>
+						</div>
+						<div class="app-settings-field-right">
+							<p data-access_required_on=""></p>
+						</div>
+					</div>
+					<!-- Row end -->
+
+					<!-- Row start -->
+					<div class="app-settings-field">
+						<div class="app-settings-field-left text-right">
+							<p class="bold"><i-span>status</i-span></p>
+						</div>
+						<div class="app-settings-field-right">
+							<p class="text-success" data-request_status=""></p>
+						</div>
+					</div>
+					<!-- Row end -->
+
+					<div data-helpdesk_error="">
+						<!-- Row start -->
+						<div class="app-settings-field">
+							<div class="app-settings-field-left text-right">
+								<p class="bold"><i-span>ticket_id</i-span></p>
+							</div>
+							<div class="app-settings-field-right">
+								<p data-ticket_id=""></p>
+							</div>
+						</div>
+						<!-- Row end -->
+
+						<!-- Row start -->
+						<div class="app-settings-field">
+							<div class="app-settings-field-left text-right">
+								<p class="bold"><i-span>helpdesk_status</i-span></p>
+							</div>
+							<div class="app-settings-field-right">
+								<p data-helpdesk_status=""></p>
+							</div>
+						</div>
+						<!-- Row end -->
+
+						<!-- Row start -->
+						<div class="app-settings-field">
+							<div class="app-settings-field-left text-right">
+								<p class="bold"><i-span>helpdesk_error_message</i-span></p>
+							</div>
+							<div class="app-settings-field-right">
+								<p data-helpdesk_error_message=""></p>
+							</div>
+						</div>
+						<!-- Row end -->
+					</div>
+
+					<!-- Row start -->
+					<div class="app-settings-field">
+						<div class="app-settings-field-left text-right v-top">
+							<p class="bold"><i-span>reason</i-span></p>
+						</div>
+						<div class="app-settings-field-right">
+							<p data-reason=""></p>
+						</div>
+					</div>
+					<!-- Row end -->
+				</div>
+
+				<!-- Row start -->
+				<div class="app-settings-field" data-approval_container="">
+					<table class="vault-table">
+						<thead>
+							<tr>
+								<th><i-span>status</i-span></th>
+								<th><i-span>admin</i-span></th>
+								<th><i-span>comment</i-span></th>
+							</tr>
+						</thead>
+						<tbody data-approval_list="">
+
+						</tbody>
+					</table>
+				</div>
+				<!-- Row end -->
+
+				<!-- Row start -->
+				<div class="clearfix m-t-10" data-cancel_container="">
+					<button type="button" class="btn btn-md btn-danger" data-on_click="access_pending_request.clickedCancelRequest"><i-span>cancel_request</i-span></button>
+					<button type="button" class="btn btn-md btn-default-line" data-on_click="access_pending_request.clickedHideForm"><i-span>cancel</i-span></button>
+				</div>
+				<!-- Row end -->
+
+				<!-- Row start -->
+				<div class="clearfix m-t-10" style="display: none;" data-checkout_container="">
+					<button type="button" class="btn btn-md btn-primary" data-on_click="access_pending_request.clickedCheckout"><i-span>checkout</i-span></button>
+					<button type="button" class="btn btn-md btn-default-line" data-on_click="access_pending_request.clickedHideForm"><i-span>cancel</i-span></button>
+				</div>
+				<!-- Row end -->
+			</div>
+		</div>
+	</template>
+
+	<template id="access_approval_info_row_template">
+		<tr>
+			<td>
+				<p class="no-margin defaultCursor" data-status="">Status</p>
+			</td>
+			<td>
+				<p class="no-margin defaultCursor" data-admin_name="">Admin Name</p>
+			</td>
+			<td>
+				<p class="no-margin defaultCursor" data-comment="">Comment</p>
+			</td>
+		</tr>
+	</template>
+
+	<template id="category_menu_item">
+		<li>
+			<a data-click="" href="#">
+				<i data-icon="" class="icon-categories"></i>
+				<span data-categoryName="">Category Name</span>
+			</a>
+		</li>
+	</template>
+
+	<template id="password_more_actions_template">
+		<div class="zv-dropdown-popup" style="width: max-content;height: max-content; display: block;">
+			<ul class="vault-common-list">
+			</ul>
+		</div>
+	</template>
+
+	<template id="passwore_more_actions_item_template">
+		<div>
+			<li><a href="#" style="padding-right: 20px; padding-left: 15px;" data-text=""></a></li>
+		</div>
+	</template>
+
+	<template id="password_history_template">
+		<div class="zv-dropdown-popup" style="width: 500px;height: max-content; display: block; min-width: 400px; z-index: 10003;">
+
+			<div>
+
+				<div>
+					<div class="modal-panel-header clearfix bg-gray">
+						<h4><i-span>history</i-span></h4>
+						<span class="modal-panel-close" data-name="closeHistory" data-tooltip_content="i18n:close" data-icon_tooltip="true">
+							<a><i class="icon-close"></i></a>
+						</span>
+					</div>
+				</div>
+
+				<div class="password-history-inner-content" data-name="tableContainer">
+				</div>
+
+				<div class="password-history-inner-content" style="display: none" data-name="noHistory">
+					<p data-name="noHistory"><i-span>no_history_available</i-span></p>
+				</div>
+
+			</div>
+
+		</div>
+	</template>
+
+	<template id="password_history_table_template">
+		<table class="vault-table" style="width: 480px;">
+			<thead>
+				<tr>
+					<th style="width: 275px; display: inline-block;" class="accessPrivilege" data-field_name="">Field Name</th>
+					<th style="width: 200px; display: inline-block;" class="sharingActions"><i-span>modified_time</i-span></th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
+	</template>
+
+	<template id="password_history_text_field_row_template">
+		<tr>
+			<td style="width: 275px; display: inline-block;">
+				<span data-name="copyValue" class="zv-copyicon"><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></span>
+				<span data-name="fieldValue" class="zv-field-detail-ellipsis" data-tooltip_content=""></span>
+			</td>
+			<td style="width: 200px; display: inline-block;" data-name="modifiedTime">Modified Time</td>
+		</tr>
+	</template>
+
+	<template id="password_history_password_field_row_template">
+		<tr>
+			<td style="position: relative;width: 275px; display: inline-block;">
+				<span data-name="copyValue" class="zv-copyicon"><i class="icon-copy" data-tooltip_content="i18n:copy" data-icon_tooltip="true"></i></span>
+				<span data-name="fieldValue" class="zv-field-detail-ellipsis zvf-monospace" style="padding-right: 20px;"><no-i-span>************</no-i-span></span>
+				<span data-name="viewValue" class="zv-copyicon" style="right: 20px; position: absolute;"><i class="icon-view" data-tooltip_content="i18n:view" data-icon_tooltip="true"></i></span>
+			</td>
+			<td style="width: 200px; display: inline-block;" data-name="modifiedTime">Modified Time</td>
+		</tr>
+	</template>
+
+	<template id="password_history_icon_template">
+		<li data-on_click=""><a data-tooltip_content="i18n:history" data-icon_tooltip="true"><i class="icon-history icon-md"></i></a></li>
+	</template>
+
+	<template id="profile_panel_template">
+		<div class="app-profile-panel" data-name="profilePanel">
+			<span id="" class="app-profile-panel-close">
+				<ul class="vault-list">
+					<li data-name="closePanel"> <a> <i class="icon-close icon-sm"></i> </a> </li>
+				</ul>
+			</span>
+			<div class="app-profile-header">
+				<img class="app-profile-header-pic" width="120" height="120" data-name="dp" src="/images/user/profile.svg" />
+				<h4 class="app-profile-user-name" data-name="username">Username</h4>
+				<p class="app-profile-email" data-name="email"><a>Email</a></p>
+			</div>
+			<div class="app-profile-body">
+				<ul class="app-profile-links">
+					<li data-name="openHelp"><a><i class="icon-arrow-right"></i><span><i-span>help_resources</i-span></span></a></li>
+					<li data-name="openVideos"><a><i class="icon-arrow-right"></i><span><i-span>product_videos</i-span></span></a></li>
+					<li data-name="shareFeedback"><a><i class="icon-arrow-right"></i><span><i-span>share_feedback</i-span></span></a></li>
+				</ul>
+			</div>
+			<div class="app-profile-footer clearfix">
+				<div class="pull-left" data-name="lockVault"><a class="text-danger"><i-span>lock</i-span></a></div>
+				<div class="pull-right" data-name="signOut"><a class="text-danger"><i-span>sign_out</i-span></a></div>
+			</div>
+		</div>
+	</template>
+
+	<template id="third_party_share_template">
+		<div class="third-party-share-panel">
+			<div style="display: block;" data-loading="">
+				<vault-loading></vault-loading>
+			</div>
+
+			<div class="no-data-panel" style="display: none;" data-sharing_restricted="">
+				<div class="no-data-panel-inner">
+					<img src="/images/svg/restricted-image.svg" />
+					<p class="text-default"><i-span>third_party_sharing_restricted</i-span></p>
+				</div>
+			</div>
+
+			<form class="ext-form ext-form-sm" style="display: none;">
+				<div class="ext-form-group" data-field_row="email">
+					<label class="ext-form-label"><span><i-span>email</i-span></span><span class="ext-form-mandatory"><no-i-span>*</no-i-span></span></label>
+					<div class="ext-form-field">
+						<input type="text" data-email="" spellcheck="false" autocomplete="email" />
+						<div class="form-field-error" data-error=""></div>
+					</div>
+
+				</div>
+
+				<div class="ext-form-group" data-field_row="time">
+					<label class="ext-form-label"><span><i-span>third_party_revoke_link_after</i-span></span><span class="ext-form-mandatory"><no-i-span>*</no-i-span></span></label>
+					<div class="ext-form-field">
+						<select style="width:100px" data-time_select=""></select>
+						<div class="form-field-error" data-error=""></div>
+					</div>
+				</div>
+
+				<div class="ext-form-group" data-field_row="message">
+					<label class="ext-form-label"><i-span>message</i-span></label>
+					<div class="ext-form-field">
+						<textarea data-message="" style="height:150px"></textarea>
+						<div class="form-field-error" data-error=""></div>
+					</div>
+
+				</div>
+
+			</form>
+		</div>
+	</template>
+
+	<template id="additional_field_item">
+		<li>
+			<label class="form__checkbox">
+				<input type="checkbox" data-on_click="" data-field_selector="">
+				<span class="form__checkbox--text" data-fieldName="">Field Name</span>
+			</label>
+		</li>
+	</template>
+
+	<template id="third_party_output_popup">
+		<div class="zv-dropdown-popup third-party-output" style="display: block; opacity: 0; transition: opacity 1s;">
+			<div class="password-history-inner-content" style="height: max-content; margin-bottom: 50px; padding: 20px;">
+				<p data-shared_msg="">
+					An email has been sent to test@test.com. Send them the following encryption key to grant them access to this password for 30 minutes.
+				</p>
+				<p>
+					<span><i-span>encryption_key</i-span></span><no-i-span>:</no-i-span>
+					<span class="text-primary" data-key="">key</span>
+				</p>
+			</div>
+
+			<div class="zv-modal-footer">
+				<div class="pull-left">
+					<button type="button" class="btn btn-danger btn-md" data-copy=""><i-span>copy_to_clipboard</i-span></button>
+					<button type="button" class="btn bg-default-none btn-md" data-ok=""><i-span>ok</i-span></button>
+				</div>
+			</div>
+
+		</div>
+	</template>
+
+	<template id="oneauth_install_template">
+		<div id="oneauthInstallPrompt">
+			<div class="overlay-bg"></div>
+			<div class="modal-panel modal-md animate-opacity-0-5">
+
+				<div class="modal-panel-header clearfix bg-gray">
+					<h4 id="user-group-modal-title"><span id="oneauthInstallHeading">Download</span> <i-span>zoho_oneauth</i-span></h4>
+					<span class="modal-panel-close" id="oneAuthInstallClose">
+						<a><i class="icon-close"></i></a>
+					</span>
+				</div>
+
+				<div class="modal-panel-content">
+					<div class="no-data-panel" style="padding-bottom: 65px;">
+						<div class="col-8 m-t-b-20">
+							<div class="no-data-panel-inner">
+								<img src="/images/svg/oneauth-download.svg" style="width: 200px;" />
+								<h5 class="m-t-20"><i-span>unlock_vault_with_oneauth</i-span></h5>
+								<p class="m-t-b-10 text-default"><i-span>oneauth_install_description</i-span></p>
+								<a target="_blank" href="https://www.zoho.com/accounts/oneauth.html" class="btn btn-lg btn-danger m-t-10"><i-span>download</i-span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="zv-modal-footer">
+					<div class="pull-left">
+						<button type="button" id="oneauthInstallCancel" class="btn bg-default-none btn-md" data-cancel=""><i-span>cancel</i-span></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="more_options_position_container_template">
+		<div style="width: max-content; height: max-content; position: absolute;">
+			<div data-content_div="">
+			</div>
+		</div>
+	</template>
+
+	<template id="list-select_template">
+		<div>
+			<div data-output_container="" class="filterDropdown__selected pointer">
+				<div class="filterList__selected">
+					<span data-output=""></span>
+					<span data-placeholder="" class="filterDropdown--placeholder"></span>
+				</div>
+				<div class="filterDropdown__actionIcons">
+					<span class="dis-hide closeicon" data-plus_count=""></span>
+					<span class="dis-hide closeicon" data-clear=""><i class="icon-close icon-xs"></i></span>
+					<span class="closeicon"><i data-arrow="" class="icon-down-arrow"></i></span>
+				</div>
+			</div>
+
+			<div data-dropdown_container="" class="dis-hide tagsDropdown__content clearfix">
+				<div data-search_container="" class="filterInner__search">
+					<span class="filterInner__search--icon"><i class="icon-magnifier"></i></span>
+					<input data-search="" spellcheck="false" autocomplete="off" placeholder="search" class="filterInner__search--input" />
+					<span class="dis-hide filterInner__close--icon" data-clear=""><i class="icon-close icon-xs"></i></span>
+				</div>
+				<ul class="password-filter-dropdown-list" data-select_all_container=""></ul>
+				<ul class="password-filter-dropdown-list password-filter-dropdown-list-nodata" data-dropdown_list_container=""></ul>
+
+				<div data-no_match="" class="dis-hide no-data-panel">
+					<div class="no-data-panel-inner">
+						<img src="/images/svg/no-data-found.svg" />
+						<p class="text-default" data-text=""><i-span>no_match_found</i-span></p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</template>
+
+	<template id="list-select-row_template">
+		<li>
+			<label class="form__checkbox">
+				<input type="checkbox" name="checkbox">
+				<span data-text class="form__checkbox--text"></span>
+			</label>
+		</li>
+	</template>
+
+	<template id="password_filter_template">
+		<div>
+			<div class="password-filter-inner-container">
+				<!-- filter inner group start -->
+				<div class="filterInnerGroup" data-general_container="">
+					<div class="filterInner__header">
+						<h4 class="filterheader--title"><i-span>general</i-span> <span class="filterheader--selectedindicator dis-hide" data-selected=""></span></h4>
+					</div>
+					<div class="filterInner__body">
+						<label class="filter__list--favorites" data-favourite_container="">
+							<input data-favourite="" type="checkbox">
+							<span><i-span>favourites</i-span></span>
+						</label>
+						<label class="filter__list--domainmatching dis-hide">
+							<input data-domain_matching="" type="checkbox">
+							<span><i-span>domain_matching</i-span></span>
+						</label>
+						<label class="filter__list--ownedbyme" data-owned_container="">
+							<input data-owned="" type="checkbox">
+							<span><i-span>owned_by_me</i-span></span>
+						</label>
+					</div>
+				</div>
+				<!-- filter inner group end -->
+
+				<!-- filter inner group start -->
+				<div class="filterInnerGroup" data-recent_container="">
+					<div class="filterInner__header">
+						<h4 class="filterheader--title"><i-span>recent</i-span> <span class="filterheader--selectedindicator dis-hide" data-selected=""></span></h4>
+					</div>
+					<div class="filterInner__body">
+						<div class="m-t-b-5">
+							<label class="form__checkbox">
+								<input data-recently_used="" type="checkbox" name="checkbox" />
+								<i-span>recently_used</i-span>
+							</label>
+							<label class="form__checkbox">
+								<input data-recently_added="" type="checkbox" name="checkbox" />
+								<i-span>recently_added</i-span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<!-- filter inner group end -->
+
+				<!-- filter inner group start -->
+				<div class="filterInnerGroup" data-classification_container="">
+					<div class="filterInner__header">
+						<h4 class="filterheader--title"><i-span>classification</i-span> <span class="filterheader--selectedindicator dis-hide" data-selected=""></span></h4>
+					</div>
+					<div class="filterInner__body">
+						<div class="m-t-b-5">
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="classification" value="ALL" />
+								<i-span>all</i-span>
+							</label>
+
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="classification" value="P" checked />
+								<i-span>personal</i-span>
+							</label>
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="classification" value="E" />
+								<i-span>enterprise</i-span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<!-- filter inner group end -->
+
+				<!-- filter inner group start -->
+				<div class="filterInnerGroup" data-sharing_container="">
+					<div class="filterInner__header">
+						<h4 class="filterheader--title"><i-span>sharing</i-span> <span class="filterheader--selectedindicator dis-hide" data-selected=""></span></h4>
+					</div>
+					<div class="filterInner__body">
+						<div class="filterInner__body__container clearfix">
+							<select data-sharing="" class="full-width">
+								<option value="ALL" data-i18n_key="all">All</option>
+								<option value="SHARED_BY_ME" data-i18n_key="shared_by_me">Shared by Me</option>
+								<option value="SHARED_TO_ME" data-i18n_key="shared_with_me">Shared with Me</option>
+								<option value="NONE" data-i18n_key="unshared">Unshared</option>
+							</select>
+						</div>
+					</div>
+				</div>
+				<!-- filter inner group end -->
+
+				<div data-tag_container="" data-filter_container="" class="filterInnerGroup m-b-10">
+					<header class="filterInner__header">
+						<h4 class="filterheader--title"><i-span>tags</i-span> <span class="filterheader--selectedindicator dis-hide" data-selected=""></span></h4>
+						<span>
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="tagMode" checked="" value="ALL">
+								<i-span>all</i-span>
+							</label>
+							<label class="form__radio">
+								<input class="pointer" type="radio" name="tagMode" value="ANY">
+								<i-span>any</i-span>
+							</label>
+						</span>
+					</header>
+					<div class="filterInner__body">
+						<div class="filterInner__body__container">
+							<div data-tag_select_container="" class="tag__dropdown">
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</template>
+
+	<template id="applied_filter_name_template">
+		<div>
+			<div class="filter__applied__header">
+				<a data-view_filters="" data-on_click="passwords_ui.clicked_show_password_filter" class="pointer"><i-span>view_filters</i-span></a>
+			</div>
+			<ul data-applied_filter="" class="filter__applied">
+				<li class="dis-hide" data-favourite=""><a class="pointer"></span><i-span>favourites</i-span><span class="closeicon"><i class="icon-close"></i></a></li>
+				<li class="dis-hide" data-domain_matching=""><a class="pointer"><i-span>domain_matching</i-span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+				<li class="dis-hide" data-owned=""><a class="pointer"><i-span>owned_by_me</i-span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+				<li class="dis-hide" data-recently_used=""=""><a class="pointer"><i-span>recently_used</i-span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+				<li class="dis-hide" data-recently_added=""=""><a class="pointer"><i-span>recently_added</i-span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+				<li class="dis-hide" data-classification=""><a class="pointer"><span data-text=""></span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+				<li class="dis-hide" data-sharing=""><a class="pointer"><span data-text=""></span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+				<li class="dis-hide" data-tags=""><a class="pointer"><i-span>tags</i-span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+				<li class="dis-hide" data-search=""><a class="pointer"><span data-text=""></span><span class="closeicon"><i class="icon-close"></i></span></a></li>
+			</ul>
+		</div>
+	</template>
+
+	<template id="secret_list_container_template">
+		<section data-list_container="" class="password-list-container clearfix" style="position: relative;" id="secret_list_container">
+			<div class="no-data-panel" data-no_passwords="" style="display: none;">
+				<div class="no-data-panel-inner">
+					<img src="/images/svg/add-password-image.svg" />
+					<p class="text-default" data-text=""><i-span>no_passwords_found</i-span></p>
+				</div>
+			</div>
+
+			<div class="no-data-panel" data-no_matching_passwords="" style="display: none;">
+				<div class="no-data-panel-inner">
+					<img src="/images/svg/no-data-found.svg" />
+					<p class="text-default" data-text=""><i-span>no_matching_passwords_found</i-span></p>
+					<div data-applied_filters_container=""></div>
+				</div>
+			</div>
+
+			<div id="secrets_list" data-list="" class="password-list-container-inner"></div>
+		</section>
+	</template>
+
+	<template id="passwords_nav_template">
+		<ul class="left-nav-menu clearfix" id="mainMenu">
+			<!-- Passwords -->
+			<li>
+				<a href="#" id="allPasswordsTabNav">
+					<i class="icon-passwords"></i>
+					<span><i-span>all_passwords</i-span></span>
+				</a>
+			</li>
+
+			<li>
+				<a href="#" data-name="folderPasswordsNav" class="dis-hide">
+					<i class="icon-passwords"></i>
+					<span><i-span>folder</i-span></span>
+				</a>
+			</li>
+
+			<!-- Favorites -->
+			<li>
+				<a href="#" id="favouritesTabNav">
+					<i class="icon-star-1"></i>
+					<span><i-span>favourites</i-span></span>
+				</a>
+			</li>
+
+			<!-- Owned by me -->
+			<li>
+				<a href="#" id="ownedByMeTabNav">
+					<i class="icon-owned-by-me"></i>
+					<span><i-span>owned_by_me</i-span></span>
+				</a>
+			</li>
+
+			<!-- Shared by me -->
+			<li>
+				<a href="#" id="sharedByMeTabNav">
+					<i class="icon-share-to-me"></i>
+					<span><i-span>shared_by_me</i-span></span>
+				</a>
+			</li>
+
+			<!-- Shared with me -->
+			<li>
+				<a href="#" id="sharedWithMeTabNav">
+					<i class="icon-share-by-me"></i>
+					<span><i-span>shared_with_me</i-span></span>
+				</a>
+			</li>
+
+			<!-- Trash -->
+			<li>
+				<a href="#" id="trashTabNav">
+					<i class="icon-delete"></i>
+					<span><i-span>trash</i-span></span>
+				</a>
+			</li>
+
+			<!-- Categories Menu -->
+
+			<div id="categoryMenu">
+				<div class="sub-lhs-menu-title">
+					<a class="defaultCursor"><i-span>category</i-span></a>
+				</div>
+				<div id="categoryItems" class="cleafix">
+				</div>
+			</div>
+			<div>
+				<!-- Categories menu end -->
+		</ul>
+	</template>
+
+	<template id="page_generator">
+		<div class="zvd-panel" data-name="mainUI" style="margin-top: 20px;">
+			<div class="zvd-search-panel clearfix">
+				<span class="zvd-panel-arrow-top-right" id="arrow"></span>
+				<div class="zvd-nav pull-left" id="mainHeader">
+				</div>
+			</div>
+
+			<div id="uiLoading" class="uiLoading" style="display: none; z-index: 2;">
+				<vault-loading></vault-loading>
+			</div>
+
+			<div id="main_out">
+				<div class="content-panel clearfix zvgenerator">
+
+					<!--history generator start-->
+					<div id="generator_history_div" class="add-password-panel password-detail-page" style="padding: 0;">
+					</div>
+					<!--history generator end-->
+
+					<div data-part="generatedPassword" class="zv-new-generator-panel">
+						<div class="full-width clearfix">
+							<ul class="generator-tabs">
+								<li><a id="generatorPasswordTab" href="#" class="generator-tabs-selected"><i-span>password</i-span></a></li>
+								<li><a id="generatorPassphraseTab" href="#"><i-span>passphrase</i-span></a></li>
+								<ul class="action-icon-list pull-right" style="margin-left: auto;">
+									<li>
+										<a data-action="showGeneratorHistory" href="#" data-tooltip_content="i18n:history" data-icon_tooltip="true" style="background-color: initial;height: 25px;"><i class="icon-history"></i></a>
+									</li>
+								</ul>
+							</ul>
+						</div>
+						<div contenteditable="true" spellcheck="false" data-name="generatedPassword" class="zv-new-generator-panel-textarea zvf-monospace" id="password_generated" style="cursor: text; white-space: pre-wrap;"></div>
+						<div data-name="strength_bar" style="position: relative;width: 100%;top: 8px;">
+							<div class="color-bar-empty" style="position: absolute;bottom:0px;"></div>
+							<div id="strength_generated" data-name="passwordStrength" class="color-bar" style="left:0;background: rgb(247, 93, 86);width: 10%;bottom:0px;">&nbsp;</div>
+						</div>
+					</div>
+
+					<div id="generatorActionList" class="zv-new-generator-panel-bottom clearfix" style="user-select: none;">
+						<div class="pull-left clearfix m-t-7">
+							<button data-action="fill" type="button" class="zv-new-generator-button btn btn-primary"><i-span>use</i-span></button>
+						</div>
+						<div class="pull-right clearfix">
+							<ul class="action-icon-list pull-right">
+								<li data-name="copyGeneratedPassword"><a id="copyGeneratedValue" href="#" data-tooltip_content="i18n:copy" data-icon_tooltip="true"><i class="icon-copy"></i></a></li>
+								<li data-name="generateNewPassword"><a id="generateValue" href="#" data-tooltip_content="i18n:generate" data-icon_tooltip="true"><i class="icon-pwd-generate"></i></a></li>
+							</ul>
+						</div>
+					</div>
+
+					<div id="generator_mode_options"></div>
+
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<template id="password_generator_options_template">
+		<div class="page-container clearfix">
+			<div data-out="lengthInput"></div>
+
+			<div data-part="policyList" class="full-width m-t-5">
+				<div class="panel-row">
+					<div class="form-group">
+						<div class="col-4">
+							<p class="m-t-5 text-left"><i-span>password_policy</i-span></p>
+						</div>
+						<div class="col-8" style="margin-left: -10px;">
+							<select style="width:100%;" data-input="policy">
+							</select>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<article data-part="checkBoxInput" class="pass-gen-option-panel full-width m-t-10" style="user-select: none;">
+				<div class="full-width">
+					<div class="add-password-two-col">
+						<label class="checkbox-container"><span><i-span>lower_case_letters</i-span></span>
+							<input data-input="lowercase" type="checkbox" />
+							<span class="checkmark"></span>
+						</label>
+					</div>
+					<div class="add-password-two-col">
+						<label class="checkbox-container"><span><i-span>upper_case_letters</i-span></span>
+							<input data-input="uppercase" type="checkbox" />
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+
+				<div class="full-width m-t-5">
+					<div class="add-password-two-col">
+						<label class="checkbox-container">
+							<span data-text="noOfSplChars"></span>
+							<span><i-span>special_characters</i-span></span>
+							<input data-input="specialchars" type="checkbox" />
+							<span class="checkmark"></span>
+						</label>
+					</div>
+					<div class="add-password-two-col">
+						<label class="checkbox-container">
+							<span><i-span>numbers</i-span></span>
+							<input data-input="numbers" type="checkbox" />
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+			</article>
+
+			<div class="full-width m-t-20">
+				<div class="panel-row m-t-5">
+					<div class="form-group">
+						<div class="col-4">
+							<p class="m-b-5 text-right" style="width: max-content;"><i-span>exclude_character</i-span></p>
+						</div>
+						<div class="col-8">
+							<input type="textarea" data-input="excludeChar" placeholder="Example : %a$b@c(1F2!" class="pass-gen-input" style="background-color: transparent; font-size: 12px" spellcheck="false" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</template>
+
+	<template id="passphrase_generator_options_template">
+		<div class="page-container clearfix">
+			<div data-out="wordCountInput"></div>
+
+			<article data-part="checkBoxInput" class="pass-gen-option-panel full-width m-t-10" style="user-select: none;">
+				<div class="full-width">
+					<div class="add-password-two-col">
+						<label class="checkbox-container"><span><i-span>capitalize</i-span></span>
+							<input data-input="capital" type="checkbox">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+
+					<div class="add-password-two-col">
+						<label class="checkbox-container"><span><i-span>numbers</i-span></span>
+							<input data-input="numbers" type="checkbox">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+			</article>
+
+			<div class="full-width m-t-20" data-part="excludeChar">
+				<div class="panel-row m-t-5">
+					<div class="form-group">
+						<div class="col-4">
+							<p class="m-b-5 text-right" style="width: max-content;"><i-span>word_separator</i-span></p>
+						</div>
+						<div class="col-8">
+							<input type="textarea" data-input="separator" class="pass-gen-input" style="background-color: transparent; font-weight: 400 !important;width:100px;margin:0;padding:0;" spellcheck="false" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</template>
+
+	<template id="generator_length_input_template">
+		<div>
+			<div class="full-width"><span data-content="label"><i-span>generator_password_length</i-span></span>
+				&nbsp;&nbsp;
+				<input type="textarea" data-input="length" class="pass-gen-input" style="background-color: transparent; font-weight: 400 !important;width:20px;margin:0;padding:0;" spellcheck="false" />
+			</div>
+
+			<div class="m-t-10" style="position:relative;float:left;width:100%;">
+				<div class="slideContainer">
+					<div class="sliderGrayBar"></div>
+					<div data-name="sliderBar" class="sliderBar" style="width: 15.7895%;"></div>
+					<input data-input="lengthSlider" min="4" max="99" type="range" class="slider" />
+				</div>
+				<div class="full-width" style="position: relative; top: -3px;">
+					<span data-content="minLength" class="pull-left">1</span>
+					<span data-content="maxLength" class="pull-right">99</span>
+				</div>
+			</div>
+		</div>
+	</template>
+
+
+	<template id="generator_history_template">
+		<div>
+			<div class="page-header clearfix">
+				<h4 class="pull-left"><i-span>recently_copied_values</i-span></h4>
+				<span data-name="clearHistory" style="position: absolute;top: 10px;right: 45px;">
+					<a data-action="clear"><i-span>clear</i-span></a>
+				</span>
+				<span class="modal-panel-close">
+					<a href="#" data-action="close">
+						<i class="icon-close" data-tooltip_content="i18n:close" data-icon_tooltip="true"></i>
+					</a>
+				</span>
+			</div>
+
+			<div data-name="empty_history" class="no-data-panel dis-hide">
+				<div class="no-data-panel-inner">
+					<img src="/images/svg/add-password-image.svg" />
+					<h5 class="zfw-600" style="text-align: center;"><i-span>no_copied_values_yet</i-span></h5>
+					<p class="text-default m-t-3 " style="padding-left: 20px;padding-right: 20px;" data-i18n_key="generator_history_common_description,20">The last 20 passwords copied from the generator will appear here</p>
+				</div>
+			</div>
+
+			<div data-out="history_list"></div>
+		</div>
+	</template>
+
+	<template id="elem_list_history_generator">
+		<div class="password-list-panel history-password-list-panel pointer" data-row="">
+			<h6 class="password-list-name zvf-monospace full-width"></h6>
+			<p class="password-list-description text-default"></p>
+			<div class="password-list-icons" style="margin-right: -10px;">
+				<ul class="action-icon-list">
+					<li data-on="use"><a href="#" data-tooltip_content="i18n:use" data-icon_tooltip="true"><i class="icon-cat-note"></i></a></li>
+					<li class="m-l-5" data-on="copy"><a href="#" data-tooltip_content="i18n:copy" data-icon_tooltip="true"><i class="icon-copy"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</template>
+
+</body>
+
+</html>

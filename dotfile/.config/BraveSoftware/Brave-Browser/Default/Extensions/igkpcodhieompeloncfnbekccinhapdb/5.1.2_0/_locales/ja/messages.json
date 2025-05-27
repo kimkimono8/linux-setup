@@ -1,0 +1,1529 @@
+{
+   "access_checkout_description": {
+      "message": "アクセス申請が承認されました。アクセスするには、パスワードの一時利用開始の操作をしてください。"
+   },
+   "access_control": {
+      "message": "アクセス制限"
+   },
+   "access_control_admin_tooltip": {
+      "message": "アクセス申請を承認できる管理者を選択してください"
+   },
+   "access_control_altlest_two_grant_access": {
+      "message": "2名以上の承認者による承認を必須にする"
+   },
+   "access_control_auto_approve_with_help_desk": {
+      "message": "ヘルプデスクの問い合わせの認証あり"
+   },
+   "access_control_description": {
+      "message": "選択した承認者によって申請が承認されると、ユーザーはこのパスワードにアクセスできるようになります"
+   },
+   "access_control_disabled_success": {
+      "message": "アクセス制限を無効にしました"
+   },
+   "access_control_enabled": {
+      "message": "アクセス制限を有効にしました"
+   },
+   "access_control_exclude_users_tooltip": {
+      "message": "選択されたユーザーを、アクセス制限から除外します"
+   },
+   "access_control_invalid_time": {
+      "message": "自動承認までの時間設定について、入力内容が無効です"
+   },
+   "access_control_provide_access_for": {
+      "message": "アクセス権に時間制限を設定する："
+   },
+   "access_control_saved_success": {
+      "message": "アクセス制限の設定を保存しました"
+   },
+   "access_control_select_another_approver": {
+      "message": "承認者をもう1名選択してからお試しください"
+   },
+   "access_control_unapproved_request_void_after": {
+      "message": "未承認の申請を取り消すまでの時間を設定する："
+   },
+   "access_privilege": {
+      "message": "アクセス権限"
+   },
+   "access_request_created_success": {
+      "message": "アクセス権限申請を作成しました"
+   },
+   "access_request_pending_description": {
+      "message": "アクセス申請は承認待ちです。申請が承認または却下されると、メールで通知されます。"
+   },
+   "access_required_on": {
+      "message": "利用開始日時"
+   },
+   "access_revoked_success": {
+      "message": "パスワードのアクセス権を取り消しました"
+   },
+   "access_revoked_user_success": {
+      "message": "$1$のパスワードのアクセス権を取り消しました",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "actions": {
+      "message": "操作"
+   },
+   "activity": {
+      "message": "操作履歴"
+   },
+   "add": {
+      "message": "追加する"
+   },
+   "add_address": {
+      "message": "住所を追加する"
+   },
+   "add_authenticator": {
+      "message": "認証アプリを追加する"
+   },
+   "add_card": {
+      "message": "支払いカードを追加する"
+   },
+   "add_field": {
+      "message": "項目を追加する"
+   },
+   "add_folder": {
+      "message": "フォルダーを追加する"
+   },
+   "add_password": {
+      "message": "パスワードを追加する"
+   },
+   "add_password_restricted": {
+      "message": "あなたの組織の管理者により、新しいパスワードの追加は無効にされています。"
+   },
+   "add_personal_enterprise_password_restricted": {
+      "message": "あなたの組織の管理者によって、個人と組織の両方のパスワードを追加することは制限されています。"
+   },
+   "add_url": {
+      "message": "URLを追加する"
+   },
+   "added_successfully": {
+      "message": "追加しました"
+   },
+   "additional_fields": {
+      "message": "追加項目"
+   },
+   "address": {
+      "message": "住所"
+   },
+   "address_added_successfully": {
+      "message": "住所を追加しました"
+   },
+   "address_edited_successfully": {
+      "message": "住所を更新しました"
+   },
+   "addresses": {
+      "message": "住所"
+   },
+   "admin": {
+      "message": "管理者"
+   },
+   "adv_setting_disable_badge_count_content": {
+      "message": "有効にすると、ツールバーの拡張機能のバッジ欄に、現在のドメインに一致するパスワード数が表示されなくなります。"
+   },
+   "adv_setting_disable_badge_count_heading": {
+      "message": "バッジ数を無効にする"
+   },
+   "adv_setting_disable_click_to_login": {
+      "message": "クリックによるログインを無効にする"
+   },
+   "adv_setting_disable_click_to_login_content": {
+      "message": "有効にすると、パスワードの入力時にクリックすることで、パスワードの詳細が表示されます（自動でログインは行われなくなります）。"
+   },
+   "adv_setting_disable_shadow_root": {
+      "message": "ShadowRootを無効にすると"
+   },
+   "adv_setting_disable_shadow_root_content": {
+      "message": "有効にすると、WebサイトでのShadowRootの検出が無効になります。"
+   },
+   "adv_setting_disable_vault_icon_content": {
+      "message": "有効にすると、パスワードの入力項目にZoho Vaultのアイコンが表示されなくなります。ただし、パスワードにはメニューを右クリックすることで引き続きアクセスできます。"
+   },
+   "adv_setting_disable_vault_icon_heading": {
+      "message": "WebサイトのZoho Vaultのアイコンを無効にする"
+   },
+   "adv_setting_disable_website_keyboard_shortcut_content": {
+      "message": "有効にすると、［Ctrl］+［Space］のショートカットを押しても、Zoho Vaultのアイコンの入力項目にパスワードの一覧が表示されなくなります。"
+   },
+   "adv_setting_disable_website_keyboard_shortcut_heading": {
+      "message": "［Ctrl］+［Space］のショートカットを無効にする"
+   },
+   "advance_request_approved_description": {
+      "message": "アクセス権の事前申請が承認されました。アクセスするには、利用開始時間以降に、パスワードの一時利用開始の操作をしてください。"
+   },
+   "advanced_settings": {
+      "message": "詳細設定"
+   },
+   "alert_http_fill": {
+      "message": "安全でないページでの自動入力時にアラートを表示する"
+   },
+   "algorithm": {
+      "message": "アルゴリズム"
+   },
+   "all": {
+      "message": "すべて"
+   },
+   "all_folders": {
+      "message": "すべてのフォルダー"
+   },
+   "all_passwords": {
+      "message": "すべてのパスワード"
+   },
+   "all_rights_reserved": {
+      "message": "All Rights Reserved."
+   },
+   "all_users": {
+      "message": "すべてのユーザー"
+   },
+   "all_weekdays": {
+      "message": "すべての平日"
+   },
+   "all_weekends": {
+      "message": "すべての週末"
+   },
+   "allow": {
+      "message": "許可する"
+   },
+   "allow_permanent": {
+      "message": "期間の制限なく許可する"
+   },
+   "and": {
+      "message": "かつ"
+   },
+   "any": {
+      "message": "いずれか"
+   },
+   "approved": {
+      "message": "承認済み"
+   },
+   "ask_clear_history": {
+      "message": "履歴をクリアしますか？"
+   },
+   "authenticators": {
+      "message": "認証アプリ"
+   },
+   "autofill_card_sub_domains": {
+      "message": "ドメインの不一致時における支払いカードの自動入力"
+   },
+   "autofill_sub_domains": {
+      "message": "サブドメインにおけるパスワードの自動入力"
+   },
+   "autologin_disable_success": {
+      "message": "自動ログインを無効にしました"
+   },
+   "autologin_enable_success": {
+      "message": "自動ログインを有効にしました"
+   },
+   "automatically_approve_access_request": {
+      "message": "アクセス申請を自動的に承認する"
+   },
+   "back_to_folders": {
+      "message": "フォルダーに戻る"
+   },
+   "between": {
+      "message": "次の間"
+   },
+   "cancel": {
+      "message": "キャンセルする"
+   },
+   "cancel_access_request_success": {
+      "message": "申請をキャンセルしました"
+   },
+   "cancel_request": {
+      "message": "申請をキャンセルする"
+   },
+   "capitalize": {
+      "message": "大文字にする"
+   },
+   "card_added_successfully": {
+      "message": "支払いカードを追加しました"
+   },
+   "card_card_no": {
+      "message": "カード番号"
+   },
+   "card_edited_successfully": {
+      "message": "支払いカードを更新しました"
+   },
+   "card_move_to_trash_success": {
+      "message": "支払いカードをごみ箱に移動しました"
+   },
+   "card_name_on_card": {
+      "message": "カードに記載されている名前 "
+   },
+   "card_security_code": {
+      "message": "セキュリティコード"
+   },
+   "card_valid_thru": {
+      "message": "有効期限"
+   },
+   "category": {
+      "message": "カテゴリー"
+   },
+   "changes_updated": {
+      "message": "変更しました"
+   },
+   "check_in_confirm_description": {
+      "message": "パスワードの一時利用を終了すると、パスワードにアクセスできなくなります"
+   },
+   "check_in_confirm_title": {
+      "message": "パスワードの一時利用を終了しますか？"
+   },
+   "check_in_success": {
+      "message": "パスワードの一時利用を終了しました"
+   },
+   "checkin": {
+      "message": "一時利用を終了する"
+   },
+   "checkout": {
+      "message": "一時利用を開始する"
+   },
+   "checkout_success": {
+      "message": "パスワードの一時利用を開始しました"
+   },
+   "classification": {
+      "message": "分類"
+   },
+   "clear": {
+      "message": "消去する"
+   },
+   "clear_all": {
+      "message": "すべてクリアする"
+   },
+   "clear_clipboard_after": {
+      "message": "次の後にクリップボードをクリアする"
+   },
+   "clear_filters": {
+      "message": "フィルターをクリアする"
+   },
+   "close": {
+      "message": "閉じる"
+   },
+   "close_dev_tools_one_click_card": {
+      "message": "支払いカードを自動入力するには、開発者ツールを閉じてください。"
+   },
+   "close_dev_tools_one_click_login": {
+      "message": "自動ログインするには、開発者ツールを閉じてください。"
+   },
+   "close_profile_panel": {
+      "message": "プロフィール画面を閉じる"
+   },
+   "comment": {
+      "message": "コメント"
+   },
+   "confirm_access_control_disable": {
+      "message": "アクセス制限を無効にしますか？"
+   },
+   "confirm_checkout_description": {
+      "message": "一時利用の開始後、30分間のみパスワードにアクセスできます"
+   },
+   "confirm_insecure_fill": {
+      "message": "安全でないページでパスワードを入力しようとしています。このWebサイトを信頼できない場合、パスワードを入力しないことを強くお勧めします。パスワードの入力を本当に続けますか？"
+   },
+   "context_menu_show_all_cards": {
+      "message": "すべてのカードを表示する"
+   },
+   "context_menu_show_all_passwords": {
+      "message": "すべてのパスワードを表示する"
+   },
+   "copied": {
+      "message": "コピーしました"
+   },
+   "copy": {
+      "message": "コピーする"
+   },
+   "copy_to_clipboard": {
+      "message": "クリップボードにコピーする"
+   },
+   "create_folder": {
+      "message": "フォルダーを作成する"
+   },
+   "create_new": {
+      "message": "新しく作成する"
+   },
+   "created_on": {
+      "message": "作成日時"
+   },
+   "current_domain": {
+      "message": "子ドメイン"
+   },
+   "current_totp": {
+      "message": "現在の時間制限付きワンタイムパスワード"
+   },
+   "custom": {
+      "message": "個別指定"
+   },
+   "custom_fields": {
+      "message": "カスタム項目"
+   },
+   "dark_mode": {
+      "message": "夜間モード"
+   },
+   "data_sync": {
+      "message": "データの同期"
+   },
+   "date": {
+      "message": "日付"
+   },
+   "day": {
+      "message": "日"
+   },
+   "days": {
+      "message": "日"
+   },
+   "default_view": {
+      "message": "標準のデータ一覧"
+   },
+   "delete": {
+      "message": "削除する"
+   },
+   "delete_domain_from_list": {
+      "message": "この一覧から$1$を削除しますか？",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "delete_domain_from_list_description": {
+      "message": "$1$のパスワードを保存、更新するように依頼メッセージが表示されます",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "delete_password": {
+      "message": "パスワードを削除する"
+   },
+   "delete_password_confirm_message": {
+      "message": "パスワードをごみ箱から削除すると、該当のパスワードは、アカウントとすべての関連フォルダーから完全に削除されます。"
+   },
+   "delete_password_confirm_title": {
+      "message": "パスワードを削除しますか？"
+   },
+   "delete_password_success_message": {
+      "message": "パスワード「$1$」を削除しました。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "deny": {
+      "message": "却下する"
+   },
+   "description": {
+      "message": "説明"
+   },
+   "detailed_view": {
+      "message": "詳細表示"
+   },
+   "devtools_newtab_login": {
+      "message": "開発者ツールが検出されました。セキュリティを高めるため、新しいタブからログインしてください。"
+   },
+   "devtools_tab_closed": {
+      "message": "開発者ツールが検出されました。アカウントのセキュリティを保護するため、このタブは閉じられました。"
+   },
+   "digits": {
+      "message": "桁数"
+   },
+   "disable": {
+      "message": "無効にする"
+   },
+   "disable_access_control": {
+      "message": "アクセス制限を無効にする"
+   },
+   "disable_auto_login": {
+      "message": "自動ログインを無効にする"
+   },
+   "displaying": {
+      "message": "表示内容："
+   },
+   "domain": {
+      "message": "ドメイン"
+   },
+   "domain_matching": {
+      "message": "ドメインの一致"
+   },
+   "domain_mismatch_alert": {
+      "message": "ドメインの不一致に関するアラート"
+   },
+   "domain_mismatch_detected": {
+      "message": "ドメインの不一致が検出されました。自動入力を許可すると、セキュリティ上の危険に晒される可能性があります。"
+   },
+   "download": {
+      "message": "ダウンロードする"
+   },
+   "edit": {
+      "message": "編集する"
+   },
+   "edit_address": {
+      "message": "住所を編集する"
+   },
+   "edit_card": {
+      "message": "支払いカードを編集するする"
+   },
+   "edit_password": {
+      "message": "パスワードを編集する"
+   },
+   "email": {
+      "message": "メールアドレス"
+   },
+   "empty_trash": {
+      "message": "ごみ箱を空にする"
+   },
+   "empty_trash_confirm_message": {
+      "message": "この操作によって、ごみ箱の中のすべてのパスワードが完全に削除されます。ごみ箱から削除されたパスワードを後で復元することはできません。"
+   },
+   "empty_trash_confirm_title": {
+      "message": "ごみ箱を空にしますか？"
+   },
+   "empty_trash_success_message": {
+      "message": "ごみ箱からすべてのパスワードを削除しました。"
+   },
+   "enable_access_control": {
+      "message": "アクセス制限を有効にする"
+   },
+   "enable_auto_login": {
+      "message": "自動ログインを有効にする"
+   },
+   "encryption_key": {
+      "message": "暗号化キー"
+   },
+   "enter_passphrase": {
+      "message": "マスターパスワードを入力してください"
+   },
+   "enterprise": {
+      "message": "組織"
+   },
+   "enterprise_password_restricted": {
+      "message": "管理者によって、組織のパスワードを追加することは制限されています。"
+   },
+   "enterprise_passwords": {
+      "message": "組織パスワード"
+   },
+   "error_getting_oneauth_totp": {
+      "message": "OneAuthの時間制限付きワンタイムパスワードの取得中にエラーが発生しました"
+   },
+   "exclude_character": {
+      "message": "除外する文字"
+   },
+   "exclude_users": {
+      "message": "除外するユーザー"
+   },
+   "extDescription": {
+      "message": "パスワードなどの機密性の高い情報を安全に保存、共有、管理することが可能です。"
+   },
+   "extName": {
+      "message": "Zoho Vault"
+   },
+   "extension": {
+      "message": "拡張機能"
+   },
+   "extension_locked": {
+      "message": "拡張機能をロックしました"
+   },
+   "extension_logged_out": {
+      "message": "拡張機能からログアウトしました"
+   },
+   "favourites": {
+      "message": "お気に入り"
+   },
+   "field_holds_personal_data": {
+      "message": "この項目には個人情報が含まれています"
+   },
+   "field_name": {
+      "message": "項目名"
+   },
+   "file": {
+      "message": "ファイル"
+   },
+   "file_only_n_per_password": {
+      "message": "パスワードに対して追加できるファイル数は、$1$件までです",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_cannot_exceed": {
+      "message": "ファイルサイズの上限は$1$です",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_per_password_cannot_exceed": {
+      "message": "パスワードごとのファイルサイズの上限は、$1$です",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_within_max": {
+      "message": "ファイルのサイズの上限は、2MBです"
+   },
+   "fill": {
+      "message": "入力"
+   },
+   "filter": {
+      "message": "フィルター"
+   },
+   "folder": {
+      "message": "フォルダー"
+   },
+   "folder_name": {
+      "message": "フォルダー名"
+   },
+   "folders": {
+      "message": "フォルダー"
+   },
+   "font": {
+      "message": "フォント"
+   },
+   "general": {
+      "message": "一般"
+   },
+   "general_error": {
+      "message": ""
+   },
+   "generate": {
+      "message": "生成する"
+   },
+   "generator": {
+      "message": "生成ツール"
+   },
+   "generator_history_common_description": {
+      "message": "こちらには、生成ツールからコピーされた過去$1$件分の値が表示されます",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "generator_history_description": {
+      "message": "こちらには、生成ツールからコピーされた過去$1$件分のパスワードが表示されます",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "generator_password_length": {
+      "message": "パスワードの長さ"
+   },
+   "generator_policy_defaults_used": {
+      "message": "設定が無効か、設定が行われていません。標準ポリシーにリセット中です。"
+   },
+   "get_oneauth_totp": {
+      "message": "OneAuthの時間制限付きワンタイムパスワードを取得する"
+   },
+   "grant": {
+      "message": "許可する"
+   },
+   "help": {
+      "message": "ヘルプ"
+   },
+   "help_resources": {
+      "message": "ヘルプドキュメント"
+   },
+   "helpdesk_error_message": {
+      "message": "ヘルプデスクのエラーメッセージ"
+   },
+   "helpdesk_status": {
+      "message": "ヘルプデスクのステータス"
+   },
+   "hide": {
+      "message": "表示しない"
+   },
+   "history": {
+      "message": "履歴"
+   },
+   "hour": {
+      "message": "時間"
+   },
+   "hours": {
+      "message": "時間"
+   },
+   "insecure_card_fill_description": {
+      "message": "安全でないページで支払いカードの情報を入力しようとしています"
+   },
+   "insecure_page_alert": {
+      "message": "安全でないページに関するアラート"
+   },
+   "invalid_date_error": {
+      "message": "有効な日付を入力してください"
+   },
+   "invalid_email_address": {
+      "message": "メールアドレスが無効です"
+   },
+   "invalid_field": {
+      "message": "$1$が無効です",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "invalid_master_passphrase": {
+      "message": "マスターパスワードが無効です"
+   },
+   "invalid_master_passphrase_n_remaining": {
+      "message": "マスターパスワードが無効です。残り$1$回です。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "list_view": {
+      "message": "一覧表示"
+   },
+   "lock": {
+      "message": "ロック"
+   },
+   "lock_after": {
+      "message": "次の後に拡張機能をロックする"
+   },
+   "lock_on_system_lock": {
+      "message": "画面のロック時に拡張機能をロックする"
+   },
+   "login": {
+      "message": "ログインする"
+   },
+   "login_incognito": {
+      "message": "非公開セッションを開始する"
+   },
+   "lower_case": {
+      "message": "小文字"
+   },
+   "lower_case_letters": {
+      "message": "小文字"
+   },
+   "manage": {
+      "message": "管理する"
+   },
+   "manage_access_control": {
+      "message": "アクセス制限を管理にする"
+   },
+   "manage_authenticator": {
+      "message": "認証アプリの管理"
+   },
+   "manage_authenticators": {
+      "message": "認証アプリの管理"
+   },
+   "manage_custom_fields": {
+      "message": "カスタム項目を管理する"
+   },
+   "manage_prompts": {
+      "message": "依頼メッセージの管理"
+   },
+   "mark_as_personal": {
+      "message": "個人経費として設定する"
+   },
+   "mark_favourite": {
+      "message": "お気に入りに設定する"
+   },
+   "master_password": {
+      "message": "マスターパスワード"
+   },
+   "max_file_size_popup": {
+      "message": "パスワードごとのファイルサイズの上限は2MBです"
+   },
+   "message": {
+      "message": "メッセージ"
+   },
+   "minute": {
+      "message": "分"
+   },
+   "minutes": {
+      "message": "分"
+   },
+   "modified_time": {
+      "message": "更新日時"
+   },
+   "modify": {
+      "message": "変更する"
+   },
+   "more": {
+      "message": "その他"
+   },
+   "move_password_name_to_trash": {
+      "message": "「$1$」をごみ箱に移動する",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "move_to_trash": {
+      "message": "ごみ箱に移動する"
+   },
+   "move_to_trash_success": {
+      "message": "パスワードをごみ箱に移動しました"
+   },
+   "must_not_be_empty": {
+      "message": "は入力必須です"
+   },
+   "must_not_contain": {
+      "message": "で使用できない文字："
+   },
+   "n_user_groups_selected": {
+      "message": "$1$件のユーザーグループを選択しました",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "n_users_selected": {
+      "message": "$1$人のユーザーを選択しました",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "name": {
+      "message": "名前"
+   },
+   "never_save": {
+      "message": "保存しない"
+   },
+   "night_mode": {
+      "message": "ナイトモード"
+   },
+   "no_addresses_found": {
+      "message": "住所はありません"
+   },
+   "no_cards_found": {
+      "message": "支払いカードはありません"
+   },
+   "no_cards_matching_found": {
+      "message": "該当する支払いカードはありません"
+   },
+   "no_copied_values_yet": {
+      "message": "コピーした値はありません"
+   },
+   "no_copy_permission": {
+      "message": "コピーの権限がありません"
+   },
+   "no_edit_permission": {
+      "message": "編集の権限がありません"
+   },
+   "no_folders_found": {
+      "message": "フォルダーがありません"
+   },
+   "no_folders_matching_found": {
+      "message": "「$1$」に該当するフォルダーがありません",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_history_available": {
+      "message": "履歴データがありません。"
+   },
+   "no_match_found": {
+      "message": "該当するデータはありません"
+   },
+   "no_matching_addresses_found": {
+      "message": "該当する住所はありません"
+   },
+   "no_matching_folders_found": {
+      "message": "該当するフォルダーはありません"
+   },
+   "no_matching_passwords_found": {
+      "message": "該当するパスワードはありません"
+   },
+   "no_of_words": {
+      "message": "用語数"
+   },
+   "no_passwords_folder": {
+      "message": "このフォルダーにはパスワードはありません"
+   },
+   "no_passwords_found": {
+      "message": "パスワードがありません"
+   },
+   "no_passwords_matching_found_folder": {
+      "message": "このフォルダーには該当するパスワードがありません"
+   },
+   "no_passwords_yet": {
+      "message": "パスワードがありません"
+   },
+   "no_share_permission": {
+      "message": "共有の権限がありません"
+   },
+   "no_trashed_passwords": {
+      "message": "ごみ箱は空です"
+   },
+   "no_user_groups_found": {
+      "message": "ユーザーグループはありません"
+   },
+   "no_user_groups_matching_found": {
+      "message": "「$1$」に該当するユーザーグループがありません",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_users_found": {
+      "message": "ユーザーはいません"
+   },
+   "no_users_matching_found": {
+      "message": "「$1$」に該当するユーザーはいません",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_view_permission": {
+      "message": "表示権限がありません"
+   },
+   "not_selected_users": {
+      "message": "選択していないユーザー"
+   },
+   "notes": {
+      "message": "メモ"
+   },
+   "numbers": {
+      "message": "数字"
+   },
+   "of": {
+      "message": "／"
+   },
+   "ok": {
+      "message": "OK"
+   },
+   "one_click_password_change_prevented_popup": {
+      "message": "パスワードの共有時にワンクリックログインの権限が付与されている場合、パスワードを変更することはできません"
+   },
+   "oneauth_approve_message": {
+      "message": "時間制限付きワンタイムパスワードを取得するには、携帯電話宛てに送信された通知を承認してください"
+   },
+   "oneauth_install_description": {
+      "message": "認証情報を効率よく管理できるアプリです。多要素認証を設定し、組織のセキュリティを向上することができます。"
+   },
+   "oneauth_notification_pushed": {
+      "message": "OneAuthの通知を送信しました"
+   },
+   "oneauth_secrets": {
+      "message": "OneAuthの認証情報（シークレット）"
+   },
+   "oneauth_unlock_failed": {
+      "message": "エラーが発生しました。ロックを解除するには、マスターパスワードを入力してください。"
+   },
+   "open_profile_panel": {
+      "message": "プロフィール画面を開く"
+   },
+   "open_web_app": {
+      "message": "Webアプリを開く"
+   },
+   "open_zoho_vault": {
+      "message": "Zoho Vaultを開く"
+   },
+   "or": {
+      "message": "または"
+   },
+   "others": {
+      "message": "その他"
+   },
+   "owned_by_me": {
+      "message": "自分が所有"
+   },
+   "parent_domain": {
+      "message": "親ドメイン"
+   },
+   "passphrase": {
+      "message": "パスフレーズ"
+   },
+   "passphrase_cleared": {
+      "message": "マスターパスワードをクリアしました"
+   },
+   "password": {
+      "message": "パスワード"
+   },
+   "password_added_successfully": {
+      "message": "パスワードを追加しました"
+   },
+   "password_edited_successfully": {
+      "message": "パスワードを更新しました"
+   },
+   "password_must_have_lowercase": {
+      "message": "パスワードには、小文字を1文字以上使用してください。"
+   },
+   "password_must_have_minimum_chars": {
+      "message": "パスワードは$1$文字以上にしてください。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_have_number": {
+      "message": "パスワードには、数字を1文字以上使用してください。"
+   },
+   "password_must_have_spl_char": {
+      "message": "パスワードには、$1$文字以上の特殊文字を使用してください。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_have_uppercase": {
+      "message": "パスワードには、大文字を1文字以上使用してください。"
+   },
+   "password_must_not_have_chars": {
+      "message": "パスワードには、「$1$」の文字は使用できません。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_start_with_alphabet": {
+      "message": "パスワードの先頭の文字は、アルファベットにしてください。"
+   },
+   "password_policy": {
+      "message": "パスワードポリシー"
+   },
+   "passwords": {
+      "message": "パスワード"
+   },
+   "path": {
+      "message": "パス"
+   },
+   "personal": {
+      "message": "個人"
+   },
+   "personal_password_cannot_be_shared": {
+      "message": "個人パスワードは共有できません"
+   },
+   "personal_password_restricted": {
+      "message": "個人パスワードの追加は、管理者によって制限されています"
+   },
+   "personal_passwords": {
+      "message": "個人パスワード"
+   },
+   "personalization": {
+      "message": "個人設定"
+   },
+   "please_enter": {
+      "message": "次の内容を入力してください："
+   },
+   "please_enter_a": {
+      "message": "次の内容を入力してください："
+   },
+   "please_enter_an_email": {
+      "message": "メールアドレスを入力してください"
+   },
+   "please_enter_your": {
+      "message": "$1$を入力してください：",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "please_upload_your": {
+      "message": "$1$をアップロードしてください",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "port": {
+      "message": "ポート"
+   },
+   "proceed": {
+      "message": "続ける"
+   },
+   "product_videos": {
+      "message": "製品動画"
+   },
+   "prompt_auto_save_update": {
+      "message": "パスワードの保存、更新の依頼メッセージ"
+   },
+   "prompt_card_auto_save_update": {
+      "message": "支払いカードの保存、更新の依頼メッセージ"
+   },
+   "push_sent_success": {
+      "message": "プッシュ通知を送信しました"
+   },
+   "reason": {
+      "message": "理由"
+   },
+   "recent": {
+      "message": "最新"
+   },
+   "recently_added": {
+      "message": "最近追加"
+   },
+   "recently_copied_passwords": {
+      "message": "最近コピーしたパスワード"
+   },
+   "recently_copied_values": {
+      "message": "最近コピーした値"
+   },
+   "recently_used": {
+      "message": "最近使用"
+   },
+   "remove_field": {
+      "message": "項目を削除する"
+   },
+   "remove_logo": {
+      "message": "ロゴを削除する"
+   },
+   "remove_url": {
+      "message": "URLを削除する"
+   },
+   "request": {
+      "message": "申請"
+   },
+   "request_access": {
+      "message": "アクセスを申請する"
+   },
+   "request_access_description": {
+      "message": "このパスワードに対するアクセス権を申請します。申請がパスワードの所有者により承認または却下されると、メールで通知されます。"
+   },
+   "request_advance_approval": {
+      "message": "指定する日時以降のアクセス権を事前に申請する"
+   },
+   "request_approved": {
+      "message": "申請が承認されました"
+   },
+   "request_details": {
+      "message": "申請の詳細"
+   },
+   "request_immediate_access": {
+      "message": "承認直後からのアクセス権を申請する"
+   },
+   "request_time": {
+      "message": "申請日時"
+   },
+   "resend_push": {
+      "message": "通知を再送信する"
+   },
+   "reset_password": {
+      "message": "パスワードをリセットする"
+   },
+   "resource_removed_successfully": {
+      "message": "$1$を削除しました",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "restore_password": {
+      "message": "パスワードを復元する"
+   },
+   "restore_password_confirm_message": {
+      "message": "この操作によってパスワードはアカウントの元の場所に戻ります。フォルダーの関連付けや、共有権限の設定も復元されます。"
+   },
+   "restore_password_confirm_title": {
+      "message": "パスワードを復元しますか？"
+   },
+   "restore_password_success_message": {
+      "message": "パスワード「$1$」を復元しました。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "retry": {
+      "message": "もう一度試す"
+   },
+   "revoke": {
+      "message": "取り消す"
+   },
+   "same_name_password_exists": {
+      "message": "同じ名前のパスワードがすでに登録されています"
+   },
+   "save": {
+      "message": "保存する"
+   },
+   "save_and_enable": {
+      "message": "保存して有効にする"
+   },
+   "save_as_new": {
+      "message": "新しく保存する"
+   },
+   "save_prompt_disabled_description": {
+      "message": "次のWebサイトでは、自動更新の依頼メッセージが無効になっています"
+   },
+   "save_to_zoho_vault_question": {
+      "message": "Zoho Vaultに保存しますか？"
+   },
+   "scheme": {
+      "message": "内容"
+   },
+   "search": {
+      "message": "検索する"
+   },
+   "searching": {
+      "message": "検索中"
+   },
+   "seconds": {
+      "message": "秒"
+   },
+   "select": {
+      "message": "選択する"
+   },
+   "select_admins": {
+      "message": "管理者を選択する"
+   },
+   "select_all": {
+      "message": "すべて選択する"
+   },
+   "select_city": {
+      "message": "市区町村を選択する"
+   },
+   "select_country": {
+      "message": "国を選択する"
+   },
+   "select_create_folder": {
+      "message": "フォルダーの選択／作成"
+   },
+   "select_oneauth_secrets": {
+      "message": "OneAuthのシークレットを選択する"
+   },
+   "select_state": {
+      "message": "都道府県を選択する"
+   },
+   "selected_users": {
+      "message": "選択したユーザー"
+   },
+   "seperate_session": {
+      "message": "次にサインインした状態を維持する："
+   },
+   "setting_enforced_by_amdin": {
+      "message": "特権管理者によって必須に設定済み"
+   },
+   "settings": {
+      "message": "設定"
+   },
+   "share": {
+      "message": "共有する"
+   },
+   "share_feedback": {
+      "message": "フィードバックを共有する"
+   },
+   "share_one_click_login": {
+      "message": "ワンクリックログイン"
+   },
+   "share_password": {
+      "message": "パスワードを共有する"
+   },
+   "share_success": {
+      "message": "パスワードを共有しました"
+   },
+   "share_user_success": {
+      "message": "$1$とパスワードを共有しました",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "shared_by_me": {
+      "message": "自分が共有"
+   },
+   "shared_with_me": {
+      "message": "自分に共有"
+   },
+   "sharing": {
+      "message": "共有中"
+   },
+   "sharing_restricted": {
+      "message": "共有は管理者によって制限されています"
+   },
+   "show_details": {
+      "message": "詳細を表示する"
+   },
+   "show_domain_matching": {
+      "message": "一致するドメインを表示する"
+   },
+   "show_more_fields": {
+      "message": "項目をさらに表示する"
+   },
+   "shows": {
+      "message": "表示"
+   },
+   "sign_out": {
+      "message": "サインアウトする"
+   },
+   "sign_out_confirm": {
+      "message": "Zoho Vaultからサインアウトしますか？"
+   },
+   "sign_up": {
+      "message": "ユーザー登録"
+   },
+   "signup_for_vault": {
+      "message": "Zoho Vaultにアクセスするには、登録してください"
+   },
+   "special_character": {
+      "message": "特殊文字"
+   },
+   "special_characters": {
+      "message": "特殊文字"
+   },
+   "status": {
+      "message": "ステータス"
+   },
+   "stay_signed_in_info": {
+      "message": "Webサービスの画面からはアカウントからログアウトしても、拡張機能にサインインした状態を維持できます。"
+   },
+   "sub_domain": {
+      "message": "サブドメイン"
+   },
+   "sync": {
+      "message": "同期する"
+   },
+   "sync_changes": {
+      "message": "Webで行われた変更内容をすべて同期する"
+   },
+   "sync_completed": {
+      "message": "同期を完了しました"
+   },
+   "sync_description": {
+      "message": "Webアプリで行われた変更内容をもとに、拡張機能を同期できます"
+   },
+   "sync_started": {
+      "message": "同期を開始しました"
+   },
+   "syncing": {
+      "message": "同期中"
+   },
+   "tag": {
+      "message": "タグ"
+   },
+   "tags": {
+      "message": "タグ"
+   },
+   "text": {
+      "message": "テキスト"
+   },
+   "theme": {
+      "message": "テーマ"
+   },
+   "third_parties": {
+      "message": "外部ユーザー"
+   },
+   "third_party_revoke_link_after": {
+      "message": "リンクへのアクセス権限の有効時間"
+   },
+   "third_party_shared_output": {
+      "message": "$1$にメールを送信しました。$2$に関してこのパスワードへのアクセスを許可するには、相手に次の暗号化キーを共有してください。このキーは、パスワードの生成履歴から確認することもできます。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "third_party_sharing_restricted": {
+      "message": "外部ユーザーとのパスワードの共有は、管理者によって制限されています"
+   },
+   "ticket_id": {
+      "message": "問い合わせID"
+   },
+   "ticket_id_can_be_specified": {
+      "message": "自動承認に関して、問い合わせIDを指定できませんでした。"
+   },
+   "tile_view": {
+      "message": "タイル表示"
+   },
+   "time": {
+      "message": "時間"
+   },
+   "totp": {
+      "message": "時間制限付きワンタイムパスワード"
+   },
+   "totp_key": {
+      "message": "時間制限付きワンタイムパスワードのキー"
+   },
+   "totp_key_must_contain_atleast_n_chars": {
+      "message": "時間制限付きワンタイムパスワードは$1$文字以上にしてください。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "trash": {
+      "message": "ごみ箱"
+   },
+   "turn_off_dark_mode": {
+      "message": "ナイトモードを無効にする"
+   },
+   "turn_on_dark_mode": {
+      "message": "ナイトモードを有効にする"
+   },
+   "unlock": {
+      "message": "ロックを解除する"
+   },
+   "unlock_vault": {
+      "message": "Zoho Vaultのロックを解除する"
+   },
+   "unlock_vault_with_authenticators_min": {
+      "message": "認証アプリを使用してZoho Vaultのロックを解除する"
+   },
+   "unlock_vault_with_oneauth": {
+      "message": "Zoho OneAuthモバイルアプリを使用してZoho Vaultのロックを解除する"
+   },
+   "unlock_vault_with_oneauth_min": {
+      "message": "Zoho OneAuthを使用してZoho Vaultのロックを解除する"
+   },
+   "unlock_vault_with_webauthn": {
+      "message": "認証アプリを使用したZoho Vaultのロック解除"
+   },
+   "unlock_with": {
+      "message": "次でロックを解除する："
+   },
+   "unlock_zoho_vault": {
+      "message": "Zoho Vaultのロックを解除する"
+   },
+   "unlocking": {
+      "message": "ロックの解除中"
+   },
+   "unmark_favourite": {
+      "message": "お気に入りから削除する"
+   },
+   "unselect_all": {
+      "message": "すべての選択を解除する"
+   },
+   "unshared": {
+      "message": "未共有"
+   },
+   "unshared_folders": {
+      "message": "共有していないフォルダー"
+   },
+   "unshared_passwords": {
+      "message": "共有していないパスワード"
+   },
+   "update": {
+      "message": "更新する"
+   },
+   "update_card": {
+      "message": "支払いカードを更新しますか？"
+   },
+   "update_password_question": {
+      "message": "パスワードを更新しますか？"
+   },
+   "upload": {
+      "message": "アップロードする"
+   },
+   "upload_logo": {
+      "message": "ロゴをアップロードする"
+   },
+   "upper_case": {
+      "message": "大文字"
+   },
+   "upper_case_letters": {
+      "message": "大文字"
+   },
+   "url": {
+      "message": "URL"
+   },
+   "url_invalid": {
+      "message": "入力したURLが無効です"
+   },
+   "urls_max_n": {
+      "message": "追加できるURLは、最大$1$件です。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "usage_confirmation": {
+      "message": "使用の確認"
+   },
+   "use": {
+      "message": "使用"
+   },
+   "use_xs_password_on_y": {
+      "message": "$2$で$1$のパスワードを使用しますか？",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "user": {
+      "message": "ユーザー"
+   },
+   "user_group": {
+      "message": "ユーザーグループ"
+   },
+   "user_groups": {
+      "message": "ユーザーグループ"
+   },
+   "user_name_label": {
+      "message": "ユーザー名"
+   },
+   "users": {
+      "message": "ユーザー"
+   },
+   "validity": {
+      "message": "有効期限"
+   },
+   "value": {
+      "message": "値"
+   },
+   "view": {
+      "message": "表示する"
+   },
+   "view_filters": {
+      "message": "フィルターを表示する"
+   },
+   "view_more": {
+      "message": "さらに表示する"
+   },
+   "week": {
+      "message": "週"
+   },
+   "weeks": {
+      "message": "週"
+   },
+   "welcome_to_vault": {
+      "message": "Zoho Vaultにようこそ"
+   },
+   "word_separator": {
+      "message": "語句の区切り文字"
+   },
+   "x_must_be_less_than_y_chars": {
+      "message": "$1$は$2$文字未満にしてください。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "zoho_oneauth": {
+      "message": "Zoho OneAuth"
+   },
+   "zoho_vault_extension_locked": {
+      "message": "Zoho Vault - 拡張機能がロックされました"
+   }
+}

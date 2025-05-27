@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="/images/logo/vault-logo-blue.svg">
+	<script src="/js/frames/reset_frame/reset_frame_main.js" type="module"></script>
+	<link href="/style/ZVaultResetProgress.css" rel="stylesheet" type="text/css">
+	<link href="/style/vault-ext.css" rel="stylesheet" type="text/css">
+	<style>
+		.change-password-panel {
+			width: 400px;
+			box-shadow: 0 0px 8px 1px rgb(0 0 0 / 10%);
+			background: #fff;
+			position: absolute;
+			border-radius: 4px;
+			padding: 40px;
+			text-align: center;
+		}
+
+		.change-password-panel::before {
+			content: "";
+			background: rgb(199, 36, 54);
+			background: linear-gradient(to right, rgb(199, 36, 54), rgb(10, 141, 84), rgb(19, 118, 178), rgb(250, 205, 37));
+			height: 5px;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+		.change-password-loader-panel {
+			height: 70px;
+			margin: 10px auto 0 auto;
+			text-align: center;
+			position: relative;
+			width: 70px;
+		}
+
+		.change-password-loader {
+			border: 4px solid #f3f3f3;
+			border-radius: 50%;
+			border-top: 4px solid #3498db;
+			border-top-color: #047dc0;
+			border-right-color: #fdc121;
+			border-bottom-color: #22a049;
+			border-left-color: #d12032;
+			width: 70px;
+			height: 70px;
+			position: relative;
+			-webkit-animation: spin 2s linear infinite;
+			animation: spin 2s linear infinite;
+		}
+
+		@-webkit-keyframes spin {
+			0% {
+				-webkit-transform: rotate(0deg);
+			}
+
+			100% {
+				-webkit-transform: rotate(360deg);
+			}
+		}
+
+		@keyframes spin {
+			0% {
+				transform: rotate(0deg);
+			}
+
+			100% {
+				transform: rotate(360deg);
+			}
+		}
+
+		.percent-text {
+			font-size: 15px;
+			position: absolute;
+			right: 0;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			vertical-align: middle;
+			margin: auto;
+			height: 20px;
+		}
+
+		.change-password-vault-logo img {
+			width: 45px;
+			height: 45px;
+		}
+	</style>
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-nightmode.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault_dstyle.css">
+</head>
+
+<body class="zvf-opensans">
+	<div id="tooltip_arrow" class="tooltip_arrow" style="display: none;transition: opacity 0.6s linear;"></div>
+	<div id="tooltip_elem" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+	<div id="elem_msg_action" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+
+	<!--notification start-->
+
+	<div id="notification" class="notify notify-success clearfix" style="display: none;max-width: 90%;width: max-content;transition: opacity 0.5s linear;top: 10px;">
+		<div class="notify-inner" data-close="">
+			<span class="notify-symbol pointer"></span>
+			<div class="notify-content pointer" data-content="">
+				notification content</div>
+		</div>
+	</div>
+
+	<!--notification end-->
+
+	<div class="change-password-panel">
+		<div class="change-password-vault-logo"> <img src="/images/logo/vault-logo-blue.svg" /></div>
+		<h3 class="m-t-10"><no-i-span>Zoho Vault</no-i-span></h3>
+		<h5 class="m-t-10 text-default" id="progressContent"><no-i-span>Sit back and relax. We're setting a strong, new password for your account...</no-i-span>
+		</h5>
+		<div class="change-password-loader-panel" id="loadingDiv">
+			<div class="change-password-loader"></div>
+			<div class="percent-text"><no-i-span id="percentValue">20%</no-i-span></div>
+		</div>
+	</div>
+
+	<template id="vault_loading_template">
+		<div data-loading="">
+			<div class="component-loader" style="display: block;">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</template>
+</body>
+
+</html>

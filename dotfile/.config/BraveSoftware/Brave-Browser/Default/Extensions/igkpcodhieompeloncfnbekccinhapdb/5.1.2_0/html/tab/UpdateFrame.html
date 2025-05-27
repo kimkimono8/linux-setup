@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html style="width: 350px;">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="shortcut icon" type="image/x-icon" href="/images/logo/vault-logo-blue.svg">
+	<title>Update</title>
+	<link rel="stylesheet" type="text/css" href="/style/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-themes.css">
+	<link rel="stylesheet" type="text/css" href="/style/styles.css">
+	<link rel="stylesheet" type="text/css" href="/style/ZVaultUSFrame.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault-ext-nightmode.css">
+	<link rel="stylesheet" type="text/css" href="/style/vault_dstyle.css">
+
+	<script type="module" src="/js/frames/update_frame/update_frame_main.js"></script>
+</head>
+
+<body class="zvf-opensans" style="width:350px;user-select: none;">
+	<div class="su-wrapper clearfix">
+		<div id="tooltip_arrow" class="tooltip_arrow" style="display: none;transition: opacity 0.6s linear;"></div>
+		<div id="tooltip_elem" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+		<div id="elem_msg_action" class="zv-tooltip" style="display: none;transition: opacity 0.5s linear;"></div>
+
+		<!--notification start-->
+
+		<div id="notification" class="notify notify-success clearfix" style="display: none;max-width: 90%;width: max-content;transition: opacity 0.5s linear;top: 10px;">
+			<div class="notify-inner" data-close="">
+				<span class="notify-symbol pointer"></span>
+				<div class="notify-content pointer" data-content="">
+					notification content</div>
+			</div>
+		</div>
+
+		<!--notification end-->
+
+		<!--loading start-------------------------------------------------------------------------------------------------->
+		<div class="overlay-bg" id="loading" style="display: none;">
+			<div class="component-loader">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<!--loading end---------------------------------------------------------------------------------------------------->
+
+		<div class="add-password-panel password-detail-page" style="right: 0;">
+
+			<!--header start--------------------------------------------------------------------------------------------------->
+			<div class="add-password-row-group">
+				<div class="add-password-one-col">
+					<div class="add-password-col-left">
+						<span class="view-password-popup-logo pull-left" style="background-image: url(/images/logo/vault-logo-blue.svg);cursor:default;"></span>
+					</div>
+					<div class="add-password-col-right">
+						<h5 class="modal-panel-title pull-left m-t-10"><i-span>update_password_question</i-span></h5>
+					</div>
+					<span class="password-list-view-details-close">
+						<ul class="vault-list">
+							<li><a id="edit_a" data-on_click="uf.clickedEdit"><i class="icon-edit" data-icon_tooltip="true" data-tooltip_content="i18n:edit"></i></a></li>
+							<li><a id="close_a" data-on_click="uf.clickedClose"><i class="icon-close icon-xs" data-icon_tooltip="true" data-tooltip_content="i18n:close"></i></a></li>
+						</ul>
+					</span>
+				</div>
+			</div>
+			<!--header end ---------------------------------------------------------------------------------------------------->
+
+
+			<!--fields start--------------------------------------------------------------------------------------------------->
+			<div class="m-t-10 su-pr" id="secretFields">
+				<!--Name-->
+				<div class="add-password-row-group dis-block">
+					<div class="add-password-one-col">
+						<div class="form-group deactive">
+							<label class="label-control">
+								<span class="label-text"><i-span>name</i-span> <span class="mandatory"><no-i-span>*</no-i-span></span></span>
+							</label>
+							<div class="form-control" id="name" autocomplete="off" style="padding: 11px 0 9px 0 !important;"></div>
+						</div>
+					</div>
+				</div>
+
+				<!--username-->
+				<div class="add-password-row-group dis-block">
+					<div class="add-password-one-col">
+						<div class="form-group active dis-block">
+							<label class="label-control"><span class="label-text" id="username_label"><i-span>user_name_label</i-span></span></label>
+							<div class="form-control">
+								<div class="text-ellipsis" id="username"><no-i-span>****************</no-i-span></div>
+							</div>
+						</div>
+						<div class="password-right-actions">
+							<ul class="action-icon-list" style="margin-top: 15px;">
+								<li data-on_click="uf.clickedShowHide" data-auto_hide_eye="true" data-eye_for="#username"><a id="username_a"><i class="icon-view" data-tooltip_content="i18n:view" data-icon_tooltip="true"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<!--password-->
+				<div class="add-password-row-group dis-block">
+					<div class="add-password-one-col">
+						<div class="form-group active dis-block">
+							<label class="label-control"><span class="label-text" id="password_label"><i-span>password</i-span></span></label>
+							<div class="form-control">
+								<div class="text-ellipsis" id="password"><no-i-span>****************</no-i-span></div>
+							</div>
+						</div>
+						<div class="password-right-actions">
+							<ul class="action-icon-list" style="margin-top: 15px;">
+								<li data-on_click="uf.clickedShowHide" data-auto_hide_eye="true" data-eye_for="#password"><a id="password_a"><i class="icon-view" data-tooltip_content="i18n:view" data-icon_tooltip="true"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<!--fields end----------------------------------------------------------------------------------------------------->
+
+
+			<!--footer start--------------------------------------------------------------------------------------------------->
+			<div class="full-width clearfix" style="margin-top:13px;">
+				<button type="button" class="btn btn-sm btn-primary" id="update_button" style="padding-left:15px; padding-right:15px;" data-on_click="uf.clickedUpdate"><i-span>update</i-span></button>
+				<button type="button" class="btn btn-sm btn-default-line m-l-5" id="save_as_new_button" data-on_click="uf.clickedSaveAsNew"><i-span>save_as_new</i-span></button>
+				<button type="button" class="btn btn-sm btn-default-line m-r-5 pull-right" id="never_save_button" data-on_click="uf.clickedNeverSave"><i-span>never_save</i-span></button>
+			</div>
+			<!--footer end----------------------------------------------------------------------------------------------------->
+		</div>
+	</div>
+
+	<template id="vault_loading_template">
+		<div data-loading="">
+			<div class="component-loader" style="display: block;">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+	</template>
+</body>
+
+</html>

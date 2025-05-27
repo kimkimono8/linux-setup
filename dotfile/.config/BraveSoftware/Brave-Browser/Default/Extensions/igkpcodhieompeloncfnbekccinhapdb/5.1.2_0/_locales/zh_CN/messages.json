@@ -1,0 +1,1526 @@
+{
+   "access_checkout_description": {
+      "message": "您的访问请求已获批准。请查看访问所需的密码。"
+   },
+   "access_control": {
+      "message": "访问控制"
+   },
+   "access_control_admin_tooltip": {
+      "message": "选择一名或多名可以批准访问请求的管理员"
+   },
+   "access_control_altlest_two_grant_access": {
+      "message": "必须至少有2名审批人授予访问权限"
+   },
+   "access_control_auto_approve_with_help_desk": {
+      "message": "通过帮助台工单验证"
+   },
+   "access_control_description": {
+      "message": "在获得选定审批人的有效批准后，用户可以访问该密码"
+   },
+   "access_control_disabled_success": {
+      "message": "访问控制已成功禁用"
+   },
+   "access_control_enabled": {
+      "message": "访问控制已启用"
+   },
+   "access_control_exclude_users_tooltip": {
+      "message": "选定的用户将被排除在访问控制之外"
+   },
+   "access_control_invalid_time": {
+      "message": "自动审批时间无效"
+   },
+   "access_control_provide_access_for": {
+      "message": "提供访问权限"
+   },
+   "access_control_saved_success": {
+      "message": "访问控制配置已成功保存"
+   },
+   "access_control_select_another_approver": {
+      "message": "请选择另一名审批人，然后重试"
+   },
+   "access_control_unapproved_request_void_after": {
+      "message": "未经批准的请求在下列情况下无效"
+   },
+   "access_privilege": {
+      "message": "访问权限"
+   },
+   "access_request_created_success": {
+      "message": "访问请求创建成功"
+   },
+   "access_request_pending_description": {
+      "message": "您的访问请求正在等待审批。无论何时批准或拒绝，您都会收到电子邮件通知。"
+   },
+   "access_required_on": {
+      "message": "请求访问时间"
+   },
+   "access_revoked_success": {
+      "message": "密码访问权限已成功撤消"
+   },
+   "access_revoked_user_success": {
+      "message": "从$1$撤消密码访问权限",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "actions": {
+      "message": "操作"
+   },
+   "activity": {
+      "message": "活动"
+   },
+   "add": {
+      "message": "添加"
+   },
+   "add_address": {
+      "message": "添加地址"
+   },
+   "add_authenticator": {
+      "message": "添加身份认证器"
+   },
+   "add_card": {
+      "message": "添加付款卡"
+   },
+   "add_field": {
+      "message": "添加字段"
+   },
+   "add_folder": {
+      "message": "添加文件夹"
+   },
+   "add_password": {
+      "message": "添加密码"
+   },
+   "add_password_restricted": {
+      "message": "您机构的管理员已禁用添加新密码。"
+   },
+   "add_personal_enterprise_password_restricted": {
+      "message": "添加个人密码和企业密码的操作受到管理员的限制。"
+   },
+   "add_url": {
+      "message": "添加URL"
+   },
+   "added_successfully": {
+      "message": "添加成功"
+   },
+   "additional_fields": {
+      "message": "附加字段"
+   },
+   "address": {
+      "message": "地址"
+   },
+   "address_added_successfully": {
+      "message": "地址添加成功"
+   },
+   "address_edited_successfully": {
+      "message": "地址更新成功"
+   },
+   "addresses": {
+      "message": "地址"
+   },
+   "admin": {
+      "message": "管理"
+   },
+   "adv_setting_disable_badge_count_content": {
+      "message": "启用后，工具栏上该扩展程序的标识将不会显示与域名匹配的密码计数。"
+   },
+   "adv_setting_disable_badge_count_heading": {
+      "message": "禁用标识计数"
+   },
+   "adv_setting_disable_click_to_login": {
+      "message": "禁用一键登录"
+   },
+   "adv_setting_disable_click_to_login_content": {
+      "message": "启用后，点击密码条目将显示密码详情，而不是自动登录。"
+   },
+   "adv_setting_disable_shadow_root": {
+      "message": "禁用影子根（Shadow Root）"
+   },
+   "adv_setting_disable_shadow_root_content": {
+      "message": "网站的影子根（Shadow Root）检测将被禁用。"
+   },
+   "adv_setting_disable_vault_icon_content": {
+      "message": "启用后，密码保险库的图标不会出现在密码字段中，但您仍然可以通过右键单击上下文菜单访问密码。"
+   },
+   "adv_setting_disable_vault_icon_heading": {
+      "message": "禁用网站密码保险库的图标"
+   },
+   "adv_setting_disable_website_keyboard_shortcut_content": {
+      "message": "禁用“Ctrl+空格”快捷键，将不会在带有密码保险库图标的输入字段中打开密码列表。"
+   },
+   "adv_setting_disable_website_keyboard_shortcut_heading": {
+      "message": "禁用“Ctrl+空格”快捷键"
+   },
+   "advance_request_approved_description": {
+      "message": "您的提前访问请求已获得批准。在请求的时间查看密码以访问它。"
+   },
+   "advanced_settings": {
+      "message": "高级设置"
+   },
+   "alert_http_fill": {
+      "message": "在不安全的页面上自动填充时发出告警"
+   },
+   "algorithm": {
+      "message": "算法"
+   },
+   "all": {
+      "message": "所有"
+   },
+   "all_folders": {
+      "message": "所有文件夹"
+   },
+   "all_passwords": {
+      "message": "所有密码"
+   },
+   "all_rights_reserved": {
+      "message": "保留所有权利。"
+   },
+   "all_users": {
+      "message": "所有用户"
+   },
+   "all_weekdays": {
+      "message": "所有工作日"
+   },
+   "all_weekends": {
+      "message": "所有周末"
+   },
+   "allow": {
+      "message": "允许"
+   },
+   "allow_permanent": {
+      "message": "永久允许"
+   },
+   "and": {
+      "message": "和"
+   },
+   "any": {
+      "message": "任何"
+   },
+   "approved": {
+      "message": "已批准"
+   },
+   "ask_clear_history": {
+      "message": "清除历史记录？"
+   },
+   "authenticators": {
+      "message": "身份认证器"
+   },
+   "autofill_card_sub_domains": {
+      "message": "域名不匹配时自动填充付款卡"
+   },
+   "autofill_sub_domains": {
+      "message": "在子域上自动填充密码"
+   },
+   "autologin_disable_success": {
+      "message": "自动登录已成功禁用           "
+   },
+   "autologin_enable_success": {
+      "message": "自动登录已成功启用                         "
+   },
+   "automatically_approve_access_request": {
+      "message": "自动批准访问请求"
+   },
+   "back_to_folders": {
+      "message": "返回文件夹"
+   },
+   "between": {
+      "message": "介于"
+   },
+   "cancel": {
+      "message": "取消"
+   },
+   "cancel_access_request_success": {
+      "message": "请求已成功取消"
+   },
+   "cancel_request": {
+      "message": "取消请求"
+   },
+   "capitalize": {
+      "message": "将其大写"
+   },
+   "card_added_successfully": {
+      "message": "付款卡添加成功"
+   },
+   "card_card_no": {
+      "message": "卡号"
+   },
+   "card_edited_successfully": {
+      "message": "付款卡更新成功"
+   },
+   "card_move_to_trash_success": {
+      "message": "付款卡已成功移至回收站"
+   },
+   "card_name_on_card": {
+      "message": "卡片上的姓名"
+   },
+   "card_security_code": {
+      "message": "安全码"
+   },
+   "card_valid_thru": {
+      "message": "有效期"
+   },
+   "category": {
+      "message": "类别"
+   },
+   "changes_updated": {
+      "message": "更改已成功更新"
+   },
+   "check_in_confirm_description": {
+      "message": "一旦您检入密码，您将无法再访问它"
+   },
+   "check_in_confirm_title": {
+      "message": "登记密码？"
+   },
+   "check_in_success": {
+      "message": "密码已成功检入"
+   },
+   "checkin": {
+      "message": "检入"
+   },
+   "checkout": {
+      "message": "检出"
+   },
+   "checkout_success": {
+      "message": "密码已成功检出"
+   },
+   "classification": {
+      "message": "分类"
+   },
+   "clear": {
+      "message": "清除"
+   },
+   "clear_all": {
+      "message": "清除全部"
+   },
+   "clear_clipboard_after": {
+      "message": "清除剪贴板后"
+   },
+   "clear_filters": {
+      "message": "清除过滤器"
+   },
+   "close": {
+      "message": "关闭"
+   },
+   "close_dev_tools_one_click_card": {
+      "message": "关闭开发者工具以自动填充付款卡信息。"
+   },
+   "close_dev_tools_one_click_login": {
+      "message": "关闭开发人员工具以自动登录。"
+   },
+   "close_profile_panel": {
+      "message": "关闭简档面板"
+   },
+   "comment": {
+      "message": "评论"
+   },
+   "confirm_access_control_disable": {
+      "message": "禁用访问控制？"
+   },
+   "confirm_checkout_description": {
+      "message": "一旦您检出密码，您只能访问30分钟。"
+   },
+   "confirm_insecure_fill": {
+      "message": "您将在不安全的页面中填写密码。Zoho Vault强烈建议您不要这样做，除非您信任本网站。还是继续填写密码？"
+   },
+   "context_menu_show_all_cards": {
+      "message": "显示所有卡片"
+   },
+   "context_menu_show_all_passwords": {
+      "message": "显示所有密码"
+   },
+   "copied": {
+      "message": "已复制"
+   },
+   "copy": {
+      "message": "复制"
+   },
+   "copy_to_clipboard": {
+      "message": "复制到剪贴板"
+   },
+   "create_folder": {
+      "message": "创建文件夹"
+   },
+   "create_new": {
+      "message": "新建"
+   },
+   "created_on": {
+      "message": "创建时间"
+   },
+   "current_domain": {
+      "message": "子域名"
+   },
+   "current_totp": {
+      "message": "当前动态验证码"
+   },
+   "custom": {
+      "message": "自定义"
+   },
+   "custom_fields": {
+      "message": "自定义字段"
+   },
+   "dark_mode": {
+      "message": "夜间模式"
+   },
+   "data_sync": {
+      "message": "数据同步"
+   },
+   "date": {
+      "message": "日期"
+   },
+   "day": {
+      "message": "天"
+   },
+   "days": {
+      "message": "天"
+   },
+   "default_view": {
+      "message": "默认视图"
+   },
+   "delete": {
+      "message": "删除"
+   },
+   "delete_domain_from_list": {
+      "message": "从列表中删除$1$？",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "delete_domain_from_list_description": {
+      "message": "您将开始收到保存和更新$1$密码的提示。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "delete_password": {
+      "message": "删除密码"
+   },
+   "delete_password_confirm_message": {
+      "message": "删除密码会将其从您的帐户和所有相关文件夹中永久删除。"
+   },
+   "delete_password_confirm_title": {
+      "message": "删除密码？"
+   },
+   "delete_password_success_message": {
+      "message": "密码“$1$”已成功删除。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "deny": {
+      "message": "拒绝"
+   },
+   "description": {
+      "message": "描述"
+   },
+   "detailed_view": {
+      "message": "详细视图"
+   },
+   "devtools_newtab_login": {
+      "message": "检测到开发者工具。为增强安全性，请通过新页签登录。"
+   },
+   "devtools_tab_closed": {
+      "message": "检测到开发者工具。为保护您的账户安全，此页签已被关闭。"
+   },
+   "digits": {
+      "message": "数字"
+   },
+   "disable": {
+      "message": "禁用"
+   },
+   "disable_access_control": {
+      "message": "禁用访问控制"
+   },
+   "disable_auto_login": {
+      "message": "禁用自动登录"
+   },
+   "displaying": {
+      "message": "显示中"
+   },
+   "domain": {
+      "message": "域名"
+   },
+   "domain_matching": {
+      "message": "域名匹配中"
+   },
+   "domain_mismatch_alert": {
+      "message": "域名不匹配告警"
+   },
+   "domain_mismatch_detected": {
+      "message": "检测到域名不匹配。允许自动填充可能会带来安全风险。"
+   },
+   "download": {
+      "message": "下载"
+   },
+   "edit": {
+      "message": "编辑"
+   },
+   "edit_address": {
+      "message": "编辑地址"
+   },
+   "edit_card": {
+      "message": "编辑付款卡"
+   },
+   "edit_password": {
+      "message": "编辑密码"
+   },
+   "email": {
+      "message": "电子邮件"
+   },
+   "empty_trash": {
+      "message": "清空回收站"
+   },
+   "empty_trash_confirm_message": {
+      "message": "此操作将彻底删除回收站中的所有密码。您将来将无法恢复这些密码。"
+   },
+   "empty_trash_confirm_title": {
+      "message": "清空回收站？"
+   },
+   "empty_trash_success_message": {
+      "message": "回收站中的所有密码均已成功删除。"
+   },
+   "enable_access_control": {
+      "message": "启用访问控制"
+   },
+   "enable_auto_login": {
+      "message": "启用自动登录"
+   },
+   "encryption_key": {
+      "message": "加密密钥"
+   },
+   "enter_passphrase": {
+      "message": "输入您的主密码以访问您的密码保险库"
+   },
+   "enterprise": {
+      "message": "企业版"
+   },
+   "enterprise_password_restricted": {
+      "message": "添加的企业密码受到管理员的限制。"
+   },
+   "enterprise_passwords": {
+      "message": "企业密码"
+   },
+   "error_getting_oneauth_totp": {
+      "message": "获取OneAuth动态验证码时出错"
+   },
+   "exclude_character": {
+      "message": "排除字符"
+   },
+   "exclude_users": {
+      "message": "排除用户"
+   },
+   "extDescription": {
+      "message": "团队在线密码管理器，用于安全地存储、共享及管理密码和其他敏感数据。"
+   },
+   "extName": {
+      "message": "Zoho Vault"
+   },
+   "extension": {
+      "message": "扩展程序"
+   },
+   "extension_locked": {
+      "message": "扩展程序已锁定"
+   },
+   "extension_logged_out": {
+      "message": "扩展程序已取消"
+   },
+   "favourites": {
+      "message": "收藏夹"
+   },
+   "field_holds_personal_data": {
+      "message": "此字段保存个人数据"
+   },
+   "field_name": {
+      "message": "字段名称"
+   },
+   "file": {
+      "message": "文件"
+   },
+   "file_only_n_per_password": {
+      "message": "每个密码只能添加 $1$ 个文件",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_cannot_exceed": {
+      "message": "文件大小不能超过 $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_per_password_cannot_exceed": {
+      "message": "每个密码的最大文件大小不应超过 $1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "file_size_within_max": {
+      "message": "文件最大不得超过 2MB"
+   },
+   "fill": {
+      "message": "填充"
+   },
+   "filter": {
+      "message": "过滤器"
+   },
+   "folder": {
+      "message": "文件夹"
+   },
+   "folder_name": {
+      "message": "文件夹名称"
+   },
+   "folders": {
+      "message": "文件夹"
+   },
+   "font": {
+      "message": "字体"
+   },
+   "general": {
+      "message": "通用"
+   },
+   "generate": {
+      "message": "生成"
+   },
+   "generator": {
+      "message": "生成器"
+   },
+   "generator_history_common_description": {
+      "message": "从生成器中复制的最近$1$个值将显示在此处。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "generator_history_description": {
+      "message": "从生成器中复制的最后$1$个密码将显示在此处",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "generator_password_length": {
+      "message": "密码长度"
+   },
+   "generator_policy_defaults_used": {
+      "message": "配置无效或为空，正在重置为默认策略选项。"
+   },
+   "get_oneauth_totp": {
+      "message": "获取OneAuth动态验证码"
+   },
+   "grant": {
+      "message": "授权"
+   },
+   "help": {
+      "message": "帮助"
+   },
+   "help_resources": {
+      "message": "帮助资源"
+   },
+   "helpdesk_error_message": {
+      "message": "帮助台错误消息"
+   },
+   "helpdesk_status": {
+      "message": "帮助台状态"
+   },
+   "hide": {
+      "message": "隐藏"
+   },
+   "history": {
+      "message": "历史"
+   },
+   "hour": {
+      "message": "小时"
+   },
+   "hours": {
+      "message": "小时"
+   },
+   "insecure_card_fill_description": {
+      "message": "您即将在一个不安全的页面填写您的付款卡信息"
+   },
+   "insecure_page_alert": {
+      "message": "不安全页面告警"
+   },
+   "invalid_date_error": {
+      "message": "请指定有效的日期"
+   },
+   "invalid_email_address": {
+      "message": "无效的电子邮件地址"
+   },
+   "invalid_field": {
+      "message": "无效的$1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "invalid_master_passphrase": {
+      "message": "无效的主密码"
+   },
+   "invalid_master_passphrase_n_remaining": {
+      "message": "无效的主密码，剩余$1$次尝试。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "list_view": {
+      "message": "列表视图"
+   },
+   "lock": {
+      "message": "锁定"
+   },
+   "lock_after": {
+      "message": "锁定扩展程序"
+   },
+   "lock_on_system_lock": {
+      "message": "屏幕锁定时锁定扩展程序"
+   },
+   "login": {
+      "message": "登录"
+   },
+   "login_incognito": {
+      "message": "启动私有会话"
+   },
+   "lower_case": {
+      "message": "小写"
+   },
+   "lower_case_letters": {
+      "message": "小写字母"
+   },
+   "manage": {
+      "message": "管理"
+   },
+   "manage_access_control": {
+      "message": "管理访问控制"
+   },
+   "manage_authenticator": {
+      "message": "管理身份认证器"
+   },
+   "manage_authenticators": {
+      "message": "管理身份认证器"
+   },
+   "manage_custom_fields": {
+      "message": "管理自定义字段"
+   },
+   "manage_prompts": {
+      "message": "管理提示信息"
+   },
+   "mark_as_personal": {
+      "message": "标记为私有"
+   },
+   "mark_favourite": {
+      "message": "标记为收藏夹"
+   },
+   "master_password": {
+      "message": "主密码"
+   },
+   "max_file_size_popup": {
+      "message": "每个密码的最大文件大小不应超过2MB"
+   },
+   "message": {
+      "message": "消息"
+   },
+   "minute": {
+      "message": "分钟"
+   },
+   "minutes": {
+      "message": "分钟"
+   },
+   "modified_time": {
+      "message": "修改时间"
+   },
+   "modify": {
+      "message": "修改"
+   },
+   "more": {
+      "message": "更多"
+   },
+   "move_password_name_to_trash": {
+      "message": "将“$1$”移动到回收站",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "move_to_trash": {
+      "message": "移动到回收站"
+   },
+   "move_to_trash_success": {
+      "message": "密码已成功移到回收站"
+   },
+   "must_not_be_empty": {
+      "message": "不能为空"
+   },
+   "must_not_contain": {
+      "message": "不能包含"
+   },
+   "n_user_groups_selected": {
+      "message": "已选择$1$个用户组",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "n_users_selected": {
+      "message": "已选择$1$个用户",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "name": {
+      "message": "名称"
+   },
+   "never_save": {
+      "message": "永不保存"
+   },
+   "night_mode": {
+      "message": "夜间模式"
+   },
+   "no_addresses_found": {
+      "message": "没有找到地址"
+   },
+   "no_cards_found": {
+      "message": "没有找到付款卡"
+   },
+   "no_cards_matching_found": {
+      "message": "没有找到匹配的付款卡"
+   },
+   "no_copied_values_yet": {
+      "message": "尚未复制值"
+   },
+   "no_copy_permission": {
+      "message": "没有复制权限"
+   },
+   "no_edit_permission": {
+      "message": "没有编辑权限"
+   },
+   "no_folders_found": {
+      "message": "没有找到文件夹"
+   },
+   "no_folders_matching_found": {
+      "message": "没有找到匹配的“$1$”文件夹",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_history_available": {
+      "message": "历史数据不可用。"
+   },
+   "no_match_found": {
+      "message": "没有找到匹配项"
+   },
+   "no_matching_addresses_found": {
+      "message": "没有找到匹配的地址"
+   },
+   "no_matching_folders_found": {
+      "message": "没有找到匹配的文件夹"
+   },
+   "no_matching_passwords_found": {
+      "message": "没有找到匹配的密码"
+   },
+   "no_of_words": {
+      "message": "字数"
+   },
+   "no_passwords_folder": {
+      "message": "该文件夹中没有找到密码"
+   },
+   "no_passwords_found": {
+      "message": "没有找到密码"
+   },
+   "no_passwords_matching_found_folder": {
+      "message": "在此文件夹中没有找到匹配的密码"
+   },
+   "no_passwords_yet": {
+      "message": "还没有密码"
+   },
+   "no_share_permission": {
+      "message": "没有共享权限"
+   },
+   "no_trashed_passwords": {
+      "message": "回收站为空"
+   },
+   "no_user_groups_found": {
+      "message": "没有找到用户组"
+   },
+   "no_user_groups_matching_found": {
+      "message": "没有找到匹配的“$1$”用户组",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_users_found": {
+      "message": "没有找到用户"
+   },
+   "no_users_matching_found": {
+      "message": "没有找到匹配的“$1$”用户",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "no_view_permission": {
+      "message": "没有查看权限"
+   },
+   "not_selected_users": {
+      "message": "未选择用户"
+   },
+   "notes": {
+      "message": "备注"
+   },
+   "numbers": {
+      "message": "数字"
+   },
+   "of": {
+      "message": "/"
+   },
+   "ok": {
+      "message": "好的"
+   },
+   "one_click_password_change_prevented_popup": {
+      "message": "使用一键登录权限共享密码时不允许更改密码"
+   },
+   "oneauth_approve_message": {
+      "message": "请批准发送到您手机的通知以获取动态验证码"
+   },
+   "oneauth_install_description": {
+      "message": "一款功能全面的身份认证应用程序，它可简化您所有的多因素身份认证需求，并提升企业安全性。"
+   },
+   "oneauth_notification_pushed": {
+      "message": "OneAuth通知已发送"
+   },
+   "oneauth_secrets": {
+      "message": "OneAuth机密信息"
+   },
+   "oneauth_unlock_failed": {
+      "message": "出了错误，输入您的主密码以解锁。"
+   },
+   "open_profile_panel": {
+      "message": "打开简档面板"
+   },
+   "open_web_app": {
+      "message": "打开Web应用"
+   },
+   "open_zoho_vault": {
+      "message": "打开Zoho Vault"
+   },
+   "or": {
+      "message": "或"
+   },
+   "others": {
+      "message": "其他"
+   },
+   "owned_by_me": {
+      "message": "由我所有"
+   },
+   "parent_domain": {
+      "message": "父域名"
+   },
+   "passphrase": {
+      "message": "加密口令"
+   },
+   "passphrase_cleared": {
+      "message": "您的主密码已被清除"
+   },
+   "password": {
+      "message": "密码"
+   },
+   "password_added_successfully": {
+      "message": "密码添加成功"
+   },
+   "password_edited_successfully": {
+      "message": "密码更新成功"
+   },
+   "password_must_have_lowercase": {
+      "message": "密码必须至少包含一个小写字母。"
+   },
+   "password_must_have_minimum_chars": {
+      "message": "密码必须至少包含$1$个字符。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_have_number": {
+      "message": "密码必须至少包含1个数字。"
+   },
+   "password_must_have_spl_char": {
+      "message": "密码必须至少包含$1$个特殊字符。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_have_uppercase": {
+      "message": "密码必须至少包含1个大写字母。"
+   },
+   "password_must_not_have_chars": {
+      "message": "密码中不允许使用字符$1$。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "password_must_start_with_alphabet": {
+      "message": "密码必须以字母开头。"
+   },
+   "password_policy": {
+      "message": "密码策略"
+   },
+   "passwords": {
+      "message": "密码"
+   },
+   "path": {
+      "message": "路径"
+   },
+   "personal": {
+      "message": "个人版"
+   },
+   "personal_password_cannot_be_shared": {
+      "message": "个人密码不可共享"
+   },
+   "personal_password_restricted": {
+      "message": "添加管理员限制的个人密码"
+   },
+   "personal_passwords": {
+      "message": "个人密码"
+   },
+   "personalization": {
+      "message": "个性化"
+   },
+   "please_enter": {
+      "message": "请输入"
+   },
+   "please_enter_a": {
+      "message": "请输入"
+   },
+   "please_enter_an_email": {
+      "message": "请输入电子邮件地址"
+   },
+   "please_enter_your": {
+      "message": "请输入您的$1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "please_upload_your": {
+      "message": "请上传您的$1$",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "port": {
+      "message": "端口"
+   },
+   "proceed": {
+      "message": "继续"
+   },
+   "product_videos": {
+      "message": "产品视频"
+   },
+   "prompt_auto_save_update": {
+      "message": "提示保存和更新密码"
+   },
+   "prompt_card_auto_save_update": {
+      "message": "提示保存和更新付款卡"
+   },
+   "push_sent_success": {
+      "message": "推送通知发送成功"
+   },
+   "reason": {
+      "message": "原因"
+   },
+   "recent": {
+      "message": "最近"
+   },
+   "recently_added": {
+      "message": "最近添加"
+   },
+   "recently_copied_passwords": {
+      "message": "最近复制的密码"
+   },
+   "recently_copied_values": {
+      "message": "最近复制的值"
+   },
+   "recently_used": {
+      "message": "最近使用"
+   },
+   "remove_field": {
+      "message": "移除字段"
+   },
+   "remove_logo": {
+      "message": "移除徽标"
+   },
+   "remove_url": {
+      "message": "移除URL"
+   },
+   "request": {
+      "message": "请求"
+   },
+   "request_access": {
+      "message": "请求访问权限"
+   },
+   "request_access_description": {
+      "message": "请求访问此密码。如果密码所有者批准或拒绝您的请求，您将收到电子邮件通知。"
+   },
+   "request_advance_approval": {
+      "message": "请求提前审批"
+   },
+   "request_approved": {
+      "message": "请求已批准"
+   },
+   "request_details": {
+      "message": "请求详情"
+   },
+   "request_immediate_access": {
+      "message": "请求立即访问"
+   },
+   "request_time": {
+      "message": "请求时间"
+   },
+   "resend_push": {
+      "message": "重新推送"
+   },
+   "reset_password": {
+      "message": "重置密码"
+   },
+   "resource_removed_successfully": {
+      "message": "$1$移除成功",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "restore_password": {
+      "message": "恢复密码"
+   },
+   "restore_password_confirm_message": {
+      "message": "此操作将把密码移回您的账户及其相应的文件夹，同时恢复其共享权限。"
+   },
+   "restore_password_confirm_title": {
+      "message": "恢复密码？"
+   },
+   "restore_password_success_message": {
+      "message": "密码“$1$”已成功恢复。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "retry": {
+      "message": "重试"
+   },
+   "revoke": {
+      "message": "撤消"
+   },
+   "same_name_password_exists": {
+      "message": "同名密码已存在"
+   },
+   "save": {
+      "message": "保存"
+   },
+   "save_and_enable": {
+      "message": "保存并启用"
+   },
+   "save_as_new": {
+      "message": "保存为新内容"
+   },
+   "save_prompt_disabled_description": {
+      "message": "以下网站的自动更新提示已被禁用"
+   },
+   "save_to_zoho_vault_question": {
+      "message": "保存到Zoho Vault？"
+   },
+   "scheme": {
+      "message": "方案"
+   },
+   "search": {
+      "message": "搜索"
+   },
+   "searching": {
+      "message": "搜索中"
+   },
+   "seconds": {
+      "message": "秒"
+   },
+   "select": {
+      "message": "选择"
+   },
+   "select_admins": {
+      "message": "选择管理员"
+   },
+   "select_all": {
+      "message": "全选"
+   },
+   "select_city": {
+      "message": "选择城市"
+   },
+   "select_country": {
+      "message": "选择国家/地区"
+   },
+   "select_create_folder": {
+      "message": "选择或创建文件夹"
+   },
+   "select_oneauth_secrets": {
+      "message": "选择Oneauth机密信息"
+   },
+   "select_state": {
+      "message": "选择省/市"
+   },
+   "selected_users": {
+      "message": "选定的用户"
+   },
+   "seperate_session": {
+      "message": "保持登录状态"
+   },
+   "setting_enforced_by_amdin": {
+      "message": "由超级管理员强制执行"
+   },
+   "settings": {
+      "message": "设置"
+   },
+   "share": {
+      "message": "共享"
+   },
+   "share_feedback": {
+      "message": "共享反馈"
+   },
+   "share_one_click_login": {
+      "message": "一键登录"
+   },
+   "share_password": {
+      "message": "共享密码"
+   },
+   "share_success": {
+      "message": "密码共享成功"
+   },
+   "share_user_success": {
+      "message": "将密码与$1$共享成功",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "shared_by_me": {
+      "message": "由我共享"
+   },
+   "shared_with_me": {
+      "message": "共享给我"
+   },
+   "sharing": {
+      "message": "共享中"
+   },
+   "sharing_restricted": {
+      "message": "管理员已限制共享"
+   },
+   "show_details": {
+      "message": "显示详情"
+   },
+   "show_domain_matching": {
+      "message": "显示域名匹配"
+   },
+   "show_more_fields": {
+      "message": "显示更多字段"
+   },
+   "shows": {
+      "message": "显示"
+   },
+   "sign_out": {
+      "message": "退出"
+   },
+   "sign_out_confirm": {
+      "message": "退出Zoho Vault？"
+   },
+   "sign_up": {
+      "message": "注册"
+   },
+   "signup_for_vault": {
+      "message": "注册以访问Zoho Vault"
+   },
+   "special_character": {
+      "message": "特殊字符"
+   },
+   "special_characters": {
+      "message": "特殊字符"
+   },
+   "status": {
+      "message": "状态"
+   },
+   "stay_signed_in_info": {
+      "message": "即使您已从Web账户中退出登录，也可保持您的扩展程序处于登录状态。"
+   },
+   "sub_domain": {
+      "message": "子域名"
+   },
+   "sync": {
+      "message": "同步"
+   },
+   "sync_changes": {
+      "message": "同步Web上的所有更改"
+   },
+   "sync_completed": {
+      "message": "同步已完成"
+   },
+   "sync_description": {
+      "message": "使您的扩展程序与Web应用中所做的更改保持同步"
+   },
+   "sync_started": {
+      "message": "同步已开始"
+   },
+   "syncing": {
+      "message": "同步中"
+   },
+   "tag": {
+      "message": "标签"
+   },
+   "tags": {
+      "message": "标签"
+   },
+   "text": {
+      "message": "文本"
+   },
+   "theme": {
+      "message": "主题"
+   },
+   "third_parties": {
+      "message": "第三方"
+   },
+   "third_party_revoke_link_after": {
+      "message": "在以下情况下撤消对链接的访问"
+   },
+   "third_party_shared_output": {
+      "message": "一封电子邮件已发送至$1$。请共享下面的加密密钥，以便他们能够访问$2$的密码。该密钥也将出现在密码生成器的历史记录中。 ",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "third_party_sharing_restricted": {
+      "message": "管理员限制与第三方共享密码"
+   },
+   "ticket_id": {
+      "message": "工单ID"
+   },
+   "ticket_id_can_be_specified": {
+      "message": "您可以指定工单编号以实现自动审批。"
+   },
+   "tile_view": {
+      "message": "平铺视图"
+   },
+   "time": {
+      "message": "时间"
+   },
+   "totp": {
+      "message": "动态验证码"
+   },
+   "totp_key": {
+      "message": "动态验证码密钥"
+   },
+   "totp_key_must_contain_atleast_n_chars": {
+      "message": "动态验证码密钥必须至少包含$1$个字符。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "trash": {
+      "message": "回收站"
+   },
+   "turn_off_dark_mode": {
+      "message": "关闭夜间模式"
+   },
+   "turn_on_dark_mode": {
+      "message": "打开夜间模式"
+   },
+   "unlock": {
+      "message": "解锁"
+   },
+   "unlock_vault": {
+      "message": "解锁密码保险库"
+   },
+   "unlock_vault_with_authenticators_min": {
+      "message": "使用身份认证器解锁密码保险库"
+   },
+   "unlock_vault_with_oneauth": {
+      "message": "使用Zoho OneAuth移动应用程序解锁Zoho Vault"
+   },
+   "unlock_vault_with_oneauth_min": {
+      "message": "使用Zoho OneAuth解锁密码保险库"
+   },
+   "unlock_vault_with_webauthn": {
+      "message": "使用身份认证器解锁Zoho Vault"
+   },
+   "unlock_with": {
+      "message": "使用以下方式解锁"
+   },
+   "unlock_zoho_vault": {
+      "message": "解锁Zoho Vault"
+   },
+   "unlocking": {
+      "message": "解锁中"
+   },
+   "unmark_favourite": {
+      "message": "从收藏夹中移除"
+   },
+   "unselect_all": {
+      "message": "取消全选"
+   },
+   "unshared": {
+      "message": "未共享"
+   },
+   "unshared_folders": {
+      "message": "未共享的文件夹"
+   },
+   "unshared_passwords": {
+      "message": "未共享的密码"
+   },
+   "update": {
+      "message": "更新"
+   },
+   "update_card": {
+      "message": "更新付款卡？"
+   },
+   "update_password_question": {
+      "message": "更新密码？"
+   },
+   "upload": {
+      "message": "上传"
+   },
+   "upload_logo": {
+      "message": "上传徽标"
+   },
+   "upper_case": {
+      "message": "大写字母"
+   },
+   "upper_case_letters": {
+      "message": "大写字母"
+   },
+   "url": {
+      "message": "URL"
+   },
+   "url_invalid": {
+      "message": "提供的URL无效"
+   },
+   "urls_max_n": {
+      "message": "最多只能添加$1$个URL。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         }
+      }
+   },
+   "usage_confirmation": {
+      "message": "使用情况确认"
+   },
+   "use": {
+      "message": "使用"
+   },
+   "use_xs_password_on_y": {
+      "message": "在$2$中使用$1$的密码？",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "user": {
+      "message": "用户"
+   },
+   "user_group": {
+      "message": "用户组"
+   },
+   "user_groups": {
+      "message": "用户组"
+   },
+   "user_name_label": {
+      "message": "用户名"
+   },
+   "users": {
+      "message": "用户"
+   },
+   "validity": {
+      "message": "有效性"
+   },
+   "value": {
+      "message": "值"
+   },
+   "view": {
+      "message": "查看"
+   },
+   "view_filters": {
+      "message": "查看过滤器"
+   },
+   "view_more": {
+      "message": "查看更多"
+   },
+   "week": {
+      "message": "周"
+   },
+   "weeks": {
+      "message": "周"
+   },
+   "welcome_to_vault": {
+      "message": "欢迎使用Zoho Vault"
+   },
+   "word_separator": {
+      "message": "分隔符"
+   },
+   "x_must_be_less_than_y_chars": {
+      "message": "$1$必须少于$2$个字符。",
+      "placeholders": {
+         "1": {
+            "content": "$1"
+         },
+         "2": {
+            "content": "$2"
+         }
+      }
+   },
+   "zoho_oneauth": {
+      "message": "Zoho OneAuth"
+   },
+   "zoho_vault_extension_locked": {
+      "message": "Zoho Vault - 扩展程序已锁定"
+   }
+}
