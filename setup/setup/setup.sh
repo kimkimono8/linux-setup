@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "🔥 เริ่ม Setup ระบบ Kimono Minimal..."
+echo "🔥 เริ่ม Setup ระบบ Minimal..."
 
 ### 1. อัปเดตระบบ
 sudo apt update && sudo apt upgrade -y
@@ -163,19 +163,19 @@ echo "🛠️ กำลังตั้งค่า PATH สำหรับ scrip
 
 read -r -d '' ADD_PATH_CODE <<'EOF'
 
-# --- BEGIN Kimono scripts PATH ---
+# --- BEGIN scripts PATH ---
 export PATH="$HOME/scripts:$PATH"
 for dir in "$HOME/scripts"/*/ ; do
   if [ -d "$dir" ]; then
     export PATH="$dir:$PATH"
   fi
 done
-# --- END Kimono scripts PATH ---
+# --- END scripts PATH ---
 
 EOF
 
 # ตรวจสอบว่ามีการตั้งค่าแล้วหรือยัง
-if ! grep -q "BEGIN Kimono scripts PATH" ~/.bashrc; then
+if ! grep -q "BEGIN scripts PATH" ~/.bashrc; then
   echo "$ADD_PATH_CODE" >> ~/.bashrc
   echo "✅ เพิ่ม PATH ใน ~/.bashrc เรียบร้อย"
 else
