@@ -7,7 +7,85 @@ echo "🔥 เริ่ม Setup ระบบ Kimono Minimal..."
 sudo apt update && sudo apt upgrade -y
 
 ### 2. ติดตั้ง XFCE Desktop + TigerVNC
-sudo apt install -y xfce4 xfce4-goodies tigervnc-standalone-server dbus-x11 x11-xserver-utils xinit xinput
+sudo apt install -y xfce4 --no-install-recommends tigervnc-standalone-server dbus-x11 x11-xserver-utils xinit xinput
+
+echo "📦 Installing Thai and Emoji fonts + language support..."
+
+# ติดตั้งฟอนต์ไทย + อีโมจิ + ภาษาไทย
+sudo apt update
+sudo apt install -y fonts-thai-tlwg fonts-noto fonts-noto-cjk fonts-noto-color-emoji \
+  language-pack-th ibus ibus-m17n
+
+echo "🔧 Configuring ~/.xinitrc..."
+cat <<EOF > ~/.xinitrc
+#!/bin/sh
+
+# ตั้งค่าแป้นพิมพ์ให้สลับ US/TH ด้วย Super+Space
+setxkbmap -layout us,th -option grp:win_space_toggle
+
+# ตั้งค่าภาษา
+export LANG=en_US.UTF-8
+
+# เริ่มต้น XFCE
+exec startxfce4
+EOF
+
+chmod +x ~/.xinitrc
+
+echo "🧩 Configuring font rendering for terminal..."
+
+# ตั้งค่าให้ Terminal ใช้ฟอนต์ Noto Sans Mono Thai (หรือเลือกฟอนต์ที่คุณชอบ)
+cat <<EOF > ~/.Xresources
+URxvt.font: xft:Noto Sans Mono:size=12
+XTerm*faceName: Noto Sans Mono
+XTerm*faceSize: 12
+EOF
+
+# โหลดการตั้งค่าฟอนต์เข้า X (ถ้าใช้ Xresources)
+xrdb -merge ~/.Xresources
+
+# รีโหลด font cache
+fc-cache -fv
+
+# ========== Basic System Time Setup ==========
+echo "==> ตั้ง timezone เป็น Asia/Bangkok"
+sudo timedatectl set-timezone Asia/Bangkok
+
+echo "==> ปิด RTC ใน local time (ใช้ UTC แทน, เหมาะกับ Linux)"
+sudo timedatectl set-local-rtc 0 --adjust-system-clock
+
+echo "==> เปิด NTP เพื่อ sync เวลาอัตโนมัติ"
+sudo timedatectl set-ntp true
+
+# ========== ติดตั้ง plugin สำหรับใช้ภายหลัง (ถ้ายังไม่มี) ==========
+echo "==> ติดตั้ง xfce4-xkb-plugin (สำหรับแสดง layout บน panel)"
+sudo apt update
+sudo apt install -y xfce4-xkb-plugin
+
+echo "✅ เสร็จเรียบร้อย! กรุณาเพิ่ม Keyboard Layout Plugin ด้วยตนเองผ่าน Panel settings"
+
+# ชื่ออุปกรณ์ Touchpad (ต้องเปลี่ยนตามเครื่อง ถ้าไม่ตรง)
+TOUCHPAD_NAME="DELL0815:00 044E:120A Touchpad"
+
+# ตรวจสอบว่าอุปกรณ์มีจริงก่อนตั้งค่า
+if xinput list | grep -q "$TOUCHPAD_NAME"; then
+    echo "พบ Touchpad: $TOUCHPAD_NAME"
+else
+    echo "ไม่พบ Touchpad: $TOUCHPAD_NAME"
+    echo "กรุณาใช้ 'xinput list' เพื่อหาชื่อที่ถูกต้อง แล้วแก้ในสคริปต์"
+    exit 1
+fi
+
+echo "ตั้งค่าระบบ..."
+
+# สร้าง ~/.xinitrc
+cat <<EOF > ~/.xinitrc
+#!/bin/sh
+
+# ตั้งค่า Touchpad
+xinput set-prop "$TOUCHPAD_NAME" "libinput Tapping Enabled" 1
+xinput set-prop "$TOUCHPAD_NAME" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "$TOUCHPAD_NAME" "libinput Scrolling Pixel Distance" 25
 
 ### 3. ปิด LightDM (ถ้าเคยติดตั้งไว้)
 sudo systemctl disable lightdm || true
@@ -122,21 +200,12 @@ pip install homeassistant
 
 ### 9. ติดตั้ง Jellyfin Media Server
 echo "🎥 กำลังติดตั้ง Jellyfin Media Server..."
-
-# ติดตั้งแพ็กเกจพื้นฐานที่จำเป็น
 sudo apt install -y apt-transport-https gnupg2 curl
-
-# เพิ่ม GPG key ของ Jellyfin
 curl -fsSL https://repo.jellyfin.org/ubuntu/jellyfin_team.gpg.key | gpg --dearmor | sudo tee /etc/apt/keyrings/jellyfin.gpg > /dev/null
 
-# เพิ่ม repository ของ Jellyfin (Ubuntu 24.04)
 echo "deb [signed-by=/etc/apt/keyrings/jellyfin.gpg arch=$(dpkg --print-architecture)] https://repo.jellyfin.org/ubuntu $(lsb_release -cs) main" | \
   sudo tee /etc/apt/sources.list.d/jellyfin.list > /dev/null
-
-# อัปเดตรายการแพ็กเกจ
 sudo apt update
-
-# ติดตั้ง Jellyfin
 sudo apt install -y jellyfin
 
 echo "✅ ติดตั้ง Jellyfin เรียบร้อยแล้ว!"
