@@ -1,2 +1,2 @@
 [Added Associations]
-application/x-shellscript=org.xfce.mousepad.desktop;
+application/x-shellscript=micro.desktop;org.xfce.mousepad.desktop;

@@ -1,6 +1,3 @@
-2025/05/27-17:52:28.158 b86a Creating DB /home/kimono/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_chatgpt.com_0.indexeddb.leveldb since it was missing.
-2025/05/27-17:52:28.183 b86a Reusing MANIFEST /home/kimono/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_chatgpt.com_0.indexeddb.leveldb/MANIFEST-000001
-2025/05/28-03:08:15.520 b86b Level-0 table #5: started
-2025/05/28-03:08:15.537 b86b Level-0 table #5: 495947 bytes OK
-2025/05/28-03:08:15.550 b86b Delete type=0 #3
-2025/05/28-03:08:15.551 b86b Manual compaction at level-0 from (begin) .. (end); will stop at (end)
+2025/05/28-13:43:42.282 15805 Reusing MANIFEST /home/kimono/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_chatgpt.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/05/28-13:43:42.283 15805 Recovering log #4
+2025/05/28-13:43:42.283 15805 Reusing old log /home/kimono/.config/BraveSoftware/Brave-Browser/Default/IndexedDB/https_chatgpt.com_0.indexeddb.leveldb/000004.log 
